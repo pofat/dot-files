@@ -1,18 +1,27 @@
+# # vim: filetype=zsh
+
 # usage: hugos <theme>
+
 hugos() {
-  if [[ $# == 0 ]]; then
-    local theme='hyde'
-  elif [[ $# == 1 ]]; then
-    local theme="$1"
+  if [[ "$#" -le 1 ]]; then
+    local theme=${1:-"hyde"}
   else
-    echo 'usage: $0 [theme_name]'
+    echo "usage: $0 [theme_name]"
     return
   fi
 
-  hugo server --watch --buildDrafts --buildFuture --theme="$1" -s . &
+  hugo server --watch --buildDrafts --buildFuture --theme="$theme" -s . &
+
+  local url='http://localhost:1313'
 
   local os=$(uname -o)
-  if [[ "$os" == "Darwin" ]]; then
-    open 'http://localhost:1313'
-  fi
+  case $os in
+    "Darwin" )
+      open 'http://localhost:1313'
+      ;;
+    "Cygwin" )
+      local firefox='D:/Program Files/Mozilla Firefox/firefox.exe'
+      "$firefox" "$url"
+      ;;
+  esac
 }
