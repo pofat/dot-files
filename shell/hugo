@@ -1,0 +1,18 @@
+# usage: hugos <theme>
+hugos() {
+  if [[ $# == 0 ]]; then
+    local theme='hyde'
+  elif [[ $# == 1 ]]; then
+    local theme="$1"
+  else
+    echo 'usage: $0 [theme_name]'
+    return
+  fi
+
+  hugo server --watch --buildDrafts --buildFuture --theme="$1" -s . &
+
+  local os=$(uname -o)
+  if [[ "$os" == "Darwin" ]]; then
+    open 'http://localhost:1313'
+  fi
+}

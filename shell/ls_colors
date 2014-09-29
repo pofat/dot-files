@@ -1,0 +1,3 @@
+# vim: filetype=zsh
+
+eval $( dircolors -b ~/.ls_colors )

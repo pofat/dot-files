@@ -1,0 +1,48 @@
+" ABBREVIATIONS   {{{1
+
+abbreviate gh       https://github.com
+abbreviate st       http://www.songtaste.com
+abbreviate wy       http://www.163.com
+abbreviate gospec   http://golang.org/ref/spec
+abbreviate py2doc   http://docs.python.org/2/
+abbreviate py3doc   http://docs.python.org/3/
+abbreviate aw       https://wiki.archlinux.org/index.php/Main_Page
+abbreviate vim      http://www.vim.org
+abbreviate awesome  http://awesome.naquadah.org/
+abbreviate neovim   https://github.com/neovim/neovim
+abbreviate appdev   https://developer.apple.com/
+abbreviate hugo     http://localhost:1313
+abbreviate home     http://mudox.github.io/
+abbreviate hugo     http://gohugo.io
+abbreviate list     https://www.wunderlist.com/#/lists/inbox
+
+"}}}1
+
+" MAPPINGS        {{{1
+noremap J <C-d>
+noremap K <C-u>
+noremap j 7j
+noremap k 7k
+
+noremap A <Nop>
+noremap a <Nop>
+"noremap <C-o> <Nop>
+"noremap <C-i> <Nop>
+
+noremap , gT
+noremap . gt
+noremap > ]]
+noremap < [[
+
+"}}}1
+
+" OPTIONS         {{{1
+set complete=
+"set hintchars=12347890
+
+set nextpattern=\\bnext\\b,^>$,^(>>|»)$,^(>|»),(>|»)$,\\bmore\\b,^下一页$
+set previouspattern=\\bprev|previous\\b,^<$,^(<<|«)$,^(<|«),(<|«)$,^上一页$
+
+"}}}1
+
+" vim: ft=vim foldmethod=marker
