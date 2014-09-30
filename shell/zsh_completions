@@ -3,7 +3,9 @@
 zsh_completions_path="${MDX_DOT_FILES}/modules/zsh-completions/src"
 
 if [[ -d "${zsh_completions_path}" ]]; then
-  fpath=(${zsh_completions_path} $fpath)
+  fpath=("${zsh_completions_path}" ${fpath[*]})
 else
   echo "\x1b[31mzsh-completion: missing ${zsh_completions_path} ..."
 fi
+
+unset zsh_completions_path
