@@ -1,12 +1,28 @@
 # vim: filetype=zsh
 
 function xtheme() {
-themes=(${ZSH}/themes/*.zsh-theme)
 
-idx=${#themes[@]}
-(( idx = ( RANDOM % idx ) + 1 ))
-RANDOM_THEME=${themes[$idx]}
+case $# in
+  0 )
+    themes=(${ZSH}/themes/*.zsh-theme)
 
-source "$RANDOM_THEME"
-echo "[oh-my-zsh] Random theme '\x1b[33m${${RANDOM_THEME##*/}/.zsh-theme/}\x1b[0m' loaded..."
+    idx=${#themes[@]}
+    (( idx = ( RANDOM % idx ) + 1 ))
+    RANDOM_THEME=${themes[$idx]}
+
+    source "$RANDOM_THEME"
+    echo "[Random theme]: '\x1b[33m${${RANDOM_THEME##*/}/.zsh-theme/}\x1b[0m' loaded..."
+    ;;
+  1 )
+    local theme_file="${ZSH}/themes/$1.zsh-theme"
+    if [[ -f "${theme_file}" ]]; then
+      source "${theme_file}"
+    else
+      echo '\x1b[31m[Random theme]: no such file under ${ZSH}/themes.'
+    fi
+    ;;
+  * )
+    echo 'usage: $0 [theme name]'
+    ;;
+esac
 }
