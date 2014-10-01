@@ -3,6 +3,9 @@
 # usage: hugos <theme>
 
 hugos() {
+  # kill running hugo if any.
+  kill %hugo &>/dev/null
+
   if [[ "$#" -le 1 ]]; then
     local theme=${1:-"hyde"}
   else
@@ -10,8 +13,10 @@ hugos() {
     return
   fi
 
+  # start hugo server
   hugo server --watch --buildDrafts --buildFuture --theme="$theme" -s . &
 
+  # open local pages in browser
   local url='http://localhost:1313'
 
   local os=$(uname -o)
