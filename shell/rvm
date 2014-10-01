@@ -1,6 +1,6 @@
 # vim: filetype=zsh
 
-# need source it in .profile if shell specific login rc files
+# need source it in .profile if shell specific login rc files is not present.
 
 # Add RVM to PATH for scripting
 export PATH="$HOME/.rvm/bin:$PATH"
