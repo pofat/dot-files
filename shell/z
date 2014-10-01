@@ -1,0 +1,3 @@
+# vim: filetype=zsh
+
+source "${MDX_DOT_FILES}/modules/z/z.sh"
