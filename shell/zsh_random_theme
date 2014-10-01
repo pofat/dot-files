@@ -1,0 +1,12 @@
+# vim: filetype=zsh
+
+function xtheme() {
+themes=(${ZSH}/themes/*.zsh-theme)
+
+idx=${#themes[@]}
+(( idx = ( RANDOM % idx ) + 1 ))
+RANDOM_THEME=${themes[$idx]}
+
+source "$RANDOM_THEME"
+echo "[oh-my-zsh] Random theme '\x1b[33m${${RANDOM_THEME##*/}/.zsh-theme/}\x1b[0m' loaded..."
+}
