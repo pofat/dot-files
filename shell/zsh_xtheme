@@ -1,0 +1,87 @@
+# vim: filetype=zsh
+
+function xtheme() {
+
+case $# in
+  0 )
+    zsh_themes=(${ZSH}/themes/*.zsh-theme)
+    local black_list_file="${HOME}/.zsh_xtheme_black_list"
+
+    local count=0
+    while (( count < 100 )); do
+
+      local idx=${#zsh_themes[@]}
+      (( idx = ( RANDOM % idx ) + 1 ))
+      ZSH_CUR_THEME="${zsh_themes[$idx]}"
+
+      ZSH_CUR_THEME=$(basename "${ZSH_CUR_THEME}" .zsh-theme)
+
+      if [[ -f "${black_list_file}" ]]; then
+
+	grep -q -x "${ZSH_CUR_THEME}" "${black_list_file}"
+	if [[ $? == 0 ]]; then
+	  echo "candidate in black list: ${ZSH_CUR_THEME}"
+	  ZSH_CUR_THEME=''
+	else
+	  break
+	fi
+      fi
+
+      (( count++ ))
+    done
+
+    if (( count == 100 )); then
+      echo "\e[31m[Random Theme]: theme not elected\e[0m"
+    fi
+
+    antigen theme ${ZSH_CUR_THEME}
+    echo "[Random Theme]: '\e[33m${ZSH_CUR_THEME}\e[0m' loaded..."
+    ;;
+
+  1 )
+    ZSH_CUR_THEME="$1"
+    antigen theme "$1"
+    ;;
+
+  * )
+    echo "usage: $0 [theme name]"
+    ;;
+esac
+}
+
+function xt_like() {
+xt_list_add    "${ZSH_CUR_THEME}" white
+xt_list_remove "${ZSH_CUR_THEME}" black
+}
+
+function xt_dislike() {
+xt_list_add    "${ZSH_CUR_THEME}" black
+xt_list_remove "${ZSH_CUR_THEME}" white
+}
+
+# usage: xt_list_add <name> <while/black>
+function xt_list_add() {
+local list="${HOME}/.zsh_xtheme_${2}_list"
+local tmp="/tmp/zsh_xtheme_${2}_list.tmp"
+
+if [[ -f "${list}" ]]; then
+  mv "${list}" "${tmp}"
+  echo "${ZSH_CUR_THEME}" >> "${tmp}"
+  sort -u "${tmp}" > "${list}"
+
+else
+  echo "${ZSH_CUR_THEME}" > "${list}"
+
+fi
+}
+
+# usage: xt_list_remove <name> <while/black>
+function xt_list_remove() {
+local list="${HOME}/.zsh_xtheme_${2}_list"
+local tmp="/tmp/zsh_xtheme_${2}_list.tmp"
+
+if [[ -f "${list}" ]]; then
+  mv "${list}" "${tmp}"
+  grep -x -v "${ZSH_CUR_THEME}" "${tmp}" > "${list}"
+fi
+}
