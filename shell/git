@@ -1,0 +1,4 @@
+# vim: filetype=zsh
+
+alias lg='git lg'
+alias plg='git lg ORIG_HEAD...HEAD'
