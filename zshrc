@@ -6,8 +6,7 @@ source ~/Git/antigen/antigen.zsh
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-
+# bundles {{{2
 antigen bundles <<EOBUNDLES
 
 # git tools
@@ -23,22 +22,21 @@ command-not-found
 
 brew
 
-zsh-users/zsh-completions
+zsh-users/zsh-completions src
 
 # order matters
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
 
 
+# quick jump between paths
+rupa/z
+
+
 EOBUNDLES
+# }}}2
 
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-# Load the theme.
-antigen theme robbyrussell
-
-# Tell antigen that you're done.
+# Tell antigen tha you're done.
 antigen apply
 
 # }}}1
@@ -52,22 +50,26 @@ osx="$com/osx"
 # WARNING: line order matters.
 source $osx/coreutils
 source $osx/pyenv
-source $osx/macvim
 
-source $com/shell_alias
-source $com/ls_colors
-source $com/go_env
-source $com/dot_bin
-source $com/rvm
-source $com/zsh_completions
-source $com/zsh_syntax_highlighting
-source $com/zsh_history_substring_search
-source $com/hugo
-source $com/z
-source $com/zsh_random_theme
+to_load=(                      \
+  ls                           \
+  go_env                       \
+  dot_bin                      \
+  rvm                          \
+  zsh_syntax_highlighting      \
+  zsh_history_substring_search \
+  hugo                         \
+  zsh_xtheme                   \
+  git                          \
+  )
+
+for s in ${to_load[@]}; do
+  source $com/$s
+done
 
 unset com
 unset osx
+unset to_load
 # }}}1
 
 # random oh-my-zsh theme
