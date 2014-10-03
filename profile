@@ -9,7 +9,7 @@ source $com/path
 
 source ${com}/rvm
 source ${com}/go_env
-source ${com}/dot_bin
+source ${com}/bin
 
 unset com
 unset osx
