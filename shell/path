@@ -1,0 +1,26 @@
+# vim: filetype=zsh
+
+function mdx_path_push_back() {
+for p; do
+  case ":$PATH:" in
+    *":$p:"* )	  # already there
+      ;;
+    * )
+      export PATH="$PATH:$p"
+      ;;
+  esac
+done
+}
+
+function mdx_path_push_back() {
+for p; do
+  case ":$PATH:" in
+    *":$p:"* )	  # already there
+      ;;
+    * )
+      export PATH="$p:$PATH"
+      ;;
+  esac
+done
+}
+
