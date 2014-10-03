@@ -7,8 +7,7 @@ case $# in
     zsh_themes=(${ZSH}/themes/*.zsh-theme)
     local black_list_file="${HOME}/.zsh_xtheme_black_list"
 
-    local count=0
-    while (( count < 100 )); do
+    for (( i = 0; i < 100; i++ )); do
 
       local idx=${#zsh_themes[@]}
       (( idx = ( RANDOM % idx ) + 1 ))
@@ -25,9 +24,12 @@ case $# in
 	else
 	  break
 	fi
+
+      else # no back list exists
+	break
+
       fi
 
-      (( count++ ))
     done
 
     if (( count == 100 )); then
