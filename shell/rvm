@@ -1,9 +1,15 @@
 # vim: filetype=zsh
 
-# need source it in .profile if shell specific login rc files is not present.
+# NOTE:need source it in both login rc files (e.g. .profile) and interactive shell file (e.g. .zshrc)
 
-# Add RVM to PATH for scripting
-export PATH="$HOME/.rvm/bin:$PATH"
+if [[ -z "$PS1" ]]; then # as a login shell or non-interactive mode
 
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+  # Add RVM to PATH for scripting
+  export PATH="$HOME/.rvm/bin:$PATH"
+
+else # interactive mode
+
+  # Load RVM into a shell session *as a function* in interactive shell.
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+fi
