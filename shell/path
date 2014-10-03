@@ -1,26 +1,27 @@
 # vim: filetype=zsh
 
-function mdx_path_push_back() {
-for p; do
-  case ":$PATH:" in
-    *":$p:"* )	  # already there
-      ;;
-    * )
-      export PATH="$PATH:$p"
-      ;;
-  esac
-done
-}
+# function used to keep $PATH neat & clean.
+# usage: func_name <item> [var_name]
 
 function mdx_path_push_back() {
 for p; do
   case ":$PATH:" in
     *":$p:"* )	  # already there
-      ;;
-    * )
-      export PATH="$p:$PATH"
+      PATH=$(sed -e "s+$p:++g;s+:$p\$++" <<< "$PATH")
       ;;
   esac
+  export PATH="$PATH:$p"
+done
+}
+
+function mdx_path_push_front() {
+for p; do
+  case ":$PATH:" in
+    *":$p:"* )	  # already there
+      PATH=$(sed -e "s+$p:++g;s+:$p\$++" <<< "$PATH")
+      ;;
+  esac
+  export PATH="$p:$PATH"
 done
 }
 
