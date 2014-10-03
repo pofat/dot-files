@@ -49,7 +49,7 @@ osx="$com/osx"
 cygwin="$com/cygwin"
 
 # WARNING: line order matters.
-case $(uname -o) in
+case $(uname -s) in
   Cygwin )
     source $cygwin/mintty
     ;;
