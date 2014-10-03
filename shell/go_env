@@ -1,4 +1,5 @@
 # vim: filetype=zsh
 
 export GOPATH=${HOME}/Dev/go
-export PATH=${PATH}:${GOPATH}/bin
+
+mdx_path_push_back "${GOPATH}/bin"

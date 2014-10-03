@@ -5,7 +5,7 @@
 if [[ -z "$PS1" ]]; then # as a login shell or non-interactive mode
 
   # Add RVM to PATH for scripting
-  export PATH="$HOME/.rvm/bin:$PATH"
+  mdx_path_push_font "$HOME/.rvm/bin"
 
 else # interactive mode
 
