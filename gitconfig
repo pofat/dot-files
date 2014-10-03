@@ -3,7 +3,7 @@
     email       = mudoxisme@gmail.com
 
 [core]
-    editor      = gvim
+	editor = vim
     pager       = less -R
 	excludesfile = /home/mudox/.cvsignore
 
