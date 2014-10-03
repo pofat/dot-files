@@ -82,6 +82,10 @@ unset com
 unset osx
 unset cygwin
 unset to_load
+unset s
+
+# remove duplicate paths in $PATH
+mdx_uniq_path
 
 # }}}1
 
