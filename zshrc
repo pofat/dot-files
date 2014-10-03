@@ -46,10 +46,22 @@ export MDX_DOT_FILES="${HOME}/Git/dot-files"
 
 com="$MDX_DOT_FILES/shell"
 osx="$com/osx"
+cygwin="$com/cygwin"
 
 # WARNING: line order matters.
-source $osx/coreutils
-source $osx/pyenv
+case $(uname -o) in
+  Cygwin )
+    source $cygwin/mintty
+    ;;
+  Darwin )
+    source $osx/coreutils
+    source $osx/pyenv
+    ;;
+  * )
+    echo "\e[31m [.zshrc]: un-recognized platform"
+    ;;
+esac
+
 
 to_load=(                      \
   ls                           \
@@ -69,6 +81,7 @@ done
 
 unset com
 unset osx
+unset cygwin
 unset to_load
 # }}}1
 
