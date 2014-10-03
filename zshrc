@@ -50,10 +50,10 @@ cygwin="$com/cygwin"
 
 # WARNING: line order matters.
 case $(uname -s) in
-  Cygwin )
+  CYGWIN* )   # Cygwin of Windows
     source $cygwin/mintty
     ;;
-  Darwin )
+  Darwin )    # Mac OSX
     source $osx/coreutils
     source $osx/pyenv
     ;;
@@ -65,8 +65,6 @@ esac
 
 to_load=(                      \
   ls                           \
-  go_env                       \
-  dot_bin                      \
   rvm                          \
   zsh_syntax_highlighting      \
   zsh_history_substring_search \
@@ -79,10 +77,12 @@ for s in ${to_load[@]}; do
   source $com/$s
 done
 
+# variable cleanup
 unset com
 unset osx
 unset cygwin
 unset to_load
+
 # }}}1
 
 # random oh-my-zsh theme
