@@ -20,6 +20,7 @@ colorize
 # not available on Mac osx
 command-not-found
 
+# alias for brew: bubu & brews
 brew
 
 zsh-users/zsh-completions src
@@ -29,8 +30,20 @@ zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
 
 
-# quick jump between paths
+# quickly jump between paths
 rupa/z
+
+# another robust jumper
+autojump
+
+# extract most types of compressed packages by one command.
+extract
+
+# put $(pwd) in clipboard.
+copydir
+
+# put file content in clipboard
+copyfile
 
 
 EOBUNDLES
