@@ -33,9 +33,6 @@ zsh-users/zsh-history-substring-search
 # quickly jump between paths
 rupa/z
 
-# another robust jumper
-autojump
-
 # extract most types of compressed packages by one command.
 extract
 
