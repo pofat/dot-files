@@ -69,6 +69,7 @@ case $(uname -s) in
   Darwin )    # Mac OSX
     source $osx/coreutils
     source $osx/pyenv
+    source $osx/tree
     ;;
   * )
     echo "\e[31m [.zshrc]: un-recognized platform"
