@@ -14,7 +14,6 @@ git
 git-extras
 git-flow
 
-colored-man
 colorize
 
 # not available on Mac osx
@@ -74,6 +73,7 @@ case $(uname -s) in
 esac
 
 
+# NOTE: loading order matters
 to_load=(                      \
   ls                           \
   rvm                          \
@@ -82,6 +82,7 @@ to_load=(                      \
   hugo                         \
   zsh_xtheme                   \
   git                          \
+  man                          \
   )
 
 for s in ${to_load[@]}; do
