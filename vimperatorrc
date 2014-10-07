@@ -15,6 +15,7 @@ abbreviate hugo     http://localhost:1313
 abbreviate home     http://mudox.github.io/
 abbreviate hugo     http://gohugo.io
 abbreviate list     https://www.wunderlist.com/#/lists/inbox
+abbreviate mdn      https://developer.mozilla.org/en-US/docs/Web
 
 "}}}1
 
