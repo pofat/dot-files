@@ -2,14 +2,9 @@
 
 # NOTE:need source it in both login rc files (e.g. .profile) and interactive shell file (e.g. .zshrc)
 
-if [[ -z "$PS1" ]]; then # as a login shell or non-interactive mode
 
-  # Add RVM to PATH for scripting
-  mdx_path_push_font "$HOME/.rvm/bin"
+# Add RVM to PATH for scripting
+mdx_path_push_back "$HOME/.rvm/bin"
 
-else # interactive mode
-
-  # Load RVM into a shell session *as a function* in interactive shell.
-  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-fi
+# Load RVM into a shell session *as a function* in interactive shell.
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
