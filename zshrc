@@ -57,6 +57,9 @@ com="$MDX_DOT_FILES/shell"
 osx="$com/osx"
 cygwin="$com/cygwin"
 
+# $PATH functions needed by subsequent sources
+source $com/path
+
 # WARNING: line order matters.
 case $(uname -s) in
   CYGWIN* )   # Cygwin of Windows
@@ -75,21 +78,23 @@ esac
 
 # NOTE: loading order matters
 to_load=(                      \
+  go_env                       \
+  bin                          \
   ls                           \
-  rvm                          \
   zsh_syntax_highlighting      \
   zsh_history_substring_search \
   hugo                         \
   zsh_xtheme                   \
   git                          \
   man                          \
+  rvm                          \
   )
 
 for s in ${to_load[@]}; do
   source $com/$s
 done
 
-# variable cleanup
+# cleanup
 unset com
 unset osx
 unset cygwin
