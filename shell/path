@@ -27,7 +27,10 @@ done
 
 function mdx_uniq_path() {
 if [ -n "$PATH" ]; then
-  old_PATH=$PATH:; PATH=
+
+  old_PATH="$PATH:"
+  PATH=
+
   while [ -n "$old_PATH" ]; do
     x=${old_PATH%%:*}             # the first remaining entry
     case :$PATH: in
