@@ -2,4 +2,8 @@
 
 export GOPATH=${HOME}/Dev/go
 
+# for gocode to function properly.
+# version number should be upated when go version is bumped up.
+export GOROOT="/usr/local/Cellar/go/1.3.3/libexec"
+
 mdx_path_push_back "${GOPATH}/bin"
