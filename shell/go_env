@@ -1,9 +1,17 @@
 # vim: filetype=zsh
 
+
+# environment GOPATH
 export GOPATH=${HOME}/Dev/go
-
-# for gocode to function properly.
-# version number should be upated when go version is bumped up.
-export GOROOT="/usr/local/Cellar/go/1.3.3/libexec"
-
 mdx_path_push_back "${GOPATH}/bin"
+
+# environment GOROOT
+go_path='/usr/local/bin/go'
+
+if [[ -e "$go_path" ]]; then
+  export GOROOT=$($go_path env GOROOT)
+else
+  echo "\e[31mshell/go_env: missing go in ${go_path}"
+fi
+
+unset go_path
