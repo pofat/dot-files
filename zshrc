@@ -1,5 +1,7 @@
 # vim: filetype=zsh foldmethod=marker
 
+SHELL=$0
+
 # ANTIGEN {{{1
 source ~/Git/antigen/antigen.zsh
 
