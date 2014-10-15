@@ -18,7 +18,7 @@ hugos() {
   fi
 
   if [[ "$#" -le 1 ]]; then
-    local theme=${1:-"hyde"}
+    local theme=${1:-"cur_theme"}
   else
     echo "usage: $0 [theme_name]"
     return
