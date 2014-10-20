@@ -1,56 +1,56 @@
 [user]
-    name        = Mudox
-    email       = mudoxisme@gmail.com
+    name          = Mudox
+    email         = mudoxisme@gmail.com
 
 [core]
-	editor = vim
-    pager       = less -R
-	excludesfile = /home/mudox/.cvsignore
+    editor        = vim
+    pager         = less -R
+    excludesfile  = ~/.cvsignore
 
 [diff]
-    tool        = core.editor
-    prompt      = No
+    tool          = core.editor
+    prompt        = No
 
 [color]
-    diff        = auto
-    status      = auto
-    branch      = auto
-    ui          = auto
+    diff          = auto
+    status        = auto
+    branch        = auto
+    ui            = auto
 
 [alias]
-    lg          = log --color --graph --pretty=format:'%Cred%h%Creset %s %C(bold blue) by <%an> %Creset%C(dim green) (%cr) %Creset %C(yellow ul)%d%Creset'
-    st          = status
-    cm          = commit
-    br          = branch
-    co          = checkout
-    df          = diff
-    ls          = ls-files
-    interactive = auto
+    lg            = log --color --graph --pretty = format:'%Cred%h%Creset %s %C(bold blue) by <%an> %Creset%C(dim green) (%cr) %Creset %C(yellow ul)%d%Creset'
+    st            = status
+    cm            = commit
+    br            = branch
+    co            = checkout
+    df            = diff
+    ls            = ls-files
+    interactive   = auto
 
 [color "branch"]
-    current     = yellow reverse
-    local       = yellow
-    remote      = green
+    current       = yellow reverse
+    local         = yellow
+    remote        = green
 
 [color "diff"]
-    meta        = yellow
-    frag        = magenta
-    plain       = white dim
-    old         = red
-    new         = green
-    commit      = yellow
-    func        = green dim
+    meta          = yellow
+    frag          = magenta
+    plain         = white dim
+    old           = red
+    new           = green
+    commit        = yellow
+    func          = green dim
 
 [color "status"]
-    added       = yellow bold
-    changed     = magenta
-    untracked   = white dim
-    branch      = green bold reverse
+    added         = yellow bold
+    changed       = magenta
+    untracked     = white dim
+    branch        = green bold reverse
 
 [status]
-	relativePaths = false
+    relativePaths = false
 [push]
-	default = simple
+    default       = simple
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+    clean         = git-media-clean %f
+    smudge        = git-media-smudge %f
