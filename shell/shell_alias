@@ -1,3 +1,4 @@
 # vim: filetype=zsh
 
 alias ls='ls --color --group-directories-first -F'
+alias lr='luarocks'
