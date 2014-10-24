@@ -1,5 +1,7 @@
+local win   = require "mjolnir.window"
 local app   = require "mjolnir.application"
 local key   = require "mjolnir.hotkey"
+local win   = require "mjolnir.window"
 local win   = require "mjolnir.window"
 local futl  = require "mjolnir.fnutils"
 local alert = require "mjolnir.alert"
@@ -7,8 +9,8 @@ local grid  = require "mjolnir.bg.grid"
 
 
 -- Set up hotkey combinations
-local a_s = {"alt", "shift"}
-local c_s= {"ctrl", "shift"}
+local a_s = {"alt" , "shift"}
+local c_s = {"ctrl", "shift"}
 
 -- Set grid size.
 grid.GRIDWIDTH  = 6
@@ -48,6 +50,3 @@ key.bind(a_s, 'O', grid.resizewindow_wider)
 
 key.bind(a_s, 'I', grid.resizewindow_thinner)
 key.bind(a_s, 'Y', grid.resizewindow_shorter)
-
--- Hi there.
-alert.show("Mjolnir, at your service.")
