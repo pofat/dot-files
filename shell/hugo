@@ -15,7 +15,7 @@ hs() {
       printf "\r\e[3$((i % 8 + 1))msleeping ... 0.%02d seconds left" $((sleep_interval * 10 - i))
     done
     unset i
-    echo "\e[30m"
+    echo "\e[0m"
   fi
 
   if [[ "$#" -le 1 ]]; then
@@ -30,6 +30,7 @@ hs() {
 
   # open local pages in browser
   local url='http://localhost:1313'
+  sleep 1
 
   case $(uname -o) in
     "Darwin" )
