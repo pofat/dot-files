@@ -5,7 +5,7 @@ abbreviate st       http://www.songtaste.com
 abbreviate wy       http://www.163.com
 abbreviate py2doc   http://docs.python.org/2
 abbreviate py3doc   http://docs.python.org/3
-abbreviate aw       https://wiki.archlinux.org/index.php/Main_Page
+abbreviate archwiki https://wiki.archlinux.org/index.php/Main_Page
 abbreviate vim      http://www.vim.org
 abbreviate awesome  http://awesome.naquadah.org
 abbreviate neovim   https://github.com/neovim/neovim
