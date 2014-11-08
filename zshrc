@@ -72,8 +72,10 @@ case $(uname -s) in
     source $osx/pyenv
     source $osx/tree
     ;;
+  Linux ) # Linux
+    ;;
   * )
-    echo "\e[31m [.zshrc]: un-recognized platform"
+    echo "\e[31m[.zshrc]: un-recognized platform."
     ;;
 esac
 
