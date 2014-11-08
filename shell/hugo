@@ -1,8 +1,8 @@
-# # vim: filetype=zsh
+# # vim: filetype=zsh foldmethod=marker
 
 # usage: hugos <theme>
 
-hs() {
+hs() { # {{{1
   # kill running hugo if any.
   kill %hugo &>/dev/null
 
@@ -38,10 +38,13 @@ hs() {
       local firefox='D:/Program Files/Mozilla Firefox/firefox.exe'
       "$firefox" "$url"
       ;;
+    "GNU/Linux" )
+      firefox 'localhost:1313' &>/dev/null
+      ;;
   esac
-}
+} # }}}1
 
-hn() {
+hn() { # {{{1
 
   if [[ $# -ne 1 ]]; then
     echo "usage: $0 <section>/../*.md"
@@ -60,4 +63,4 @@ hn() {
       ;;
   esac
   unset gvim_exec
-}
+} # }}}1
