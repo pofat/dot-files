@@ -17,6 +17,7 @@ abbreviate mdn      https://developer.mozilla.org/en-US/docs/Web
 abbreviate gitdoc   http://git-scm.com/docs
 abbreviate gospec   http://golang.org/ref/spec
 abbreviate godoc    http://godoc.golangtc.com
+abbreviate hh       localhost:1313
 
 "}}}1
 
