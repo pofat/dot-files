@@ -32,14 +32,14 @@ hs() { # {{{1
 
   case $(uname -o) in
     "Darwin" )
-      open 'http://localhost:1313'
+      open "${url}"
       ;;
     "Cygwin" )
       local firefox='D:/Program Files/Mozilla Firefox/firefox.exe'
-      "$firefox" "$url"
+      "$firefox" "${url}"
       ;;
     "GNU/Linux" )
-      firefox 'localhost:1313' &>/dev/null
+      firefox "${url}" &>/dev/null
       ;;
   esac
 } # }}}1
@@ -61,6 +61,8 @@ hn() { # {{{1
       local gvim_exec='D:/Program Files/Vim/vim74/gvim.exe'
       ${gvim_exec} --remote-tab "content/$1"
       ;;
+    "GNU/Linux" )
+      gvim --remote-tab "content/$1"
   esac
   unset gvim_exec
 } # }}}1
