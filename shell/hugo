@@ -2,7 +2,7 @@
 
 # usage: hugos <theme>
 
-hugos() {
+hs() {
   # kill running hugo if any.
   kill %hugo &>/dev/null
 
@@ -30,8 +30,7 @@ hugos() {
   # open local pages in browser
   local url='http://localhost:1313'
 
-  local os=$(uname -o)
-  case $os in
+  case $(uname -o) in
     "Darwin" )
       open 'http://localhost:1313'
       ;;
@@ -40,4 +39,25 @@ hugos() {
       "$firefox" "$url"
       ;;
   esac
+}
+
+hn() {
+
+  if [[ $# -ne 1 ]]; then
+    echo "usage: $0 <section>/../*.md"
+    return
+  fi
+
+  hugo new $1 -s . || return
+
+  case $(uname -o) in
+    "Darwin" )
+      echo '** not implemented yet **'
+      ;;
+    "Cygwin" )
+      local gvim_exec='D:/Program Files/Vim/vim74/gvim.exe'
+      ${gvim_exec} --remote-tab "content/$1"
+      ;;
+  esac
+  unset gvim_exec
 }
