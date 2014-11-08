@@ -1,17 +1,14 @@
 # vim: filetype=zsh
 
-
 # environment GOPATH
 export GOPATH=${HOME}/Dev/go
 mdx_path_push_back "${GOPATH}/bin"
 
 # environment GOROOT
-go_path='/usr/local/bin/go'
-
-if [[ -e "$go_path" ]]; then
-  export GOROOT=$($go_path env GOROOT)
+if [[ -e '/usr/bin/go' ]]; then
+  export GOROOT=$('/usr/bin/go' env GOROOT)
+elif [[ -e '/usr/local/bin/go' ]]; then
+  export GOROOT=$('/usr/local/bin/go' env GOROOT)
 else
-  echo "\e[31mshell/go_env: missing go in ${go_path}"
+  echo "\e[31mshell/go_env: missing executable go"
 fi
-
-unset go_path
