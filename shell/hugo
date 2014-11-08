@@ -2,7 +2,8 @@
 
 # usage: hugos <theme>
 
-hs() { # {{{1
+# hs(): hugo server for test {{{1
+hs() {
   # kill running hugo if any.
   kill %hugo &>/dev/null
 
@@ -44,25 +45,34 @@ hs() { # {{{1
   esac
 } # }}}1
 
-hn() { # {{{1
+# hn(): hugo new and then open the new file in vim {{{1
+hn() {
 
   if [[ $# -ne 1 ]]; then
     echo "usage: $0 <section>/../*.md"
     return
   fi
 
-  hugo new $1 -s . || return
+  hugo new "$1" -s . || return
 
   case $(uname -o) in
     "Darwin" )
-      echo '** not implemented yet **'
+      /Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab "content/$1"
       ;;
     "Cygwin" )
-      local gvim_exec='D:/Program Files/Vim/vim74/gvim.exe'
-      ${gvim_exec} --remote-tab "content/$1"
-      ;;
-    "GNU/Linux" )
-      gvim --remote-tab "content/$1"
-  esac
-  unset gvim_exec
-} # }}}1
+      local possible_paths=(
+	'C:/Program Files/Vim/vim74/gvim.exe'
+	'D:/Program Files/Vim/vim74/gvim.exe'
+	)
+
+      for p in ${possible_paths[@]}; do
+	if [[ -e "$p" ]]; then
+	  "${p}" --remote-tab "content/$1"
+	  return
+	fi
+      done
+	;;
+      "GNU/Linux" )
+	gvim --remote-tab "content/$1"
+    esac
+  } # }}}1
