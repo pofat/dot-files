@@ -25,6 +25,17 @@ hs() {
     return
   fi
 
+  # check if $(pwd) is the root of a hugo site.
+  if ! [ -d "content" -a -f "config.toml" ]; then
+    local default_hugo_site="${HOME}/Sites/hugo-site"
+    if [ -d "${default_hugo_site}" ]; then
+      cd "${default_hugo_site}"
+    else
+      echo "\e[31mcan not find a valid hugo site path to cd"
+      return
+    fi
+  fi
+
   # start hugo server
   hugo server --watch --buildDrafts --buildFuture --theme="$theme" -s . &
 
@@ -61,19 +72,19 @@ hn() {
       /Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab "content/$1"
       ;;
     "Cygwin" )
-      local possible_paths=(
-	'C:/Program Files/Vim/vim74/gvim.exe'
-	'D:/Program Files/Vim/vim74/gvim.exe'
-	)
+      local possible_gvim_paths=(
+      'C:/Program Files/Vim/vim74/gvim.exe'
+      'D:/Program Files/Vim/vim74/gvim.exe'
+      )
 
-      for p in ${possible_paths[@]}; do
+      for p in ${possible_gvim_paths[*]}; do
 	if [[ -e "$p" ]]; then
 	  "${p}" --remote-tab "content/$1"
 	  return
 	fi
       done
-	;;
-      "GNU/Linux" )
-	gvim --remote-tab "content/$1"
-    esac
-  } # }}}1
+      ;;
+    "GNU/Linux" )
+      gvim --remote-tab "content/$1"
+  esac
+} # }}}1
