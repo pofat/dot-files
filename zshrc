@@ -61,22 +61,22 @@ cygwin="$com/cygwin"
 archlinux="$com/archlinux"
 
 # $PATH functions needed by subsequent sources
-source $com/path
+source "$com/path"
 
 # WARNING: line order matters.
 case $(uname -o) in
   "Darwin" )
-    source $osx/coreutils
-    source $osx/pyenv
-    source $osx/tree
+    source "$osx/coreutils"
+    source "$osx/pyenv"
+    source "$osx/tree"
     ;;
   "Cygwin" )
-    source $cygwin/mintty
+    source "$cygwin/mintty"
     ;;
   "GNU/Linux" )
     case $(uname -r) in
       *ARCH ) # Arch Linux
-	source $archlinux/yaourt
+	source "$archlinux/yaourt"
         ;;
       * )
 	echo "\e[31m[.zshrc]: un-recognized linux distro."
@@ -103,8 +103,8 @@ to_load=(                      \
   rvm                          \
   )
 
-for s in ${to_load[@]}; do
-  source $com/$s
+for s in "${to_load[@]}"; do
+  source "$com/$s"
 done
 
 # cleanup
