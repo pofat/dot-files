@@ -37,7 +37,7 @@ for fg in "${FGs[@]}"; do
   color_line ${fg_bold}
   fg_bold_blink="5;${fg_bold}"
   color_line ${fg_bold_blink}
-  fg_bold_inverse="7:${fg_bold}"
+  fg_bold_inverse="7;${fg_bold}"
   color_line ${fg_bold_inverse}
   echo
 done

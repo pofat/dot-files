@@ -58,30 +58,39 @@ export MDX_DOT_FILES="${HOME}/Git/dot-files"
 com="$MDX_DOT_FILES/shell"
 osx="$com/osx"
 cygwin="$com/cygwin"
+archlinux="$com/archlinux"
 
 # $PATH functions needed by subsequent sources
-source $com/path
+source "$com/path"
 
 # WARNING: line order matters.
-case $(uname -s) in
-  CYGWIN* )   # Cygwin of Windows
-    source $cygwin/mintty
+case $(uname -o) in
+  "Darwin" )
+    source "$osx/coreutils"
+    source "$osx/pyenv"
+    source "$osx/tree"
     ;;
-  Darwin )    # Mac OSX
-    source $osx/coreutils
-    source $osx/pyenv
-    source $osx/tree
+  "Cygwin" )
+    source "$cygwin/mintty"
     ;;
-  Linux ) # Linux
+  "GNU/Linux" )
+    case $(uname -r) in
+      *ARCH ) # Arch Linux
+	source "$archlinux/yaourt"
+        ;;
+      * )
+	echo "\e[31m[.zshrc]: un-recognized linux distro."
+	;;
+    esac
     ;;
   * )
     echo "\e[31m[.zshrc]: un-recognized platform."
     ;;
 esac
 
-
 # NOTE: loading order matters
 to_load=(                      \
+  shell_alias                  \
   go_env                       \
   bin                          \
   ls                           \
@@ -94,13 +103,14 @@ to_load=(                      \
   rvm                          \
   )
 
-for s in ${to_load[@]}; do
-  source $com/$s
+for s in "${to_load[@]}"; do
+  source "$com/$s"
 done
 
 # cleanup
 unset com
 unset osx
+unset archlinux
 unset cygwin
 unset to_load
 unset s
