@@ -64,7 +64,7 @@ archlinux="$com/archlinux"
 source "$com/path"
 
 # WARNING: line order matters.
-case $(uname -o) in
+case $(uname -s) in
   "Darwin" )
     source "$osx/coreutils"
     source "$osx/pyenv"
@@ -73,7 +73,7 @@ case $(uname -o) in
   "Cygwin" )
     source "$cygwin/mintty"
     ;;
-  "GNU/Linux" )
+  "Linux" )
     case $(uname -r) in
       *ARCH ) # Arch Linux
 	source "$archlinux/yaourt"
