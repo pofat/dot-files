@@ -43,7 +43,7 @@ hs() {
   local url='http://localhost:1313'
   sleep 1
 
-  case $(uname -o) in
+  case $(uname -s) in
     "Darwin" )
       open "${url}"
       ;;
@@ -51,7 +51,7 @@ hs() {
       local firefox='D:/Program Files/Mozilla Firefox/firefox.exe'
       "$firefox" "${url}"
       ;;
-    "GNU/Linux" )
+    "Linux" )
       firefox "${url}" &>/dev/null
       ;;
   esac
@@ -67,7 +67,7 @@ hn() {
 
   hugo new "$1" -s . || return
 
-  case $(uname -o) in
+  case $(uname -s) in
     "Darwin" )
       /Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab "content/$1"
       ;;
@@ -84,7 +84,7 @@ hn() {
 	fi
       done
       ;;
-    "GNU/Linux" )
+    "Linux" )
       gvim --remote-tab "content/$1"
   esac
 } # }}}1
