@@ -23,13 +23,14 @@ hs() {
     return
   fi
 
-  # check if $(pwd) is the root of a hugo site.
+  # check if $(pwd) is a valid root of a hugo site.
   if ! [ -d "content" -a -f "config.toml" ]; then
-    local default_hugo_site="${HOME}/Sites/hugo-site"
-    if [ -d "${default_hugo_site}" ]; then
-      cd "${default_hugo_site}"
+    echo "\e[33mcurrent path is not a valid root of hugo site\e[0m."
+    local default_site="${HOME}/Sites/hugo-site"
+    if [ -d "${default_site}" ]; then
+      cd "${default_site}"
     else
-      echo "\e[31mcan not find a valid hugo site path to cd"
+      echo "\e[31mcan not find a valid hugo site path to cd\e[0m."
       return
     fi
   fi
