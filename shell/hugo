@@ -1,7 +1,5 @@
 # vim: filetype=zsh foldmethod=marker
 
-# usage: hugos <theme>
-
 # hs(): hugo server for test {{{1
 hs() {
   # kill running hugo if any.
@@ -44,15 +42,18 @@ hs() {
   sleep 1
 
   case $(uname -s) in
-    "Darwin" )
+    Darwin )
       open "${url}"
       ;;
-    "Cygwin" )
+    CYGWIN* )
       local firefox='D:/Program Files/Mozilla Firefox/firefox.exe'
       "$firefox" "${url}"
       ;;
-    "Linux" )
+    Linux )
       firefox "${url}" &>/dev/null
+      ;;
+    * )
+      echo "\e[31m[.zshrc]: un-recognized platform."
       ;;
   esac
 } # }}}1
@@ -68,10 +69,10 @@ hn() {
   hugo new "$1" -s . || return
 
   case $(uname -s) in
-    "Darwin" )
+    Darwin )
       /Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab "content/$1"
       ;;
-    "Cygwin" )
+    CYGWIN* )
       local possible_gvim_paths=(
       'C:/Program Files/Vim/vim74/gvim.exe'
       'D:/Program Files/Vim/vim74/gvim.exe'
@@ -84,7 +85,11 @@ hn() {
 	fi
       done
       ;;
-    "Linux" )
+    Linux )
       gvim --remote-tab "content/$1"
+      ;;
+    * )
+      echo "\e[31m[.zshrc]: un-recognized platform."
+      ;;
   esac
 } # }}}1
