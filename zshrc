@@ -65,19 +65,19 @@ source "$com/path"
 
 # WARNING: line order matters.
 case $(uname -s) in
-  "Darwin" )
+  Darwin )
     source "$osx/coreutils"
     source "$osx/pyenv"
     source "$osx/tree"
     ;;
-  "Cygwin" )
+  CYGWIN* )
     source "$cygwin/mintty"
     ;;
-  "Linux" )
+  Linux )
     case $(uname -r) in
       *ARCH ) # Arch Linux
 	source "$archlinux/yaourt"
-        ;;
+	;;
       * )
 	echo "\e[31m[.zshrc]: un-recognized linux distro."
 	;;
