@@ -2,3 +2,6 @@
 
 alias ls='ls --color --group-directories-first -F'
 alias lr='luarocks'
+
+alias df='df -h'
+alias du='du -h'
