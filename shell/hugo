@@ -8,7 +8,7 @@ hs() {
   # sleep a while for old hugo instance to die if any.
   if [[ "$?" -eq 0 ]]; then
     local sleep_interval=2
-    for i in {1..$((sleep_interval * 10))}; do
+    for i in "{1..$((sleep_interval * 10))}"; do
       sleep 0.1
       printf "\r\e[3$((i % 8 + 1))msleeping ... 0.%02d seconds left" $((sleep_interval * 10 - i))
     done
@@ -50,7 +50,7 @@ hs() {
       "$firefox" "${url}"
       ;;
     Linux )
-      firefox "${url}" &>/dev/null
+      ${$(whence firefox-developer):-firefox)} "${url}" &>/dev/null
       ;;
     * )
       echo "\e[31m[.zshrc]: un-recognized platform."
