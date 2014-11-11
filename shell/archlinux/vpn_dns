@@ -1,0 +1,5 @@
+# vim: filetype=zsh
+
+# ppp will substitute /etc/ppp/resolv.conf with /etc/resolv.conf when a VPN
+# connection establishes, and restore after tear down
+export USEPEERDNS=1
