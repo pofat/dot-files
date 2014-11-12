@@ -1,0 +1,30 @@
+# vim: filetype=zsh foldmethod=marker
+
+tunnel=VPNTime
+
+if [ "$#" -ne 1 ]; then
+  echo "usage: $0 [on|off]"
+  exit 1
+fi
+
+case "$1" in
+  on )
+    # connect
+    pon ${tunnel} || exit 1
+
+    # DNS
+    printf "nameserver 8.8.8.8\nnameserver 192.168.0.1" > /etc/resolv.conf || exit 1
+    ;;
+  off )
+    # disconnect
+    poff ${tunnel}
+
+    # restore DNS
+    echo 'nameserver 192.168.0.1' > /etc/resolv.conf || exit 1
+    ;;
+  * )
+    echo "usage: $0 [on|off]"
+    ;;
+esac
+
+unset tunnel

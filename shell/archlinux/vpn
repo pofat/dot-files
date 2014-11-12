@@ -1,0 +1,4 @@
+# vim: filetype=zsh
+
+alias vpon="sudo ${MDX_DOT_FILES}/scripts/archlinux/vpn on"
+alias vpoff="sudo ${MDX_DOT_FILES}/scripts/archlinux/vpn off"
