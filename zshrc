@@ -122,3 +122,4 @@ mdx_uniq_path
 
 # random oh-my-zsh theme
 xtheme
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
