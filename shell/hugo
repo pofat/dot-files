@@ -91,17 +91,7 @@ hn() {
       /Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab "content/$1"
       ;;
     CYGWIN* )
-      local possible_gvim_paths=(
-      'C:/Program Files/Vim/vim74/gvim.exe'
-      'D:/Program Files/Vim/vim74/gvim.exe'
-      )
-
-      for p in ${possible_gvim_paths[*]}; do
-	if [[ -e "$p" ]]; then
-	  "${p}" --remote-tab "content/$1"
-	  return
-	fi
-      done
+	 gvopen "content/$1" # the function defined shell/cygwin/cygwin
       ;;
     Linux )
       gvim --remote-tab "content/$1"
