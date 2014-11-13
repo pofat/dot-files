@@ -19,10 +19,10 @@ grid.MARGINY    = 0
 hotkey.bind(a_s, "R", function() mjolnir.reload() end)
 
 -- jump between windows.
-hotkey.bind(a_s, "L", function() window.focusedwindow():focuswindow_east() end)
-hotkey.bind(a_s, "H", function() window.focusedwindow():focuswindow_west() end)
-hotkey.bind(a_s, "K", function() window.focusedwindow():focuswindow_north() end)
-hotkey.bind(a_s, "J", function() window.focusedwindow():focuswindow_south() end)
+hotkey.bind(a_s, ".", function() window.focusedwindow():focuswindow_east() end)
+hotkey.bind(a_s, ",", function() window.focusedwindow():focuswindow_west() end)
+--hotkey.bind(a_s, "K", function() window.focusedwindow():focuswindow_north() end)
+--hotkey.bind(a_s, "J", function() window.focusedwindow():focuswindow_south() end)
 
 -- grid manipulation.
 hotkey.bind(a_s, ';', function() grid.snap(window.focusedwindow()) end)
@@ -36,10 +36,10 @@ hotkey.bind(a_s, 'N', grid.pushwindow_nextscreen)
 hotkey.bind(a_s, 'P', grid.pushwindow_prevscreen)
 
 -- move windows.
-hotkey.bind(c_s, 'J', grid.pushwindow_down)
-hotkey.bind(c_s, 'K', grid.pushwindow_up)
-hotkey.bind(c_s, 'H', grid.pushwindow_left)
-hotkey.bind(c_s, 'L', grid.pushwindow_right)
+--hotkey.bind(c_s, 'J', grid.pushwindow_down)
+--hotkey.bind(c_s, 'K', grid.pushwindow_up)
+hotkey.bind(a_s, 'H', grid.pushwindow_left)
+hotkey.bind(a_s, 'L', grid.pushwindow_right)
 
 hotkey.bind(a_s, 'D', grid.pushwindow_down)
 hotkey.bind(a_s, 'E', grid.pushwindow_up)
@@ -59,3 +59,5 @@ hotkey.bind(a_s, 'M', grid.maximize_window)
 hotkey.bind(c_s, 'F', function() application.launchorfocus("firefox") end)
 hotkey.bind(c_s, 'I', function() application.launchorfocus("iterm") end)
 hotkey.bind(c_s, 'V', function() application.launchorfocus("macvim") end)
+
+
