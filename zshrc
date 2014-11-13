@@ -72,6 +72,7 @@ case $(uname -s) in
     ;;
   CYGWIN* )
     source "$cygwin/mintty"
+    source "$cygwin/cygwin"
     ;;
   Linux )
     case $(uname -r) in

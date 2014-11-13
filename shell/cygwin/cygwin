@@ -1,0 +1,32 @@
+# vim: filetype=zsh foldmethod=marker
+
+open() {
+  explorer "$(cygpath ${1:-.})"
+}
+
+gvopen() {
+  if [ "$#" -ne 1 ]; then
+    echo "usage: $0 <file>"
+  fi
+
+  local -a possible_gvim_paths
+  possible_gvim_paths=(
+  '/c/Program Files/Vim/vim74/gvim.exe'
+  '/d/Program Files/Vim/vim74/gvim.exe'
+  )
+
+  local gvim=''
+  for gvim_path in "${possible_gvim_paths[@]}"; do
+    if [ -e "${gvim_path}" ]; then
+      gvim="${gvim_path}"
+      break
+    fi
+  done
+
+  if [ -z "${gvim}" ]; then
+    echo "\e[31m[cygwin/cygwin]:can not found gvim.exe executable\e[0m."
+    return
+  fi
+
+  "${gvim}" --remote-tab $1
+}
