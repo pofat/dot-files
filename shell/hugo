@@ -1,4 +1,32 @@
-# vim: filetype=zsh foldmethod=marker
+# hb(): build hugo site into mudox.github.io
+hb() {
+  # check if $(pwd) is a valid root of a hugo site.
+  if ! [ -d "content" -a -f "config.toml" ]; then
+    echo "\e[33mcurrent path is not a valid root of hugo site\e[0m."
+    local default_site="${HOME}/Sites/hugo-site"
+    if [ -d "${default_site}" ]; then
+      echo "\e[34mcd to \e[5;33m${default_site}\e[33m ...\e[0m."
+      cd "${default_site}"
+    else
+      echo "\e[31mcan not find a valid hugo site path to cd\e[0m."
+      return
+    fi
+  fi
+
+  # start hugo server
+  if [ -d "mudox.github.io" ]; then
+    hugo \
+      --source=. \
+      --destination="mudox.github.io" \
+      --buildDrafts \
+      --buildFuture \
+      --disableRSS=true \
+      --disableSitemap=true \
+      --theme="cur_theme"
+  else
+    echo "\e[31mmissing path mudox.github.io\e[0m."
+  fi
+}
 
 # hs(): hugo server for test {{{1
 hs() {
@@ -9,7 +37,7 @@ hs() {
   if [[ "$?" -eq 0 ]]; then
     local sleep_interval=2
     local steps=10
-    for (( i = 0; i < ${steps}; i++ )); do
+    for (( i = 0; i < steps; i++ )); do
       sleep 0.1
       printf "\r\e[3$((i % 8 + 1))msleeping ... 0.%02d seconds left" $((sleep_interval * 10 - i))
     done
@@ -17,6 +45,7 @@ hs() {
     echo "\e[0m"
   fi
 
+  # choose theme
   if [[ "$#" -le 1 ]]; then
     local theme=${1:-"cur_theme"}
   else
