@@ -1,9 +1,9 @@
 
-# hb(): build hugo site into mudox.github.io
+# hb(): build hugo site into mudox.github.io {{{1
 hb() {
   local production='output/production'
 
-  local site_git_path="${HOME}/Git/Mudox.github.io"
+  local site_git_path="${HOME}/Git/homepage"
   if [ ! -e "${site_git_path}" ]; then
     echo "\e[31mneed ${site_git_path}, quit ...\e[0m"
     return
@@ -56,7 +56,7 @@ hb() {
 
   echo "\e[34mpushing up ...\e[0m"
   git push
-}
+} # }}}1
 
 # hs(): hugo server for test {{{1
 hs() {
@@ -88,7 +88,7 @@ hs() {
     echo "\e[33mcurrent path is not a valid root of hugo site\e[0m"
     local default_site="${HOME}/Sites/hugo-site"
     if [ -d "${default_site}" ]; then
-      echo "\e[34mcd to \e[5;33m${default_site}\e[33m ...\e[0m"
+      echo "\e[34mcd to \e[7;33m${default_site}\e[33m ...\e[0m"
       cd "${default_site}"
     else
       echo "\e[31mcan not find a valid hugo site path to cd\e[0m"
@@ -167,4 +167,4 @@ hn() {
   esac
 } # }}}1
 
-# vim: filetype=zsh
+# vim: filetype=zsh foldmethod=marker
