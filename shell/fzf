@@ -1,6 +1,4 @@
-# fe [FUZZY PATTERN] - Open the selected file with the default editor
-#   - Bypass fuzzy finder if there's only one match (--select-1)
-#   - Exit if there's no match (--exit-0)
+# fe [pattern] - open the selected file with the gvim in tab. {{{1
 fe() {
   local file
   file=$(fzf \
@@ -8,42 +6,54 @@ fe() {
     --select-1 \
     --exit-0 \
     --extended-exact \
-    --prompt)
+    --prompt="open in gvim tab: ")
 
-  [ -n "$file" ] && ${EDITOR:-vim} "$file"
-}
+  [ -n "$file" ] && gvim --remote-tab "$file"
+} #}}}1
 
-# fd - cd to selected directory.
-# do not descend into hidden directories.
-fd() {
-  local dir
-  dir=$(find ${1:-*} -path '*/\.*' -prune \
-    -o -type d -print 2> /dev/null | fzf +m) &&
-    cd "$dir"
-}
-
-# fh - repeat history
+# fh - repeat history {{{1
 fh() {
-  eval $(([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s -e | sed 's/ *[0-9]* *//')
-}
+  local cmd_strintg
+  if [[ -n "$ZSH_NAME" ]]; then
+    cmd_string="$( fc -l | fzf +s -e +m | awk '{print $2}' )"
+  else
+    cmd_string="$( history | fzf +s -e +m | awk '{print $2}' )"
+  fi
+  echo "${cmd_strintg}"
+} #}}}1
 
-# fkill - kill process
+# fkill - select & kill procces {{{1
 fkill() {
-  ps -ef | sed 1d | fzf -m -e | awk '{print $2}' | xargs kill -${1:-9}
-}
+  ps | \
+    sed '1d' | \
+    fzf --multi --extended-exact | \
+    awk '{print $2}' | \
+    xargs kill -"${1:-9}"
+} #}}}1
 
-fz() {
+# j - select and cd to paths in $(z -l) {{{1
+j() {
   if [[ -z "$(whence z)" ]]; then
     echo "\e[31mneed z, quit...\e[0m"
   fi
 
   local target_dir
-  target_dir=$( z -l | awk '{print $1}' | fzf +m \
+  target_dir=$( z -l | awk '{print $2}' | fzf +m \
     --select-1 \
     --exit-0 \
     --extended-exact)
 
   [ -n "$target_dir" ] && cd "$target_dir"
-}
+} #}}}1
 
-# vim: filetype=zsh foldmethod=marker
+# J - cd to one of directory under current path. {{{1
+# do not descend into hidden directories.
+J() {
+  local dir
+  dir=$(find "${1:-*}" -path '*/\.*' -prune \
+    -o -type d -print 2> /dev/null | \
+    fzf +m +s --extended-exact) &&
+    cd "$dir"
+} #}}}1
+
+# vim: filetype=sh foldmethod=marker

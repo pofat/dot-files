@@ -63,7 +63,8 @@ archlinux="$com/archlinux"
 # $PATH functions needed by subsequent sources
 source "$com/path"
 
-# WARNING: line order matters.
+# system specific settings.
+# NOTE: line order matters.
 case $(uname -s) in
   Darwin )
     source "$osx/coreutils"
@@ -90,6 +91,7 @@ case $(uname -s) in
     ;;
 esac
 
+# across system settings
 # NOTE: loading order matters
 to_load=(                      \
   shell_alias                  \
@@ -99,6 +101,7 @@ to_load=(                      \
   zsh_syntax_highlighting      \
   zsh_history_substring_search \
   hugo                         \
+  fzf                          \
   zsh_xtheme                   \
   git                          \
   man                          \
