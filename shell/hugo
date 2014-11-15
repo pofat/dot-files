@@ -1,3 +1,4 @@
+#!/bin/bash
 
 # hb(): build hugo site into mudox.github.io {{{1
 hb() {
