@@ -33,11 +33,11 @@ case $# in
     done
 
     if (( count == 100 )); then
-      echo "\e[31m[Random Theme]: theme not elected\e[0m"
+      echo "\e[31m[random theme]: theme not elected\e[0m"
     fi
 
     antigen theme ${ZSH_CUR_THEME}
-    echo "[Random Theme]: '\e[33m${ZSH_CUR_THEME}\e[0m' loaded..."
+    echo "\e[33m[random theme]: \e[5;34m${ZSH_CUR_THEME}\e[0m"
     ;;
 
   1 )

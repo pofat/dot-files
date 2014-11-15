@@ -53,7 +53,8 @@ antigen apply
 # }}}1
 
 # MY CONFIGURATION {{{1
-export MDX_DOT_FILES="${HOME}/Git/dot-files"
+export MDX_REPOS_ROOT="${HOME}/Git"
+export MDX_DOT_FILES="${MDX_REPOS_ROOT}/dot-files"
 
 com="$MDX_DOT_FILES/shell"
 osx="$com/osx"
@@ -103,6 +104,7 @@ to_load=(                      \
   hugo                         \
   fzf                          \
   zsh_xtheme                   \
+  base16shell		       \
   git                          \
   man                          \
   rvm                          \
@@ -127,3 +129,4 @@ mdx_uniq_path
 
 # random oh-my-zsh theme
 xtheme
+basen
