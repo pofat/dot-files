@@ -117,7 +117,12 @@ j() {
     --extended-exact)
 
   [ -n "$target_dir" ] && cd "$target_dir"
+
+  zle reset-prompt
 } #}}}1
+
+zle -N j
+bindkey '^[j' j
 
 # J - cd to one of directory under current path. {{{1
 # do not descend into hidden directories.
