@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # fe [pattern] - open the selected file with the gvim in tab. {{{1
 fe() {
   local file
@@ -8,7 +10,7 @@ fe() {
     --extended-exact \
     --prompt="open in gvim tab: ")
 
-  [ -n "$file" ] && gvim --remote-tab "$file"
+  [ -n "$file" ] && gvim --remote-tab-silent "$file"
 } #}}}1
 
 # fh - repeat history {{{1
