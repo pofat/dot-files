@@ -6,13 +6,13 @@
 # ------------------
 unalias fzf 2> /dev/null
 fzf() {
-  /usr/bin/ruby ~/Git/fzf/fzf "$@"
+  /usr/bin/ruby "${MDX_REPOS_ROOT}/fzf/fzf" "$@"
 }
 export -f fzf > /dev/null
 
 # Auto-completion
 # ---------------
-[[ $- =~ i ]] && source ~/Git/fzf/fzf-completion.zsh
+[[ $- =~ i ]] && source "${MDX_REPOS_ROOT}/fzf/fzf-completion.zsh"
 
 # Key bindings
 # ------------
