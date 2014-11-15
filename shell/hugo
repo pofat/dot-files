@@ -2,7 +2,7 @@
 
 # hb(): build hugo site into mudox.github.io {{{1
 hb() {
-  local production='output/production'
+  local production='output/public'
 
   local site_git_path="${HOME}/Git/homepage"
   if [ ! -e "${site_git_path}" ]; then
@@ -44,8 +44,9 @@ hb() {
     return
   fi
 
-  echo "\e[34mcopying production ...\e[0m"
+  echo "\e[34minstalling production ...\e[0m"
   cp --recursive --target-directory="${site_git_path}" "./${production}"/* || return
+  rm -rf "./${production}"
 
   # commit & push changes to github
   cd "${site_git_path}"
@@ -103,7 +104,7 @@ hs() {
     --buildDrafts                     \
     --buildFuture                     \
     --theme="$theme"                  \
-    --destination="output/production" \
+    --destination="output/local"      \
     --source=. &
 
   # open local pages in browser
