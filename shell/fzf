@@ -75,7 +75,7 @@ zle     -N   mudox-zsh-widget-zdirs
 bindkey '^Tz' mudox-zsh-widget-zdirs
 # }}}1
 
-# ^[z to cd to one of the paths in $(z -l) {{{1
+# ^[z, or ^[j to cd to one of the paths in $(z -l) {{{1
 mudox-zsh-widget-j() {
   if [[ -z "$(whence z)" ]]; then
     echo "\e[31mneed z, quit...\e[0m"
@@ -94,6 +94,7 @@ mudox-zsh-widget-j() {
 
 zle -N mudox-zsh-widget-j
 bindkey '^[z' mudox-zsh-widget-j
+bindkey '^[j' mudox-zsh-widget-j
 #}}}1
 
 # ^[c to cd to one of directory under current path. {{{1
