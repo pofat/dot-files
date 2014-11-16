@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# fzf built-in settings. {{{1
+export FZF_COMPLETION_TRIGGER=',,'
+export FZF_COMPLETION_OPTS='-x'
 
 # Setup fzf function
-# ------------------
 unalias fzf 2> /dev/null
 fzf() {
   /usr/bin/ruby "${MDX_REPOS_ROOT}/fzf/fzf" "$@"
@@ -11,12 +11,9 @@ fzf() {
 export -f fzf > /dev/null
 
 # Auto-completion
-# ---------------
 [[ $- =~ i ]] && source "${MDX_REPOS_ROOT}/fzf/fzf-completion.zsh"
 
-# Key bindings
-# ------------
-# CTRL-T - Paste the selected file path(s) into the command line
+# ^Tf to append file & paths under $(pwd) to the command line. {{{1
 __fsel() {
   set -o nonomatch
   command find ./* -path '*/\.*' -prune \
@@ -28,84 +25,58 @@ done
 echo
 }
 
-if [[ $- =~ i ]]; then
-  if [ -n "$TMUX_PANE" -a "${FZF_TMUX:-1}" -ne 0 -a "${LINES:-40}" -gt 15 ]; then
-    fzf-file-widget() {
-      local height
-      height=${FZF_TMUX_HEIGHT:-40%}
-      if [[ $height =~ %$ ]]; then
-	height="-p ${height%\%}"
-      else
-	height="-l $height"
-      fi
-      tmux split-window "${height}" "zsh -c 'source ~/.fzf.zsh; tmux send-keys -t ${TMUX_PANE} \"\$(__fsel)\"'"
-    }
-  else
-    fzf-file-widget() {
-      LBUFFER="${LBUFFER}$(__fsel)"
-      zle redisplay
-    }
-  fi
-  zle     -N   fzf-file-widget
-  bindkey '^T' fzf-file-widget
-
-  # ALT-C - cd into the selected directory
-  fzf-cd-widget() {
-    cd "${$(set -o nonomatch; command find -L "./*" -path '*/\.*' -prune \
-      -o -type d -print 2> /dev/null | fzf -e +m):-.}"
-    zle reset-prompt
+if [ -n "$TMUX_PANE" -a "${FZF_TMUX:-1}" -ne 0 -a "${LINES:-40}" -gt 15 ]; then
+  fzf-file-widget() {
+    local height
+    height=${FZF_TMUX_HEIGHT:-40%}
+    if [[ $height =~ %$ ]]; then
+      height="-p ${height%\%}"
+    else
+      height="-l $height"
+    fi
+    tmux split-window "${height}" "zsh -c 'source ~/.fzf.zsh; tmux send-keys -t ${TMUX_PANE} \"\$(__fsel)\"'"
   }
-  zle     -N    fzf-cd-widget
-  bindkey '\ec' fzf-cd-widget
-
-  # CTRL-R - Paste the selected command from history into the command line
-  fzf-history-widget() {
-    LBUFFER=$(fc -l 1 | fzf +s +m -e -n2..,.. | sed "s/ *[0-9*]* *//")
+else
+  fzf-file-widget() {
+    LBUFFER="${LBUFFER}$(__fsel)"
     zle redisplay
   }
-  zle     -N   fzf-history-widget
-  bindkey '^R' fzf-history-widget
-
 fi
 
-
+zle     -N   fzf-file-widget
+bindkey '^Tf' fzf-file-widget
 # }}}1
 
-# fe [pattern] - open the selected file with the gvim in tab. {{{1
-fe() {
-  local file
-  file=$(fzf \
-    --query="$1" \
-    --select-1 \
-    --exit-0 \
-    --extended-exact \
-    --prompt="open in gvim tab: ")
+# ^Th - Paste the selected command from history into the command line. {{{1
+fzf-history-widget() {
+  LBUFFER=$(fc -l 1 | fzf +s +m -x -n2..,.. | sed "s/ *[0-9*]* *//")
+  zle redisplay
+}
 
-  [ -n "$file" ] && gvim --remote-tab-silent "$file"
-} #}}}1
+zle     -N   fzf-history-widget
+bindkey '^Th' fzf-history-widget
+# }}}1
 
-# fh - repeat history {{{1
-fh() {
-  local cmd_strintg
-  if [[ -n "$ZSH_NAME" ]]; then
-    cmd_string="$( fc -l | fzf +s -e +m | awk '{print $2}' )"
-  else
-    cmd_string="$( history | fzf +s -e +m | awk '{print $2}' )"
-  fi
-  echo "${cmd_strintg}"
-} #}}}1
+# ^Tz to append paths from $(z -l) to the command line. {{{1
+__zdirs() {
+  set -o nonomatch
+  z -l | awk '{print $2}' | fzf -m -e | while read item; do
+  printf '%q ' "$item"
+done
+echo
+}
 
-# fkill - select & kill procces {{{1
-fkill() {
-  ps | \
-    sed '1d' | \
-    fzf --multi --extended-exact | \
-    awk '{print $2}' | \
-    xargs kill -"${1:-9}"
-} #}}}1
+mudox-zsh-widget-zdirs() {
+  LBUFFER="${LBUFFER}$(__zdirs)"
+  zle redisplay
+}
 
-# ^[j - select and cd to path in $(z -l) {{{1
-mudox_zsh_widget_j() {
+zle     -N   mudox-zsh-widget-zdirs
+bindkey '^Tz' mudox-zsh-widget-zdirs
+# }}}1
+
+# ^[z to cd to one of the paths in $(z -l) {{{1
+mudox-zsh-widget-j() {
   if [[ -z "$(whence z)" ]]; then
     echo "\e[31mneed z, quit...\e[0m"
   fi
@@ -119,15 +90,15 @@ mudox_zsh_widget_j() {
   [ -n "$target_dir" ] && cd "$target_dir"
 
   zle reset-prompt
-} 
+}
 
-zle -N mudox_zsh_widget_j
-bindkey '^[j' mudox_zsh_widget_j
+zle -N mudox-zsh-widget-j
+bindkey '^[z' mudox-zsh-widget-j
 #}}}1
 
-# ^[cd - cd to one of directory under current path. {{{1
+# ^[c to cd to one of directory under current path. {{{1
 # do not descend into hidden directories.
-mudox_zsh_widget_cd() {
+mudox-zsh-widget-c() {
   local target_dir
   target_dir=$(find ./* -path '*/\.*' -prune \
     -o -type d -print 2> /dev/null | \
@@ -138,8 +109,30 @@ mudox_zsh_widget_cd() {
   zle reset-prompt
 }
 
-zle -N mudox_zsh_widget_cd
-bindkey '^[cd' mudox_zsh_widget_cd
+zle -N mudox-zsh-widget-c
+bindkey '^[c' mudox-zsh-widget-c
 #}}}1
+
+# fe [pattern] to open the selected file with the gvim in tab. {{{1
+fe() {
+  local file
+  file=$(fzf \
+    --query="$1" \
+    --select-1 \
+    --exit-0 \
+    --extended-exact \
+    --prompt="open in gvim tab: ")
+
+  [ -n "$file" ] && gvim --remote-tab-silent "$file"
+} #}}}1
+
+# fkill to select & kill procces {{{1
+fkill() {
+  ps | \
+    sed '1d' | \
+    fzf --multi --extended-exact | \
+    awk '{print $2}' | \
+    xargs kill -"${1:-9}"
+} #}}}1
 
 # vim: filetype=zsh foldmethod=marker
