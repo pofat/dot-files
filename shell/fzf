@@ -104,8 +104,8 @@ fkill() {
     xargs kill -"${1:-9}"
 } #}}}1
 
-# j - select and cd to paths in $(z -l) {{{1
-j() {
+# ^[j - select and cd to path in $(z -l) {{{1
+mudox_zsh_widget_j() {
   if [[ -z "$(whence z)" ]]; then
     echo "\e[31mneed z, quit...\e[0m"
   fi
@@ -119,19 +119,27 @@ j() {
   [ -n "$target_dir" ] && cd "$target_dir"
 
   zle reset-prompt
-} #}}}1
+} 
 
-zle -N j
-bindkey '^[j' j
+zle -N mudox_zsh_widget_j
+bindkey '^[j' mudox_zsh_widget_j
+#}}}1
 
-# J - cd to one of directory under current path. {{{1
+# ^[cd - cd to one of directory under current path. {{{1
 # do not descend into hidden directories.
-J() {
-  local dir
-  dir=$(find "${1:-*}" -path '*/\.*' -prune \
+mudox_zsh_widget_cd() {
+  local target_dir
+  target_dir=$(find ./* -path '*/\.*' -prune \
     -o -type d -print 2> /dev/null | \
-    fzf +m +s --extended-exact) &&
-    cd "$dir"
-} #}}}1
+    fzf +m +s --extended-exact)
+
+  [ -n "$target_dir" ] && cd "$target_dir"
+
+  zle reset-prompt
+}
+
+zle -N mudox_zsh_widget_cd
+bindkey '^[cd' mudox_zsh_widget_cd
+#}}}1
 
 # vim: filetype=zsh foldmethod=marker
