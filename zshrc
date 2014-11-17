@@ -2,8 +2,16 @@
 
 SHELL=$0
 
+export MDX_REPOS_ROOT="${HOME}/Git"
+
+if [ ! -d "${MDX_REPOS_ROOT}/antigen" ]; then
+  echo "\e[31mneed [antigen], installing ...\e[0m"
+  git clone "https://github.com/zsh-users/antigen.git" \
+    "${MDX_REPOS_ROOT}/antigen"
+fi
+
 # ANTIGEN {{{1
-source ~/Git/antigen/antigen.zsh
+source "${MDX_REPOS_ROOT}/antigen/antigen.zsh"
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -53,7 +61,6 @@ antigen apply
 # }}}1
 
 # MY CONFIGURATION {{{1
-export MDX_REPOS_ROOT="${HOME}/Git"
 export MDX_DOT_FILES="${MDX_REPOS_ROOT}/dot-files"
 
 com="$MDX_DOT_FILES/shell"
