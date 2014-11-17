@@ -134,7 +134,7 @@ mdx_uniq_path
 
 # }}}1
 
-# random oh-my-zsh theme
+# theme & shell colorscheme.
 xtheme
 basen
 
