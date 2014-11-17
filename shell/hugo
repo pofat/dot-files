@@ -116,26 +116,16 @@ hs() {
       open "${url}"
       ;;
     CYGWIN* )
-      firefox_dev='/d/Program Files/Firefox Developer Edition/firefox.exe'
       firefox='/d/Program Files/Mozilla Firefox/firefox.exe'
-      if [ -e "${firefox_dev}" -a -e "${firefox}" ]; then
-	select browser in "${firefox_dev}" "${firefox}"; do
-	  echo "\e[34mopen in $(basename "${browser}" '.exe')\e[0m"
-	  ${browser} "${url}" &
-	  break;
-	done
-      elif [ -e "${firefox_dev}" ]; then
-	echo "\e[33monly found Firefox Deveploper Edition\e[0m"
-	echo "\e[34mopen in Firefox Developer Edition\e[0m"
-	"${firefox_dev}" "${url}" &
-      elif [ -e "${firefox}" ]; then
-	echo "\e[33monly found Firefox\e[0m"
-	echo "\e[34mopen in Firefox\e[0m"
+      if [ -e "${firefox}" ]; then
 	"${firefox}" "${url}" &
+      else
+	echo "\e[31mmissing firefox, quit ...\e[0m"
+	return
       fi
       ;;
     Linux )
-      ${$(whence firefox-developer):-firefox)} "${url}" &>/dev/null
+      firefox "${url}" &>/dev/null &
       ;;
     * )
       echo "\e[31m[.zshrc]: un-recognized platform."
