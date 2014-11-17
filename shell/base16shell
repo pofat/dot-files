@@ -10,11 +10,13 @@ basen() {
   local -a colros
   colors=( $( 'ls' "${MDX_REPOS_ROOT}/base16-shell"/base16-*.sh ) )
 
-  if [ -n "${colors[*]}" ]; then
+  if [ "${#colors[*]}" -gt 0 ]; then
     local i=$(( RANDOM % ${#colors[@]} ))
     local colorscheme=${colors[i]}
     source ${colorscheme}
-    echo "\e[33m[shell colorscheme]: \e[5;34m$(basename ${colorscheme} .sh)\e[0m"
+
+    export MDX_BASE_COLOR="$(basename ${colorscheme} .sh)"
+    echo "\e[33m[shell colorscheme]: \e[7;1;34m${MDX_BASE_COLOR}\e[0m"
   fi
 }
 
