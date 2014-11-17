@@ -137,3 +137,8 @@ mdx_uniq_path
 # random oh-my-zsh theme
 xtheme
 basen
+
+mdxinfo() {
+  printf "%-20s : %s\n" "zsh theme" "${MDX_ZSH_THEME}"
+  printf "%-20s : %s\n" "base colorscheme" "${MDX_BASE_COLOR}"
+}
