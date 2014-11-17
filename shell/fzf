@@ -67,7 +67,7 @@ bindkey '^Th' fzf-history-widget
 # ^Tz to append paths from $(z -l) to the command line. {{{1
 __zdirs() {
   set -o nonomatch
-  z -l | awk '{print $2}' | fzf -m -e | while read item; do
+  z -l | sed 's/[0-9.,]* *//' | fzf -m -e | while read item; do
   printf '%q ' "$item"
 done
 echo
@@ -89,7 +89,7 @@ mudox-zsh-widget-j() {
   fi
 
   local target_dir
-  target_dir=$( z -l | awk '{print $2}' | fzf +m \
+  target_dir=$( z -l | sed 's/[0-9.,]* *//' | fzf +m \
     --select-1 \
     --exit-0 \
     --extended-exact)
@@ -131,7 +131,25 @@ fe() {
     --extended-exact \
     --prompt="open in gvim tab: ")
 
-  [ -n "$file" ] && gvim --remote-tab-silent "$file"
+  case $(uname -s) in
+    Darwin )
+      # for MacOS
+      local gvim="gvim"
+      ;;
+    CYGWIN* )
+      # for Cygwin on Windows
+      local gvim="/d/Program Files/Vim/vim74/gvim.exe"
+      ;;
+    Linux )
+      # for Linux
+      local gvim="gvim"
+      ;;
+    * )
+      echo "\e[31m[.zshrc]: un-recognized platform."
+      ;;
+  esac
+
+  [ -n "$file" ] && "${gvim}" --remote-tab-silent "$file"
 } #}}}1
 
 # fkill to select & kill procces {{{1
