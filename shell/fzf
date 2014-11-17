@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# check repo.
+if [ ! -d "${MDX_REPOS_ROOT}/fzf" ]; then
+  echo "\e[33mneed [fzf], installing ...\e[0m"
+  git clone "https://github.com/junegunn/fzf.git" \
+    "${MDX_REPOS_ROOT}/fzf"
+fi
+
 export FZF_COMPLETION_TRIGGER=',,'
 export FZF_COMPLETION_OPTS='-x'
 
