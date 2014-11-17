@@ -14,7 +14,7 @@ basen() {
     local i=$(( RANDOM % ${#colors[@]} ))
     local colorscheme=${colors[i]}
     source ${colorscheme}
-    echo "\e[33m[base16 colorscheme]: \e[5;34m$(basename ${colorscheme} .sh)\e[0m"
+    echo "\e[33m[shell colorscheme]: \e[5;34m$(basename ${colorscheme} .sh)\e[0m"
   fi
 }
 
