@@ -68,14 +68,6 @@ hs() {
 
   # sleep a while for old hugo instance to die if any.
   if [[ "$?" -eq 0 ]]; then
-    #local sleep_interval=2
-    #local steps=10
-    #for (( i = 0; i < steps; i++ )); do
-      #sleep 0.1
-      #printf "\r\e[3$((i % 8 + 1))msleeping ... 0.%02d seconds left" $((sleep_interval * 10 - i))
-    #done
-    #unset i
-    #echo "\e[0m"
     sleepc 2 .1 'waiting for old hugo instance to die out ...'
   fi
 
