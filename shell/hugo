@@ -39,6 +39,7 @@ hb() {
     --disableSitemap=true         \
     --theme="cur_theme"
 
+  # check hugo status
   if [ "$?" -ne 0 ]; then
     echo "\e[31mbuild site failed, quit ...\e[0m"
     return
@@ -67,14 +68,15 @@ hs() {
 
   # sleep a while for old hugo instance to die if any.
   if [[ "$?" -eq 0 ]]; then
-    local sleep_interval=2
-    local steps=10
-    for (( i = 0; i < steps; i++ )); do
-      sleep 0.1
-      printf "\r\e[3$((i % 8 + 1))msleeping ... 0.%02d seconds left" $((sleep_interval * 10 - i))
-    done
-    unset i
-    echo "\e[0m"
+    #local sleep_interval=2
+    #local steps=10
+    #for (( i = 0; i < steps; i++ )); do
+      #sleep 0.1
+      #printf "\r\e[3$((i % 8 + 1))msleeping ... 0.%02d seconds left" $((sleep_interval * 10 - i))
+    #done
+    #unset i
+    #echo "\e[0m"
+    sleepc 2 .1 'waiting for old hugo instance to die out ...'
   fi
 
   # choose theme
@@ -105,11 +107,21 @@ hs() {
     --buildFuture                     \
     --theme="$theme"                  \
     --destination="output/local"      \
-    --source=. &
+    --source=. >/tmp/hugo.log &
+
+  sleepc 3 .1 'waiting for server to start ...'
+
+  cat /tmp/hugo.log
+
+  # parsing port number
+  local port=$( cat /tmp/hugo.log | grep '^Web' | cut -c 45- )
+  if [[ ! port =~ '[0-9]*' ]]; then
+    echo "\e[31mparsing port number failed, got '${port}', quit ...\e[0m"
+    return
+  fi
 
   # open local pages in browser
-  local url='http://localhost:1313'
-  sleep 2
+  local url="http://localhost:${port}"
 
   case $(uname -s) in
     Darwin )

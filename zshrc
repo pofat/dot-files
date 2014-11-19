@@ -102,6 +102,7 @@ esac
 # across system settings
 # NOTE: loading order matters
 to_load=(                      \
+  mdx_functions                \
   shell_alias                  \
   go_env                       \
   bin                          \
