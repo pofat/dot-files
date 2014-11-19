@@ -37,7 +37,7 @@ case $# in
     fi
 
     antigen theme ${MDX_ZSH_THEME}
-    echo "\e[33m[zsh theme]: \e[7;1;34m${MDX_ZSH_THEME}\e[0m"
+    echo "\e[33m[zsh theme]: \e[1;35m${MDX_ZSH_THEME}\e[0m"
     ;;
 
   1 )

@@ -16,7 +16,7 @@ basen() {
     source ${colorscheme}
 
     export MDX_BASE_COLOR="$(basename ${colorscheme} .sh)"
-    echo "\e[33m[shell colorscheme]: \e[7;1;34m${MDX_BASE_COLOR}\e[0m"
+    echo "\e[33m[shell colorscheme]: \e[1;35m${MDX_BASE_COLOR}\e[0m"
   fi
 }
 
