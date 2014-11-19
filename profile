@@ -7,28 +7,7 @@ com="${MDX_DOT_FILES}/shell"
 archlinux="$com/archlinux"
 
 # PATH manipulation functions needed by subsequent sources.
-source "$com/path"
-
-case $(uname -s) in
-  Darwin )
-    # for MacOS
-    ;;
-  CYGWIN* )
-    # for Cygwin on Windows
-    ;;
-  Linux )
-    case $(uname -r) in
-      *ARCH )
-	source "${archlinux}/vpn_dns"
-	;;
-    esac
-    ;;
-  * )
-    echo "\e[31m[.zshrc]: un-recognized platform."
-    ;;
-esac
-
-
+source "${com}/path"
 
 source "${com}/go_env"
 source "${com}/bin"
