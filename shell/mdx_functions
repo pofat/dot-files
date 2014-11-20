@@ -12,5 +12,7 @@ sleepc() {
     printf "\r\e[3$((i % 8 + 1))m${prompt} [%02.2f seconds left]" $((sleep_time - sleep_interval * i))
   done
   unset i
-  echo "\e[0m"
+
+  printf "\r                                                                                                     "
+  echo "\r\e[35m${prompt}\e[0m"
 }
