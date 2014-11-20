@@ -100,7 +100,6 @@ mudox-zsh-widget-j() {
 }
 
 zle -N mudox-zsh-widget-j
-bindkey '^[z' mudox-zsh-widget-j
 bindkey '^[j' mudox-zsh-widget-j
 #}}}1
 
