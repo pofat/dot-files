@@ -66,9 +66,11 @@ hs() {
   # kill running hugo if any.
   kill %hugo &>/dev/null
 
+
   # sleep a while for old hugo instance to die if any.
   if [[ "$?" -eq 0 ]]; then
-    sleepc 2 .1 'waiting for old hugo instance to die out ...'
+    sleep .5s
+    sleepc 1.5 .1 'waiting for old hugo instance to die out ...'
   fi
 
   # choose theme
