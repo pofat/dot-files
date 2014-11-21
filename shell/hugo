@@ -28,6 +28,7 @@ hb() {
     fi
   fi
 
+  # hugo building site
   echo "\e[34mstart building site ...\e[0m"
   # start hugo server
   hugo                            \
@@ -45,7 +46,9 @@ hb() {
     return
   fi
 
+  # installing to github local repo.
   echo "\e[34minstalling production ...\e[0m"
+  rm -rf "${site_git_path}"/* &>/dev/null # clean the directory up first
   cp --recursive --target-directory="${site_git_path}" "./${production}"/* || return
   rm -rf "./${production}"
 
@@ -57,6 +60,7 @@ hb() {
     git add . && git commit -m "$1"
   fi
 
+  # pushing up
   echo "\e[34mpushing up ...\e[0m"
   git push
 } # }}}1
