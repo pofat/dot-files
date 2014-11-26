@@ -2,6 +2,12 @@
 
 # hb(): build hugo site into mudox.github.io {{{1
 hb() {
+
+  if [[ -z "$(whence hugo)" ]]; then
+    echo "\e[31mmissing executable hugo..., quit\e[0m"
+    return
+  fi
+
   local production='output/public'
 
   local site_git_path="${HOME}/Git/homepage"
@@ -67,6 +73,12 @@ hb() {
 
 # hs(): hugo server for test {{{1
 hs() {
+
+  if [[ -z "$(whence hugo)" ]]; then
+    echo "\e[31mmissing executable hugo..., quit\e[0m"
+    return
+  fi
+
   # kill running hugo if any.
   kill %hugo &>/dev/null
 
@@ -145,6 +157,11 @@ hs() {
 
 # hn(): hugo new and then open the new file in vim {{{1
 hn() {
+
+  if [[ -z "$(whence hugo)" ]]; then
+    echo "\e[31mmissing executable hugo..., quit\e[0m"
+    return
+  fi
 
   if [[ $# -ne 1 ]]; then
     echo "usage: $0 <section>/../*.md"
