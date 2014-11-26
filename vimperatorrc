@@ -22,6 +22,8 @@ abbreviate hh       localhost:1313
 "}}}1
 
 " MAPPINGS        {{{1
+noremap coh :noh<Cr><Esc><Esc>
+
 noremap J <C-d>
 noremap K <C-u>
 noremap j 7j
