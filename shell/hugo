@@ -4,7 +4,7 @@
 hb() {
 
   if [[ -z "$(whence hugo)" ]]; then
-    echo "\e[31mmissing executable hugo..., quit\e[0m"
+    printf "\e[31mmissing executable hugo..., quit\e[0m\n"
     return
   fi
 
@@ -12,30 +12,30 @@ hb() {
 
   local site_git_path="${HOME}/Git/homepage"
   if [ ! -e "${site_git_path}" ]; then
-    echo "\e[31mneed ${site_git_path}, quit ...\e[0m"
+    printf "\e[31mneed ${site_git_path}, quit ...\e[0m\n"
     return
   fi
 
   if [ ! -d "${site_git_path}" ]; then
-    echo "\e[31mmissing ${site_git_path}, quit ...\e[0m"
+    printf "\e[31mmissing ${site_git_path}, quit ...\e[0m\n"
     return
   fi
 
   # check if $(pwd) is a valid root of a hugo site.
   if ! [ -d "content" -a -f "config.toml" ]; then
-    echo "\e[33mcurrent path is not a valid root of hugo site\e[0m"
+    printf "\e[33mcurrent path is not a valid root of hugo site\e[0m\n"
     local default_site="${HOME}/Sites/hugo-site"
     if [ -d "${default_site}" ]; then
-      echo "\e[34mcd to \e[7;34m${default_site} ...\e[0m"
+      printf "\e[34mcd to \e[7;34m${default_site} ...\e[0m\n"
       cd "${default_site}"
     else
-      echo "\e[31mcan not find a valid hugo site path to cd, quit ...\e[0m"
+      printf "\e[31mcan not find a valid hugo site path to cd, quit ...\e[0m\n"
       return
     fi
   fi
 
   # hugo building site
-  echo "\e[34mstart building site ...\e[0m"
+  printf "\e[34mstart building site ...\e[0m\n"
   # start hugo server
   hugo                            \
     --source=.                    \
@@ -48,12 +48,12 @@ hb() {
 
   # check hugo status
   if [ "$?" -ne 0 ]; then
-    echo "\e[31mbuild site failed, quit ...\e[0m"
+    printf "\e[31mbuild site failed, quit ...\e[0m\n"
     return
   fi
 
   # installing to github local repo.
-  echo "\e[34minstalling production ...\e[0m"
+  printf "\e[34minstalling production ...\e[0m\n"
   rm -rf "${site_git_path}"/* &>/dev/null # clean the directory up first
   cp --recursive --target-directory="${site_git_path}" "./${production}"/* || return
   rm -rf "./${production}"
@@ -67,7 +67,7 @@ hb() {
   fi
 
   # pushing up
-  echo "\e[34mpushing up ...\e[0m"
+  printf "\e[34mpushing up ...\e[0m\n"
   git push
 } # }}}1
 
@@ -75,7 +75,7 @@ hb() {
 hs() {
 
   if [[ -z "$(whence hugo)" ]]; then
-    echo "\e[31mmissing executable hugo..., quit\e[0m"
+    printf "\e[31mmissing executable hugo..., quit\e[0m\n"
     return
   fi
 
@@ -99,13 +99,13 @@ hs() {
 
   # check if $(pwd) is a valid root of a hugo site.
   if ! [ -d "content" -a -f "config.toml" ]; then
-    echo "\e[33mcurrent path is not a valid root of hugo site\e[0m"
+    printf "\e[33mcurrent path is not a valid root of hugo site\e[0m\n"
     local default_site="${HOME}/Sites/hugo-site"
     if [ -d "${default_site}" ]; then
-      echo "\e[34mcd to \e[7;33m${default_site}\e[33m ...\e[0m"
+      printf "\e[34mcd to \e[7;33m${default_site}\e[33m ...\e[0m\n"
       cd "${default_site}"
     else
-      echo "\e[31mcan not find a valid hugo site path to cd\e[0m"
+      printf "\e[31mcan not find a valid hugo site path to cd\e[0m\n"
       return
     fi
   fi
@@ -126,7 +126,7 @@ hs() {
   # parsing port number
   local port=$( cat /tmp/hugo.log | grep '^Web' | cut -c 45- )
   if [[ ! port =~ '[0-9]*' ]]; then
-    echo "\e[31mparsing port number failed, got '${port}', quit ...\e[0m"
+    printf "\e[31mparsing port number failed, got '${port}', quit ...\e[0m\n"
     return
   fi
 
@@ -142,7 +142,7 @@ hs() {
       if [ -e "${firefox}" ]; then
 	"${firefox}" "${url}" &
       else
-	echo "\e[31mmissing firefox, quit ...\e[0m"
+	printf "\e[31mmissing firefox, quit ...\e[0m\n"
 	return
       fi
       ;;
@@ -150,7 +150,7 @@ hs() {
       firefox "${url}" &>/dev/null &
       ;;
     * )
-      echo "\e[31m[.zshrc]: un-recognized platform."
+      printf "\e[31m[.zshrc]: un-recognized platform.\n"
       ;;
   esac
 } # }}}1
@@ -159,7 +159,7 @@ hs() {
 hn() {
 
   if [[ -z "$(whence hugo)" ]]; then
-    echo "\e[31mmissing executable hugo..., quit\e[0m"
+    printf "\e[31mmissing executable hugo..., quit\e[0m\n"
     return
   fi
 
@@ -181,7 +181,7 @@ hn() {
       gvim --remote-tab "content/$1"
       ;;
     * )
-      echo "\e[31m[.zshrc]: un-recognized platform."
+      printf "\e[31m[.zshrc]: un-recognized platform.\n"
       ;;
   esac
 } # }}}1

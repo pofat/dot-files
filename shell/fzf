@@ -2,7 +2,7 @@
 
 # check repo.
 if [ ! -d "${MDX_REPOS_ROOT}/fzf" ]; then
-  echo "\e[33mneed [fzf], installing ...\e[0m"
+  printf "\e[33mneed [fzf], installing ...\e[0m\n"
   git clone "https://github.com/junegunn/fzf.git" \
     "${MDX_REPOS_ROOT}/fzf"
 fi
@@ -85,7 +85,7 @@ bindkey '^Tz' mudox-zsh-widget-zdirs
 # ^[z, or ^[j to cd to one of the paths in $(z -l) {{{1
 mudox-zsh-widget-j() {
   if [[ -z "$(whence z)" ]]; then
-    echo "\e[31mneed z, quit...\e[0m"
+    printf "\e[31mneed z, quit...\e[0m\n"
   fi
 
   local target_dir
@@ -144,7 +144,7 @@ fe() {
       local gvim="gvim"
       ;;
     * )
-      echo "\e[31m[.zshrc]: un-recognized platform."
+      printf "\e[31m[.zshrc]: un-recognized platform.\n"
       ;;
   esac
 

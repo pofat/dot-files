@@ -5,5 +5,5 @@ color_file=${HOME}/.mintty_colors
 if [[ -f "${color_file}" ]]; then
   source "${color_file}"
 else
-  echo "\e[31m[cygwin/mintty]: ${color_file} is missing"
+  printf "\e[31m[cygwin/mintty]: ${color_file} is missing\e[0m\n"
 fi
