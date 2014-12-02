@@ -1,0 +1,5 @@
+export PYENV_ROOT="${MDX_REPOS_ROOT}/pyenv"
+
+mdx_path_push_front "${PYENV_ROOT}/bin"
+
+eval "$(pyenv init -)"
