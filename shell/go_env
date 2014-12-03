@@ -17,10 +17,10 @@ case $(uname -s) in
     elif [[ -e '/usr/local/bin/go' ]]; then
       export GOROOT=$('/usr/local/bin/go' env GOROOT)
     else
-      echo "\e[31mshell/go_env: missing executable go"
+      printf "\e[31mshell/go_env: missing executable go\n"
     fi
     ;;
   * )
-    echo "\e[31m[.zshrc]: un-recognized platform."
+    printf "\e[31m[.zshrc]: un-recognized platform.\n"
     ;;
 esac

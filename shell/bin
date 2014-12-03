@@ -2,4 +2,4 @@
 
 # NOTE: order matters
 mdx_path_push_front "/usr/local/bin"
-mdx_path_push_front "$HOME/.bin"
+mdx_path_push_front "${HOME}/.bin"

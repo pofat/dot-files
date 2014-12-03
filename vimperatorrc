@@ -23,6 +23,8 @@ abbreviate osc      http://my.oschina.net/mudox
 "}}}1
 
 " MAPPINGS        {{{1
+noremap coh :noh<Cr><Esc><Esc>
+
 noremap J <C-d>
 noremap K <C-u>
 noremap j 7j
