@@ -89,6 +89,7 @@ case $(uname -s) in
       *ARCH ) # Arch Linux
 	source "$archlinux/yaourt"
 	source "$archlinux/vpn"
+	source "$archlinux/pyenv"
 	;;
       * )
 	echo "\e[31m[.zshrc]: un-recognized linux distro."
