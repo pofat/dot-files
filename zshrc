@@ -1,6 +1,9 @@
 # vim: filetype=zsh foldmethod=marker
 SHELL=$0
 
+# duplicate definition
+export MDX_REPOS_ROOT=${MDX_REPOS_ROOT:-"${HOME}/Git"}
+export MDX_DOT_FILES=${MDX_DOT_FILES:-"${MDX_REPOS_ROOT}/dot-files"}
 
 if [ ! -d "${MDX_REPOS_ROOT}/antigen" ]; then
   echo "\e[31mneed [antigen], installing ...\e[0m"
