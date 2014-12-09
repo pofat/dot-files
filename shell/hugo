@@ -36,6 +36,7 @@ hb() {
 
   # hugo building site
   printf "\e[34mstart building site ...\e[0m\n"
+  rm -rf "./${production}" &>/dev/null # remove public directory first.
   # start hugo server
   hugo                            \
     --source=.                    \
@@ -55,8 +56,11 @@ hb() {
   # installing to github local repo.
   printf "\e[34minstalling production ...\e[0m\n"
   rm -rf "${site_git_path}"/* &>/dev/null # clean the directory up first
-  cp --recursive --target-directory="${site_git_path}" "./${production}"/* || return
-  rm -rf "./${production}"
+  cp --recursive --target-directory="${site_git_path}" "./${production}"/*
+
+  if [[ "$?" -ne 0 ]]; then
+    printf "\e[31mscopying failed..., quit\e[0m\n"
+  fi
 
   # commit & push changes to github
   cd "${site_git_path}"
