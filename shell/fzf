@@ -133,7 +133,11 @@ fe() {
   case $(uname -s) in
     Darwin )
       # for MacOS
-      local gvim="gvim"
+      if whence mvim; then
+	local gvim='mvim'
+      else
+	local gvim='gvim'
+      fi
       ;;
     CYGWIN* )
       # for Cygwin on Windows
