@@ -65,9 +65,9 @@ hb() {
   # commit & push changes to github
   cd "${site_git_path}"
   if [ "$#" -ne 1 ]; then
-    git add . && git commit
+    git add --all . && git commit
   else
-    git add . && git commit -m "$1"
+    git add --all . && git commit -m "$1"
   fi
 
   # pushing up
