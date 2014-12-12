@@ -8,7 +8,7 @@ fi
 
 basen() {
   local -a colros
-  colors=( $( 'ls' "${MDX_REPOS_ROOT}/base16-shell"/base16-*.sh ) )
+  colors=( $( 'ls' "${MDX_REPOS_ROOT}/base16-shell"/base16-*.dark.sh ) )
 
   if [ "${#colors[*]}" -gt 0 ]; then
     local i=$(( RANDOM % ${#colors[@]} ))
