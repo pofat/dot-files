@@ -166,67 +166,141 @@ fkill() {
 
 # cmake help selection {{{1
 
-# cmc() to cmake --help-command <selection> {{{2
-cmc() {
+# cmake helps {{{2
+cmh() {
+  local category
+  local usage="\
+usage: $0 <c|ma|mo|po|pr|v> [selection]
+where
+  c  - command
+  ma - manual
+  mo - module
+  po - policy
+  pr - property
+  v  - variable"
+
+  if [[ "$#" -eq 0 ]]; then
+    #printf "\e[31m%s: invalid argument number\e[0m\n" "$0"
+    #return
+    local categories="command\nmanual\nmodule\npolicy\nproperty\nvariable"
+
+    category=$(echo ${categories} | fzf \
+      --query="$2"                      \
+      --select-1                        \
+      --extended-exact                  \
+      --prompt="cmake help category: ")
+
+    if [[ -z "${category}" ]]; then
+      return
+    fi
+  else
+    case "$1" in
+      c )
+	category="command"
+	;;
+      ma )
+	category="manual"
+	;;
+      mo )
+	category="module"
+	;;
+      po )
+	category="policy"
+	;;
+      pr )
+	category="property"
+	;;
+      v )
+	category="variable"
+	;;
+      * )
+	printf "\e[31m%s: invalid first argument\e[0m\n" "$0"
+	echo "${usage}"
+	return
+	;;
+    esac
+  fi
+
   local selection
-  selection=$(cmake --help-command-list | \
+  selection=$(cmake --help-${category}-list | \
     sed '1d' | sort | uniq |              \
     fzf                                   \
-      --query="$1"                        \
-      --select-1                          \
-      --extended-exact                    \
-      --prompt="cmake help command: "
-    )
+    --query="$2"                          \
+    --select-1                            \
+    --extended-exact                      \
+    --prompt="cmake help ${category}: ")
   if [[ -n "${selection}" ]]; then
-    cmake --help-command "${selection}" | less
+    cmake "--help-${category}" "${selection}" | less
   fi
 }
 # }}}2
 
-# ctc() to ctest --help-command <selection> {{{2
-ctc() {
+# ctest helps {{{2
+# NOTE: just a copy of cmh() above, with all 'cmake' replaced with 'ctest'.
+cth() {
+  local category
+  local usage="\
+usage: $0 <c|ma|mo|po|pr|v> [selection]
+where
+  c  - command
+  ma - manual
+  mo - module
+  po - policy
+  pr - property
+  v  - variable"
+
+  if [[ "$#" -eq 0 ]]; then
+    #printf "\e[31m%s: invalid argument number\e[0m\n" "$0"
+    #return
+    local categories="command\nmanual\nmodule\npolicy\nproperty\nvariable"
+
+    category=$(echo ${categories} | fzf \
+      --query="$2"                      \
+      --select-1                        \
+      --extended-exact                  \
+      --prompt="ctest help category: ")
+
+    if [[ -z "${category}" ]]; then
+      return
+    fi
+  else
+    case "$1" in
+      c )
+	category="command"
+	;;
+      ma )
+	category="manual"
+	;;
+      mo )
+	category="module"
+	;;
+      po )
+	category="policy"
+	;;
+      pr )
+	category="property"
+	;;
+      v )
+	category="variable"
+	;;
+      * )
+	printf "\e[31m%s: invalid first argument\e[0m\n" "$0"
+	echo "${usage}"
+	return
+	;;
+    esac
+  fi
+
   local selection
-  selection=$(ctest --help-command-list | \
+  selection=$(ctest --help-${category}-list | \
     sed '1d' | sort | uniq |              \
     fzf                                   \
-      --query="$1"                        \
-      --select-1                          \
-      --extended-exact                    \
-      --prompt="ctest help command: ")
+    --query="$2"                          \
+    --select-1                            \
+    --extended-exact                      \
+    --prompt="ctest help ${category}: ")
   if [[ -n "${selection}" ]]; then
-    ctest --help-command "${selection}" | less
-  fi
-}
-# }}}2
-
-# cmv() to cmake --help-variable <selection> {{{2
-cmv() {
-  local selection
-  selection=$(cmake --help-variable-list | \
-    sed '1d' | sort | uniq |               \
-    fzf                                    \
-      --query="$1"                         \
-      --select-1                           \
-      --extended-exact                     \
-      --prompt="cmake help variable: ")
-  if [[ -n "${selection}" ]]; then
-    cmake --help-variable "${selection}" | less
-  fi
-}
-# }}}2
-
-# cmp to cmake --help-property <selection> {{{2
-cmp() {
-  local selection
-  selection=$(cmake --help-property-list | \
-    sed '1d' | sort | uniq |               \
-    fzf                                    \
-      --query="$1"                         \
-      --select-1                           \
-      --extended-exact                     \
-      --prompt="cmake help property: ")
-  if [[ -n "${selection}" ]]; then
-    cmake --help-property "${selection}" | less
+    ctest "--help-${category}" "${selection}" | less
   fi
 }
 # }}}2
