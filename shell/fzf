@@ -169,11 +169,14 @@ fkill() {
 # cmc() to cmake --help-command <selection> {{{2
 cmc() {
   local selection
-  selection=$(cmake --help-command-list | fzf \
-    --query="$1" \
-    --select-1 \
-    --extended-exact \
-    --prompt="cmake help command: ")
+  selection=$(cmake --help-command-list | \
+    sed '1d' |                            \
+    fzf                                   \
+      --query="$1"                        \
+      --select-1                          \
+      --extended-exact                    \
+      --prompt="cmake help command: "
+    )
   if [[ -n "${selection}" ]]; then
     cmake --help-command "${selection}" | less
   fi
@@ -183,11 +186,13 @@ cmc() {
 # ctc() to ctest --help-command <selection> {{{2
 ctc() {
   local selection
-  selection=$(ctest --help-command-list | fzf \
-    --query="$1" \
-    --select-1 \
-    --extended-exact \
-    --prompt="ctest help command: ")
+  selection=$(ctest --help-command-list | \
+    sed '1d' |                            \
+    fzf                                   \
+      --query="$1"                        \
+      --select-1                          \
+      --extended-exact                    \
+      --prompt="ctest help command: ")
   if [[ -n "${selection}" ]]; then
     ctest --help-command "${selection}" | less
   fi
@@ -197,11 +202,13 @@ ctc() {
 # cmv() to cmake --help-variable <selection> {{{2
 cmv() {
   local selection
-  selection=$(cmake --help-variable-list | fzf \
-    --query="$1" \
-    --select-1 \
-    --extended-exact \
-    --prompt="cmake help command: ")
+  selection=$(cmake --help-variable-list | \
+    sed '1d' |                             \
+    fzf                                    \
+      --query="$1"                         \
+      --select-1                           \
+      --extended-exact                     \
+      --prompt="cmake help variable: ")
   if [[ -n "${selection}" ]]; then
     cmake --help-variable "${selection}" | less
   fi
@@ -211,11 +218,13 @@ cmv() {
 # cmp to cmake --help-property <selection> {{{2
 cmp() {
   local selection
-  selection=$(cmake --help-property-list | fzf \
-    --query="$1" \
-    --select-1 \
-    --extended-exact \
-    --prompt="cmake help command: ")
+  selection=$(cmake --help-property-list | \
+    sed '1d' |                             \
+    fzf                                    \
+      --query="$1"                         \
+      --select-1                           \
+      --extended-exact                     \
+      --prompt="cmake help property: ")
   if [[ -n "${selection}" ]]; then
     cmake --help-property "${selection}" | less
   fi
