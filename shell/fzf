@@ -170,7 +170,7 @@ fkill() {
 cmc() {
   local selection
   selection=$(cmake --help-command-list | \
-    sed '1d' |                            \
+    sed '1d' | sort | uniq |              \
     fzf                                   \
       --query="$1"                        \
       --select-1                          \
@@ -187,7 +187,7 @@ cmc() {
 ctc() {
   local selection
   selection=$(ctest --help-command-list | \
-    sed '1d' |                            \
+    sed '1d' | sort | uniq |              \
     fzf                                   \
       --query="$1"                        \
       --select-1                          \
@@ -203,7 +203,7 @@ ctc() {
 cmv() {
   local selection
   selection=$(cmake --help-variable-list | \
-    sed '1d' |                             \
+    sed '1d' | sort | uniq |               \
     fzf                                    \
       --query="$1"                         \
       --select-1                           \
@@ -219,7 +219,7 @@ cmv() {
 cmp() {
   local selection
   selection=$(cmake --help-property-list | \
-    sed '1d' |                             \
+    sed '1d' | sort | uniq |               \
     fzf                                    \
       --query="$1"                         \
       --select-1                           \
