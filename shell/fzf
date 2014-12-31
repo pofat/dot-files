@@ -164,4 +164,50 @@ fkill() {
     xargs kill -"${1:-9}"
 } #}}}1
 
+# cmake help selection {{{1
+
+# cmc() to cmake --help-command <selection> {{{2
+cmc() {
+  local selection
+  selection=$(cmake --help-command-list | fzf \
+    --query="$1" \
+    --select-1 \
+    --extended-exact \
+    --prompt="cmake help command: ")
+  if [[ -n "${selection}" ]]; then
+    cmake --help-command "${selection}" | less
+  fi
+}
+# }}}2
+
+# cmv() to cmake --help-variable <selection> {{{2
+cmv() {
+  local selection
+  selection=$(cmake --help-variable-list | fzf \
+    --query="$1" \
+    --select-1 \
+    --extended-exact \
+    --prompt="cmake help command: ")
+  if [[ -n "${selection}" ]]; then
+    cmake --help-variable "${selection}" | less
+  fi
+}
+# }}}2
+
+# cmp to cmake --help-property <selection> {{{2
+cmp() {
+  local selection
+  selection=$(cmake --help-property-list | fzf \
+    --query="$1" \
+    --select-1 \
+    --extended-exact \
+    --prompt="cmake help command: ")
+  if [[ -n "${selection}" ]]; then
+    cmake --help-property "${selection}" | less
+  fi
+}
+# }}}2
+
+# }}}1
+
 # vim: filetype=zsh foldmethod=marker
