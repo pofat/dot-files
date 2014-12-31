@@ -180,6 +180,20 @@ cmc() {
 }
 # }}}2
 
+# ctc() to ctest --help-command <selection> {{{2
+ctc() {
+  local selection
+  selection=$(ctest --help-command-list | fzf \
+    --query="$1" \
+    --select-1 \
+    --extended-exact \
+    --prompt="ctest help command: ")
+  if [[ -n "${selection}" ]]; then
+    ctest --help-command "${selection}" | less
+  fi
+}
+# }}}2
+
 # cmv() to cmake --help-variable <selection> {{{2
 cmv() {
   local selection
