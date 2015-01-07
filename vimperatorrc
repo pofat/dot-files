@@ -1,25 +1,27 @@
 " ABBREVIATIONS   {{{1
 
-abbreviate gh       https://github.com
-abbreviate st       http://www.songtaste.com
-abbreviate wy       http://www.163.com
-abbreviate py2doc   http://docs.python.org/2
-abbreviate py3doc   http://docs.python.org/3
-abbreviate archwiki https://wiki.archlinux.org/index.php/Main_Page
-abbreviate vim      http://www.vim.org
-abbreviate awesome  http://awesome.naquadah.org
-abbreviate neovim   https://github.com/neovim/neovim
 abbreviate appdev   https://developer.apple.com
+abbreviate archwiki https://wiki.archlinux.org/index.php/Main_Page
+abbreviate awesome  http://awesome.naquadah.org
+abbreviate gh       https://github.com
+abbreviate gitdoc   http://git-scm.com/docs
+abbreviate godoc    http://godoc.golangtc.com
+abbreviate gospec   http://golang.org/ref/spec
+abbreviate hh       localhost:1313
 abbreviate home     http://mudox.github.io
 abbreviate hugo     http://gohugo.io
 abbreviate list     https://www.wunderlist.com/#/lists/inbox
 abbreviate mdn      https://developer.mozilla.org/en-US/docs/Web
-abbreviate gitdoc   http://git-scm.com/docs
-abbreviate gospec   http://golang.org/ref/spec
-abbreviate godoc    http://godoc.golangtc.com
-abbreviate hh       localhost:1313
-abbreviate osc      http://my.oschina.net/mudox
 abbreviate mk       http://www.imooc.com
+abbreviate neovim   https://github.com/neovim/neovim
+abbreviate osc      http://my.oschina.net/mudox
+abbreviate py2doc   http://docs.python.org/2
+abbreviate py3doc   http://docs.python.org/3
+abbreviate st       http://www.songtaste.com
+abbreviate toml     https://github.com/toml-lang/toml
+abbreviate ver      http://semver.org
+abbreviate vim      http://www.vim.org
+abbreviate wy       http://www.163.com
 
 "}}}1
 
