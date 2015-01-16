@@ -16,8 +16,8 @@ inoremap <C-H> <Left>
 inoremap <C-L> <Right>
 
 nnoremap gh    :xhelp<CR>
-nnoremap ]i    :ni<CR>
-nnoremap [i    :pi<CR>
+nnoremap ]q    :ni<CR>
+nnoremap [q    :pi<CR>
 
 inoremap <C-h> <left>
 inoremap <C-j> <down>
@@ -72,7 +72,9 @@ nnoremap <Space>o :xccmd openQuickly<CR>
 "      Title:Close Document                                 Action:closeDocument
 "      Title:Close Workspace                                Action:performCloseWorkspace
 "      Title:Save                                           Action:saveDocument
+nnoremap <Backspace>w  :xccmd saveDocument<Cr>
 "      Title:Save All                                       Action:saveAllEditorDocuments
+nnoremap <Backspace>a  :xccmd saveAllEditorDocuments<Cr>
 "      Title:Save Multiple                                  Action:saveMultipleEditorDocuments
 "      Title:Save As                                        Action:saveDocumentAs
 "      Title:Duplicate                                      Action:duplicateDocument
@@ -321,7 +323,9 @@ nnoremap zm :xccmd toggleMessageBubbles<CR>
 "              Title:Errors Only                            Action:showErrorsOnly
 "      Title:Structure                                      Action:submenuAction
 "              Title:Balance Delimiter                      Action:balance
+nnoremap g= :xccmd balance<CR>
 "              Title:Re-Indent                              Action:indentSelection
+nnoremap \f vaB:xccmd indentSelection<CR>
 "              Title:Shift Right                            Action:shiftRight
 "              Title:Shift Left                             Action:shiftLeft
 "              Title:Move Line Up                           Action:moveCurrentLineUp
