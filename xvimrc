@@ -3,6 +3,11 @@ set wrapscan
 
 set guioptions=
 
+nnoremap ][ /^\}<Cr>zz
+nnoremap [] ?^\}<Cr>zz
+nnoremap ]] /^[-+]<Cr>zz
+nnoremap [[ ?^[-+]<Cr>zz
+
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -15,7 +20,7 @@ noremap L     <C-d>
 inoremap <C-H> <Left>
 inoremap <C-L> <Right>
 
-nnoremap gh    :xhelp<CR>
+nnoremap zh    :xhelp<CR>
 nnoremap ]q    :ni<CR>
 nnoremap [q    :pi<CR>
 
@@ -37,8 +42,6 @@ nnoremap <Space>3 <Space>h<Space>l
 nnoremap <Space>5 <Space>h<Space>j
 
 nnoremap dae <Esc><Esc>ggdGi
-
-
 
 "Title:Xcode                                                Action:submenuAction
 "      Title:About Xcode                                    Action:orderFrontAboutPanel
@@ -67,6 +70,7 @@ nnoremap dae <Esc><Esc>ggdGi
 "              Title:Clear Menu                             Action:clearRecentDocuments
 "      Title:Open Quickly                                   Action:openQuickly
 nnoremap <Space>o :xccmd openQuickly<CR>
+nnoremap go :xccmd openQuickly<CR>
 "      Title:Close Window                                   Action:performClose
 "      Title:Close Tab                                      Action:closeCurrentTab
 "      Title:Close Document                                 Action:closeDocument
@@ -251,12 +255,10 @@ nnoremap <Space>b :xccmd changeToBreakpointsNavigator<CR>
 "              Title:Show Log Navigator                     Action:changeToLogsNavigator
 nnoremap <Space>g :xccmd changeToLogsNavigator<CR>
 "              Title:Show Navigator                         Action:toggleNavigatorsVisibility
-nnoremap <Space>N :xccmd toggleNavigatorsVisibility<CR>
 nnoremap <Space>h :xccmd toggleNavigatorsVisibility<CR>
 "      Title:Debug Area                                     Action:submenuAction
 "              Title:Activate Console                       Action:activateConsole
 "              Title:Show Debug Area                        Action:toggleDebuggerVisibility
-nnoremap <Space>D :xccmd toggleDebuggerVisibility<CR>
 nnoremap <Space>j :xccmd toggleDebuggerVisibility<CR>
 "      Title:Utilities                                      Action:submenuAction
 "              Title:Show File Inspector                    Action:showInspectorWithChoiceFromSender
@@ -266,7 +268,6 @@ nnoremap <Space>j :xccmd toggleDebuggerVisibility<CR>
 "              Title:Show Object Library                    Action:showLibraryWithChoiceFromSender
 "              Title:Show Media Library                     Action:showLibraryWithChoiceFromSender
 "              Title:Show Utilities                         Action:toggleUtilitiesVisibility
-nnoremap <Space>U :xccmd toggleUtilitiesVisibility<CR>
 nnoremap <Space>l :xccmd toggleUtilitiesVisibility<CR>
 "              Title:Show Utilities                         Action:toggleUtilitiesVisibilityAlternate
 nnoremap <Space>A :xccmd toggleUtilitiesVisibilityAlternate<CR>
@@ -300,9 +301,11 @@ nnoremap zf :xccmd toggleFullScreen<CR>
 "      Title:Jump to Previous Issue                         Action:jumpToPreviousIssue
 "      Title:Fix Previous Issue                             Action:fixPreviousIssue
 "      Title:Jump to Next Counterpart                       Action:jumpToNextCounterpart
+nnoremap ]c  :xccmd jumpToNextCounterpart<Cr>
 "      Title:Jump to Next Counterpart (option)              Action:jumpToNextCounterpartWithAlternate
 "      Title:Jump to Next Counterpart (shift+option)        Action:jumpToNextCounterpartWithShiftPlusAlternate
 "      Title:Jump to Previous Counterpart                   Action:jumpToPreviousCounterpart
+nnoremap [c  :xccmd jumpToPreviousCounterpart<Cr>
 "      Title:Jump to Previous Counterpart (option)          Action:jumpToPreviousCounterpartWithAlternate
 "      Title:Jump to Previous Counterpart (shift+option)    Action:jumpToPreviousCounterpartWithShiftPlusAlternate
 "      Title:Jump To                                        Action:openQuicklyScoped
@@ -312,7 +315,7 @@ nnoremap gl :xccmd openQuicklyScoped<CR>
 "Title:Editor                                               Action:submenuAction
 "      Title:Show Completions                               Action:complete
 "      Title:Edit All in Scope                              Action:toggleTokenizedEditing
-nnoremap <C-n> :xccmd toggleTokenizedEditing<CR>
+"nnoremap ga :xccmd toggleTokenizedEditing<CR>
 "      Title:Fix All in Scope                               Action:fixAllInScope
 "      Title:Show Issue                                     Action:toggleIssueShown
 nnoremap zi :xccmd toggleIssueShown<CR>
