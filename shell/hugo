@@ -59,7 +59,8 @@ hb() {
   cp --recursive --target-directory="${site_git_path}" "./${production}"/*
 
   if [[ "$?" -ne 0 ]]; then
-    printf "\e[31mscopying failed..., quit\e[0m\n"
+    printf "\e[31mcopying failed..., quit\e[0m\n"
+    return
   fi
 
   # commit & push changes to github
