@@ -17,9 +17,6 @@ fzf() {
 }
 export -f fzf > /dev/null
 
-# Auto-completion
-[[ $- =~ i ]] && source "${MDX_REPOS_ROOT}/fzf/fzf-completion.zsh"
-
 # ^Tf to append file & paths under $(pwd) to the command line. {{{1
 __fsel() {
   set -o nonomatch
