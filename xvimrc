@@ -3,10 +3,11 @@ set wrapscan
 
 set guioptions=
 
-nnoremap ][ /^\}<Cr>zz
-nnoremap [] ?^\}<Cr>zz
-nnoremap ]] /^[-+]<Cr>zz
-nnoremap [[ ?^[-+]<Cr>zz
+nnoremap ]] /^[-+]|func\b<Cr>zz
+nnoremap [[ ?^[-+]|func\b<Cr>zz
+
+nnoremap n nzz
+nnoremap N Nzz
 
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
