@@ -79,7 +79,7 @@ zle     -N   mudox-zsh-widget-zdirs
 bindkey '^Tz' mudox-zsh-widget-zdirs
 # }}}1
 
-# ^[z, or ^[j to cd to one of the paths in $(z -l) {{{1
+# ^[j to cd to one of the paths in $(z -l) {{{1
 mudox-zsh-widget-j() {
   if [[ -z "$(whence z)" ]]; then
     printf "\e[31mneed z, quit...\e[0m\n"
@@ -130,26 +130,31 @@ fe() {
   case $(uname -s) in
     Darwin )
       # for MacOS
-      if whence mvim; then
-	local gvim='mvim'
+      if whence nvim; then
+	local vim_bin='nvim'
       else
-	local gvim='gvim'
+	local vim_bin='mvim'
       fi
       ;;
     CYGWIN* )
       # for Cygwin on Windows
-      local gvim="/d/Program Files/Vim/vim74/gvim.exe"
+      local vim_bin="/d/Program Files/Vim/vim74/vim_bin.exe"
       ;;
     Linux )
       # for Linux
-      local gvim="gvim"
+      local vim_bin="vim_bin"
       ;;
     * )
       printf "\e[31m[.zshrc]: un-recognized platform.\n"
       ;;
   esac
 
-  [ -n "$file" ] && "${gvim}" --remote-tab-silent "$file"
+  if [[ "${vim_bin}" = "nvim" ]]; then
+    #statements
+    [ -n "$file" ] && "${vim_bin}" "$file"
+  else
+    [ -n "$file" ] && "${vim_bin}" --remote-tab-silent "$file"
+  fi
 } #}}}1
 
 # fkill to select & kill procces {{{1
@@ -167,8 +172,8 @@ fkill() {
 cmh() {
   local category
   local usage="\
-usage: $0 <c|ma|mo|po|pr|v> [selection]
-where
+    usage: $0 <c|ma|mo|po|pr|v> [selection]
+  where
   c  - command
   ma - manual
   mo - module
@@ -237,8 +242,8 @@ where
 cth() {
   local category
   local usage="\
-usage: $0 <c|ma|mo|po|pr|v> [selection]
-where
+    usage: $0 <c|ma|mo|po|pr|v> [selection]
+  where
   c  - command
   ma - manual
   mo - module
