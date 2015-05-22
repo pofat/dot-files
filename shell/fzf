@@ -79,7 +79,7 @@ zle     -N   mudox-zsh-widget-zdirs
 bindkey '^Tz' mudox-zsh-widget-zdirs
 # }}}1
 
-# ^[j to cd to one of the paths in $(z -l) {{{1
+# ^[j to cd to one of the paths in $(z -l). {{{1
 mudox-zsh-widget-j() {
   if [[ -z "$(whence z)" ]]; then
     printf "\e[31mneed z, quit...\e[0m\n"
@@ -157,7 +157,7 @@ fe() {
   fi
 } #}}}1
 
-# fkill to select & kill procces {{{1
+# fkill to select & kill procces. {{{1
 fkill() {
   ps | \
     sed '1d' | \
@@ -166,7 +166,7 @@ fkill() {
     xargs kill -"${1:-9}"
 } #}}}1
 
-# cmake help selection {{{1
+# cmake help selection. {{{1
 
 # cmake helps {{{2
 cmh() {
@@ -182,8 +182,6 @@ cmh() {
   v  - variable"
 
   if [[ "$#" -eq 0 ]]; then
-    #printf "\e[31m%s: invalid argument number\e[0m\n" "$0"
-    #return
     local categories="command\nmanual\nmodule\npolicy\nproperty\nvariable"
 
     category=$(echo ${categories} | fzf \
@@ -252,8 +250,6 @@ cth() {
   v  - variable"
 
   if [[ "$#" -eq 0 ]]; then
-    #printf "\e[31m%s: invalid argument number\e[0m\n" "$0"
-    #return
     local categories="command\nmanual\nmodule\npolicy\nproperty\nvariable"
 
     category=$(echo ${categories} | fzf \
@@ -301,11 +297,35 @@ cth() {
     --select-1                            \
     --extended-exact                      \
     --prompt="ctest help ${category}: ")
+
   if [[ -n "${selection}" ]]; then
     ctest "--help-${category}" "${selection}" | less
   fi
 }
 # }}}2
+
+# }}}1
+
+# (neo)vim mode set {{{1
+vmode() {
+  local modes_path="${MDX_REPOS_ROOT}/vim-config/chameleon/modes"
+  local cur_mode_file="${modes_path}/../cur_mode"
+
+  local selection
+  selection=$(                              \
+    ls -1 "${modes_path}" | grep -v '^x_' | \
+    fzf                                     \
+      --extended-exact                      \
+      --select-1                            \
+      --prompt='change (neo)vim mode: '     \
+  )
+
+  if [[ -n "${selection}" ]]; then
+    echo "${selection}" > "${cur_mode_file}"
+  fi
+
+  printf "\e[33mset new mode to [$(cat ${cur_mode_file})]\e[0m\n"
+}
 
 # }}}1
 
