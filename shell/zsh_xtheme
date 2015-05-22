@@ -2,6 +2,8 @@
 
 function xtheme() {
 
+export MDX_ZSH_THEME
+
 case $# in
   0 )
     zsh_themes=(${ZSH}/themes/*.zsh-theme)
