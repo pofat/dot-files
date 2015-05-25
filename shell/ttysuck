@@ -1,0 +1,14 @@
+# vim: filetype=zsh
+
+tty_suck() {
+  export MDX_TTY_SUCKER='/tmp/mdx_tty_sucker'
+
+  if ! [ -p "$MDX_TTY_SUCKER" ]; then
+    mkfifo "$MDX_TTY_SUCKER"
+  fi
+
+  while true; do
+    zsh < "$MDX_TTY_SUCKER"
+    echo "\n\x1b[35m$(date -Iseconds) -------------------------------------------------------------\x1b[0m"
+  done
+}
