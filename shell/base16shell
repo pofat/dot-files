@@ -18,9 +18,10 @@ basen() {
   printf "\e[33m[base16 colorscheme]: \e[1;35m${MDX_BASE_COLOR}\e[0m\n"
 }
 
-# ban current scheme & switch to next picked scheme
+# ban current scheme & switch to next picked one
 baseb() {
   printf "\e[33m[base16 colorscheme]: \e[31mban $(pool base16 current) ...\e[0m\n"
+
   pool base16 ban
 
   basen
