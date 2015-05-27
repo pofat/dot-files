@@ -1,23 +1,34 @@
 #!/bin/bash
 
-if [ ! -d "${MDX_REPOS_ROOT}/base16-shell" ]; then
+MDX_BASE16_ROOT="${MDX_REPOS_ROOT}/base16-shell"
+
+if [ ! -d "$MDX_BASE16_ROOT" ]; then
   printf "\e[33mneed [base16-shell], installing ...\e[0m\n"
   git clone "https://github.com/chriskempson/base16-shell.git" \
-    "${MDX_REPOS_ROOT}/base16-shell"
+    "$MDX_BASE16_ROOT"
 fi
 
+# switch to next picked scheme
 basen() {
-  local -a colros
-  colors=( $( 'ls' "${MDX_REPOS_ROOT}/base16-shell"/base16-*.dark.sh ) )
+  export MDX_BASE_COLOR="$(pool base16 pick)"
 
-  if [ "${#colors[*]}" -gt 0 ]; then
-    local i=$(( RANDOM % ${#colors[@]} ))
-    local colorscheme=${colors[i]}
-    source ${colorscheme}
+  local full_path="${MDX_BASE16_ROOT}/base16-${MDX_BASE_COLOR}.sh"
+  source "${full_path}"
 
-    export MDX_BASE_COLOR="$(basename ${colorscheme} .sh)"
-    printf "\e[33m[shell colorscheme]: \e[1;35m${MDX_BASE_COLOR}\e[0m\n"
-  fi
+  printf "\e[33m[base16 colorscheme]: \e[1;35m${MDX_BASE_COLOR}\e[0m\n"
+}
+
+# ban current scheme & switch to next picked scheme
+baseb() {
+  printf "\e[33m[base16 colorscheme]: \e[31mban $(pool base16 current) ...\e[0m\n"
+  pool base16 ban
+
+  basen
+}
+
+# like current item
+basel() {
+  pool base16 like
 }
 
 # vim: filetype=zsh
