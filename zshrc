@@ -1,9 +1,9 @@
 # vim: filetype=zsh foldmethod=marker
 SHELL=$0
 
-# duplicate definition
-export MDX_REPOS_ROOT=${MDX_REPOS_ROOT:-"${HOME}/Git"}
-export MDX_DOT_FILES=${MDX_DOT_FILES:-"${MDX_REPOS_ROOT}/dot-files"}
+export MDX_REPOS_ROOT="${HOME}/Git"
+
+export LANG='zh_CN.UTF-8'
 
 if [ ! -d "${MDX_REPOS_ROOT}/antigen" ]; then
   echo "\e[31mneed [antigen], installing ...\e[0m"
@@ -79,6 +79,7 @@ case $(uname -s) in
     source "$osx/coreutils"
     source "$osx/pyenv"
     source "$osx/tree"
+    source "$osx/gcc"
     ;;
   CYGWIN* )
     source "$cygwin/mintty"
@@ -89,7 +90,6 @@ case $(uname -s) in
       *ARCH ) # Arch Linux
 	source "$archlinux/yaourt"
 	source "$archlinux/vpn"
-	source "$archlinux/pyenv"
 	;;
       * )
 	echo "\e[31m[.zshrc]: un-recognized linux distro."
@@ -118,6 +118,10 @@ to_load=(                      \
   git                          \
   man                          \
   rvm                          \
+  thefuck                      \
+  neovim		       \
+  editor		       \
+  ttysuck		       \
   )
 
 for s in "${to_load[@]}"; do
@@ -145,3 +149,6 @@ mdxinfo() {
   printf "%-20s : %s\n" "zsh theme" "${MDX_ZSH_THEME}"
   printf "%-20s : %s\n" "base colorscheme" "${MDX_BASE_COLOR}"
 }
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

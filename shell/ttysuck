@@ -1,0 +1,31 @@
+# vim: filetype=zsh
+
+tsuck() {
+  intro_1="\n\e[35mTTY awaiting for commands\e[36m ---------------------------------------------------------------------\e[0m"
+  intro_2="\n  \e[2mfeed me with command lines by echoing them into \e[0m\e[1;4m${MDX_TTY_SUCKER}\e[0m"
+  intro_3="\n\e[36m---------------------------------------------------------------------- \e[35m$(date -Iseconds)\e[0m\n\n"
+
+  intro="${intro_1}""${intro_2}""${intro_3}"
+
+  local sep="\n\e[35mcommand output separator\e[36m --------------------------------------------- \e[35m$(date -Iseconds)\e[0m\n\n"
+
+  clear
+
+  printf "${intro}"
+
+  export MDX_TTY_SUCKER="/tmp/mdx_tty_sucker"
+
+  if ! [ -p "$MDX_TTY_SUCKER" ]; then
+    mkfifo "$MDX_TTY_SUCKER"
+  fi
+
+  trap 'printf "\e[1GQuit from suck mode ....\n" && rm "${MDX_TTY_SUCKER}" && return && printf "\e[?25h\e[?25h"' 2
+
+  # hide cursor, restore on trapping.
+  printf '\e[?25l'
+
+  while true; do
+    zsh < "$MDX_TTY_SUCKER"
+    printf "${sep}"
+  done
+}
