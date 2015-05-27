@@ -1,4 +1,5 @@
 # vim: filetype=zsh
 
 alias yt='yaourt'
-alias syu='yaourt -Syu'
+alias syu='yaourt -Syua'
+alias yu='yaourt -Rucs'
