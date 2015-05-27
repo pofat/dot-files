@@ -113,7 +113,7 @@ to_load=(                      \
   zsh_history_substring_search \
   hugo                         \
   fzf                          \
-  zsh_xtheme                   \
+  zsh_prompt_theme             \
   base16shell		       \
   git                          \
   man                          \
@@ -141,13 +141,13 @@ mdx_uniq_path
 
 # }}}1
 
-# theme & shell colorscheme.
-xtheme
+# prompt theme & shell colorscheme.
+zpn
 basen
 
 mdxinfo() {
-  printf "%-20s : %s\n" "zsh theme" "${MDX_ZSH_THEME}"
-  printf "%-20s : %s\n" "base colorscheme" "${MDX_BASE_COLOR}"
+  printf "\e[33m%25s -> \e[1;35m%s\n" "zsh prompt theme" "${MDX_ZSH_THEME}"
+  printf "\e[33m%25s -> \e[1;35m%s\n" "base16 colorscheme" "${MDX_BASE_COLOR}"
 }
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
