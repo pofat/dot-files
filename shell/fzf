@@ -10,13 +10,6 @@ fi
 export FZF_COMPLETION_TRIGGER=',,'
 export FZF_COMPLETION_OPTS='-x'
 
-# Setup fzf function
-unalias fzf 2> /dev/null
-fzf() {
-  /usr/bin/ruby "${MDX_REPOS_ROOT}/fzf/fzf" "$@"
-}
-export -f fzf > /dev/null
-
 # ^Tf to append file & paths under $(pwd) to the command line. {{{1
 __fsel() {
   set -o nonomatch
