@@ -1,10 +1,9 @@
 #!/bin/bash
 
-# check repo.
-if [ ! -d "${MDX_REPOS_ROOT}/fzf" ]; then
-  printf "\e[33mneed [fzf], installing ...\e[0m\n"
-  git clone "https://github.com/junegunn/fzf.git" \
-    "${MDX_REPOS_ROOT}/fzf"
+# executable availability check
+if [[ -z "$(whence fzf)" ]]; then
+  printf "\e[31mmissing executable [fzf], quit\e[0m\n"
+  return
 fi
 
 export FZF_COMPLETION_TRIGGER=',,'
