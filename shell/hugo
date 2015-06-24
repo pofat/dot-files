@@ -1,50 +1,43 @@
 #!/bin/bash
 
+# executable availability check
+if [[ -z "$(whence hugo)" ]]; then
+  printf "\e[31mmissing executable hugo..., quit\e[0m\n"
+  return
+fi
+
 # hb(): build hugo site into mudox.github.io {{{1
 hb() {
 
-  if [[ -z "$(whence hugo)" ]]; then
-    printf "\e[31mmissing executable hugo..., quit\e[0m\n"
+  local dest_path="${HOME}/Sites/mudox.github.io"
+
+  if [ ! -d "${dest_path}" ]; then
+    printf "\e[31mmissing ${dest_path} as destination repo, quit ...\e[0m\n"
     return
   fi
 
-  local production='output/public'
+  local src_path="${HOME}/Sites/mudox.github.io-source"
 
-  local site_git_path="${HOME}/Git/homepage"
-  if [ ! -e "${site_git_path}" ]; then
-    printf "\e[31mneed ${site_git_path}, quit ...\e[0m\n"
+  if [ ! -d "${src_path}" ]; then
+    printf "\e[31mmissing ${src_path} as source repo, quit ...\e[0m\n"
     return
   fi
 
-  if [ ! -d "${site_git_path}" ]; then
-    printf "\e[31mmissing ${site_git_path}, quit ...\e[0m\n"
-    return
-  fi
+  local production_path='${src_path}/output/public'
 
-  # check if $(pwd) is a valid root of a hugo site.
-  if ! [ -d "content" -a -f "config.toml" ]; then
-    printf "\e[33mcurrent path is not a valid root of hugo site\e[0m\n"
-    local default_site="${HOME}/Sites/hugo-site"
-    if [ -d "${default_site}" ]; then
-      printf "\e[34mcd to \e[7;34m${default_site} ...\e[0m\n"
-      cd "${default_site}"
-    else
-      printf "\e[31mcan not find a valid hugo site path to cd, quit ...\e[0m\n"
-      return
-    fi
-  fi
+  cd "${src_path}"
 
   # hugo building site
   printf "\e[34mstart building site ...\e[0m\n"
   rm -rf "./${production}" &>/dev/null # remove public directory first.
-  # start hugo server
-  hugo                            \
-    --source=.                    \
-    --destination="${production}" \
-    --buildDrafts                 \
-    --buildFuture                 \
-    --disableRSS=true             \
-    --disableSitemap=true         \
+
+  hugo                                 \
+    --source=${src_path}               \
+    --destination="${production_path}" \
+    --buildDrafts                      \
+    --buildFuture                      \
+    --disableRSS=true                  \
+    --disableSitemap=true              \
     --theme="cur_theme"
 
   # check hugo status
@@ -53,10 +46,10 @@ hb() {
     return
   fi
 
-  # installing to github local repo.
+  # installing to destiantion repo.
   printf "\e[34minstalling production ...\e[0m\n"
-  rm -rf "${site_git_path}"/* &>/dev/null # clean the directory up first
-  cp --recursive --target-directory="${site_git_path}" "./${production}"/*
+  rm -rf "${dest_path}"/* &>/dev/null # clean the directory up first
+  cp --recursive --target-directory="${dest_path}" "./${production_path}"/*
 
   if [[ "$?" -ne 0 ]]; then
     printf "\e[31mcopying failed..., quit\e[0m\n"
@@ -64,7 +57,7 @@ hb() {
   fi
 
   # commit & push changes to github
-  cd "${site_git_path}"
+  cd "${dest_path}"
   if [ "$#" -ne 1 ]; then
     git add --all . && git commit
   else
@@ -79,16 +72,12 @@ hb() {
 # hs(): hugo server for test {{{1
 hs() {
 
-  if [[ -z "$(whence hugo)" ]]; then
-    printf "\e[31mmissing executable hugo..., quit\e[0m\n"
-    return
-  fi
 
   # kill running hugo if any.
   kill %hugo &>/dev/null
 
 
-  # sleep a while for old hugo instance to die if any.
+  # sleep a while for old hugo instance to die completely if any.
   if [[ "$?" -eq 0 ]]; then
     sleep .5s
     sleepc 1.5 .1 'waiting for old hugo instance to die out ...'
@@ -102,27 +91,22 @@ hs() {
     return
   fi
 
-  # check if $(pwd) is a valid root of a hugo site.
-  if ! [ -d "content" -a -f "config.toml" ]; then
-    printf "\e[33mcurrent path is not a valid root of hugo site\e[0m\n"
-    local default_site="${HOME}/Sites/hugo-site"
-    if [ -d "${default_site}" ]; then
-      printf "\e[34mcd to \e[7;33m${default_site}\e[33m ...\e[0m\n"
-      cd "${default_site}"
-    else
-      printf "\e[31mcan not find a valid hugo site path to cd\e[0m\n"
-      return
-    fi
+  local src_path="${HOME}/Sites/mudox.github.io-source"
+
+  if [ ! -d "${src_path}" ]; then
+    printf "\e[31mmissing ${src_path} as source repo, quit ...\e[0m\n"
+    return
   fi
 
   # start hugo server
   hugo server                         \
+    --source="${src_path}"	      \
     --watch                           \
     --buildDrafts                     \
     --buildFuture                     \
-    --theme="$theme"                  \
+    --theme="${theme}"                \
     --destination="output/local"      \
-    --source=. >/tmp/hugo.log &
+    >/tmp/hugo.log &
 
   sleepc 3 .1 'waiting for server to start ...'
 
@@ -153,37 +137,6 @@ hs() {
       ;;
     Linux )
       firefox "${url}" &>/dev/null &
-      ;;
-    * )
-      printf "\e[31m[.zshrc]: un-recognized platform.\n"
-      ;;
-  esac
-} # }}}1
-
-# hn(): hugo new and then open the new file in vim {{{1
-hn() {
-
-  if [[ -z "$(whence hugo)" ]]; then
-    printf "\e[31mmissing executable hugo..., quit\e[0m\n"
-    return
-  fi
-
-  if [[ $# -ne 1 ]]; then
-    echo "usage: $0 <section>/../*.md"
-    return
-  fi
-
-  hugo new "$1" -s . || return
-
-  case $(uname -s) in
-    Darwin )
-      /Applications/MacVim.app/Contents/MacOS/Vim -g --remote-tab "content/$1"
-      ;;
-    CYGWIN* )
-      gvopen "content/$1" # the function defined shell/cygwin/cygwin
-      ;;
-    Linux )
-      gvim --remote-tab "content/$1"
       ;;
     * )
       printf "\e[31m[.zshrc]: un-recognized platform.\n"
