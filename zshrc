@@ -3,7 +3,7 @@ SHELL=$0
 
 export MDX_REPOS_ROOT="${HOME}/Git"
 
-export LANG='zh_CN.UTF-8'
+export LANG='en_US.UTF-8'
 
 if [ ! -d "${MDX_REPOS_ROOT}/antigen" ]; then
   echo "\e[31mneed [antigen], installing ...\e[0m"
