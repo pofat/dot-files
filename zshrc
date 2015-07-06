@@ -152,3 +152,10 @@ mdxinfo() {
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+case $(uname -s) in
+  Darwin )
+    # for MacOS
+    source /Users/mudox/.iterm2_shell_integration.zsh
+    ;;
+esac
