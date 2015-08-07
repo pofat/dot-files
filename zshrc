@@ -52,6 +52,9 @@ copydir
 # put file content in clipboard
 copyfile
 
+# directory listings for zsh with git features
+rimraf/k
+
 
 EOBUNDLES
 # }}}2
