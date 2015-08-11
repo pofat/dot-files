@@ -53,7 +53,7 @@ zle     -N   fzf-history-widget
 bindkey '^Th' fzf-history-widget
 # }}}1
 
-# ^Tz to append paths from $(z -l) to the command line. {{{1
+# ^Tj to append paths from $(z -l) to the command line. {{{1
 __zdirs() {
   set -o nonomatch
   z -l | sed 's/[0-9.,]* *//' | fzf -m -e | while read item; do
@@ -68,7 +68,7 @@ mudox-zsh-widget-zdirs() {
 }
 
 zle     -N   mudox-zsh-widget-zdirs
-bindkey '^Tz' mudox-zsh-widget-zdirs
+bindkey '^Tj' mudox-zsh-widget-zdirs
 # }}}1
 
 # ^[j to cd to one of the paths in $(z -l). {{{1
@@ -92,7 +92,7 @@ zle -N mudox-zsh-widget-j
 bindkey '^[j' mudox-zsh-widget-j
 #}}}1
 
-# ^[c to cd to one of directory under current path. {{{1
+# ^[d to cd to one of directory under current path. {{{1
 # do not descend into hidden directories.
 mudox-zsh-widget-c() {
   local target_dir
@@ -106,7 +106,7 @@ mudox-zsh-widget-c() {
 }
 
 zle -N mudox-zsh-widget-c
-bindkey '^[c' mudox-zsh-widget-c
+bindkey '^[d' mudox-zsh-widget-c
 #}}}1
 
 # fe [pattern] to open the selected file with the gvim in tab. {{{1
