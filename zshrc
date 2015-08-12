@@ -55,7 +55,6 @@ copyfile
 # directory listings for zsh with git features
 rimraf/k
 
-
 EOBUNDLES
 # }}}2
 
@@ -159,6 +158,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 case $(uname -s) in
   Darwin )
     # for MacOS
-    source /Users/mudox/.iterm2_shell_integration.zsh
+    source "${HOME}/.iterm2_shell_integration.zsh" &&
+    printf "\e[33miTerm2 shell integration enabled\e[0m\n"
     ;;
 esac
