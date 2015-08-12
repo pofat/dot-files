@@ -1,5 +1,5 @@
 # vim: filetype=zsh
 
-mdx_path_push_front "/usr/local/opt/coreutils/libexec/gnubin/"
+mdx_path_push_front "/usr/local/opt/coreutils/libexec/gnubin"
 
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman/:${MANPATH}"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}"
