@@ -1,0 +1,3 @@
+# vim: filetype=zsh
+
+alias nvim="PATH=/usr/bin:$PATH ~/.bin/neovim/bin/nvim"
