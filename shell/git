@@ -1,5 +1,5 @@
 # vim: filetype=zsh
 
 alias lg='git lg'
-alias plg='git lg ORIG_HEAD...HEAD'
-alias gllg='gl && plg'
+alias lgoh='lg ORIG_HEAD..HEAD'
+alias gllg='gl && lgoh'
