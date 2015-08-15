@@ -1,13 +1,23 @@
 #!/bin/bash
 
-# executable availability check
-if [[ -z "$(whence fzf)" ]]; then
-  printf "\e[31mmissing executable [fzf], quit\e[0m\n"
+if [[ ! $- =~ i ]]; then
   return
 fi
 
 export FZF_COMPLETION_TRIGGER=',,'
 export FZF_COMPLETION_OPTS='-x'
+
+export FZF_DEFAULT_OPTS='
+--extended
+--bind ctrl-f:page-down,ctrl-b:page-up
+--color fg:252,bg:233,hl:67,fg+:252,bg+:235,hl+:81
+--color info:144,prompt:161,spinner:135,pointer:135,marker:118
+'
+
+# in tmux emit modified command.
+__fzfcmd() {
+  [ ${FZF_TMUX:-1} -eq 1 ] && echo "fzf-tmux -d${FZF_TMUX_HEIGHT:-40%}" || echo "fzf"
+}
 
 # ^Tf to append file & paths under $(pwd) to the command line. {{{1
 __fsel() {
@@ -15,7 +25,7 @@ __fsel() {
   command find ./* -path '*/\.*' -prune \
     -o -type f -print \
     -o -type d -print \
-    -o -type l -print 2> /dev/null | fzf -m -e | while read item; do
+    -o -type l -print 2> /dev/null | $(__fzfcmd) -m -e | while read item; do
   printf '%q ' "$item"
 done
 echo
@@ -43,20 +53,27 @@ zle     -N   fzf-file-widget
 bindkey '^Tf' fzf-file-widget
 # }}}1
 
-# ^Th - Paste the selected command from history into the command line. {{{1
+# ^R - Paste the selected command from history into the command line. {{{1
+# ^R in the fzf ui to apply sort
 fzf-history-widget() {
-  LBUFFER=$(fc -l 1 | fzf +s +m -x -n2..,.. | sed "s/ *[0-9*]* *//")
+  local selected restore_no_bang_hist
+  if selected=( $(fc -l 1 | $(__fzfcmd) +s --tac +m -n2..,.. --tiebreak=index --toggle-sort=ctrl-r -q "$LBUFFER") ); then
+    num=$selected[1]
+    if [ -n "$num" ]; then
+      zle vi-fetch-history -n $num
+    fi
+  fi
   zle redisplay
 }
 
 zle     -N   fzf-history-widget
-bindkey '^Th' fzf-history-widget
+bindkey '^R' fzf-history-widget
 # }}}1
 
 # ^Tj to append paths from $(z -l) to the command line. {{{1
 __zdirs() {
   set -o nonomatch
-  z -l | sed 's/[0-9.,]* *//' | fzf -m -e | while read item; do
+  z -l | sed 's/[0-9.,]* *//' | $(__fzfcmd) -m -e | while read item; do
   printf '%q ' "$item"
 done
 echo
@@ -78,7 +95,7 @@ mudox-zsh-widget-j() {
   fi
 
   local target_dir
-  target_dir=$( z -l | sed 's/[0-9.,]* *//' | fzf +m \
+  target_dir=$( z -l | sed 's/[0-9.,]* *//' | $(__fzfcmd) +m \
     --select-1 \
     --exit-0 \
     --extended-exact)
@@ -98,7 +115,7 @@ mudox-zsh-widget-c() {
   local target_dir
   target_dir=$(find ./* -path '*/\.*' -prune \
     -o -type d -print 2> /dev/null | \
-    fzf +m +s --extended-exact)
+    $(__fzfcmd) +m +s --extended-exact)
 
   [ -n "$target_dir" ] && cd "$target_dir"
 
@@ -112,7 +129,7 @@ bindkey '^[d' mudox-zsh-widget-c
 # fe [pattern] to open the selected file with the gvim in tab. {{{1
 fe() {
   local file
-  file=$(fzf \
+  file=$($(__fzfcmd) \
     --query="$1" \
     --select-1 \
     --exit-0 \
@@ -153,7 +170,7 @@ fe() {
 fkill() {
   ps | \
     sed '1d' | \
-    fzf --multi --extended-exact | \
+    $(__fzfcmd) --multi --extended-exact | \
     awk '{print $2}' | \
     xargs kill -"${1:-9}"
 } #}}}1
@@ -176,7 +193,7 @@ cmh() {
   if [[ "$#" -eq 0 ]]; then
     local categories="command\nmanual\nmodule\npolicy\nproperty\nvariable"
 
-    category=$(echo ${categories} | fzf \
+    category=$(echo ${categories} | $(__fzfcmd) \
       --query="$2"                      \
       --select-1                        \
       --extended-exact                  \
@@ -216,7 +233,7 @@ cmh() {
   local selection
   selection=$(cmake --help-${category}-list | \
     sed '1d' | sort | uniq |              \
-    fzf                                   \
+    $(__fzfcmd)                                   \
     --query="$2"                          \
     --select-1                            \
     --extended-exact                      \
@@ -244,7 +261,7 @@ cth() {
   if [[ "$#" -eq 0 ]]; then
     local categories="command\nmanual\nmodule\npolicy\nproperty\nvariable"
 
-    category=$(echo ${categories} | fzf \
+    category=$(echo ${categories} | $(__fzfcmd) \
       --query="$2"                      \
       --select-1                        \
       --extended-exact                  \
@@ -284,7 +301,7 @@ cth() {
   local selection
   selection=$(ctest --help-${category}-list | \
     sed '1d' | sort | uniq |              \
-    fzf                                   \
+    $(__fzfcmd)                                   \
     --query="$2"                          \
     --select-1                            \
     --extended-exact                      \
@@ -306,11 +323,11 @@ vmode() {
   local selection
   selection=$(                              \
     ls -1 "${modes_path}" | grep -v '^x_' | \
-    fzf                                     \
-      --extended-exact                      \
-      --select-1                            \
-      --prompt='change (neo)vim mode: '     \
-  )
+    $(__fzfcmd)                                     \
+    --extended-exact                      \
+    --select-1                            \
+    --prompt='change (neo)vim mode: '     \
+    )
 
   if [[ -n "${selection}" ]]; then
     echo "${selection}" > "${cur_mode_file}"
