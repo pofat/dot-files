@@ -2,6 +2,8 @@
 *.swp
 # vim temporary files.
 *~
+# tag files
+tags
 
 
 # Mac OSX folder data file.
