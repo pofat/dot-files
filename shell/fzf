@@ -58,13 +58,14 @@ bindkey '^Tf' fzf-file-widget
 # ^R in the fzf ui to apply sort
 fzf-history-widget() {
   local selected restore_no_bang_hist
-  if selected=( $(fc -l 1 | $(__fzfcmd) +s --tac +m -n2..,.. --tiebreak=index --toggle-sort=ctrl-r -q "$LBUFFER") ); then
-    num=$selected[1]
-    if [ -n "$num" ]; then
-      zle vi-fetch-history -n $num
-    fi
+  if selected=( $(fc -l 1 | grep '^.\{12,\}' | sort -k2 | uniq -f1 |\
+    $(__fzfcmd) +s --tac +m -n2..,.. --tiebreak=index -q "$LBUFFER") ); then
+  num=$selected[1]
+  if [ -n "$num" ]; then
+    zle vi-fetch-history -n $num
   fi
-  zle redisplay
+fi
+zle redisplay
 }
 
 zle     -N   fzf-history-widget
