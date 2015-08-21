@@ -1,3 +1,3 @@
 # vim: filetype=zsh
 
-alias nvim="PATH=/usr/bin:$PATH ~/.bin/neovim/bin/nvim"
+alias nvim="PATH=${HOME}/Library/Python/2.7/bin:/usr/bin:$PATH ~/.bin/neovim/bin/nvim"
