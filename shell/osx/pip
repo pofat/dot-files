@@ -1,0 +1,5 @@
+# vim: filetype=sh
+
+# use brew installed python2
+# and make the its' pip installed packages runable
+PATH="${HOME}/Library/Python/2.7/bin/:${PATH}"

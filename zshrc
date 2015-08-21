@@ -83,6 +83,7 @@ case $(uname -s) in
     source "$osx/tree"
     source "$osx/gcc"
     source "$osx/nvim"
+    source "$osx/pip"
     ;;
   CYGWIN* )
     source "$cygwin/mintty"
