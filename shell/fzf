@@ -110,7 +110,7 @@ zle -N mudox-zsh-widget-j
 bindkey '^[j' mudox-zsh-widget-j
 #}}}1
 
-# ^[d to cd to one of directory under current path. {{{1
+# ^[D to cd to one of directory under current path. {{{1
 # do not descend into hidden directories.
 mudox-zsh-widget-c() {
   local target_dir
@@ -124,7 +124,7 @@ mudox-zsh-widget-c() {
 }
 
 zle -N mudox-zsh-widget-c
-bindkey '^[d' mudox-zsh-widget-c
+bindkey '^[D' mudox-zsh-widget-c
 #}}}1
 
 # fe [pattern] to open the selected file with the gvim in tab. {{{1
