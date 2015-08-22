@@ -55,6 +55,9 @@ copyfile
 # directory listings for zsh with git features
 rimraf/k
 
+# my zsh plugins
+Mudox/fzf-cmdhub
+
 EOBUNDLES
 # }}}2
 
