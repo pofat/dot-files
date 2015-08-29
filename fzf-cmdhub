@@ -9,3 +9,5 @@ Show Neovim Update log			source ~/.fzf-cmdhub-cmds/neovim_udpate_lg.sh
 Upgrade Neovim				source ~/.fzf-cmdhub-cmds/upgrade_neovim.sh
 Open remote site of currrent git repo	source ~/.fzf-cmdhub-cmds/open_origin_remote_site.sh
 Test terminal color capability		sh ~/Git/dot-files/scripts/color_test.sh
+Delete conflicting file in Cloud	gfind /Volumes/Apple_Store/Cloud -iname '*NSConflict*' -print -delete
+Open bookmarks				sh ~/.fzf-cmdhub-cmds/open_bookmarks.sh
