@@ -27,9 +27,6 @@ git-flow
 
 colorize
 
-# not available on Mac osx
-command-not-found
-
 # alias for brew: bubu & brews
 brew
 
@@ -43,20 +40,17 @@ zsh-users/zsh-history-substring-search
 # quickly jump between paths
 rupa/z
 
-# extract most types of compressed packages by one command.
-extract
-
 # put $(pwd) in clipboard.
 copydir
 
 # put file content in clipboard
 copyfile
 
-# directory listings for zsh with git features
-rimraf/k
-
 # my zsh plugins
 Mudox/fzf-cmdhub
+
+# alias tips
+djui/alias-tips
 
 EOBUNDLES
 # }}}2
