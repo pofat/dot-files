@@ -2,3 +2,10 @@
 
 alias nvim="PATH=${HOME}/Library/Python/2.7/bin:/usr/bin:$PATH ~/.bin/neovim/bin/nvim"
 alias vim=nvim
+
+v() {
+  local modes_dir="${MDX_REPOS_ROOT}/vim-config/chameleon/modes"
+  local mode=$(ls -1 "${modes_dir}" | grep -v '^x_' | fzf -1 -q "$1")
+  shift
+  MDX_CHAMELEON_MODE=$mode vim $@
+}
