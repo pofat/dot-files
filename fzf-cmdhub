@@ -11,3 +11,5 @@ Open remote site of currrent git repo	source ~/.fzf-cmdhub-cmds/open_origin_remo
 Test terminal color capability		sh ~/Git/dot-files/scripts/color_test.sh
 Delete conflicting file in Cloud	gfind /Volumes/Apple_Store/Cloud -iname '*NSConflict*' -print -delete
 Open bookmarks				sh ~/.fzf-cmdhub-cmds/open_bookmarks.sh
+Compile ycm				sh ~/.fzf-cmdhub-cmds/compile_ycm.sh
+Compile ctrlp-cmatcher			sh ~/.fzf-cmdhub-cmds/compile_ctrlp_cmatcher.sh
