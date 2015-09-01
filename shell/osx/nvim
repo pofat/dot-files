@@ -6,6 +6,6 @@ alias vim=nvim
 v() {
   local modes_dir="${MDX_REPOS_ROOT}/vim-config/chameleon/modes"
   local mode=$(ls -1 "${modes_dir}" | grep -v '^x_' | fzf -1 -q "$1")
-  shift
+  shift 2>/dev/null
   MDX_CHAMELEON_MODE=$mode vim $@
 }
