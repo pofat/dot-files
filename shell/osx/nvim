@@ -3,9 +3,16 @@
 alias nvim="PATH=${HOME}/Library/Python/2.7/bin:/usr/bin:$PATH ~/.bin/neovim/bin/nvim"
 alias vim=nvim
 
+# a smart (n)vim starting command
+# usage: v [(partial) mode name] [paramters to (n)vim ...]
+# if the given mode name is enough to fix down certain mode, then (n)vim is
+# started in this mode otherwise it will show a fzf menu to let you choose a
+# mode.
 v() {
   local modes_dir="${MDX_REPOS_ROOT}/vim-config/chameleon/modes"
-  local mode=$(ls -1 "${modes_dir}" | grep -v '^x_' | fzf -1 -q "$1")
+  local modes="$(ls -1 "${modes_dir}" | grep -v '^x_')"
+  modes+="\nupdate-all"
+  local mode=$(echo "$modes" | fzf -1 -q "$1")
   shift 2>/dev/null
   MDX_CHAMELEON_MODE=$mode vim $@
 }
