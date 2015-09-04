@@ -13,6 +13,9 @@ v() {
   local modes="$(ls -1 "${modes_dir}" | grep -v '^x_')"
   modes+="\nupdate-all"
   local mode=$(echo "$modes" | fzf -1 -q "$1")
+  if [[ -z "$mode" ]]; then
+    return
+  fi
   shift 2>/dev/null
   MDX_CHAMELEON_MODE=$mode vim $@
 }
