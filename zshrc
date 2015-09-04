@@ -154,10 +154,10 @@ mdxinfo() {
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-#case $(uname -s) in
-  #Darwin )
-    ## for MacOS
-    #source "${HOME}/.iterm2_shell_integration.zsh" &&
-    #printf "\e[33miTerm2 shell integration enabled\e[0m\n"
-    #;;
-#esac
+case $(uname -s) in
+  Darwin )
+    # for MacOS
+    source "${HOME}/.iterm2_shell_integration.zsh" &&
+    printf "\e[33miTerm2 shell integration enabled\e[0m\n"
+    ;;
+esac
