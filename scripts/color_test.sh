@@ -8,7 +8,7 @@
 #   colors (default + 8 escapes).
 #
 
-CELL_TEXT='Mudox 2013'   # The test text
+CELL_TEXT='Mudox'   # The test text
 #CELL_TEXT='gYw'   # The test text
 CELL_WIDTH=${#CELL_TEXT}
 HEAD_WIDTH=7
