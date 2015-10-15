@@ -15,12 +15,12 @@ basen() {
   local full_path="${MDX_BASE16_ROOT}/base16-${MDX_BASE_COLOR}.sh"
   source "${full_path}"
 
-  printf "\e[33m[base16 colorscheme]: \e[1;35m${MDX_BASE_COLOR}\e[0m\n"
+  printf "\e[33m[BASE16]: \e[1;35m${MDX_BASE_COLOR}\e[0m\n"
 }
 
 # ban current scheme & switch to next picked one
 baseb() {
-  printf "\e[33m[base16 colorscheme]: \e[31mban $(pool base16 current) ...\e[0m\n"
+  printf "\e[33m[BASE16]: \e[31mban $(pool base16 current) ...\e[0m\n"
 
   pool base16 ban
 
