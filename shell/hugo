@@ -59,11 +59,13 @@ hb() {
   # commit & push changes to github
   printf "\e[35msyncing <${dest_path##*/}>\e[0m\n"
   cd "${dest_path}"
-  git add --all . && git commit -m "${*:-post update}"
+  git add --all . &>/dev/null
+  git commit -m "${*:-post update}"
 
   printf "\e[35msyncing <${src_path##*/}>\e[0m\n"
   cd "${src_path}"
-  git add --all . && git commit -m "${*:-post update}"
+  git add --all . &>/dev/null
+  git commit -m "${*:-post update}"
 
   # pushing up
   printf "\e[34mpushing up ...\e[0m\n"
