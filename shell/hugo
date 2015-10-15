@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # executable availability check
 if [[ -z "$(whence hugo)" ]]; then
@@ -23,13 +23,13 @@ hb() {
     return
   fi
 
-  local production_path='${src_path}/output/public'
+  local production_path="${src_path}/output/public"
 
   cd "${src_path}"
 
   # hugo building site
   printf "\e[34mstart building site ...\e[0m\n"
-  rm -rf "./${production}" &>/dev/null # remove public directory first.
+  rm -rf "${production_path}" &>/dev/null # remove public directory first.
 
   hugo                                 \
     --source=${src_path}               \
@@ -49,7 +49,7 @@ hb() {
   # installing to destiantion repo.
   printf "\e[34minstalling production ...\e[0m\n"
   rm -rf "${dest_path}"/* &>/dev/null # clean the directory up first
-  cp --recursive --target-directory="${dest_path}" "./${production_path}"/*
+  cp -rT "${production_path}" "${dest_path}"
 
   if [[ "$?" -ne 0 ]]; then
     printf "\e[31mcopying failed..., quit\e[0m\n"
