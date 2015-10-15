@@ -19,3 +19,5 @@ v() {
   shift 2>/dev/null
   MDX_CHAMELEON_MODE=$mode vim $@
 }
+
+alias vv="MDX_CHAMELEON_MODE=vim vim $@"
