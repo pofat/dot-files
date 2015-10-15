@@ -7,12 +7,12 @@ export MDX_ZSH_THEME="$(pool zsh_prompt pick)"
 
 antigen theme "${MDX_ZSH_THEME}"
 
-printf "\e[33m[zsh prompt theme]: \e[1;35m${MDX_ZSH_THEME}\e[0m\n"
+printf "\e[33m[PS]: \e[1;35m${MDX_ZSH_THEME}\e[0m\n"
 }
 
 # ban current prompt theme & switch to next picked one
 zpb() {
-  printf "\e[33m[zsh prompt theme]: \e[31mban $(pool zsh_prompt current) ...\e[0m\n"
+  printf "\e[33m[PS]: \e[31mban $(pool zsh_prompt current) ...\e[0m\n"
 
   pool zsh_prompt ban
 
