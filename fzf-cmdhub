@@ -13,3 +13,4 @@ Delete conflicting file in Cloud	gfind /Volumes/Apple_Store/Cloud -iname '*NSCon
 Open bookmarks				sh ~/.fzf-cmdhub-cmds/open_bookmarks.sh
 Compile ycm				sh ~/.fzf-cmdhub-cmds/compile_ycm.sh
 Compile ctrlp-cmatcher			sh ~/.fzf-cmdhub-cmds/compile_ctrlp_cmatcher.sh
+Toggle Finder Hiding Files		sh ~/.fzf-cmdhub-cmds/toggle_finder_hide_files.sh
