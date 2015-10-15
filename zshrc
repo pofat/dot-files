@@ -147,8 +147,8 @@ zpn
 basen
 
 mdxinfo() {
-  printf "\e[33m%25s -> \e[1;35m%s\n" "zsh prompt theme" "${MDX_ZSH_THEME}"
-  printf "\e[33m%25s -> \e[1;35m%s\n" "base16 colorscheme" "${MDX_BASE_COLOR}"
+  printf "\e[33m%8s -> \e[1;35m%s\n" "PS" "${MDX_ZSH_THEME}"
+  printf "\e[33m%8s -> \e[1;35m%s\n" "BASE16" "${MDX_BASE_COLOR}"
 }
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
@@ -158,6 +158,5 @@ case $(uname -s) in
   Darwin )
     # for MacOS
     source "${HOME}/.iterm2_shell_integration.zsh" &&
-    printf "\e[33miTerm2 shell integration enabled\e[0m\n"
     ;;
 esac
