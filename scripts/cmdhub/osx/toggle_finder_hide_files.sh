@@ -1,7 +1,5 @@
 if [[ "$(defaults read com.apple.Finder AppleShowAllFiles)" == "NO" ]]; then
-  defaults write com.apple.Finder AppleShowAllFiles YES
+  defaults write com.apple.Finder AppleShowAllFiles true
 else
-  defaults write com.apple.Finder AppleShowAllFiles NO
+  defaults write com.apple.Finder AppleShowAllFiles false
 fi
-
-killall Finder
