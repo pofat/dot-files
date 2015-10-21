@@ -21,7 +21,25 @@ __fzfcmd() {
     || echo "fzf"
 }
 
-# ^Tf to append file & paths under $(pwd) to the command line. {{{1
+# ^R to paste the selected command from history into the command line. {{{1
+# press ^R in the fzf UI to apply sort
+fzf-history-widget() {
+  local selected restore_no_bang_hist
+  if selected=( $(fc -l 1 | grep '^.\{12,\}' | sort -k2 | uniq -f1 |\
+    $(__fzfcmd) +s --tac +m -n2..,.. --tiebreak=index -q "$LBUFFER") ); then
+  num=$selected[1]
+  if [ -n "$num" ]; then
+    zle vi-fetch-history -n $num
+  fi
+fi
+zle redisplay
+}
+
+zle     -N   fzf-history-widget
+bindkey '^R' fzf-history-widget
+# }}}1
+
+# ^Tf to insert file & paths under $(pwd) to the command line. {{{1
 __fsel() {
   set -o nonomatch
   command find ./* -path '*/\.*' -prune \
@@ -55,25 +73,7 @@ zle     -N   fzf-file-widget
 bindkey '^Tf' fzf-file-widget
 # }}}1
 
-# ^R - Paste the selected command from history into the command line. {{{1
-# ^R in the fzf ui to apply sort
-fzf-history-widget() {
-  local selected restore_no_bang_hist
-  if selected=( $(fc -l 1 | grep '^.\{12,\}' | sort -k2 | uniq -f1 |\
-    $(__fzfcmd) +s --tac +m -n2..,.. --tiebreak=index -q "$LBUFFER") ); then
-  num=$selected[1]
-  if [ -n "$num" ]; then
-    zle vi-fetch-history -n $num
-  fi
-fi
-zle redisplay
-}
-
-zle     -N   fzf-history-widget
-bindkey '^R' fzf-history-widget
-# }}}1
-
-# ^Tj to append paths from $(z -l) to the command line. {{{1
+# ^Tj to insert paths from $(z -l) to the command line. {{{1
 __zdirs() {
   set -o nonomatch
   z -l | sed 's/[0-9.,]* *//' | $(__fzfcmd) -m -e | while read item; do
