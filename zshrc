@@ -75,16 +75,14 @@ source "$com/path"
 # NOTE: line order matters.
 case $(uname -s) in
   Darwin )
-    source "$osx/coreutils"
-    source "$osx/pyenv"
-    source "$osx/tree"
-    source "$osx/gcc"
-    source "$osx/nvim"
-    source "$osx/pip"
+    for s in $osx/*; do
+      source "$s"
+    done
     ;;
   CYGWIN* )
-    source "$cygwin/mintty"
-    source "$cygwin/cygwin"
+    for s in $cygwin/*; do
+      source "$s"
+    done
     ;;
   Linux )
     case $(uname -r) in
