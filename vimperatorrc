@@ -32,8 +32,8 @@ abbreviate csi       http://en.wikipedia.org/wiki/ANSI_escape_code
 abbreviate awwdc     http://asciiwwdc.com
 abbreviate dy        http://douyutv.com
 abbreviate vimplug   https://github.com/trending?l=vim
-abbreviate vimtip   http://vim.wikia.com/wiki/Vim_Tips_Wiki
-
+abbreviate vimtip    http://vim.wikia.com/wiki/Vim_Tips_Wiki
+abbreviate jq        https://stedolan.github.io/jq/manual/v1.5
 
 
 "}}}1
