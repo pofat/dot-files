@@ -1,6 +1,6 @@
 # vim: filetype=zsh
 
-alias ls='ls --color --group-directories-first -F'
+alias ls='ls --color=auto --group-directories-first -F'
 alias lr='luarocks'
 
 alias df='df -h'
