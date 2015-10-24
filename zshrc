@@ -102,30 +102,9 @@ case $(uname -s) in
 esac
 
 # across system settings
-# NOTE: loading order matters
-to_load=(                      \
-  mdx_functions                \
-  shell_alias                  \
-  go_env                       \
-  bin                          \
-  ls                           \
-  zsh_syntax_highlighting      \
-  zsh_history_substring_search \
-  hugo                         \
-  fzf                          \
-  zsh_prompt_theme             \
-  base16shell		       \
-  git                          \
-  man                          \
-  rvm                          \
-  thefuck                      \
-  neovim		       \
-  editor		       \
-  ttysuck		       \
-  )
-
-for s in "${to_load[@]}"; do
-  source "$com/$s"
+# NOTE: sourcing order matters
+for s in "$com"/*; do
+  [[ -f "$s" ]] && source $s
 done
 
 # cleanup
@@ -133,7 +112,6 @@ unset com
 unset osx
 unset archlinux
 unset cygwin
-unset to_load
 unset s
 
 # remove duplicate paths in $PATH
