@@ -316,27 +316,4 @@ cth() {
 
 # }}}1
 
-# (neo)vim mode set {{{1
-vmode() {
-  local modes_path="${MDX_REPOS_ROOT}/vim-config/chameleon/modes"
-  local cur_mode_file="${modes_path}/../cur_mode"
-
-  local selection
-  selection=$(                              \
-    ls -1 "${modes_path}" | grep -v '^x_' | \
-    $(__fzfcmd)                                     \
-    --extended-exact                      \
-    --select-1                            \
-    --prompt='change (neo)vim mode: '     \
-    )
-
-  if [[ -n "${selection}" ]]; then
-    echo "${selection}" > "${cur_mode_file}"
-  fi
-
-  printf "\e[33mset new mode to [$(cat ${cur_mode_file})]\e[0m\n"
-}
-
-# }}}1
-
 # vim: filetype=zsh foldmethod=marker

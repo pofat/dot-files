@@ -1,5 +1,41 @@
 # vim: filetype=zsh
 
+# currently Neovim need these setting to work
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
-
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
+# a smart (n)vim starting command
+# usage: v [(partial) mode name] [paramters to (n)vim ...]
+# if the given mode name is enough to fix down certain mode, then (n)vim is
+# started in this mode otherwise it will show a fzf menu to let you choose a
+# mode.
+v() {
+  local modes_dir="${MDX_REPOS_ROOT}/vim-config/chameleon/modes"
+  local modes="$(ls -1 "${modes_dir}" | grep -v '^x_')"
+  modes+="\nupdate-all"
+  local mode=$(echo "$modes" | fzf -1 -q "$1")
+  [[ -z "$mode" ]] && return
+  shift 2>/dev/null
+  MDX_CHAMELEON_MODE=$mode nvim $@
+}
+
+# choose & write chameleon mode to cur_mode file.
+vmode() {
+  local modes_path="${MDX_REPOS_ROOT}/vim-config/chameleon/modes"
+  local cur_mode_file="${modes_path}/../cur_mode"
+
+  local selection
+  selection=$(                              \
+    ls -1 "${modes_path}" | grep -v '^x_' | \
+    $(__fzfcmd)                             \
+    --extended-exact                        \
+    --select-1                              \
+    --prompt='change (neo)vim mode: '       \
+    )
+
+  if [[ -n "${selection}" ]]; then
+    echo "${selection}" > "${cur_mode_file}"
+  fi
+
+  printf "\e[33mset new mode to [$(cat ${cur_mode_file})]\e[0m\n"
+}
