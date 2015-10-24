@@ -5,6 +5,7 @@ export MDX_REPOS_ROOT="${HOME}/Git"
 
 export LANG='en_US.UTF-8'
 
+# Antigen
 if [ ! -d "${MDX_REPOS_ROOT}/antigen" ]; then
   echo "\e[31mneed [antigen], installing ...\e[0m"
   git clone "https://github.com/zsh-users/antigen.git" \
@@ -72,7 +73,7 @@ archlinux="$com/archlinux"
 source "$com/path"
 
 # system specific settings.
-# NOTE: line order matters.
+# NOTE: sourcing order matters.
 case $(uname -s) in
   Darwin )
     for s in $osx/*; do
@@ -140,7 +141,7 @@ mdx_uniq_path
 
 # }}}1
 
-# prompt theme & shell colorscheme.
+# set initiali prompt theme & shell colorscheme.
 zpn
 basen
 
@@ -149,9 +150,13 @@ mdxinfo() {
   printf "\e[33m%8s -> \e[1;35m%s\n" "BASE16" "${MDX_BASE_COLOR}"
 }
 
+# RVM
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# iTerm2 Shell Integration
 case $(uname -s) in
   Darwin )
     # for MacOS
