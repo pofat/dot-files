@@ -1,5 +1,4 @@
 # vim: filetype=zsh
 
 alias nvim="PATH=${HOME}/Library/Python/2.7/bin:/usr/bin:$PATH ~/.bin/neovim/bin/nvim"
-alias vv="MDX_CHAMELEON_MODE=vim vim $@"
-
+alias vv="MDX_CHAMELEON_MODE=vim nvim $@"
