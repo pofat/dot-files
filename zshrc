@@ -53,6 +53,9 @@ Mudox/fzf-cmdhub
 # alias tips
 djui/alias-tips
 
+# alias for tmux
+tmux
+
 EOBUNDLES
 # }}}2
 
