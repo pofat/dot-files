@@ -6,28 +6,33 @@ set guioptions=
 " fix cursor not shown in playground for XCode 7.1
 set blinkcursor
 
+" go to next/previous func declaration header line
 nnoremap ]] /^[-+]|func\b<Cr>zz
 nnoremap [[ ?^[-+]|func\b<Cr>zz
+
+" reindent all
+nnoremap == gg=G''
 
 nnoremap n nzz
 nnoremap N Nzz
 
+" jump between panes
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" move in bigger stride
 noremap J     8j
 noremap K     8k
 noremap H     <C-u>
 noremap L     <C-d>
 
-inoremap <C-H> <Left>
-inoremap <C-L> <Right>
-
 nnoremap zh    :xhelp<CR>
 nnoremap ]q    :ni<CR>
 nnoremap [q    :pi<CR>
 
+" insert mode cursor move
 inoremap <C-h> <left>
 inoremap <C-j> <down>
 inoremap <C-k> <up>
@@ -35,12 +40,13 @@ inoremap <C-l> <right>
 inoremap <C-a> <C-o>^
 inoremap <C-e> <C-o>$
 
+" line moving & swapping
 nnoremap [<Space> O<Esc>j
 nnoremap ]<Space> o<Esc>k
 nnoremap ]e ddp
 nnoremap [e ddkP
 
-
+" layout switch
 nnoremap <Space>7 <Space>h<Space>l<Space>j
 nnoremap <Space>3 <Space>h<Space>l
 nnoremap <Space>5 <Space>h<Space>j
