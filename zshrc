@@ -124,7 +124,7 @@ mdx_uniq_path
 
 # set initiali prompt theme & shell colorscheme.
 zpn
-basen
+[[ -z $TMUX ]] && basen # do not change color scheme in tmux
 
 mdxinfo() {
   printf "\e[33m%8s -> \e[1;35m%s\n" "PS" "${MDX_ZSH_THEME}"
@@ -138,9 +138,9 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # iTerm2 Shell Integration
-case $(uname -s) in
-  Darwin )
-    # for MacOS
-    source "${HOME}/.iterm2_shell_integration.zsh" &&
-    ;;
-esac
+#case $(uname -s) in
+  #Darwin )
+    ## for MacOS
+    #source "${HOME}/.iterm2_shell_integration.zsh" &&
+    #;;
+#esac
