@@ -3,6 +3,9 @@ set wrapscan
 
 set guioptions=
 
+" fix cursor not shown in playground for XCode 7.1
+set blinkcursor
+
 nnoremap ]] /^[-+]|func\b<Cr>zz
 nnoremap [[ ?^[-+]|func\b<Cr>zz
 
@@ -42,7 +45,7 @@ nnoremap <Space>7 <Space>h<Space>l<Space>j
 nnoremap <Space>3 <Space>h<Space>l
 nnoremap <Space>5 <Space>h<Space>j
 
-nnoremap dae <Esc><Esc>ggdGi
+nnoremap cae <Esc><Esc>ggcG
 
 "Title:Xcode                                                Action:submenuAction
 "      Title:About Xcode                                    Action:orderFrontAboutPanel
