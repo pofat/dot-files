@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#cmdhub: Update Neovim Plugins, Antigen & Homebrew
+#cmdhub: Update Neovim Plugins, Antigen & Homebrew in Tmux session 'update-all'
 
 s=update-all
 
