@@ -3,7 +3,7 @@ if [[ ! $- =~ i ]]; then
 fi
 
 export FZF_COMPLETION_TRIGGER=',,'
-export FZF_COMPLETION_OPTS='-x'
+export FZF_COMPLETION_OPTS='-e'
 
 export FZF_DEFAULT_OPTS='
 --extended
