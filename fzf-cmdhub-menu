@@ -6,7 +6,6 @@
 
 Edit This Menu (Ctrl+e)			env MDX_CHAMELEON_MODE=mini nvim ~/.fzf-cmdhub-menu
 Show Neovim Update log			#s neovim_udpate_lg
-Upgrade Neovim				#s upgrade_neovim
 Open remote site of currrent git repo	#s open_origin_remote_site
 Test terminal color capability		#b test_terminal_color
 Delete conflicting file in Cloud	gfind /Volumes/Apple_Store/Cloud -iname '*NSConflict*' -print -delete
