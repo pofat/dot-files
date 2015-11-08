@@ -1,4 +1,5 @@
-#!env bash
+#/usr/bin/env bash
+# cmdhub: Test terminal emulator's color capability
 #
 #   This file echoes a bunch of color codes to the
 #   terminal to demonstrate what's available.  Each
@@ -42,3 +43,5 @@ for fg in "${FGs[@]}"; do
   echo
 done
 echo
+
+# vim: ft=sh
