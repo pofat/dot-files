@@ -4,16 +4,22 @@
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
+__fzfcmd() {
+  [ ${FZF_TMUX:-1} -eq 1 ] && echo "fzf-tmux -d${FZF_TMUX_HEIGHT:-40%}" \
+    || echo "fzf"
+}
+
 # a smart (n)vim starting command
 # usage: v [(partial) mode name] [paramters to (n)vim ...]
 # if the given mode name is enough to fix down certain mode, then (n)vim is
 # started in this mode otherwise it will show a fzf menu to let you choose a
 # mode.
+
 v() {
   local modes_dir="${MDX_REPOS_ROOT}/vim-config/chameleon/modes"
   local modes="$(ls -1 "${modes_dir}" | grep -v '^x_')"
   modes+="\nupdate-all"
-  local mode=$(echo "$modes" | fzf -1 -q "$1")
+  local mode=$(echo "$modes" | $(__fzfcmd) -1 -q "$1")
   [[ -z "$mode" ]] && return
   shift 2>/dev/null
   MDX_CHAMELEON_MODE=$mode nvim $@
