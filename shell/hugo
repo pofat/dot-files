@@ -115,14 +115,7 @@ hs() {
   cat /tmp/hugo.log
 
   # parsing port number
-  local port=$( cat /tmp/hugo.log | grep '^Web' | cut -c 45- )
-  if [[ ! port =~ '[0-9]*' ]]; then
-    printf "\e[31mparsing port number failed, got '${port}', quit ...\e[0m\n"
-    return
-  fi
-
-  # open local pages in browser
-  local url="http://localhost:${port}"
+  local url="$(egrep -o 'http://localhost:[0-9]+' hugo.log)"
 
   case $(uname -s) in
     Darwin )
@@ -146,4 +139,4 @@ hs() {
   esac
 } # }}}1
 
-# vim: filetype=zsh foldmethod=marker
+# vim: filetype=sh foldmethod=marker
