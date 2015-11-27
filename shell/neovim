@@ -16,11 +16,19 @@ __fzfcmd() {
 # mode.
 
 v() {
+  # collect modes
   local modes_dir="${MDX_REPOS_ROOT}/vim-config/chameleon/modes"
   local modes="$(ls -1 "${modes_dir}" | grep -v '^x_')"
-  modes+="\nupdate-all"
-  local mode=$(echo "$modes" | $(__fzfcmd) -1 -q "$1")
-  [[ -z "$mode" ]] && return
+  modes+="\nupdate-all" # special virtual mode only for plugin updating
+
+  # pick out mode
+  local mode="$(echo $modes | fzf -i -e -f$1)"
+  if (( $(echo $mode | wc -l) != 1 )); then
+    mode=$(echo "$modes" | $(__fzfcmd) -1 -q "$1")
+    [[ -z "$mode" ]] && return
+  fi
+
+  # lauch nvim
   shift 2>/dev/null
   MDX_CHAMELEON_MODE=$mode nvim $@
 }
