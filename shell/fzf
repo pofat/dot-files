@@ -24,6 +24,10 @@ __fzfcmd_l() {
     || echo "fzf"
 }
 
+if [[ "$SHELL" == "bash" ]]; then
+  return
+fi
+
 # ^R to paste the selected command from history into the command line.                                           {{{1
 # press ^R in the fzf UI to apply sort
 fzf-history-widget() {
