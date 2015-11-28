@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # executable availability check
-if [[ -z "$(whence hugo)" ]]; then
+if [[ -z "$(type hugo)" ]]; then
   printf "\e[31mmissing executable hugo..., quit\e[0m\n"
   return
 fi
