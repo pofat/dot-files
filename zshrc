@@ -83,13 +83,13 @@ source "$com/path"
 # NOTE: sourcing order matters.
 case $(uname -s) in
   Darwin )
-    for s in $osx/*; do
-      source "$s"
+    for s in "$osx"/*; do
+      [[ -f "$s" ]] && source "$s"
     done
     ;;
   CYGWIN* )
-    for s in $cygwin/*; do
-      source "$s"
+    for s in "$cygwin"/*; do
+      [[ -f "$s" ]] && source "$s"
     done
     ;;
   Linux )
@@ -140,11 +140,3 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# iTerm2 Shell Integration
-#case $(uname -s) in
-  #Darwin )
-    ## for MacOS
-    #source "${HOME}/.iterm2_shell_integration.zsh" &&
-    #;;
-#esac
