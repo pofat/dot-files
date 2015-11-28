@@ -1,9 +1,8 @@
 [user]
-	name = mudox
+    name          = mudox
     email         = mudoxisme@gmail.com
 
 [core]
-    editor        = vim
     pager         = less -R
     excludesfile  = ~/.cvsignore
 
@@ -18,7 +17,7 @@
     ui            = auto
 
 [alias]
-    lg            = log --color --graph --pretty=format:'%Cred%h%Creset %s %C(bold blue) by <%an> %Creset%C(dim green) (%cr) %Creset %C(yellow ul)%d%Creset'
+    lg            = log --color --graph --pretty = format:'%Cred%h%Creset %s %C(bold blue) by <%an> %Creset%C(dim green) (%cr) %Creset %C(yellow ul)%d%Creset'
     st            = status
     cm            = commit
     br            = branch
@@ -55,8 +54,8 @@
     clean         = git-media-clean %f
     smudge        = git-media-smudge %f
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+    clean         = git-lfs clean %f
+    smudge        = git-lfs smudge %f
+    required      = true
 [gui]
-	recentrepo = /Users/mudox/Git/neovim
+    recentrepo    = /Users/mudox/Git/neovim
