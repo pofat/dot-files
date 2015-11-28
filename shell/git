@@ -3,3 +3,9 @@
 alias lg='git lg'
 alias lgoh='lg ORIG_HEAD..HEAD'
 alias gllg='gl && lgoh'
+
+if [[ -n $(type nvim) ]]; then
+  git config --global core.editor nvim
+else
+  git config --global core.editor vim
+fi
