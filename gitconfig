@@ -5,6 +5,7 @@
 [core]
     pager         = less -R
     excludesfile  = ~/.cvsignore
+	editor = nvim
 
 [diff]
     tool          = core.editor
@@ -17,7 +18,7 @@
     ui            = auto
 
 [alias]
-    lg            = log --color --graph --pretty = format:'%Cred%h%Creset %s %C(bold blue) by <%an> %Creset%C(dim green) (%cr) %Creset %C(yellow ul)%d%Creset'
+    lg            = log --color --graph --pretty=format:'%Cred%h%Creset %s %C(bold blue) by <%an> %Creset%C(dim green) (%cr) %Creset %C(yellow ul)%d%Creset'
     st            = status
     cm            = commit
     br            = branch
