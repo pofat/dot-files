@@ -11,7 +11,6 @@ case $(uname -s) in
     # currently nothing is need to do.
     ;;
   Darwin|Linux )
-    # for Linux
     if [[ -e '/usr/bin/go' ]]; then
       export GOROOT=$('/usr/bin/go' env GOROOT)
     elif [[ -e '/usr/local/bin/go' ]]; then
