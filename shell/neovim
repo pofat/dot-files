@@ -9,9 +9,9 @@ __fzfcmd() {
     || echo "fzf"
 }
 
-# a smart (n)vim starting command
+# a smart (n)vim launching wrapper
 # usage: v [(partial) mode name] [paramters to (n)vim ...]
-# if the given mode name is enough to fix down certain mode, then (n)vim is
+# if the given mode name is enough to fix down a certain mode, then (n)vim is
 # started in this mode otherwise it will show a fzf menu to let you choose a
 # mode.
 
@@ -22,15 +22,19 @@ v() {
   modes+="\nupdate-all" # special virtual mode only for plugin updating
 
   # pick out mode
-  local mode="$(echo $modes | fzf -i -e -f$1)"
-  if (( $(echo $mode | wc -l) != 1 )); then
-    mode=$(echo "$modes" | $(__fzfcmd) -1 -q "$1")
-    [[ -z "$mode" ]] && return
+  local mode="$(echo $modes | fzf -i -e -f $1)"
+
+  if [[ -z $mode ]]; then
+    mode=$(echo "$modes" | $(__fzfcmd) -i -e)
+  elif (( $(echo $mode | wc -l) > 1 )); then
+    mode=$(echo "$modes" | $(__fzfcmd) -i -e -q "$1")
   fi
 
-  # lauch nvim
+  [[ -z "$mode" ]] && return
+
+  # launch nvim
   shift 2>/dev/null
-  MDX_CHAMELEON_MODE=$mode nvim $@
+  MDX_CHAMELEON_MODE="$mode" nvim $@
 }
 
 # choose & write chameleon mode to cur_mode file.
@@ -53,3 +57,5 @@ vmode() {
 
   printf "\e[33mset new mode to [$(cat ${cur_mode_file})]\e[0m\n"
 }
+
+alias vv="MDX_CHAMELEON_MODE=vim nvim $@"
