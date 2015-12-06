@@ -115,7 +115,7 @@ hs() {
   cat /tmp/hugo.log
 
   # parsing port number
-  local url="$(egrep -o 'http://localhost:[0-9]+' hugo.log)"
+  local url="$(egrep -o 'http://localhost:[0-9]+' /tmp/hugo.log)"
 
   case $(uname -s) in
     Darwin )
