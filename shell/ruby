@@ -1,0 +1,2 @@
+# ri
+export RI="--format ansi --width 80"
