@@ -1,21 +1,21 @@
 [user]
-    name          = mudox
-    email         = mudoxisme@gmail.com
+    name         = mudox
+    email        = mudoxisme@gmail.com
 
 [core]
-    pager         = less -R
-    excludesfile  = ~/.cvsignore
+    pager        = less -R
+    excludesfile = ~/.cvsignore
 	editor = nvim
 
 [diff]
-    tool          = core.editor
-    prompt        = No
+    tool         = core.editor
+    prompt       = No
 
 [color]
-    diff          = auto
-    status        = auto
-    branch        = auto
-    ui            = auto
+    diff         = auto
+    status       = auto
+    branch       = auto
+    ui           = auto
 
 [alias]
     lg            = log --color --graph --pretty=format:'%Cred%h%Creset %s %C(bold blue) by <%an> %Creset%C(dim green) (%cr) %Creset %C(yellow ul)%d%Creset'
