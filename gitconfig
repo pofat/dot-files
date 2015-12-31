@@ -60,3 +60,5 @@
     required      = true
 [gui]
     recentrepo    = /Users/mudox/Git/neovim
+[github]
+	user = cempri@163.com
