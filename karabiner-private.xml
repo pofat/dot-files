@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<root>
+    <item>
+        <name>RK Gaming Keyboard Patch</name>
+        <identifier>private.rk_gaming_keyboard_patch</identifier>
+        <autogen>__KeyToKey__ KeyCode::DANISH_DOLLAR, KeyCode::BACKQUOTE</autogen>
+        <autogen>__KeyToKey__ KeyCode::PC_APPLICATION, KeyCode::OPTION_R</autogen>
+    </item>
+</root>
