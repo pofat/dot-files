@@ -60,6 +60,8 @@ djui/alias-tips
 # alias for tmux
 tmux
 
+battery
+
 EOBUNDLES
 # }}}2
 
