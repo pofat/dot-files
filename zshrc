@@ -62,6 +62,9 @@ tmux
 
 battery
 
+# docker command enhancement
+docker
+
 EOBUNDLES
 # }}}2
 
