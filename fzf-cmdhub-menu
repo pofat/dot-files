@@ -4,4 +4,4 @@
 # - Use TAB characters to separate titles and commands.
 # - Comment lines (start with a '#') and empty lines are ignored
 
-Delete conflicting file in Cloud	gfind /Volumes/Apple_Store/Cloud -iname '*NSConflict*' -print -delete
+Hello world			echo 'Hello World'
