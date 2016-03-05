@@ -19,5 +19,5 @@ tmux send-keys -t "$s":2.2 'bubu' C-m
 # window 3
 tmux new-window -t "$s" -n 'pip & gem' zsh
 tmux split-window -t "$s":3 -h zsh
-tmux send-keys -t "$s":3.1 'echo -------- pip2 -------- && echo && pip2 list -o && echo && echo && -------- pip3 -------- && echo && pip3 list -o' C-m
+tmux send-keys -t "$s":3.1 'echo -------- pip2 -------- && echo && pip2 list -o && echo && echo && echo -------- pip3 -------- && echo && pip3 list -o' C-m
 tmux send-keys -t "$s":3.2 'gem update' C-m
