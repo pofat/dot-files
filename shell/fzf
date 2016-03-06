@@ -138,9 +138,9 @@ fe() {
     Darwin )
       # for MacOS
       if whence nvim; then
-        local vim_bin='nvim'
+	local vim_bin='nvim'
       else
-        local vim_bin='mvim'
+	local vim_bin='mvim'
       fi
       ;;
     CYGWIN* )
@@ -203,28 +203,28 @@ cmh() {
   else
     case "$1" in
       c )
-        category="command"
-        ;;
+	category="command"
+	;;
       ma )
-        category="manual"
-        ;;
+	category="manual"
+	;;
       mo )
-        category="module"
-        ;;
+	category="module"
+	;;
       po )
-        category="policy"
-        ;;
+	category="policy"
+	;;
       pr )
-        category="property"
-        ;;
+	category="property"
+	;;
       v )
-        category="variable"
-        ;;
+	category="variable"
+	;;
       * )
-        printf "\e[31m%s: invalid first argument\e[0m\n" "$0"
-        echo "${usage}"
-        return
-        ;;
+	printf "\e[31m%s: invalid first argument\e[0m\n" "$0"
+	echo "${usage}"
+	return
+	;;
     esac
   fi
 
@@ -271,28 +271,28 @@ cth() {
   else
     case "$1" in
       c )
-        category="command"
-        ;;
+	category="command"
+	;;
       ma )
-        category="manual"
-        ;;
+	category="manual"
+	;;
       mo )
-        category="module"
-        ;;
+	category="module"
+	;;
       po )
-        category="policy"
-        ;;
+	category="policy"
+	;;
       pr )
-        category="property"
-        ;;
+	category="property"
+	;;
       v )
-        category="variable"
-        ;;
+	category="variable"
+	;;
       * )
-        printf "\e[31m%s: invalid first argument\e[0m\n" "$0"
-        echo "${usage}"
-        return
-        ;;
+	printf "\e[31m%s: invalid first argument\e[0m\n" "$0"
+	echo "${usage}"
+	return
+	;;
     esac
   fi
 
