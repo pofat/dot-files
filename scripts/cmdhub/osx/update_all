@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#cmdhub: Update Neovim Plugins, Antigen & Homebrew in Tmux session 'update-all'
+#x cmdhub: Update routine everyday
 
 s=update-all
 
@@ -21,3 +21,5 @@ tmux new-window -t "$s" -n 'pip & gem' zsh
 tmux split-window -t "$s":3 -h zsh
 tmux send-keys -t "$s":3.1 'echo -------- pip2 -------- && echo && pip2 list -o && echo && echo && echo -------- pip3 -------- && echo && pip3 list -o' C-m
 tmux send-keys -t "$s":3.2 'gem update' C-m
+
+# vim: ft=sh

@@ -1,4 +1,4 @@
-# cmdhub: Show new Neovim commits since the installed version
+#s cmdhub: Show new Neovim commits since the installed version
 
 cd ~/Git/neovim/ || exit 1
 echo 'git pull ...'

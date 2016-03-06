@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#cmdhub: Compile Neovim from repo & install it to ~/.bin/neovim
+#x cmdhub: Compile Neovim from repo & install it to ~/.bin/neovim
 
 # backup original neovim version
 neovim_path="$HOME/.bin/neovim"
