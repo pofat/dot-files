@@ -4,6 +4,5 @@
 # - Use TAB characters to separate titles and commands.
 # - Comment lines (start with a '#') and empty lines are ignored
 
-Hello world	echo 'Hello World'
 Firefox: Objective-C string format specifiers	open 'https://developer.apple.com/library/prerelease/ios/documentation/Cocoa/Conceptual/Strings/Articles/formatSpecifiers.html#//apple_ref/doc/uid/TP40004265'
 Firefox: Python String Format Specification Mini-Language	 open 'https://docs.python.org/3/library/string.html?highlight=mini%20language#formatspec'
