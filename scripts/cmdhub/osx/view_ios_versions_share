@@ -1,0 +1,7 @@
+#! /usr/bin/env bash
+#x cmdhub: Firefox: iOS verions share
+
+open 'https://developer.apple.com/support/app-store/'
+open 'https://david-smith.org/iosversionstats/'
+
+# vim: ft=sh

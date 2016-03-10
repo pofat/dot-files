@@ -1,0 +1,5 @@
+#x cmdhub: Firefox: XCode Release Notes
+
+open 'https://developer.apple.com/library/ios/releasenotes/DeveloperTools/RN-Xcode/Chapters/Introduction.html#//apple_ref/doc/uid/TP40001051-CH1-SW1'
+
+# vim: ft=sh
