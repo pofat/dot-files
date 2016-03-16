@@ -1,3 +1,3 @@
-export FZF_CMDHUB_EDITOR='env MDX_CHAMELEON_MODE=mini nvim'
+export FZF_CMDHUB_EDITOR='env MDX_CHAMELEON_MODE=vim nvim'
 
 # vim: ft=sh
