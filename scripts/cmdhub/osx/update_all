@@ -1,25 +1,35 @@
 #!/usr/bin/env bash
 #x cmdhub: Update routine everyday
 
-s=update-all
+update_all_everyday() {
+  local s=update-all
+  local t=2
 
-tmux has-session -t "$s" &>/dev/null
-(( $? == 0 )) && tmux kill-sessio -t "$s"
+  tmux has-session -t "$s" &>/dev/null
+  (( $? == 0 )) && tmux kill-sessio -t "$s"
 
-# window 1
-tmux new-session -s "$s" -n 'vim-plugins' -d zsh
-tmux send-keys -t "$s":1 'v all' C-m
+  # create windows
 
-# window 2
-tmux new-window -t "$s" -n 'antigen & homebrew' zsh
-tmux split-window -t "$s":2 -h zsh
-tmux send-keys -t "$s":2.1 'antigen selfupate && antigen update' C-m
-tmux send-keys -t "$s":2.2 'bubu' C-m
+  # window 1
+  tmux new-session  -s "$s"   -n 'vim'     -d    zsh
+  tmux new-window   -t "$s"   -n 'zsh+osx'       zsh
+  tmux split-window -t "$s":2 -h                 zsh
+  tmux new-window   -t "$s"   -n 'python+ruby'   zsh
+  tmux split-window -t "$s":3 -h                 zsh
 
-# window 3
-tmux new-window -t "$s" -n 'pip & gem' zsh
-tmux split-window -t "$s":3 -h zsh
-tmux send-keys -t "$s":3.1 'echo -------- pip2 -------- && echo && pip2 list -o && echo && echo && echo -------- pip3 -------- && echo && pip3 list -o' C-m
-tmux send-keys -t "$s":3.2 'gem update' C-m
+  # assign jobs
+  sleep 3
+  tmux send-keys -t "$s":3.1 'echo Python2: && echo && pip2 list -o && echo && echo && echo Python3: && echo && pip3 list -o' C-m
+  sleep 0.1
+  tmux send-keys -t "$s":3.2 'gem update' C-m
+  sleep 0.1
+  tmux send-keys -t "$s":2.1 'antigen selfupate && antigen update' C-m
+  sleep 0.1
+  tmux send-keys -t "$s":2.2 'bubu' C-m
+  sleep 0.1
+  tmux send-keys -t "$s":1   'v all' C-m
+}
+
+( cd ~ && update_all_everyday & )
 
 # vim: ft=sh
