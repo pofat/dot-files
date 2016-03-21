@@ -35,6 +35,7 @@ abbreviate vimtip    http://vim.wikia.com/wiki/Vim_Tips_Wiki
 abbreviate jq        https://stedolan.github.io/jq/manual/v1.5
 abbreviate mini      https://docs.python.org/2/library/string.html?highlight=mini%20language#formatspec
 abbreviate swift     https://swift.org
+abbreviate lldb      http://lldb.llvm.org/tutorial.html
 
 
 "}}}1
