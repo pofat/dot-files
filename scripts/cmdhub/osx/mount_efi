@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#x cmdhub: Mount EFI partition
+
+disk=$(diskutil list | grep -B 1 'EI Capitan' | sed -n '1p' | grep -o 'disk[0-9]s[0-9]')
+target='/Volumes/EFI'
+mkdir /Volumes/EFI &>/dev/null
+sudo mount -t msdos "/dev/${disk}" "${target}"
+open "${target}"
