@@ -3,6 +3,6 @@
 cd ~/Git/neovim/ || exit 1
 echo 'git pull ...'
 gl
-lg $(nvim -v | sed -n '1p' | cut -c 18-26)..HEAD
+lg $(nvim -v | sed -n '1p' | cut -c 17-24)..HEAD
 
 # vim: ft=sh
