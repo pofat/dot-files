@@ -43,6 +43,7 @@ defaults write -g NSScrollViewRubberbanding -bool false
 # also disabled by NSWindowResizeTime -float 0.001
 printf "\e[34m\t  window resizing animations\e[0m\n"
 defaults write -g NSDocumentRevisionsWindowTransformAnimation -bool false
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
 # showing a toolbar or menu bar in full screen
 #defaults write -g NSToolbarFullScreenAnimationDuration -float 0
