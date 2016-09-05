@@ -91,6 +91,7 @@ flags = [
 '-mios-simulator-version-min=6.0',
 '-iquote',
 '-I/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/Foundation.framework/Headers',
+'-I/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk/System/Library/Frameworks/XCTest.framework/Headers',
 '-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include',
 '-I/Users/user/another/random/folder/here',
 '-I/Users/user/random/folder/here',
