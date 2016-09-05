@@ -15,7 +15,30 @@ __fzfcmd() {
 # started in this mode otherwise it will show a fzf menu to let you choose a
 # mode.
 
-v() {
+#v() {
+  ## collect modes
+  #local modes_dir="${MDX_REPOS_ROOT}/vim-config/chameleon/modes"
+  #local modes="$(ls -1 "${modes_dir}" | grep -v '^x_')"
+  #modes+="\nupdate-all" # special virtual mode only for plugin updating
+
+  ## pick out mode
+  #local mode="$(echo $modes | fzf -i -e -f $1)"
+
+  #if [[ -z $mode ]]; then
+    #mode=$(echo "$modes" | $(__fzfcmd) -i -e)
+  #elif (( $(echo $mode | wc -l) > 1 )); then
+    #mode=$(echo "$modes" | $(__fzfcmd) -i -e -q "$1")
+  #fi
+
+  #[[ -z "$mode" ]] && return
+
+  ## launch nvim
+  #shift 2>/dev/null
+  #MDX_CHAMELEON_MODE="$mode" nvim $@
+#}
+
+_v_choose_mode() {
+
   # collect modes
   local modes_dir="${MDX_REPOS_ROOT}/vim-config/chameleon/modes"
   local modes="$(ls -1 "${modes_dir}" | grep -v '^x_')"
@@ -31,10 +54,23 @@ v() {
   fi
 
   [[ -z "$mode" ]] && return
+  echo "$mode"
+}
+
+v() {
+  mode="$(_v_choose_mode $1)"
 
   # launch nvim
   shift 2>/dev/null
   MDX_CHAMELEON_MODE="$mode" nvim $@
+}
+
+V() {
+  mode="$(_v_choose_mode $1)"
+
+  # launch nvim
+  shift 2>/dev/null
+  MDX_CHAMELEON_MODE="$mode" vim $@
 }
 
 # choose & write chameleon mode to cur_mode file.
