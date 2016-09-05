@@ -13,7 +13,6 @@ abbreviate hugo      http://gohugo.io
 abbreviate mdn       https://developer.mozilla.org/en-US/docs/Web
 abbreviate mk        http://www.imooc.com
 abbreviate nvim      https://github.com/neovim/neovim
-abbreviate gn        https://github.com/notifications
 abbreviate osc       http://my.oschina.net/mudox
 abbreviate pydoc     https://www.python.org/doc
 abbreviate toml      https://github.com/toml-lang/toml
@@ -23,11 +22,7 @@ abbreviate wy        http://www.163.com
 abbreviate yd        http://dict.youdao.com
 abbreviate vpn       http://web.123ipsoft.com/iplist.php
 abbreviate wwdc      https://developer.apple.com/videos
-abbreviate asi       http://allseeing-i.com/ASIHTTPRequest/How-to-use
-abbreviate afn       http://cocoadocs.org/docsets/AFNetworking
 abbreviate alamofire https://github.com/Alamofire/Alamofire.git
-abbreviate lh        localhost:1313
-abbreviate csi       http://en.wikipedia.org/wiki/ANSI_escape_code
 abbreviate awwdc     http://asciiwwdc.com
 abbreviate dy        http://douyutv.com
 abbreviate vimplug   https://github.com/trending?l=vim
@@ -36,6 +31,12 @@ abbreviate jq        https://stedolan.github.io/jq/manual/v1.5
 abbreviate mini      https://docs.python.org/2/library/string.html?highlight=mini%20language#formatspec
 abbreviate swift     https://swift.org
 abbreviate lldb      http://lldb.llvm.org/tutorial.html
+abbreviate xc        http://xclient.info
+abbreviate G         https://g2.liuker.xyz/
+abbreviate se        http://apple.github.io/swift-evolution/
+abbreviate of        http://localhost:9090/index.jsp
+abbreviate pods      www.cocoapods.org
+
 
 
 "}}}1
