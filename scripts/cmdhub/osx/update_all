@@ -19,13 +19,13 @@ update_all_everyday() {
 
   # assign jobs
   sleep 3
-  tmux send-keys -t "$s":3.1 'echo Python2: && echo && pip2 list -o && echo && echo && echo Python3: && echo && pip3 list -o' C-m
+  tmux send-keys -t "$s":3.1 'echo Python2: && echo && pip2 list -o && echo && echo && echo Python3: && echo && pip3 list -o && say python pip updated' C-m
   sleep 0.1
-  tmux send-keys -t "$s":3.2 'gem update' C-m
+  tmux send-keys -t "$s":3.2 'gem update && say ruby gem updated' C-m
   sleep 0.1
-  tmux send-keys -t "$s":2.1 'antigen selfupate && antigen update' C-m
+  tmux send-keys -t "$s":2.1 'antigen selfupate && antigen update && say antigen updated' C-m
   sleep 0.1
-  tmux send-keys -t "$s":2.2 'bubu' C-m
+  tmux send-keys -t "$s":2.2 'bubu && say brew updated' C-m
   sleep 0.1
   tmux send-keys -t "$s":1   'v all' C-m
 }

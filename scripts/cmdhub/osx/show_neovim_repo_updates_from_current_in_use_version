@@ -3,6 +3,6 @@
 cd ~/Git/neovim/ || exit 1
 echo 'git pull ...'
 gl
-lg $(nvim -v | sed -n '1p' | cut -c 17-24)..HEAD
+lg $(nvim -v | sed -n '1p' | grep -o 'g[0-9a-f]\+' | cut -c '2-')..HEAD
 
 # vim: ft=sh
