@@ -8,14 +8,11 @@ set guioptions=
 set blinkcursor
 
 " go to next/previous func declaration header line
-nnoremap ]] /^[-+]|func\b<Cr>zz
-nnoremap [[ ?^[-+]|func\b<Cr>zz
+nnoremap ]] /^[-+]|func<Cr>
+nnoremap [[ ?^[-+]|func<Cr>
 
 " reindent all
 nnoremap == gg=G''
-
-nnoremap n nzz
-nnoremap N Nzz
 
 " jump between panes
 nnoremap <C-h> <C-w>h
@@ -30,8 +27,13 @@ noremap H     <C-u>
 noremap L     <C-d>
 
 nnoremap zh    :xhelp<Cr>
+
 nnoremap ]q    :ni<Cr>
 nnoremap [q    :pi<Cr>
+nnoremap ]c    :nc<Cr>
+nnoremap [c    :pc<Cr>
+nnoremap ]j    :nj<Cr>
+nnoremap [j    :pj<Cr>
 
 " insert mode cursor move
 inoremap <C-h> <left>
