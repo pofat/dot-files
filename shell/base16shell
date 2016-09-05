@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MDX_BASE16_ROOT="${MDX_REPOS_ROOT}/base16-shell"
+MDX_BASE16_ROOT="${MDX_REPOS_ROOT}/base16-shell/scripts"
 
 if [ ! -d "$MDX_BASE16_ROOT" ]; then
   printf "\e[33mneed [base16-shell], installing ...\e[0m\n"
