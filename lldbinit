@@ -1,1 +1,5 @@
 command script import /usr/local/opt/chisel/libexec/fblldb.py
+
+ex UIApplication *$app = [UIApplication sharedApplication];
+ex UIWindow *$win = $app.delegate.window;
+ex UIViewController *rvc = $win.rootViewController;
