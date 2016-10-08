@@ -1,35 +1,7 @@
 #!/usr/bin/env bash
 #x cmdhub: Update routine everyday
 
-update_all_everyday() {
-  local s=update-all
-  local t=2
-
-  tmux has-session -t "$s" &>/dev/null
-  (( $? == 0 )) && tmux kill-sessio -t "$s"
-
-  # create windows
-
-  # window 1
-  tmux new-session  -s "$s"   -n 'vim'     -d    zsh
-  tmux new-window   -t "$s"   -n 'zsh+osx'       zsh
-  tmux split-window -t "$s":2 -h                 zsh
-  tmux new-window   -t "$s"   -n 'python+ruby'   zsh
-  tmux split-window -t "$s":3 -h                 zsh
-
-  # assign jobs
-  sleep 3
-  tmux send-keys -t "$s":3.1 'echo Python2: && echo && pip2 list -o && echo && echo && echo Python3: && echo && pip3 list -o && say python pip updated' C-m
-  sleep 0.1
-  tmux send-keys -t "$s":3.2 'gem update && say ruby gem updated' C-m
-  sleep 0.1
-  tmux send-keys -t "$s":2.1 'antigen selfupate && antigen update && say antigen updated' C-m
-  sleep 0.1
-  tmux send-keys -t "$s":2.2 'bubu && say brew updated' C-m
-  sleep 0.1
-  tmux send-keys -t "$s":1   'v all' C-m
-}
-
-( cd ~ && update_all_everyday & )
+tmux kill-session -t Update 2>/dev/null
+tmuxinator start Update
 
 # vim: ft=sh
