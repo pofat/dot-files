@@ -1,0 +1,131 @@
+# vim: filetype=zsh foldmethod=marker
+SHELL=$0
+
+export MDX_REPOS_ROOT="${HOME}/Git"
+
+export LANG='en_US.UTF-8'
+
+unalias run-help
+autoload run-help
+HELPDIR=/usr/local/share/zsh/help
+
+# ZPLUG {{{1
+source ~/.zplug/init.zsh
+
+# Bundles {{{2
+
+# oh-my-zsh plugins
+zplug "plugins/git",        from:oh-my-zsh
+zplug "plugins/git-extras", from:oh-my-zsh
+zplug "plugins/git-flow",   from:oh-my-zsh
+zplug "plugins/colorize",   from:oh-my-zsh
+zplug "plugins/brew",       from:oh-my-zsh
+zplug "plugins/copyfile",   from:oh-my-zsh
+zplug "plugins/copydir",    from:oh-my-zsh
+zplug "plugins/tmux",       from:oh-my-zsh
+zplug "plugins/battery",    from:oh-my-zsh
+zplug "plugins/docker",     from:oh-my-zsh
+
+# oh-my-zsh theme
+zplug "themes/af-magic", from:oh-my-zsh
+
+# zsh-users bundles
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-syntax-highlighting", nice:12
+
+zplug "rupa/z", use:"z.sh"
+zplug "djui/alias-tips"
+
+# my zsh plugins
+zplug "mudox/fzf-cmdhub", use:"fzf-cmdhub.sh"
+
+# }}}2
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+    echo; zplug install
+  fi
+fi
+
+
+# Then, source plugins and add commands to $PATH
+zplug load --verbose
+
+# }}}1
+
+# MY CONFIGURATION {{{1
+export MDX_DOT_FILES="${MDX_REPOS_ROOT}/dot-files"
+
+com="$MDX_DOT_FILES/shell"
+osx="$com/osx"
+cygwin="$com/cygwin"
+archlinux="$com/archlinux"
+
+# $PATH functions needed by subsequent sources
+source "$com/path"
+
+# system specific settings.
+# NOTE: sourcing order matters.
+case $(uname -s) in
+  Darwin )
+    for s in "$osx"/*; do
+      [[ -f "$s" ]] && source "$s"
+    done
+    ;;
+  CYGWIN* )
+    for s in "$cygwin"/*; do
+      [[ -f "$s" ]] && source "$s"
+    done
+    ;;
+  Linux )
+    case $(uname -r) in
+      *ARCH ) # Arch Linux
+	source "$archlinux/yaourt"
+	source "$archlinux/vpn"
+	;;
+      * )
+	echo "\e[31m[.zshrc]: un-recognized linux distro."
+	;;
+    esac
+    ;;
+  * )
+    echo "\e[31m[.zshrc]: un-recognized platform."
+    ;;
+esac
+
+# across system settings
+# NOTE: sourcing order matters
+for s in "$com"/*; do
+  [[ -f "$s" ]] && source $s
+done
+
+# cleanup
+unset com
+unset osx
+unset archlinux
+unset cygwin
+unset s
+
+# remove duplicate paths in $PATH
+mdx_uniq_path
+
+# }}}1
+
+# set initiali prompt theme & shell colorscheme.
+#zpn
+[[ -z $TMUX ]] && basen # do not change color scheme in tmux
+
+mdxinfo() {
+  printf "\e[33m%8s -> \e[1;35m%s\n" "PS" "${MDX_ZSH_THEME}"
+  printf "\e[33m%8s -> \e[1;35m%s\n" "BASE16" "${MDX_BASE_COLOR}"
+}
+
+# RVM
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
