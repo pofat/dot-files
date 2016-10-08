@@ -3,7 +3,7 @@
 abbreviate appdev    https://developer.apple.com
 abbreviate archwiki  https://wiki.archlinux.org/index.php/Main_Page
 abbreviate awesome   http://awesome.naquadah.org
-abbreviate gh        https://github.com
+abbreviate gh        https://github.com/notifications
 abbreviate gitdoc    http://git-scm.com/docs
 abbreviate godoc     http://godoc.golangtc.com
 abbreviate gospec    http://golang.org/ref/spec
@@ -36,6 +36,7 @@ abbreviate G         https://g2.liuker.xyz/
 abbreviate se        http://apple.github.io/swift-evolution/
 abbreviate of        http://localhost:9090/index.jsp
 abbreviate pods      www.cocoapods.org
+abbreviate stars     https://app.astralapp.com/dashboard
 
 
 
