@@ -25,6 +25,7 @@
     co            = checkout
     df            = diff
     ls            = ls-files
+    ignore        = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
     interactive   = auto
 
 [color "branch"]
