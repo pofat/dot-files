@@ -1,6 +1,6 @@
 # ~/.tmuxinator/YiDa.yml
 
-name: YiDa
+name: YiDaPractices
 root: ~/Dev/apple/YiDaiOS/Practices/
 
 # Optional tmux socket
@@ -27,7 +27,7 @@ root: ~/Dev/apple/YiDaiOS/Practices/
 
 # Controls whether the tmux session should be attached to automatically.
 # Defaults to true.
-attach: true
+attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
 # post: tmux -CC attach -t YiDa

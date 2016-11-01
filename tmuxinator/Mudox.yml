@@ -27,7 +27,7 @@ root: ~/
 
 # Controls whether the tmux session should be attached to automatically.
 # Defaults to true.
-attach: true
+attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
 # post: tmux send -t 'Mudox:Dashboard.2' 'tmux clock-mode' c-m
@@ -46,5 +46,3 @@ windows:
    - Tmuxinator:
       - cd ~/.tmuxinator
       - vv -S
-
-   - Console: # here to run you random command

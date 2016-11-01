@@ -34,7 +34,7 @@ attach: false
 
 windows:
 
-   - CocoLumberjack:
+   - CocoaLumberjack:
       layout: 936b,211x52,0,0{150x52,0,0,9,60x52,151,0,51}
       panes:
          - # Xcode log out
