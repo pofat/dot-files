@@ -7,6 +7,9 @@ set guioptions=
 " fix cursor not shown in playground for XCode 7.1
 set blinkcursor
 
+noremap <D-[> <Esc>
+inoremap <D-[> <Esc>
+
 " go to next/previous func declaration header line
 nnoremap ]] /^[-+]|func<Cr>
 nnoremap [[ ?^[-+]|func<Cr>
@@ -27,6 +30,9 @@ noremap H     <C-u>
 noremap L     <C-d>
 
 nnoremap zh    :xhelp<Cr>
+
+" sensible Y
+nnoremap Y y$
 
 nnoremap ]q    :ni<Cr>
 nnoremap [q    :pi<Cr>
