@@ -1,22 +1,26 @@
 # vim: filetype=zsh foldmethod=marker
-SHELL=$0
+#SHELL=$0
+
+# macOS sierra issue
+export EVENT_NOKQUEUE=1
 
 export MDX_REPOS_ROOT="${HOME}/Git"
 
 export LANG='en_US.UTF-8'
 
-unalias run-help
-autoload run-help
-HELPDIR=/usr/local/share/zsh/help
+#unalias run-help
+#autoload run-help
+#HELPDIR=/usr/local/share/zsh/help
 
 # Antigen
-if [ ! -d "${MDX_REPOS_ROOT}/antigen" ]; then
+if [[ ! -d ${MDX_REPOS_ROOT}/antigen ]]; then
   echo "\e[31mneed [antigen], installing ...\e[0m"
   git clone "https://github.com/zsh-users/antigen.git" \
     "${MDX_REPOS_ROOT}/antigen"
 fi
 
 # ANTIGEN {{{1
+_ANTIGEN_CACHE_ENABLED=''
 source "${MDX_REPOS_ROOT}/antigen/antigen.zsh"
 
 # Load the oh-my-zsh's library.
