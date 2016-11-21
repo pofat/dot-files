@@ -1,6 +1,6 @@
 # ~/.tmuxinator/YiDa.yml
 
-name: YiDaPractices
+name: YiDa
 root: ~/Dev/apple/YiDaiOS/Practices/
 
 # Optional tmux socket

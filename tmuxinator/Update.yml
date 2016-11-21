@@ -38,8 +38,11 @@ windows:
 
    - Vim: MDX_CHAMELEON_MODE=update-all nvim
 
-   - Shell:
-      - antigen update
+   - Shell+Homebrew:
+      layout: even-horizontal
+      panes:
+         - Antigen: antigen update
+         - Homebrew: bubu
 
    - Python+Ruby:
       layout: even-horizontal
