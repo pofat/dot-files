@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#x cmdhub: Start commonly used tmux sessions
+
+tmuxinator start Mudox
+tmuxinator start Xcode
+tmuxinator start YiDa
