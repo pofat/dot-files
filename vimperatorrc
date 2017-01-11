@@ -1,39 +1,21 @@
 " ABBREVIATIONS   {{{1
 
 abbreviate appdev    https://developer.apple.com
-abbreviate archwiki  https://wiki.archlinux.org/index.php/Main_Page
-abbreviate awesome   http://awesome.naquadah.org
 abbreviate gh        https://github.com/notifications
-abbreviate gitdoc    http://git-scm.com/docs
-abbreviate godoc     http://godoc.golangtc.com
-abbreviate gospec    http://golang.org/ref/spec
 abbreviate hh        localhost:1313
 abbreviate home      http://mudox.github.io
 abbreviate hugo      http://gohugo.io
 abbreviate mdn       https://developer.mozilla.org/en-US/docs/Web
-abbreviate mk        http://www.imooc.com
 abbreviate nvim      https://github.com/neovim/neovim
-abbreviate osc       http://my.oschina.net/mudox
-abbreviate pydoc     https://www.python.org/doc
-abbreviate toml      https://github.com/toml-lang/toml
-abbreviate ver       http://semver.org
-abbreviate vim       http://www.vim.org
 abbreviate wy        http://www.163.com
-abbreviate yd        http://dict.youdao.com
-abbreviate vpn       http://web.123ipsoft.com/iplist.php
 abbreviate wwdc      https://developer.apple.com/videos
-abbreviate alamofire https://github.com/Alamofire/Alamofire.git
 abbreviate awwdc     http://asciiwwdc.com
 abbreviate dy        http://douyutv.com
-abbreviate vimplug   https://github.com/trending?l=vim
-abbreviate vimtip    http://vim.wikia.com/wiki/Vim_Tips_Wiki
 abbreviate jq        https://stedolan.github.io/jq/manual/v1.5
 abbreviate mini      https://docs.python.org/2/library/string.html?highlight=mini%20language#formatspec
 abbreviate lldb      http://lldb.llvm.org/tutorial.html
 abbreviate xc        http://xclient.info
-abbreviate G         https://g2.liuker.xyz
 abbreviate pods      www.cocoapods.org
-abbreviate stars     https://app.astralapp.com/dashboard
 
 "}}}1
 
