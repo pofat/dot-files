@@ -11,16 +11,23 @@ abbreviate wy        http://www.163.com
 abbreviate wwdc      https://developer.apple.com/videos
 abbreviate awwdc     http://asciiwwdc.com
 abbreviate dy        http://douyutv.com
-abbreviate jq        https://stedolan.github.io/jq/manual/v1.5
 abbreviate mini      https://docs.python.org/2/library/string.html?highlight=mini%20language#formatspec
-abbreviate lldb      http://lldb.llvm.org/tutorial.html
 abbreviate xc        http://xclient.info
 abbreviate pods      www.cocoapods.org
+abbreviate lr        https://luarocks.org/
+abbreviate se        https://apple.github.io/swift-evolution/
+abbreviate pttcd     https://www.ptt.cc/bbs/China-Drama/index.html
+abbreviate pttlol    https://www.ptt.cc/bbs/LoL/index.html
+abbreviate pttgs     https://www.ptt.cc/bbs/Gossiping/index.html
+abbreviate rac       https://github.com/ReactiveCocoa
+abbreviate racdoc    http://reactivecocoa.io/reactiveswift/docs/latest/
+abbreviate yt        www.youtube.com
 
 "}}}1
 
 " MAPPINGS        {{{1
 noremap coh :noh<Cr><Esc><Esc>
+noremap gR :source ~/.vimperatorrc<Cr>
 
 noremap J <C-d>
 noremap K <C-u>
@@ -45,8 +52,8 @@ noremap coh :noh<Cr>
 set complete=
 "set hintchars=12347890
 
-set nextpattern=\\bnext\\b,^>$,^(>>|»)$,^(>|»),(>|»)$,\\bmore\\b,^下一页$
-set previouspattern=\\bprev|previous\\b,^<$,^(<<|«)$,^(<|«),(<|«)$,^上一页$
+set nextpattern=\\bnext\\b,^>$,^(>>|»)$,^(>|»),(>|»)$,\\bmore\\b,^下一页$,^下頁>$
+set previouspattern=\\bprev|previous\\b,^<$,^(<<|«)$,^(<|«),(<|«)$,^上一页$,^<上頁$
 
 "}}}1
 
