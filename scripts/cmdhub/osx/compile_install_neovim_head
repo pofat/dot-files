@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
-#x cmdhub: Compile Neovim from repo & install it to ~/.bin/neovim
+#x cmdhub: Compile & install Neovim: nvim-head
 
-neovim_path="$HOME/.bin/neovim"
+neovim_path="$HOME/.bin/neovim-head"
+
+# avoid lua interpreter issue
+unset LUA_CPATH LUA_PATH
 
 # backup original neovim version
 printf "\e[32mBack up current neovim copy into ${neovim_path}.tmp\e[0m\n"
