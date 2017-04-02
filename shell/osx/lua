@@ -1,0 +1,7 @@
+# vim: filetype=zsh
+
+# add luarocks paths into PATH, LUA_PATH, LUA_CPATH
+eval `luarocks path --bin`
+
+alias lr='luarocks'
+alias lri='luarocks install --local'
