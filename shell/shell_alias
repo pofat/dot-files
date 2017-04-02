@@ -6,3 +6,7 @@ alias lr='luarocks'
 
 alias df='df -h'
 alias du='du -h'
+
+alias gsc='git clone --verbose --recursive --depth 1'
+
+alias xsh='proxychains4 zsh'
