@@ -1,0 +1,3 @@
+# vim: filetype=zsh
+
+export HOMEBREW_GITHUB_API_TOKEN="d1291171b07531850ffe998fe4ee1a33c99ad82f"
