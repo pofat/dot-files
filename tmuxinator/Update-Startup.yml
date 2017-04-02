@@ -1,6 +1,6 @@
-# ~/.tmuxinator/mudox.yml
+# ~/.tmuxinator/Update-Startup.yml
 
-name: Mudox
+name: Update
 root: ~/
 
 # Optional tmux socket
@@ -15,7 +15,9 @@ root: ~/
 
 # Pass command line options to tmux. Useful for specifying a different
 # tmux.conf.
-# tmux_options: -f ~/.tmux.mac.conf
+
+# use /bin/sh & remove all tmux plguins to boost shell startup
+tmux_options: -f ~/Git/dot-files/tmux.sh.conf
 
 # Change the command to call tmux.  This can be used by derivatives/wrappers
 # like byobu.
@@ -30,21 +32,22 @@ root: ~/
 attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux send -t 'Mudox:Dashboard.2' 'tmux clock-mode' c-m
+# post: tmux -CC attach -t Update
 
 windows:
 
-   - Console: # Run arbitrary command here
+   - Vim: # MDX_CHAMELEON_MODE=update-all nvim
 
-   - Dashboard:
-      layout: ae93,211x52,0,0{135x52,0,0,2,75x52,136,0[75x17,136,0,3,75x34,136,18,4]}
+   - Antigen: # antigen update
+
+   - Homebrew: # bubu --verobse
+
+   - Python:
+      layout: even-horizontal
       panes:
-         - htop
-         - date # to be filled show other info
-         - ~/Git/dot-files/scripts/cmdhub/osx/test_terminal_color_capability
+         - Python2: # pip2 list -o --format=columns
+         - Python3: # pip3 list -o --format=columns
 
-   - Network: sudo /usr/local/Cellar/iftop/1.0pre4/sbin/iftop
+   - Ruby: # gem outdated
 
-   - Tmuxinator:
-      - cd ~/.tmuxinator
-      - vv -S
+   - Cocoapods: # pod repo update --verobse

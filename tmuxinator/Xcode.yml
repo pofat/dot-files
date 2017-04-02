@@ -34,12 +34,17 @@ attach: false
 
 windows:
 
-   - CocoaLumberjack:
+   - Log:
       layout: 936b,211x52,0,0{150x52,0,0,9,60x52,151,0,51}
       panes:
-         - # Xcode log out
-         - # Xcode scheme actions log out
+         - cd /tmp/mudox/log/Xcode/CocoaLumberjack
+         - cd /tmp/mudox/log/Xcode
 
-   - Scheme Actions:
-      - cd ~/Dev/apple/xcode-project-startup-files
-      - vv -S Session.vim
+   - Jack:
+      - cd ~/Develop/apple/Pods/Jack
+
+   - iOSKit:
+      - cd ~/Develop/apple/Pods/iOSKit
+
+   - ShareKit:
+      - cd ~/Develop/apple/Pods/ShareKit

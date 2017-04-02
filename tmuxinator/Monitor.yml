@@ -1,6 +1,6 @@
-# ~/.tmuxinator/Update.yml
+# ~/.tmuxinator/monitor.yml
 
-name: Update
+name: Monitor
 root: ~/
 
 # Optional tmux socket
@@ -15,9 +15,7 @@ root: ~/
 
 # Pass command line options to tmux. Useful for specifying a different
 # tmux.conf.
-
-# use /bin/sh & remove all tmux plguins to boost shell startup
-tmux_options: -f ~/Git/dot-files/tmux.sh.conf
+# tmux_options: -f ~/.tmux.mac.conf
 
 # Change the command to call tmux.  This can be used by derivatives/wrappers
 # like byobu.
@@ -32,22 +30,14 @@ tmux_options: -f ~/Git/dot-files/tmux.sh.conf
 attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t Update
+# post: tmux send -t 'Mudox:Dashboard.2' 'tmux clock-mode' c-m
 
 windows:
 
-   - Vim: MDX_CHAMELEON_MODE=update-all nvim
+   - Task: htop
 
-   - Antigen: antigen update
+   - Network: sudo /usr/local/Cellar/iftop/1.0pre4/sbin/iftop
 
-   - Homebrew: bubu --verbose
-
-   - Python:
-      layout: even-horizontal
-      panes:
-         - Python2: pip2 list -o --format=columns
-         - Python3: pip3 list -o --format=columns
-
-   - Ruby: gem outdated
-
-   - Cocoapods: pod repo update --verbose
+   - Tmuxinator:
+      - cd ~/.tmuxinator
+      - vv -S

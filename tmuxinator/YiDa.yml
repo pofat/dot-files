@@ -1,7 +1,7 @@
 # ~/.tmuxinator/YiDa.yml
 
 name: YiDa
-root: ~/Dev/apple/YiDaiOS/Practices/
+root: ~/Develop/apple/YiDa/YiDaSwift/
 
 # Optional tmux socket
 # socket_name: foo
@@ -34,10 +34,14 @@ attach: false
 
 windows:
 
-   - Swift:
-       - cd ~/Dev/apple/YiDaiOS/Practices/YiDaIOSSwiftPractices
-       - v swift -S Session.vim
+   - YiDaSwift:
+     - cd ~/Develop/apple/YiDa/YiDaSwift/
+     - v swift -S Session.vim
 
-   - Objective-C:
-       - cd ~/Dev/apple/YiDaiOS/Practices/YiDaIOSObjectiveCPractices
-       - v swift -S Session.vim
+   - ChangeShou:
+     - cd ~/Develop/apple/YiDa/Intership/ChangShou/
+     - vv -S Session.vim
+
+   - AiGou:
+     - cd ~/Develop/apple/YiDa/Intership/AiGou/
+     - vv -S Session.vim
