@@ -20,7 +20,7 @@ if [[ ! -d ${MDX_REPOS_ROOT}/antigen ]]; then
 fi
 
 # ANTIGEN {{{1
-_ANTIGEN_CACHE_ENABLED=''
+#_ANTIGEN_CACHE_ENABLED=''
 source "${MDX_REPOS_ROOT}/antigen/antigen.zsh"
 
 # Load the oh-my-zsh's library.
@@ -45,10 +45,6 @@ zsh-users/zsh-completions src
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
 
-
-# quickly jump between paths
-rupa/z
-
 # put $(pwd) in clipboard.
 copydir
 
@@ -66,8 +62,8 @@ tmux
 
 battery
 
-# docker command enhancement
-docker
+# quickly jump between paths
+rupa/z
 
 EOBUNDLES
 # }}}2
@@ -138,6 +134,9 @@ mdx_uniq_path
 # set initiali prompt theme & shell colorscheme.
 zpn
 [[ -z $TMUX ]] && basen # do not change color scheme in tmux
+
+# Fix z not working issue
+source /Users/mudox/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-rupa-SLASH-z.git/z.sh
 
 mdxinfo() {
   printf "\e[33m%8s -> \e[1;35m%s\n" "PS" "${MDX_ZSH_THEME}"
