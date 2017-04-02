@@ -14,14 +14,9 @@ inoremap <D-[> <Esc>
 nnoremap ]] /^[-+]|func<Cr>
 nnoremap [[ ?^[-+]|func<Cr>
 
-" reindent all
-nnoremap == gg=G''
-
 " jump between panes
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap gl <C-w>l
+nnoremap gh <C-w>h
 
 " move in bigger stride
 noremap J     8j
@@ -62,8 +57,6 @@ nnoremap <Space>5 <Space>h<Space>j
 
 nnoremap cae <Esc><Esc>ggcG
 
-nnoremap <Space>o     :xcmenucmd Open Quickly...<Cr>
-
 nnoremap <Backspace>w :xcmenucmd Save<Cr>
 nnoremap <Backspace>a :xcmenucmd Save All<Cr>
 
@@ -82,13 +75,12 @@ nnoremap <Space>j     :xccmd     toggleDebuggerVisibility<Cr>
 nnoremap <Space>l     :xccmd     toggleUtilitiesVisibility<Cr>
 nnoremap <Space>u     :xccmd     toggleUtilitiesVisibilityAlternate<Cr>
 
-nnoremap gl           :xccmd     openQuicklyScoped<Cr>
 nnoremap zi           :xccmd     toggleIssueShown<Cr>
 nnoremap zm           :xcmenucmd toggleMessageBubbles<Cr>
+nnoremap zb           :xcmenucmd toggleBreakpointAtCurrentLine<Cr>
 
 nnoremap \f vaB       :xcmenucmd indentSelection<Cr>
 
 nnoremap <Backspace>r :xcmenucmd Run<Cr>
 nnoremap <Backspace>t :xcmenucmd Test<Cr>
 
-nnoremap zb           :xcmenucmd toggleBreakpointAtCurrentLine<Cr>
