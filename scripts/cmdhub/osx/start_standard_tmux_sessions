@@ -1,6 +1,35 @@
 #!/usr/bin/env bash
 #x cmdhub: Start commonly used tmux sessions
 
-tmuxinator start Mudox
-tmuxinator start Xcode
-tmuxinator start YiDa
+# $1: session id of interest
+is_session_exists() {
+  tmux list-session -F '#{session_name}' 2>&1 | grep -q "^$1$"
+}
+
+# $1: the yml name to let tmuxinator to start
+start_session() {
+  if is_session_exists $1; then
+    printf "\e[33msession [$1] already exists, skip creating ...\e[0m\n"
+  else
+    printf "\e[35mstarting [$1] ...\e[0m\n"
+    tmuxinator start $1
+  fi
+}
+
+# session named '0' is required
+if ! is_session_exists 0; then
+  printf "\e[34mcreate session 0 first\e[0m\n"
+  tmux new-session -s 0 -n Console -d
+fi
+
+session_names="Monitor YiDa Xcode Hammerspoon"
+for name in $session_names; do
+  start_session $name
+done
+
+if ! is_session_exists Update; then
+  printf "\e[34mcreate session [Update]\e[0m\n"
+  tmuxinator start Update-Startup
+fi
+
+tmux attach -t 0
