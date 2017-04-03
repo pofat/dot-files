@@ -9,17 +9,19 @@ is_session_exists() {
 # $1: the yml name to let tmuxinator to start
 start_session() {
   if is_session_exists $1; then
-    printf "\e[33msession [$1] already exists, skip creating ...\e[0m\n"
+    printf   "\e[35m✗ [$1] already exists, skip creating ...\e[0m\n"
   else
-    printf "\e[35mstarting [$1] ...\e[0m\n"
+    printf   "\e[32m  [$1] creating ...\e[0m"
     tmuxinator start $1
+    printf "\r\e[K\e[33m✓ [$1]\e[0m\n"
   fi
 }
 
 # session named '0' is required
 if ! is_session_exists 0; then
-  printf "\e[34mcreate session 0 first\e[0m\n"
+  printf   "\e[32m  [0] creating ...\e[0m"
   tmux new-session -s 0 -n Console -d
+  printf "\r\e[K\e[33m✓ [0]\e[0m\n"
 fi
 
 session_names="Monitor YiDa Xcode Hammerspoon"
@@ -28,8 +30,10 @@ for name in $session_names; do
 done
 
 if ! is_session_exists Update; then
-  printf "\e[34mcreate session [Update]\e[0m\n"
+  printf   "\e[32m  [Update] creating ...\e[0m"
   tmuxinator start Update-Startup
+  printf "\r\e[K\e[33m✓ [Update]\e[0m\n"
 fi
 
+sleep 1
 tmux attach -t 0
