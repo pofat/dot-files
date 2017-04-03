@@ -1,3 +1,11 @@
 export FZF_CMDHUB_EDITOR='env MDX_CHAMELEON_MODE=vim nvim'
 
+# shortcut ^[q to main interface
+mudox-zsh-widget-q() {
+ ch
+}
+
+zle -N mudox-zsh-widget-q
+bindkey '^[q' mudox-zsh-widget-q
+
 # vim: ft=sh
