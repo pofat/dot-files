@@ -38,7 +38,18 @@ for i = 1, #shortcuts do
   local combo = shortcut[1]
   local key = tostring(shortcut[2])
   local name = shortcut[3]
-  hs.hotkey.bind(combo, key, function () hs.application.launchOrFocus(name) end)
+  --hs.hotkey.bind(combo, key, function () hs.application.launchOrFocus(name) end)
+  hs.hotkey.bind(combo, key, function () toggleApp(name) end)
+end
+
+function toggleApp(name)
+  local app = hs.application.get(name)
+  if app and app:isFrontmost() then
+    app:hide()
+  else
+    hs.application.launchOrFocus(name)
+    --hs.application.get(name):focusedWindow():maximize()
+  end
 end
 
 -- init grid
