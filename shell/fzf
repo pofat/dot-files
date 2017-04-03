@@ -6,21 +6,17 @@ export FZF_COMPLETION_TRIGGER=',,'
 export FZF_COMPLETION_OPTS='-e'
 
 export FZF_DEFAULT_OPTS='
---extended
+--height=40%
+--reverse
+--border
+--margin=2
 --bind ctrl-f:page-down,ctrl-b:page-up
+--select-1
+--exit-0
+--color fg:188,bg:233,hl:103,fg+:222,bg+:234,hl+:104
+--color info:183,prompt:110,spinner:107,pointer:167,marker:215
 '
 export FZF_DEFAULT_COMMAND='ag --nocolor -l -g ""'
-
-# in tmux emit modified command.
-__fzfcmd_d() {
-  [ ${FZF_TMUX:-1} -eq 1 ] && echo "fzf-tmux -d${FZF_TMUX_HEIGHT:-40%}" \
-    || echo "fzf"
-}
-
-__fzfcmd_l() {
-  [ ${FZF_TMUX:-1} -eq 1 ] && echo "fzf-tmux -l${FZF_TMUX_WIDTH:-30%}" \
-    || echo "fzf"
-}
 
 if [[ "$SHELL" == "bash" ]]; then
   return
@@ -31,7 +27,7 @@ fi
 fzf-history-widget() {
   local selected restore_no_bang_hist
   if selected=( $(fc -l 1 | grep '^.\{12,\}' | sort -k2 | uniq -f1 |\
-    $(__fzfcmd_d) +s --tac +m -n2..,.. --tiebreak=index -q "$LBUFFER") ); then
+    fzf +s --tac +m -n2..,.. --tiebreak=index -q "$LBUFFER") ); then
   num=$selected[1]
   if [ -n "$num" ]; then
     zle vi-fetch-history -n $num
@@ -50,7 +46,7 @@ __fsel() {
   command find ./* -path '*/\.*' -prune \
     -o -type f -print \
     -o -type d -print \
-    -o -type l -print 2> /dev/null | $(__fzfcmd_d) -m -e | while read item; do
+    -o -type l -print 2> /dev/null | fzf -m -e | while read item; do
   printf '%q ' "$item"
 done
 echo
@@ -68,7 +64,7 @@ bindkey '^Tf' fzf-file-widget
 # ^Tj to insert paths from $(z -l) to the command line.                                                          {{{1
 __zdirs() {
   set -o nonomatch
-  z -l | sed 's/[0-9.,]* *//' | $(__fzfcmd_d) -m -e | while read item; do
+  z -l | sed 's/[0-9.,]* *//' | fzf -m -e | while read item; do
   printf '%q ' "$item"
 done
 echo
@@ -91,7 +87,7 @@ mudox-zsh-widget-j() {
   fi
 
   local target_dir
-  target_dir=$( z -l | sed 's/[0-9.,]* *//' | $(__fzfcmd_d) +m \
+  target_dir=$( z -l | sed 's/[0-9.,]* *//' | fzf +m \
     --select-1 \
     --exit-0 \
     --extended-exact)
@@ -111,7 +107,7 @@ mudox-zsh-widget-c() {
   local target_dir
   target_dir=$(find ./* -path '*/\.*' -prune \
     -o -type d -print 2> /dev/null | \
-    $(__fzfcmd_d) +m +s --extended-exact)
+    fzf +m +s --extended-exact)
 
   [ -n "$target_dir" ] && cd "$target_dir"
 
@@ -125,7 +121,7 @@ bindkey '^[k' mudox-zsh-widget-c
 # fe [pattern] to open the selected file with the gvim in tab.                                                   {{{1
 fe() {
   local file
-  file=$($(__fzfcmd_d) \
+  file=$(fzf) \
     --query="$1" \
     --select-1 \
     --exit-0 \
@@ -166,7 +162,7 @@ fe() {
 fkill() {
   ps | \
     sed '1d' | \
-    $(__fzfcmd_d) --multi --extended-exact | \
+    fzf --multi --extended-exact | \
     awk '{print $2}' | \
     xargs kill -"${1:-9}"
 } #}}}1
@@ -189,7 +185,7 @@ cmh() {
   if [[ "$#" -eq 0 ]]; then
     local categories="command\nmanual\nmodule\npolicy\nproperty\nvariable"
 
-    category=$(echo ${categories} | $(__fzfcmd_d) \
+    category=$(echo ${categories} | fzf \
       --query="$2"                      \
       --select-1                        \
       --extended-exact                  \
@@ -229,7 +225,7 @@ cmh() {
   local selection
   selection=$(cmake --help-${category}-list | \
     sed '1d' | sort | uniq |              \
-    $(__fzfcmd_d)                                   \
+    fzf                                   \
     --query="$2"                          \
     --select-1                            \
     --extended-exact                      \
@@ -257,7 +253,7 @@ cth() {
   if [[ "$#" -eq 0 ]]; then
     local categories="command\nmanual\nmodule\npolicy\nproperty\nvariable"
 
-    category=$(echo ${categories} | $(__fzfcmd_d) \
+    category=$(echo ${categories} | fzf \
       --query="$2"                      \
       --select-1                        \
       --extended-exact                  \
@@ -297,7 +293,7 @@ cth() {
   local selection
   selection=$(ctest --help-${category}-list | \
     sed '1d' | sort | uniq |              \
-    $(__fzfcmd_d)                                   \
+    fzf                                   \
     --query="$2"                          \
     --select-1                            \
     --extended-exact                      \
