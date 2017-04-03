@@ -4,7 +4,8 @@
 # - Use TAB characters to separate titles and commands.
 # - Comment lines (start with a '#') and empty lines are ignored
 
-Firefox: Objective-C string format specifiers	open 'https://developer.apple.com/library/prerelease/ios/documentation/Cocoa/Conceptual/Strings/Articles/formatSpecifiers.html#//apple_ref/doc/uid/TP40004265'
+Firefox: Objective-C string format specifiers		open 'https://developer.apple.com/library/prerelease/ios/documentation/Cocoa/Conceptual/Strings/Articles/formatSpecifiers.html#//apple_ref/doc/uid/TP40004265'
 Firefox: Python String Format Specification Mini-Language	 open 'https://docs.python.org/3/library/string.html?highlight=mini%20language#formatspec'
-Firefox: Lookup MIME Type in firefox	open 'http://www.iana.org/assignments/media-types/media-types.xhtml'
-Firefox: Lookup HTTPie document		open 'https://github.com/jkbrzt/httpie'
+Firefox: Lookup MIME Type in firefox			open 'http://www.iana.org/assignments/media-types/media-types.xhtml'
+Firefox: Lookup HTTPie document				open 'https://github.com/jkbrzt/httpie'
+CD TO: Xcode template directory				cd ~/Library/Developer/Xcode/Templates
