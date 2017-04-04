@@ -51,8 +51,11 @@ copydir
 # put file content in clipboard
 copyfile
 
-# my zsh plugins
-Mudox/fzf-cmdhub
+# my zsh plugin: fzf-cmdhub
+/Users/mudox/Develop/Shell/fzf-cmdhub --no-local-clone
+
+# my zsh plugin: gitz
+/Users/mudox/Develop/Shell/gitz --no-local-clone
 
 # alias tips
 djui/alias-tips
