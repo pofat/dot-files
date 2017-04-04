@@ -135,9 +135,6 @@ mdx_uniq_path
 zpn
 [[ -z $TMUX ]] && basen # do not change color scheme in tmux
 
-# Fix z not working issue
-source /Users/mudox/.antigen/repos/https-COLON--SLASH--SLASH-github.com-SLASH-rupa-SLASH-z.git/z.sh
-
 mdxinfo() {
   printf "\e[33m%8s -> \e[1;35m%s\n" "PS" "${MDX_ZSH_THEME}"
   printf "\e[33m%8s -> \e[1;35m%s\n" "BASE16" "${MDX_BASE_COLOR}"
