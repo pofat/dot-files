@@ -4,11 +4,6 @@
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
-__fzfcmd() {
-  [ ${FZF_TMUX:-1} -eq 1 ] && echo "fzf-tmux -d${FZF_TMUX_HEIGHT:-40%}" \
-    || echo "fzf"
-}
-
 # a smart (n)vim launching wrapper
 # usage: v [(partial) mode name] [paramters to (n)vim ...]
 # if the given mode name is enough to fix down a certain mode, then (n)vim is
@@ -26,9 +21,9 @@ _v_choose_mode() {
   local mode="$(echo $modes | fzf -i -e -f $1)"
 
   if [[ -z $mode ]]; then
-    mode=$(echo "$modes" | $(__fzfcmd) -i -e)
+    mode=$(echo "$modes" | fzf)
   elif (( $(echo $mode | wc -l) > 1 )); then
-    mode=$(echo "$modes" | $(__fzfcmd) -i -e -q "$1")
+    mode=$(echo "$modes" | fzf --query="$1")
   fi
 
   [[ -z "$mode" ]] && return
@@ -65,8 +60,7 @@ vmode() {
   local selection
   selection=$(                              \
     ls -1 "${modes_path}" | grep -v '^x_' | \
-    $(__fzfcmd)                             \
-    --extended-exact                        \
+    fzf                                     \
     --select-1                              \
     --prompt='change (neo)vim mode: '       \
     )
