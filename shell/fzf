@@ -8,8 +8,7 @@ export FZF_COMPLETION_OPTS='-e'
 export FZF_DEFAULT_OPTS='
 --height=40%
 --reverse
---border
---margin=2
+--margin=0
 --bind ctrl-f:page-down,ctrl-b:page-up
 --select-1
 --exit-0
@@ -25,13 +24,13 @@ fi
 # ^R to paste the selected command from history into the command line.                                           {{{1
 # press ^R in the fzf UI to apply sort
 fzf-history-widget() {
-  local selected restore_no_bang_hist
-  if selected=( $(fc -l 1 | grep '^.\{12,\}' | sort -k2 | uniq -f1 |\
-    fzf +s --tac +m -n2..,.. --tiebreak=index -q "$LBUFFER") ); then
-  num=$selected[1]
-  if [ -n "$num" ]; then
-    zle vi-fetch-history -n $num
-  fi
+local selected restore_no_bang_hist
+if selected=( $(fc -l 1 | grep '^.\{12,\}' | sort -k2 | uniq -f1 |\
+  fzf +s --tac +m -n2..,.. --tiebreak=index -q "$LBUFFER") ); then
+num=$selected[1]
+if [ -n "$num" ]; then
+  zle vi-fetch-history -n $num
+fi
 fi
 zle redisplay
 }
@@ -53,8 +52,8 @@ echo
 }
 
 fzf-file-widget() {
-  LBUFFER="${LBUFFER}$(__fsel)"
-  zle redisplay
+LBUFFER="${LBUFFER}$(__fsel)"
+zle redisplay
 }
 
 zle     -N   fzf-file-widget
@@ -71,8 +70,8 @@ echo
 }
 
 mudox-zsh-widget-zdirs() {
-  LBUFFER="${LBUFFER}$(__zdirs)"
-  zle redisplay
+LBUFFER="${LBUFFER}$(__zdirs)"
+zle redisplay
 }
 
 zle     -N   mudox-zsh-widget-zdirs
@@ -81,20 +80,24 @@ bindkey '^Tj' mudox-zsh-widget-zdirs
 
 # ^[j to cd to one of the paths in $(z -l).                                                                      {{{1
 mudox-zsh-widget-j() {
-  if [[ -z "$(whence z)" ]]; then
-    printf "\e[31mneed z, quit...\e[0m\n"
-    return
-  fi
+if [[ -z "$(whence z)" ]]; then
+  printf "\e[31mneed z, quit...\e[0m\n"
+  return
+fi
 
-  local target_dir
-  target_dir=$( z -l | sed 's/[0-9.,]* *//' | fzf +m \
-    --select-1 \
-    --exit-0 \
-    --extended-exact)
+local target_dir
+target_dir=$( z -l | sed 's/[0-9.,]* *//' | \
+  fzf                                       \
+  --height=20% --min-height=12              \
+  --tiebreak=end,length                     \
+  --margin=2                                \
+  --select-1                                \
+  --exit-0                                  \
+  )
 
-  [ -n "$target_dir" ] && cd "$target_dir"
+[ -n "$target_dir" ] && cd "$target_dir"
 
-  zle reset-prompt
+zle reset-prompt
 }
 
 zle -N mudox-zsh-widget-j
@@ -104,14 +107,20 @@ bindkey '^[j' mudox-zsh-widget-j
 # ^[k to cd to one of directory under current path.                                                              {{{1
 # do not descend into hidden directories.
 mudox-zsh-widget-c() {
-  local target_dir
-  target_dir=$(find ./* -path '*/\.*' -prune \
-    -o -type d -print 2> /dev/null | \
-    fzf +m +s --extended-exact)
+local target_dir
+target_dir=$(find ./* -path '*/\.*' -prune \
+  -o -type d -print 2> /dev/null |         \
+  fzf                                      \
+  --height=20% --min-height=12             \
+  --tiebreak=end,length                    \
+  --margin=2                               \
+  --select-1                               \
+  --exit-0                                 \
+  )
 
-  [ -n "$target_dir" ] && cd "$target_dir"
+[ -n "$target_dir" ] && cd "$target_dir"
 
-  zle reset-prompt
+zle reset-prompt
 }
 
 zle -N mudox-zsh-widget-c
@@ -121,20 +130,22 @@ bindkey '^[k' mudox-zsh-widget-c
 # fe [pattern] to open the selected file with the gvim in tab.                                                   {{{1
 fe() {
   local file
-  file=$(fzf) \
-    --query="$1" \
-    --select-1 \
-    --exit-0 \
-    --extended-exact \
-    --prompt="open in gvim tab: ")
+  file=$(fzf                     \
+    --query="$1"                 \
+    --height=60% --min-height=20 \
+    --tiebreak=end,length        \
+    --margin=2                   \
+    --select-1                   \
+    --exit-0                     \
+    )
 
   case $(uname -s) in
     Darwin )
       # for MacOS
       if whence nvim; then
-	local vim_bin='nvim'
+        local vim_bin='nvim'
       else
-	local vim_bin='mvim'
+        local vim_bin='mvim'
       fi
       ;;
     CYGWIN* )
@@ -197,28 +208,28 @@ cmh() {
   else
     case "$1" in
       c )
-	category="command"
-	;;
+        category="command"
+        ;;
       ma )
-	category="manual"
-	;;
+        category="manual"
+        ;;
       mo )
-	category="module"
-	;;
+        category="module"
+        ;;
       po )
-	category="policy"
-	;;
+        category="policy"
+        ;;
       pr )
-	category="property"
-	;;
+        category="property"
+        ;;
       v )
-	category="variable"
-	;;
+        category="variable"
+        ;;
       * )
-	printf "\e[31m%s: invalid first argument\e[0m\n" "$0"
-	echo "${usage}"
-	return
-	;;
+        printf "\e[31m%s: invalid first argument\e[0m\n" "$0"
+        echo "${usage}"
+        return
+        ;;
     esac
   fi
 
@@ -265,28 +276,28 @@ cth() {
   else
     case "$1" in
       c )
-	category="command"
-	;;
+        category="command"
+        ;;
       ma )
-	category="manual"
-	;;
+        category="manual"
+        ;;
       mo )
-	category="module"
-	;;
+        category="module"
+        ;;
       po )
-	category="policy"
-	;;
+        category="policy"
+        ;;
       pr )
-	category="property"
-	;;
+        category="property"
+        ;;
       v )
-	category="variable"
-	;;
+        category="variable"
+        ;;
       * )
-	printf "\e[31m%s: invalid first argument\e[0m\n" "$0"
-	echo "${usage}"
-	return
-	;;
+        printf "\e[31m%s: invalid first argument\e[0m\n" "$0"
+        echo "${usage}"
+        return
+        ;;
     esac
   fi
 
