@@ -1,0 +1,81 @@
+[{
+    "name": "Vim",
+    "path": "~/Git/vim-config"
+  },
+
+  {
+    "name": "Dotfiles",
+    "path": "~/Git/dot-files"
+  },
+
+  {
+    "name": "AiGou",
+    "path": "~/Develop/Apple/YiDa/Intership/AiGou"
+  },
+
+  {
+    "name": "Jack",
+    "path": "~/Develop/Apple/Pods/Jack"
+  },
+
+  {
+    "name": "MDXiOSKit",
+    "path": "~/Develop/Apple/Pods/iOSKit"
+  },
+
+  {
+    "name": "ShareKit",
+    "path": "~/Develop/Apple/Pods/ShareKit"
+  },
+
+  {
+    "name": "YiDaSwift",
+    "path": "~/Develop/Apple/YiDa/YiDaSwift"
+  },
+
+  {
+    "name": "Chameleon",
+    "path": "~/Git/vim-config/plugged/chameleon"
+  },
+
+  {
+    "name": "Site",
+    "path": "~/Sites/mudox.github.io"
+  },
+
+  {
+    "name": "Gitz",
+    "path": "~/Develop/Shell/gitz"
+  },
+
+  {
+    "name": "xclog",
+    "path": "~/Develop/Python/xlog"
+  },
+
+  {
+    "name": "vim-qpen",
+    "path": "~/Git/vim-config/plugged/qpen"
+  },
+
+  {
+    "name": "vim-foldtext",
+    "path": "~/Git/vim-config/plugged/foldtext"
+  },
+
+  {
+    "name": "vim-omnimenu",
+    "path": "~/Git/vim-config/plugged/omnimenu"
+  },
+
+  {
+    "name": "vim-snippets",
+    "path": "~/Git/vim-config/plugged/snippets"
+  },
+
+  {
+    "name": "vim-todo",
+    "path": "~/Git/vim-config/plugged/todo"
+  }
+
+]
