@@ -33,6 +33,9 @@ attach: false
 # post: tmux -CC attach -t xcode
 
 windows:
+   - Log:
+      - make -p /tmp/mudox/log/python/Gitz &>/dev/null
+      - cd /tmp/mudox/log/python/Gitz
 
    - Editor:
       - v py
