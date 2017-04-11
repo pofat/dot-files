@@ -46,7 +46,12 @@
 
     {
       "name": "fzf-cmdhub",
-      "path": "~/Develop/Shell/fzf-cmdhub/"
+      "path": "~/Develop/Shell/fzf-cmdhub"
+    },
+
+    {
+      "name": "fzf-ex",
+      "path": "~/Develop/Shell/fzf-ex"
     },
 
     {
