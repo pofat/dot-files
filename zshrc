@@ -87,6 +87,12 @@ archlinux="$com/archlinux"
 # $PATH functions needed by subsequent sources
 source "$com/path"
 
+# system agnostic settings
+# NOTE: sourcing order matters
+for s in "$com"/*; do
+  [[ -f "$s" ]] && source $s
+done
+
 # system specific settings.
 # NOTE: sourcing order matters.
 case $(uname -s) in
@@ -116,12 +122,6 @@ case $(uname -s) in
     ;;
 esac
 
-# across system settings
-# NOTE: sourcing order matters
-for s in "$com"/*; do
-  [[ -f "$s" ]] && source $s
-done
-
 # cleanup
 unset com
 unset osx
@@ -148,3 +148,6 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Fix z precmd issue
+precmd_functions+=_z_precmd
