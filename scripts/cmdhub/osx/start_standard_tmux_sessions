@@ -24,16 +24,10 @@ if ! is_session_exists 0; then
   printf "\r\e[K\e[33m✓ [0]\e[0m\n"
 fi
 
-session_names="Monitor YiDa Xcode Hammerspoon"
+session_names="Monitor YiDa Xcode"
 for name in $session_names; do
   start_session $name
 done
-
-if ! is_session_exists Update; then
-  printf   "\e[32m  [Update] creating ...\e[0m"
-  tmuxinator start Update-Startup
-  printf "\r\e[K\e[33m✓ [Update]\e[0m\n"
-fi
 
 sleep 1
 tmux attach -t 0
