@@ -20,7 +20,7 @@ local shortcuts = {
   {alt, 2, 'Xcode'},
   {alt, 3, 'Microsoft OneNote'},
   {alt, 4, 'Focus Matrix'},
-  {alt, 5, 'OmniFocus'},
+  --{alt, 5, 'OmniFocus'},
   --
 
   {alt, 7, 'Preview'},
@@ -30,7 +30,7 @@ local shortcuts = {
   -- alt + shift for relatively less commonly used applications
   {altShift, 1, 'Simulator'},
   {altShift, 3, 'OmniGraffle'},
-  {altShift, 4, 'Sketch'}
+  --{altShift, 4, 'Sketch'}
 }
 
 for i = 1, #shortcuts do
