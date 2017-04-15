@@ -1,0 +1,30 @@
+# vim: filetype=zsh
+
+# WorkOns root path
+export WORKON_HOME="/Users/mudox/Develop/Python/WorkOn"
+#export VIRTUALENVWRAPPER_WORKON_CD=1
+
+# Projects root path
+#export PROJECT_HOME="/Users/mudox/Develop/Python"
+#export VIRTUALENVWRAPPER_PROJECT_FILENAME='.project'
+
+# hook scripts root path
+export VIRTUALENVWRAPPER_HOOK_DIR="${HOME}/Git/dot-files/virtualenvwrapper/"
+
+# hook script logging
+_log_dir="/tmp/mudox/log/Python/virtualenvwrapper"
+mkdir -p "${_log_dir}" &>/dev/null
+touch "${_log_dir}/hook.log" &>/dev/null
+export VIRTUALENVWRAPPER_LOG_FILE="/tmp/mudox/log/Python/virtualenvwrapper/hook.log"
+
+# Use which python & virtualenv binary
+#export VIRTUALENVWRAPPER_PYTHON='/usr/local/bin/python3'
+#export VIRTUALENVWRAPPER_VIRTUALENV='${HOME}/Library/Python/2.7/bin/virtualenv'
+
+#export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+
+#export VIRTUALENVWRAPPER_TMPDIR='/tmp'
+
+# Firstly set alll relevant virtualenv wrapper environments, then source the start-up script
+source ~/Library/Python/2.7/bin/virtualenvwrapper.sh
+unset _log_dir
