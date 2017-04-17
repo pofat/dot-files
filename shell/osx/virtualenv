@@ -1,11 +1,16 @@
-# vim: filetype=zsh
+# vim: filetype=zsh foldmethod=marker
+
+# virtualenv
+
+
+# virtualenv wrapper {{{
 
 # WorkOns root path
 export WORKON_HOME="/Users/mudox/Develop/Python/WorkOn"
 #export VIRTUALENVWRAPPER_WORKON_CD=1
 
 # Projects root path
-#export PROJECT_HOME="/Users/mudox/Develop/Python"
+export PROJECT_HOME="/Users/mudox/Develop/Python"
 #export VIRTUALENVWRAPPER_PROJECT_FILENAME='.project'
 
 # hook scripts root path
@@ -28,3 +33,4 @@ export VIRTUALENVWRAPPER_LOG_FILE="/tmp/mudox/log/Python/virtualenvwrapper/hook.
 # Firstly set alll relevant virtualenv wrapper environments, then source the start-up script
 source ~/Library/Python/2.7/bin/virtualenvwrapper.sh
 unset _log_dir
+# }}}
