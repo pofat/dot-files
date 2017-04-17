@@ -1,3 +1,8 @@
 #!/usr/local/bin/zsh
 # This hook is run after a new project is activated.
 
+project_name=$(basename "${VIRTUAL_ENV}")
+project_dir="${PROJECT_HOME}/${project_name}"
+mkdir test
+mkdir source
+add2virtualenv "${project_dir}/source"
