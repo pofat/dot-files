@@ -9,3 +9,4 @@ Firefox: Python String Format Specification Mini-Language	 open 'https://docs.py
 Firefox: Lookup MIME Type in firefox			open 'http://www.iana.org/assignments/media-types/media-types.xhtml'
 Firefox: Lookup HTTPie document				open 'https://github.com/jkbrzt/httpie'
 CD TO: Xcode template directory				cd ~/Library/Developer/Xcode/Templates
+CD TO: Xcode Derived Data directory			cd ~/Library/Developer/Xcode/DerivedData
