@@ -17,6 +17,7 @@ local shortcuts = {
   -- alt the main applications in my everyday workflow
   {alt, 1, 'Firefox'},
   {alt, 'g', 'Google Chrome'},
+  {alt, 't', 'Tower'},
   {alt, 2, 'Xcode'},
   {alt, 3, 'Microsoft OneNote'},
   {alt, 4, 'Focus Matrix'},
