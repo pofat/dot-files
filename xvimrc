@@ -57,6 +57,7 @@ nnoremap <Space>5 <Space>h<Space>j
 
 nnoremap cae <Esc><Esc>ggcG
 
+nnoremap \af mp:xcmenucmd Format Entire File<Cr>`p
 nnoremap <Backspace>w :xcmenucmd Save<Cr>
 nnoremap <Backspace>a :xcmenucmd Save All<Cr>
 
