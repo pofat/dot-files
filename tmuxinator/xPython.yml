@@ -7,7 +7,7 @@ root: ~/Develop/Python/<%= @settings["name"] %>
 # socket_name: foo
 
 # Runs before everything. Use it to start daemons etc.
-#pre: mkdir -p /tmp/mudox/log/Python/<%= @settings["name"] => &>/dev/null
+pre: mkdir -p /tmp/mudox/log/Python/<%= @settings["name"] %> &>/dev/null
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
 # pre_window: rbenv shell 2.0.0-p247
@@ -28,13 +28,15 @@ startup_window: Edit
 # attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t Py-XXX
+# post: tmux -CC attach -t
 
 windows:
 
    - Play: ipython3
 
-   - Edit: v py -S
+   - Edit:
+     - workon <%= @settings["name"] %>
+     - v py -S
 
    - Log:
       root: /tmp/mudox/log/Python/<%= @settings["name"] %>
