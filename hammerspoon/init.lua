@@ -21,7 +21,7 @@ local shortcuts = {
   {alt, 2, 'Xcode'},
   {alt, 3, 'Microsoft OneNote'},
   {alt, 4, 'Focus Matrix'},
-  --{alt, 5, 'OmniFocus'},
+  {alt, 's', 'Screen Sharing'},
   --
 
   {alt, 7, 'Preview'},
