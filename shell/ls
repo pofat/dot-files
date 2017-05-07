@@ -2,4 +2,4 @@
 
 alias ls='ls --color=auto --group-directories-first -F'
 
-eval $( dircolors -b ~/.ls_colors )
+eval $( /usr/local/opt/coreutils/libexec/gnubin/dircolors -b "${HOME}/Git/ls_colors/LS_COLORS" )
