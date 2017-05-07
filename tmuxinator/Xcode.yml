@@ -1,7 +1,7 @@
 # ~/.tmuxinator/xcode.yml
 
 name: Xcode
-root: /tmp
+root: ~/Develop/Apple/
 
 # Optional tmux socket
 # socket_name: foo
@@ -41,10 +41,10 @@ windows:
          - cd /tmp/mudox/log/Xcode
 
    - Jack:
-      - cd ~/Develop/apple/Pods/Jack
+      - cd ~/Develop/apple/Frameworks/Jack
 
    - iOSKit:
-      - cd ~/Develop/apple/Pods/iOSKit
+      - cd ~/Develop/apple/Frameworks/iOSKit
 
    - ShareKit:
-      - cd ~/Develop/apple/Pods/ShareKit
+      - cd ~/Develop/apple/Frameworks/ShareKit
