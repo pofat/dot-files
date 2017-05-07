@@ -30,7 +30,7 @@ export VIRTUALENVWRAPPER_LOG_FILE="/tmp/mudox/log/Python/virtualenvwrapper/hook.
 
 #export VIRTUALENVWRAPPER_TMPDIR='/tmp'
 
-# Firstly set alll relevant virtualenv wrapper environments, then source the start-up script
+# Firstly set all relevant virtualenv wrapper environments, then source the start-up script
 source ~/Library/Python/2.7/bin/virtualenvwrapper.sh
 unset _log_dir
 # }}}
