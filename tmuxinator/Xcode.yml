@@ -7,7 +7,7 @@ root: ~/Develop/Apple/
 # socket_name: foo
 
 # Runs before everything. Use it to start daemons etc.
-# pre: sudo /etc/rc.d/mysqld start
+pre: mkdir -p /tmp/mudox/log/Xcode/Jack &>/dev/null
 
 # Runs in each window and pane before window/pane specific commands. Useful for
 # setting up interpreter versions.
@@ -37,14 +37,17 @@ windows:
    - Log:
       layout: 936b,211x52,0,0{150x52,0,0,9,60x52,151,0,51}
       panes:
-         - cd /tmp/mudox/log/Xcode/CocoaLumberjack
+         - cd /tmp/mudox/log/Xcode/Jack
          - cd /tmp/mudox/log/Xcode
 
    - Jack:
       - cd ~/Develop/apple/Frameworks/Jack
+      - vv -S
 
    - iOSKit:
       - cd ~/Develop/apple/Frameworks/iOSKit
+      - vv -S
 
    - ShareKit:
       - cd ~/Develop/apple/Frameworks/ShareKit
+      - vv -S
