@@ -50,14 +50,13 @@ nnoremap ]<Space> o<Esc>k
 nnoremap ]e ddp
 nnoremap [e ddkP
 
-" layout switch
-nnoremap <Space>7 <Space>h<Space>l<Space>j
-nnoremap <Space>3 <Space>h<Space>l
-nnoremap <Space>5 <Space>h<Space>j
-
+" clear all
 nnoremap cae <Esc><Esc>ggcG
 
+" swiftforamt
 nnoremap \af mp:xcmenucmd Format Entire File<Cr>`p
+nnoremap ,f mp:xcmenucmd Format Entire File<Cr>`p
+
 nnoremap <Backspace>w :xcmenucmd Save<Cr>
 nnoremap <Backspace>a :xcmenucmd Save All<Cr>
 
@@ -80,7 +79,25 @@ nnoremap zi           :xccmd     toggleIssueShown<Cr>
 nnoremap zm           :xcmenucmd toggleMessageBubbles<Cr>
 nnoremap zb           :xcmenucmd toggleBreakpointAtCurrentLine<Cr>
 
-nnoremap \f vaB       :xcmenucmd indentSelection<Cr>
+
+" build, run, test
+
+" build
+nnoremap ,b :xcmenucmd Build<Cr>
+" build for testing
+nnoremap ,c :xcmenucmd Testing<Cr>
+
+" build & run
+nnoremap ,r :xcmenucmd Run<Cr>
+" run without build (run again)
+nnoremap ,,r :xcmenucmd Run Without Building<Cr>
+
+" build & test
+nnoremap ,t :xcmenucmd Test<Cr>
+" build & test last test case
+nnoremap ,,t :xcmenucmd Test Again<Cr>
+" test last test case without building
+nnoremap ,x :xcmenucmd Test Without Building<Cr>
 
 nnoremap <Backspace>r :xcmenucmd Run<Cr>
 nnoremap <Backspace>t :xcmenucmd Test<Cr>
