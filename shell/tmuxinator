@@ -1,3 +1,5 @@
+# added by tmuxinator official repo
+
 _tmuxinator() {
   local commands projects
   commands=(${(f)"$(tmuxinator commands zsh)"})
@@ -19,6 +21,17 @@ _tmuxinator() {
 
 compdef _tmuxinator tmuxinator mx
 alias mx="tmuxinator"
+
+# added by Mudox
+
+# msp {name} to create a Python project session based on tmuxinator template
+# config file 'xPython.yml'
+
+_start_python_project_tmux_session() {
+  tmuxinator start xPython name=$1
+}
+
+alias msp=_start_python_project_tmux_session
 
 # Local Variables:
 # mode: Shell-Script
