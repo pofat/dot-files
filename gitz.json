@@ -16,17 +16,17 @@
 
     {
       "name": "jack",
-      "path": "~/Develop/Apple/Pods/Jack"
+      "path": "~/Develop/Apple/frameworks/Jack"
     },
 
     {
       "name": "ios-kit",
-      "path": "~/Develop/Apple/Pods/iOSKit"
+      "path": "~/Develop/Apple/frameworks/iOSKit"
     },
 
     {
       "name": "share-kit",
-      "path": "~/Develop/Apple/Pods/ShareKit"
+      "path": "~/Develop/Apple/frameworks/ShareKit"
     },
 
     {
