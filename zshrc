@@ -138,9 +138,12 @@ mdx_uniq_path
 
 # }}}1
 
-# set initiali prompt theme & shell colorscheme.
-zpn
-[[ -z $TMUX ]] && basen # do not change color scheme in tmux
+# zsh prompt theme
+#autoload -U promptinit; promptinit
+#prompt pure
+
+# shell color scheme
+[[ -z $TMUX ]] && basen
 
 mdxinfo() {
   printf "\e[33m%8s -> \e[1;35m%s\n" "PS" "${MDX_ZSH_THEME}"
@@ -154,4 +157,4 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Fix z precmd issue
-precmd_functions+=_z_precmd
+#precmd_functions+=_z_precmd
