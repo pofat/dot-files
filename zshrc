@@ -68,6 +68,10 @@ battery
 # quickly jump between paths
 rupa/z
 
+# the pure zsh prompt theme
+mafredri/zsh-async
+sindresorhus/pure
+
 EOBUNDLES
 # }}}2
 
