@@ -1,7 +1,7 @@
 # vim: filetype=zsh
 
 # environment GOPATH
-export GOPATH=${HOME}/Dev/go
+export GOPATH=${HOME}/Develop/go
 mdx_path_push_back "${GOPATH}/bin"
 
 # environment GOROOT
