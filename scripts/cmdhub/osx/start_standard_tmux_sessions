@@ -8,7 +8,7 @@ is_session_exists() {
 
 # $1: the yml name to let tmuxinator to start
 start_session() {
-  if is_session_exists $1; then
+  if tmux has-session -t $1 &>/dev/null; then
     printf   "\e[35m✗ [$1] already exists, skip creating ...\e[0m\n"
   else
     printf   "\e[32m  [$1] creating ...\e[0m"
