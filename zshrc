@@ -8,10 +8,6 @@ export MDX_REPOS_ROOT="${HOME}/Git"
 
 export LANG='en_US.UTF-8'
 
-#unalias run-help
-#autoload run-help
-#HELPDIR=/usr/local/share/zsh/help
-
 # Antigen
 if [[ ! -d ${MDX_REPOS_ROOT}/antigen ]]; then
   echo "\e[31mneed [antigen], installing ...\e[0m"
@@ -137,10 +133,6 @@ unset s
 mdx_uniq_path
 
 # }}}1
-
-# zsh prompt theme
-#autoload -U promptinit; promptinit
-#prompt pure
 
 # shell color scheme
 [[ -z $TMUX ]] && basen
