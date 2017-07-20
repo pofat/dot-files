@@ -1,5 +1,6 @@
 # vim: filetype=zsh
 
 alias ls='ls --color=auto --group-directories-first -F'
+alias la='ls -al'
 
 eval $( /usr/local/opt/coreutils/libexec/gnubin/dircolors -b "${HOME}/Git/ls_colors/LS_COLORS" )
