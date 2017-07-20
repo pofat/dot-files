@@ -14,24 +14,39 @@ end)
 -- commonly used applications
 -- hotkey
 local shortcuts = {
+
+  --
   -- alt the main applications in my everyday workflow
+  --
+
   {alt, 1, 'Firefox'},
   {alt, 'g', 'Google Chrome'},
   {alt, 't', 'Tower'},
   {alt, 2, 'Xcode'},
   {alt, 3, 'Microsoft OneNote'},
   {alt, 4, 'Focus Matrix'},
+  {alt, 5, 'Paw'},
   {alt, 's', 'Screen Sharing'},
-  --
+
+  -- switch hand
 
   {alt, 7, 'Preview'},
   -- 8 is left for the Dash app
   {alt, 9, 'Quiver'},
   {alt, 0, 'Finder'},
+
+  --
   -- alt + shift for relatively less commonly used applications
+  --
+
   {altShift, 1, 'Simulator'},
   {altShift, 3, 'OmniGraffle'},
-  --{altShift, 4, 'Sketch'}
+  {altShift, 4, 'Sketch'},
+
+  -- switch hand
+
+  {altShift, 9, 'Paw'}
+
 }
 
 for i = 1, #shortcuts do
