@@ -84,18 +84,24 @@ nnoremap zb           :xcmenucmd toggleBreakpointAtCurrentLine<Cr>
 
 " build
 nnoremap ,b :xcmenucmd Build<Cr>
+nnoremap <Space>b :xcmenucmd Build<Cr>
+
 " build for testing
 nnoremap ,c :xcmenucmd Testing<Cr>
 
 " build & run
 nnoremap ,r :xcmenucmd Run<Cr>
+nnoremap <Space>r :xcmenucmd Run<Cr>
+
 " run without build (run again)
-nnoremap ,,r :xcmenucmd Run Without Building<Cr>
+nnoremap <Space><Space>r :xcmenucmd Run Without Building<Cr>
 
 " build & test
 nnoremap ,t :xcmenucmd Test<Cr>
+
 " build & test last test case
 nnoremap ,,t :xcmenucmd Test Again<Cr>
+
 " test last test case without building
 nnoremap ,x :xcmenucmd Test Without Building<Cr>
 
