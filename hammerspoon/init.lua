@@ -1,5 +1,6 @@
 local alt = {"alt"}
 local altShift = {"alt", "shift"}
+local cmdAlt = {"cmd", "alt"}
 
 -- disable window animation
 hs.window.animationDuration = 0
@@ -19,33 +20,43 @@ local shortcuts = {
   -- alt the main applications in my everyday workflow
   --
 
-  {alt, 1, 'Firefox'},
-  {alt, 'g', 'Google Chrome'},
-  {alt, 't', 'Tower'},
-  {alt, 2, 'Xcode'},
-  {alt, 3, 'Microsoft OneNote'},
-  {alt, 4, 'Focus Matrix'},
-  {alt, 5, 'Paw'},
-  {alt, 's', 'Screen Sharing'},
+  {alt, 1  , 'Firefox'}          ,
+  {alt, 2  , 'Xcode'}            ,
+  {alt, 3  , 'Microsoft OneNote'},
+  {alt, 4  , 'Focus Matrix'}     ,
+
+  {alt, 's', 'Screen Sharing'}   ,
+  {alt, 'g', 'Google Chrome'}    ,
+  {alt, 't', 'Tower'}            ,
 
   -- switch hand
 
-  {alt, 7, 'Preview'},
-  -- 8 is left for the Dash app
-  {alt, 9, 'Quiver'},
-  {alt, 0, 'Finder'},
+  {alt   , 7, 'Preview'}                   ,
+  -- {alt, 8, ...} is left for the Dash app
+  {alt   , 9, 'Quiver'}                    ,
+  {alt   , 0, 'Finder'}                    ,
 
   --
   -- alt + shift for relatively less commonly used applications
   --
 
-  {altShift, 1, 'Simulator'},
-  {altShift, 3, 'OmniGraffle'},
-  {altShift, 4, 'Sketch'},
+  {altShift, 1  , 'Simulator'}  ,
+  {altShift, 2  , 'Paw'}        ,
+
+  {altShift, 'g', 'OmniGraffle'},
+  {altShift, 's', 'Sketch'}     ,
+  {altShift, 'q', 'Quiver'}     ,
 
   -- switch hand
 
-  {altShift, 9, 'Paw'}
+  --{altShift, 9, 'Paw'}
+
+  --
+  -- cmd + alt for relatively less commonly used applications
+  --
+
+  {cmdAlt, 'p'  , 'Paw'}  ,
+
 
 }
 
