@@ -44,10 +44,10 @@ windows:
       - cd ~/Develop/apple/Frameworks/Jack
       - vv -S
 
-   - iOSKit:
-      - cd ~/Develop/apple/Frameworks/iOSKit
+   - MudoxKit:
+      - cd ~/Develop/apple/Frameworks/MudoxKit
       - vv -S
 
-   - ShareKit:
-      - cd ~/Develop/apple/Frameworks/ShareKit
+   - SocialShare:
+      - cd ~/Develop/apple/Frameworks/SocialShare
       - vv -S
