@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 #x cmdhub: Update Update Update
 
+printf "\e[31mCurrently updating would crash system!\e[0m\n"
+exit
 tmux kill-session -t Update 2>/dev/null
 tmuxinator start Update
 
