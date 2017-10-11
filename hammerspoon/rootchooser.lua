@@ -1,15 +1,25 @@
 local menu = hs.chooser.new(function(selectedContents)
-    hs.alert.show(selectedContents.text)
+  if selectedContents then
+    if selectedContents.text == 'Console' then
+      hs.openConsole(true)
+    else
+      hs.alert.show(selectedContents.text)
+    end
+  end
 end)
 
 menu:choices {
   {
-    text = 'Open in firefox',
-    subText = 'Open bookmarks in firefox'
+    text = 'Github Stars',
+    subText = 'Open github stars in firefox'
   },
   {
-    text = 'Mudox',
-    subText = 'Open bookmarks in firefox'
+    text = 'Firefox Bookmarks',
+    subText = 'Open firefox bookmarks in firefox'
+  },
+  {
+    text = 'Console',
+    subText = 'Show Hammerspoon Console'
   }
 }
 

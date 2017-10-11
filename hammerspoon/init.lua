@@ -7,14 +7,16 @@ hs.window.animationDuration = 0
 
 -- reload
 hs.hotkey.bind(altShift, 'r', function ()
+  hs.console.clearConsole()
   hs.reload()
 end)
 
 
--- focus or launch application
--- commonly used applications
--- hotkey
-local shortcuts = {
+--
+-- commonly used app quick switching
+--
+
+local appShortcuts = {
 
   --
   -- alt the main applications in my everyday workflow
@@ -49,8 +51,6 @@ local shortcuts = {
 
   -- switch hand
 
-  --{altShift, 9, 'Paw'}
-
   --
   -- cmd + alt for relatively less commonly used applications
   --
@@ -60,8 +60,8 @@ local shortcuts = {
 
 }
 
-for i = 1, #shortcuts do
-  local shortcut = shortcuts[i]
+for i = 1, #appShortcuts do
+  local shortcut = appShortcuts[i]
   local combo = shortcut[1]
   local key = tostring(shortcut[2])
   local name = shortcut[3]
@@ -75,9 +75,19 @@ function toggleApp(name)
     app:hide()
   else
     hs.application.launchOrFocus(name)
-    --hs.application.get(name):focusedWindow():maximize()
   end
 end
+
+-- Test: use this to maximize app window instead of `BetterSnapTool` app
+hs.hotkey.bind(altShift, 'f', function()
+  local appWindow = hs.window.focusedWindow()
+
+  if appWindow then
+    appWindow:setFrame(appWindow:screen():frame())
+  else
+    hs.alert.show('no focused window found')
+  end
+end)
 
 -- init grid
 hs.grid.MARGINX = 0
@@ -89,12 +99,20 @@ hs.grid.GRIDHEIGHT = 3
 hs.alert.defaultStyle.radius = 4
 hs.alert.defaultStyle.strokeWidth = 0.5
 
+-- Hammerspoon console
+
+hs.hotkey.bind(altShift, 'x', function () hs.openConsole(true) end)
+
+hs.console.outputBackgroundColor { white = 0 }
+hs.console.consoleCommandColor   { white = 1 }
+hs.console.windowBackgroundColor { white = 0 }
+
 -- root chooser
 rootChooser = require('rootchooser')
 hs.hotkey.bind(altShift, 'space', function () rootChooser:show() end)
 
 -- github stars fetcher
-githubStars = require('githubstars')
-hs.hotkey.bind(altShift, 'x', function () githubStars:fetchStarsPagesInfo() end)
+--githubStars = require('githubstars')
+--hs.hotkey.bind(altShift, 'x', function () githubStars:fetchStarsPagesInfo() end)
 
 hs.alert.show('Hammerspoon config reloaded')
