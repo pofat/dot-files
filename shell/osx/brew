@@ -1,3 +1,5 @@
 # vim: filetype=zsh
 
 export HOMEBREW_GITHUB_API_TOKEN="1f01bbea9e93063a8ab0ccec021c936f432687a2"
+
+export PATH="/usr/local/sbin:$PATH"
