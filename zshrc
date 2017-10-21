@@ -30,8 +30,6 @@ git
 git-extras
 git-flow
 
-colorize
-
 # alias for brew: bubu & brews
 brew
 
