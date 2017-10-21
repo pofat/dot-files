@@ -12,3 +12,5 @@ man() {
 	  LESS_TERMCAP_us=$(printf "\e[1;32m") \
 	  			   man "$@"
 }
+
+export MANPAGER="MDX_CHAMELEON_MODE=man nvim -c 'set ft=man' -"
