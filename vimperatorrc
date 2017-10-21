@@ -28,6 +28,9 @@ abbreviate lh        http://localhost:1313/
 abbreviate sss       https://www.op.gg/summoner/userName=zhanqisususu
 abbreviate json      http://www.json.org/
 
+abbreviate acc       http://developer.apple.com/account
+abbreviate itc       https://itunesconnect.apple.com
+
 
 
 "}}}1
