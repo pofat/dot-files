@@ -22,14 +22,14 @@ local appShortcuts = {
   -- alt the main applications in my everyday workflow
   --
 
-  {alt, 1  , 'Firefox'}          ,
-  {alt, 2  , 'Xcode'}            ,
-  {alt, 3  , 'Microsoft OneNote'},
-  {alt, 4  , 'Focus Matrix'}     ,
+  {alt, 1  , 'Firefox'}                  ,
+  {alt, 2  , 'Xcode'}                    ,
+  {alt, 3  , 'Microsoft OneNote'}        ,
+  {alt, 4  , 'Things'}                   ,
 
-  {alt, 's', 'Screen Sharing'}   ,
-  {alt, 'g', 'Google Chrome'}    ,
-  {alt, 't', 'Tower'}            ,
+  {alt, 's', 'Screen Sharing'}           ,
+  {alt, 'g', 'Google Chrome'}            ,
+  {alt, 't', 'Tower'}                    ,
 
   -- switch hand
 
@@ -69,12 +69,22 @@ for i = 1, #appShortcuts do
   hs.hotkey.bind(combo, key, function () toggleApp(name) end)
 end
 
+-- Show / hide application
+hs.application.enableSpotlightForNameSearches(true)
 function toggleApp(name)
   local app = hs.application.get(name)
-  if app and app:isFrontmost() then
-    app:hide()
+  if app then -- application is running
+    if app:isFrontmost() then -- application is the focused application
+      app:hide()
+    else
+      if not app:activate() then
+        hs.alert.show(string.format('Can not bring [%s] to front', name))
+      end
+    end
   else
-    hs.application.launchOrFocus(name)
+    if not hs.application.launchOrFocus(name) then
+        hs.alert.show(string.format('Can not find application [%s]', name))
+    end
   end
 end
 
