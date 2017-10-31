@@ -1,0 +1,7 @@
+[style]
+
+based_on_style = chromium
+
+indent_width = 2
+
+split_before_first_argument=False
