@@ -19,27 +19,25 @@ end)
 local appShortcuts = {
 
   --
-  -- alt the main applications in my everyday workflow
+  -- alt + num to swtich the main applications in my everyday life
   --
 
   {alt, 1  , 'Firefox'}                  ,
   {alt, 2  , 'Xcode'}                    ,
   {alt, 3  , 'Microsoft OneNote'}        ,
   {alt, 4  , 'Things'}                   ,
+  {alt, 5  , 'Preview'}                  ,
 
-  {alt, 's', 'Screen Sharing'}           ,
   {alt, 'g', 'Google Chrome'}            ,
-  {alt, 't', 'Tower'}                    ,
+  {alt, 's', 'Sourcetree'}               ,
 
   -- switch hand
 
-  {alt   , 7, 'Preview'}                   ,
-  -- {alt, 8, ...} is left for the Dash app
-  {alt   , 9, 'Quiver'}                    ,
+  -- 8 is left for the Dash.app
   {alt   , 0, 'Finder'}                    ,
 
   --
-  -- alt + shift for relatively less commonly used applications
+  -- alt + shift + num for relatively less commonly used applications
   --
 
   {altShift, 1  , 'Simulator'}  ,
@@ -113,9 +111,9 @@ hs.alert.defaultStyle.strokeWidth = 0.5
 
 hs.hotkey.bind(altShift, 'x', function () hs.openConsole(true) end)
 
-hs.console.outputBackgroundColor { white = 0 }
-hs.console.consoleCommandColor   { white = 1 }
-hs.console.windowBackgroundColor { white = 0 }
+--hs.console.outputBackgroundColor { white = 0 }
+--hs.console.consoleCommandColor   { white = 1 }
+--hs.console.windowBackgroundColor { white = 0 }
 
 -- root chooser
 rootChooser = require('rootchooser')
