@@ -1,9 +1,5 @@
 # vim: filetype=zsh
 
-# currently Neovim need these setting to work
-export NVIM_TUI_ENABLE_TRUE_COLOR=1
-export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
 # a smart (n)vim launching wrapper
 # usage: v [(partial) mode name] [paramters to (n)vim ...]
 # if the given mode name is enough to fix down a certain mode, then (n)vim is
