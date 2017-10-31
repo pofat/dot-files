@@ -7,7 +7,7 @@ root: ~/Develop/Apple/
 # socket_name: foo
 
 # Runs before everything. Use it to start daemons etc.
-pre: mkdir -p /tmp/mudox/log/Xcode/Jack &>/dev/null
+on_project_start: mkdir -p /tmp/mudox/log/Xcode/Jack &>/dev/null
 
 # Runs in each window and pane before window/pane specific commands. Useful for
 # setting up interpreter versions.
@@ -48,6 +48,6 @@ windows:
       - cd ~/Develop/apple/Frameworks/MudoxKit
       - vv -S
 
-   - SocialShare:
+   - SocialKit:
       - cd ~/Develop/apple/Frameworks/SocialShare
       - vv -S
