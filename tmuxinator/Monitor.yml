@@ -37,3 +37,14 @@ windows:
    - Task: htop
 
    - Network: sudo /usr/local/Cellar/iftop/1.0pre4/sbin/iftop
+
+   - VPS:
+      root: ~/Develop/Python/vps-info
+      layout: 2795,213x56,0,0{152x56,0,0,19,60x56,153,0[60x27,153,0,20,60x28,153,28,21]}
+      panes:
+         - editor:
+            - vv **
+         - ipython:
+            - ipython3
+         - monitor:
+            - bash ./monitor.sh
