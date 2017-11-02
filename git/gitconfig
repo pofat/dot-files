@@ -1,10 +1,10 @@
 [user]
-    name         = mudox
-    email        = mudoxisme@gmail.com
+	name = mudox
+	email = mudoxisme@gmail.com
 
 [core]
     pager        = less -R
-    excludesfile = ~/.cvsignore
+	excludesfile = /Users/mudox/.gitignore_global
 	editor = nvim
 
 [diff]
@@ -70,3 +70,11 @@
 	proxy = socks5://127.0.0.1:1086
 [https]
 	proxy = socks5://127.0.0.1:1086
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/mudox/.stCommitMsg
