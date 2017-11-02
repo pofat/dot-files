@@ -48,7 +48,7 @@ ln -sf -T $DOT/karabiner ~/.config/karabiner
 #  python  #
 ############
 
-ln -sf $DOT/python/yapf ~/.config/yapf
+ln -sf -T $DOT/python/yapf ~/.config/yapf
 ln -sf -T $DOT/python/pip ~/Library/Application\ Support/pip
 
 #############
