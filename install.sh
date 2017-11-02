@@ -17,7 +17,7 @@ ln -sf -T $VIM/ctrlp-cmdhub-jobs ~/.ctrlp-cmdhub-jobs
 #  tmux  #
 ##########
 
-ln -sf $VIM/tmux/tmux.conf ~/.tmux.conf
+ln -sf $DOT/tmux/tmux.conf ~/.tmux.conf
 
 #########
 #  git  #
@@ -48,11 +48,11 @@ ln -sf -T $DOT/karabiner ~/.config/karabiner
 #  python  #
 ############
 
-ln -sf $VIM/python/yapf ~/.config/yapf
-ln -sf -T $VIM/python/pip ~/Library/Application\ Support/pip
+ln -sf $DOT/python/yapf ~/.config/yapf
+ln -sf -T $DOT/python/pip ~/Library/Application\ Support/pip
 
 #############
 #  firefox  #
 #############
 
-ln -sf $VIM/vimperatorrc ~/.vimperatorrc
+ln -sf $DOT/vimperatorrc ~/.vimperatorrc
