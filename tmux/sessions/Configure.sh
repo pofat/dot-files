@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-full_width=213
-full_height=57
+FULL_WIDTH=213
+FULL_HEIGHT=57
 
-session_name='Console'
+session_name='Configure'
 if tmux has-session -t $session_name &>/dev/null; then
   echo "session [$session_name] already exisits, kill it!"
   tmux kill-session -t "$session_name"
@@ -84,4 +84,6 @@ tmux send-keys -t "$window" "
 cd $root
 vv -c 'source .vimrc.local' *.sh
 "
-tmux split-window -h -p 30
+tmux split-window -t "$window" -h -p 30
+
+tmux select-window -t "$session_name:Inbox"
