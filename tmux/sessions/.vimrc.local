@@ -1,0 +1,1 @@
+au! BufWritePost ~/Git/dot-files/tmux/sessions/*.sh silent !tmux send -t ":.2" 'echo "saved %:p"'

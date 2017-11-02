@@ -36,9 +36,9 @@ tmux new-window -a -d      \
   -t "$session_name:{end}" \
   -n "$window_name"
 tmux send-keys -t "$window" "
-  cd $root
-  vv vimrc
-  "
+cd $root
+vv vimrc
+"
 
 #
 # Hammerspoon
@@ -51,9 +51,9 @@ tmux new-window -a -d              \
   -t "$session_name:{end}"         \
   -n "$window_name"
 tmux send-keys -t "$window" "
-  cd $root
-  vv init.lua
-  "
+cd $root
+vv init.lua
+"
 
 #
 # Tmux
@@ -66,6 +66,22 @@ tmux new-window -a -d              \
   -t "$session_name:{end}"         \
   -n "$window_name"
 tmux send-keys -t "$window" "
-  cd $root
-  vv tmux.conf
-  "
+cd $root
+vv tmux.conf
+"
+
+#
+# Tmux Session Script
+#
+
+root="~/Git/dot-files/tmux/sessions"
+window_name='Tmux Sessions'
+window="$session_name:$window_name"
+tmux new-window -a -d              \
+  -t "$session_name:{end}"         \
+  -n "$window_name"
+tmux send-keys -t "$window" "
+cd $root
+vv -c 'source .vimrc.local' *.sh
+"
+tmux split-window -h -p 30
