@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-full_width=213
-full_height=57
+FULL_WIDTH=213
+FULL_HEIGHT=57
 
 session_name='Dashboard'
 if tmux has-session -t $session_name &>/dev/null; then
@@ -19,8 +19,8 @@ window="$session_name:$window_name"
 tmux new-session     \
   -s "$session_name" \
   -n "$window_name"  \
-  -x "$full_width"   \
-  -y "$full_height"  \
+  -x "$FULL_WIDTH"   \
+  -y "$FULL_HEIGHT"  \
   -d
 tmux send-keys -t "$window" 'htop' c-m
 
