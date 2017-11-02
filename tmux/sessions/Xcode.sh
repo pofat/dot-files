@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-FULL_WIDTH=213
-FULL_HEIGHT=57
+CLIENT_WIDTH=213
+CLIENT_HEIGHT=57
 
 session_name='Xcode'
 if tmux has-session -t $session_name &>/dev/null; then
@@ -19,14 +19,14 @@ window="$session_name:$window_name"
 tmux new-session     \
   -s "$session_name" \
   -n "$window_name"  \
-  -x "$FULL_WIDTH"   \
-  -y "$FULL_HEIGHT"  \
+  -x "$CLIENT_WIDTH"   \
+  -y "$CLIENT_HEIGHT"  \
   -d
 tmux send-keys -t "$window" "
-  cd $root
-  && mkdir /tmp/mudox/log/Xcode/Jack/
-  clear
-  "
+cd $root
+&& mkdir /tmp/mudox/log/Xcode/Jack/
+clear
+"
 
 #
 # Framework Projects
@@ -39,7 +39,7 @@ for window_name in Jack MudoxKit SocialShare; do
     -t "$session_name:{end}"         \
     -n "$window_name"
   tmux send-keys -t "$window" "
-    cd $root
-    vv ${window_name}.podspec
-    "
+  cd $root
+  vv ${window_name}.podspec
+  "
 done
