@@ -36,24 +36,23 @@ ln -sf $DOT/zshrc ~/.zshrc
 #  hammerspoon  #
 #################
 
-ln -sf $DOT/hammerspoon ~/.hammerspoon
+ln -sf -T $DOT/hammerspoon ~/.hammerspoon
 
 ###############
 #  karabiner  #
 ###############
 
-ln -sf $DOT/karabiner ~/.config/karabiner
+ln -sf -T $DOT/karabiner ~/.config/karabiner
 
 ############
 #  python  #
 ############
 
-ln -sf ~/Git/dot-files/yapf ~/.config/yapf
-ln -sf ~/Git/dot-files/python/pip.conf ~/Library/Application\ Support/pip
+ln -sf $VIM/python/yapf ~/.config/yapf
+ln -sf -T $VIM/python/pip ~/Library/Application\ Support/pip
 
 #############
 #  firefox  #
 #############
 
-ln -sf ~/Git/dot-files/vimperatorrc ~/.vimperatorrc
-
+ln -sf $VIM/vimperatorrc ~/.vimperatorrc
