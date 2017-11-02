@@ -9,9 +9,9 @@ mkdir ~/.config &>/dev/null
 #  neovim  #
 ############
 
-ln -sf $VIM ~/.vim
-ln -sf $VIM ~/.config/nvim
-ln -sf $VIM/ctrlp-cmdhub-jobs ~/.ctrlp-cmdhub-jobs
+ln -sf -T $VIM ~/.vim
+ln -sf -T $VIM ~/.config/nvim
+ln -sf -T $VIM/ctrlp-cmdhub-jobs ~/.ctrlp-cmdhub-jobs
 
 ##########
 #  tmux  #
