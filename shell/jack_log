@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+jack_black='\e[30m'
+jack_red='\e[31m'
+jack_green='\e[32m'
+jack_yellow='\e[33m'
+jack_blue='\e[34m'
+jack_magenta='\e[35m'
+jack_cyan='\e[36m'
+jack_white='\e[37m'
+
+jack_reset='\e[0m'
+
+jackError()   { printf "${jack_red}$*${jack_reset}"; }
+jackWarn()    { printf "${jack_magenta}$*${jack_reset}"; }
+jackInfo()    { printf "${jack_yellow}$*${jack_reset}"; }
+jackDebug()   { printf "${jack_cyan}$*${jack_reset}"; }
+jackVerbose() { printf "${jack_grey}$*${jack_reset}"; }
