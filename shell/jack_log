@@ -16,3 +16,9 @@ jackWarn()    { printf "${jack_magenta}$*${jack_reset}"; }
 jackInfo()    { printf "${jack_yellow}$*${jack_reset}"; }
 jackDebug()   { printf "${jack_cyan}$*${jack_reset}"; }
 jackVerbose() { printf "${jack_grey}$*${jack_reset}"; }
+
+jackNote() { printf "${jack_blue}$*${jack_reset}"; }
+
+
+# TODO: implement
+#jackPrompt
