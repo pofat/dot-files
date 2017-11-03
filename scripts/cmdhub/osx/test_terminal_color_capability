@@ -4,7 +4,12 @@
 source ~/Git/dot-files/shell/jack_log
 
 printf '\n\n\n\n\n\n\n\n'
-jackInfo '\n===> 8 COLOR IN BACKGROUND \n'
+jackNote '\n===> 3-BIT COLOR IN BACKGROUND \n'
+cat <<END
+1; -> bold
+5; -> blink
+7; -> reverse
+END
 
 CELL_TEXT='Mudox'   # The test text
 #CELL_TEXT='gYw'   # The test text
@@ -41,7 +46,8 @@ for fg in "${FGs[@]}"; do
 done
 echo
 
-jackInfo '\n\n\n\n===> 256 COLOR IN BACKGROUND \n'
+jackNote '\n\n\n\n===> 256 COLOR IN BACKGROUND \n'
+echo 'code: \e[48;5;[0-255]m'
 
 for i in {0..255} ; do
   if (( i % 8 == 0 )); then
@@ -55,13 +61,14 @@ for i in {0..255} ; do
     || ( 232 <= i && i <= 243 )
     ))
   then
-    printf "\e[37m\e[48;5;%sm %9s \e[0m " "$i" "48;5;$i"
+    printf "\e[37m\e[48;5;%sm %3s \e[0m " "$i" "$i"
   else
-    printf "\e[30m\e[48;5;%sm %9s \e[0m " "$i" "48;5;$i"
+    printf "\e[30m\e[48;5;%sm %3s \e[0m " "$i" "$i"
   fi
 done
 
-jackInfo '\n\n\n\n===> 256 COLOR IN FOREGROUND \n'
+jackNote '\n\n\n\n===> 256 COLOR IN FOREGROUND \n'
+echo 'code: \e[38;5;[0-255]m'
 
 for i in {0..255} ; do
   if (( i % 8 == 0 )); then
@@ -75,10 +82,25 @@ for i in {0..255} ; do
     || ( 232 <= i && i <= 243 )
     ))
   then
-    printf "\e[37m\e[38;5;%sm %9s \e[0m " "$i" "48;5;$i"
+    printf "\e[37m\e[38;5;%sm %3s \e[0m " "$i" "$i"
   else
-    printf "\e[30m\e[38;5;%sm %9s \e[0m " "$i" "48;5;$i"
+    printf "\e[30m\e[38;5;%sm %3s \e[0m " "$i" "$i"
   fi
+done
+
+jackNote '\n\n\n\n===> TRUE COLOR\n'
+echo 'code: \e[48;2;[r];[g];[b]m'
+
+for i in {0..255} ; do
+  if (( i % 16 == 0 )); then
+    printf '\n';
+  fi
+
+  r=$i
+  g=$(( (i + 127 + 255) % 255 ))
+  b=$(( 255 - i ))
+
+  printf '\e[48;2;%s;%s;%sm   \e[0m' $r $g $b
 done
 
 # vim: ft=sh
