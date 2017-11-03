@@ -3,56 +3,39 @@
 DOT=~/Git/dot-files
 VIM=~/Git/vim-config
 
+# DOT FILES {{{
+
 mkdir ~/.config &>/dev/null
 
-############
-#  neovim  #
-############
-
+# neovim
 ln -sf -T $VIM ~/.vim
 ln -sf -T $VIM ~/.config/nvim
 ln -sf -T $VIM/ctrlp-cmdhub-jobs ~/.ctrlp-cmdhub-jobs
 
-##########
-#  tmux  #
-##########
-
+# tmux
 ln -sf $DOT/tmux/tmux.conf ~/.tmux.conf
 
-#########
-#  git  #
-#########
-
+# git
 ln -sf $DOT/git/gitconfig ~/.gitconfig
 ln -sf $DOT/git/cvsignore ~/.cvsignore
 
-#########
-#  zsh  #
-#########
-
+# zsh
 ln -sf $DOT/zshrc ~/.zshrc
 
-#################
-#  hammerspoon  #
-#################
-
+# hammerspoon
 ln -sf -T $DOT/hammerspoon ~/.hammerspoon
 
-###############
-#  karabiner  #
-###############
-
+# karabiner
 ln -sf -T $DOT/karabiner ~/.config/karabiner
 
-############
-#  python  #
-############
-
+# python
 ln -sf -T $DOT/python/yapf ~/.config/yapf
 ln -sf -T $DOT/python/pip ~/Library/Application\ Support/pip
 
-#############
-#  firefox  #
-#############
-
+# firefox
 ln -sf $DOT/vimperatorrc ~/.vimperatorrc
+# }}}# vim: fdm=marker
+
+# HOMEBREW {{{
+
+# }}}
