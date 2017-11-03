@@ -1,14 +1,10 @@
 #/usr/bin/env bash
 #x cmdhub: Test terminal emulator's color capability
 
-#
-#   This file echoes a bunch of color codes to the
-#   terminal to demonstrate what's available.  Each
-#   line is the color code of one foreground color,
-#   out of 17 (default + 16 escapes), followed by a
-#   test use of that color on all nine background
-#   colors (default + 8 escapes).
-#
+source ~/Git/dot-files/shell/jack_log
+
+printf '\n\n\n\n\n\n\n\n'
+jackInfo '\n===> 8 COLOR IN BACKGROUND \n'
 
 CELL_TEXT='Mudox'   # The test text
 #CELL_TEXT='gYw'   # The test text
@@ -44,5 +40,45 @@ for fg in "${FGs[@]}"; do
   echo
 done
 echo
+
+jackInfo '\n\n\n\n===> 256 COLOR IN BACKGROUND \n'
+
+for i in {0..255} ; do
+  if (( i % 8 == 0 )); then
+    printf "\n";
+  fi
+
+  if ((
+    i == 0 || i == 18 || i == 19 || i == 124
+    || ( 52 <= i && i <= 55 )
+    || ( 88 <= i && i <= 95 )
+    || ( 232 <= i && i <= 243 )
+    ))
+  then
+    printf "\e[37m\e[48;5;%sm %9s \e[0m " "$i" "48;5;$i"
+  else
+    printf "\e[30m\e[48;5;%sm %9s \e[0m " "$i" "48;5;$i"
+  fi
+done
+
+jackInfo '\n\n\n\n===> 256 COLOR IN FOREGROUND \n'
+
+for i in {0..255} ; do
+  if (( i % 8 == 0 )); then
+    printf "\n";
+  fi
+
+  if ((
+    i == 0 || i == 18 || i == 19 || i == 124
+    || ( 52 <= i && i <= 55 )
+    || ( 88 <= i && i <= 95 )
+    || ( 232 <= i && i <= 243 )
+    ))
+  then
+    printf "\e[37m\e[38;5;%sm %9s \e[0m " "$i" "48;5;$i"
+  else
+    printf "\e[30m\e[38;5;%sm %9s \e[0m " "$i" "48;5;$i"
+  fi
+done
 
 # vim: ft=sh
