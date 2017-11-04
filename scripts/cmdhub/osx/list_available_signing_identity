@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-#x cmdhub: List Available Code Signing Identities
-
-security find-identity  -v -p codesigning

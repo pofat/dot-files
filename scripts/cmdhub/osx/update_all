@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-#x cmdhub: Update Update Update
-
-tmux kill-session -t Update 2>/dev/null
-tmuxinator start Update
-
-# vim: ft=sh
