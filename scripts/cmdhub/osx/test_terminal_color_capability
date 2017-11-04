@@ -6,45 +6,43 @@ source ~/Git/dot-files/shell/jack_log
 printf '\n\n\n\n\n\n\n\n'
 jackNote '\n===> 3-BIT COLOR IN BACKGROUND \n'
 cat <<END
-1; -> bold
-5; -> blink
-7; -> reverse
+effect:
+  1; -> bold
+  5; -> blink
+  7; -> reverse
+
 END
 
-CELL_TEXT='Mudox'   # The test text
-#CELL_TEXT='gYw'   # The test text
-CELL_WIDTH=${#CELL_TEXT}
-HEAD_WIDTH=7
-
-FGs=(30m 31m 32m 33m 34m 35m 36m 37m)
-BGs=(40m 41m 42m 43m 44m 45m 46m 47m)
-
-
-printf "\n%${HEAD_WIDTH}s" ' '
-for bg in "${BGs[*]}"; do
-  printf "  %${CELL_WIDTH}s " $bg
-done
-echo
-
-color_line() {
-  local fg=$1
-  printf "\n%${HEAD_WIDTH}s" $fg
-  for bg in "${BGs[@]}"; do
-    printf " \x1b[${fg}\x1b[${bg} %${CELL_WIDTH}s \x1b[0m" "${CELL_TEXT}"
+for fg in {30..37}; do
+  col1_width=8
+  # no effect
+  printf "%${col1_width}s  " 'normal'
+  for bg in {40..47}; do
+    printf "\e[${fg}m\e[${bg}m%s\e[0m " " ${fg}-${bg} "
   done
-}
+  printf '\n'
 
-for fg in "${FGs[@]}"; do
-  color_line ${fg}
-  fg_bold="1;${fg}"
-  color_line ${fg_bold}
-  fg_bold_blink="5;${fg_bold}"
-  color_line ${fg_bold_blink}
-  fg_bold_inverse="7;${fg_bold}"
-  color_line ${fg_bold_inverse}
-  echo
+  # bold
+  printf "%${col1_width}s  " 'bold'
+  for bg in {40..47}; do
+    printf "\e[1;${fg}m\e[${bg}m%s\e[0m " " ${fg}-${bg} "
+  done
+  printf '\n'
+
+  # blink
+  printf "%${col1_width}s  " 'blink'
+  for bg in {40..47}; do
+    printf "\e[5;${fg}m\e[${bg}m%s\e[0m " " ${fg}-${bg} "
+  done
+  printf '\n'
+
+  # reverse
+  printf "%${col1_width}s  " 'reverse'
+  for bg in {40..47}; do
+    printf "\e[7;${fg}m\e[${bg}m%s\e[0m " " ${fg}-${bg} "
+  done
+  printf '\n\n'
 done
-echo
 
 jackNote '\n\n\n\n===> 256 COLOR IN BACKGROUND \n'
 echo 'code: \e[48;5;[0-255]m'
