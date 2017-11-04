@@ -6,11 +6,13 @@ source ~/Git/dot-files/shell/jack_log
 DOT=~/Git/dot-files
 VIM=~/Git/vim-config
 
+SDIR=$(dirname $(test -L "$0" && readlink -e "$0" || echo "$0"))
+
 # DOT FILES {{{
 
 mkdir ~/.config &>/dev/null
 
-jackNote '\nINSTALL DOT FILES\n'
+jackNote '\nInstall Dot Files\n'
 
 # neovim
 echo '- Neovim'
@@ -49,5 +51,19 @@ ln -sf $DOT/vimperatorrc ~/.vimperatorrc
 # }}}# vim: fdm=marker
 
 # HOMEBREW {{{
+
+jackNote '\n\n\nInstall Homebrew\n'
+if type brew &>/dev/null; then
+  jackWarn 'Homebrew already intalled, abort\n'
+else
+  /usr/bin/ruby -e \
+    "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" \
+    || exit 1
+fi
+jackNote '\nInstall Formulas\n'
+brew install $(<$SDIR/brew-list)
+
+
+
 
 # }}}
