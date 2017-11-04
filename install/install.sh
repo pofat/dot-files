@@ -50,20 +50,22 @@ echo '- Vimperator'
 ln -sf $DOT/vimperatorrc ~/.vimperatorrc
 # }}}# vim: fdm=marker
 
+# fzf-cmdhub
+echo '- Utility: fzf-cmdhub'
+ln -sf -T $DOT/fzf-cmdhub ~/.config/fzf-cmdhub
+
 # HOMEBREW {{{
 
 jackNote '\n\n\nInstall Homebrew\n'
-if type brew &>/dev/null; then
+if which -s brew; then
   jackWarn 'Homebrew already intalled, abort\n'
 else
   /usr/bin/ruby -e \
     "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" \
     || exit 1
+
+  jackNote '\nInstall Formulas\n'
+  brew install $(<$SDIR/brew-list)
 fi
-jackNote '\nInstall Formulas\n'
-brew install $(<$SDIR/brew-list)
-
-
-
 
 # }}}
