@@ -115,18 +115,19 @@ ln -sf $DOT/vimperatorrc ~/.vimperatorrc
 cat <<END
 - Utility: fzf-cmdhub
   ~/.config/fzf-cmdhub
-for dir in "$HOME" "$HOME/.config" "$HOME/Library/Application Support"; do
+
 END
+
 ln -sf -T $DOT/fzf-cmdhub ~/.config/fzf-cmdhub
 
-# Show results
+# show results
 jackInfo '\nMade following symbolic links:\n'
-for dir in "$HOME" "$HOME/.config"; do
+for dir in "$HOME" "$HOME/.config" "$HOME/Library/Application Support"; do
   echo
   find "$dir" -type l -maxdepth 1 | while read link; do
-    printf '+ %-26s   ->   %s\n'                   \
-      $(realpath --relative-base=$HOME -s "$link")   \
-      $(realpath --relative-base=$HOME -e "$link")
+    printf '+ %-36s   ->   %s\n'                     \
+      "$(realpath --relative-base=$HOME -s "$link")" \
+      "$(realpath --relative-base=$HOME -e "$link")"
   done
 done
 
