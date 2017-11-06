@@ -9,13 +9,13 @@ if tmux has-session -t $session_name &>/dev/null; then
   tmux kill-session -t "$session_name"
 fi
 
-session_root='/tmp/mudox/play/'
+session_root="$HOME/Develop"
 
 #
-# Python3
+# Shell
 #
 
-root="${session_root}/shell" && mkdir -p "$root" &>/dev/null
+root="${session_root}/Shell/Play"
 window_name='Shell'
 window="$session_name:$window_name"
 tmux new-session      \
@@ -25,13 +25,14 @@ tmux new-session      \
   -y "$CLIENT_HEIGHT" \
   -c "$root"          \
   -d
-sleep 1
+sleep 0.5
 tmux send-keys -t "$window" "
-vv
+vv -c 'source ./.vimrc.local' inbox.sh
 "
+tmux split-window -t "$window" -h bash
 
 #
-# Shell
+# Python3
 #
 
 root="${session_root}/python3" && mkdir -p "$root" &>/dev/null
@@ -41,7 +42,7 @@ tmux new-window -a -d      \
   -t "$session_name:{end}" \
   -n "$window_name"        \
   -c "$root"
-sleep 1
+sleep 0.5
 tmux send-keys -t "$window" "
 ipython3
 "
@@ -58,7 +59,7 @@ tmux new-window -a -d      \
   -t "$session_name:{end}" \
   -n "$window_name"        \
   -c "$root"
-sleep 1
+sleep 0.5
 tmux send-keys -t "$window" "
 pry
 "

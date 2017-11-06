@@ -17,11 +17,11 @@ fi
 root="~/Git/dot-files"
 window_name='Inbox'
 window="$session_name:$window_name"
-tmux new-session     \
-  -s "$session_name" \
-  -n "$window_name"  \
-  -x "$CLIENT_WIDTH"   \
-  -y "$CLIENT_HEIGHT"  \
+tmux new-session      \
+  -s "$session_name"  \
+  -n "$window_name"   \
+  -x "$CLIENT_WIDTH"  \
+  -y "$CLIENT_HEIGHT" \
   -d
 tmux send-keys -t "$window" "
 cd $root
