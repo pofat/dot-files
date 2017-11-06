@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#x cmdhub: Start commonly used tmux sessions
+
+source ~/Git/dot-files/shell/jack_log
+
+for s in Configure Dashboard Play Xcode; do
+  session_file="$HOME/Git/dot-files/tmux/sessions/$s.tmux-session.sh"
+  if [[ -f $session_file ]]; then
+    jackNote "\nStart [$s]\n"
+    bash "$session_file"                \
+      && jackVerbose "warming for 1s\n" \
+      && sleep 1
+  else
+    jackError "Missing session file: $session_file\n"
+  fi
+done
+
+tmux attach-session -t '@0'
