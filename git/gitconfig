@@ -4,7 +4,7 @@
 
 [core]
     pager        = less -R
-	excludesfile = /Users/mudox/.gitignore_global
+	excludesfile = /Users/mudox/Git/dot-files/git/cvsignore
 	editor = nvim
 
 [diff]
@@ -72,7 +72,7 @@
 	proxy = socks5://127.0.0.1:1086
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
