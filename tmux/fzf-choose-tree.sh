@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 _fzf() {
-  fzf --with-nth=2.. \
+  fzf                \
+    --exact          \
+    --with-nth=2..   \
     --tiebreak=index \
     --ansi           \
     --height=100%    \
