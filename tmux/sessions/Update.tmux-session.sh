@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# vim: fdm=marker
 
 CLIENT_WIDTH=213
 CLIENT_HEIGHT=57
