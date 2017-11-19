@@ -22,19 +22,20 @@ local appShortcuts = {
   -- alt + num to swtich the main applications in my everyday life
   --
 
-  {alt, 1  , 'Firefox'}                  ,
-  {alt, 2  , 'Xcode'}                    ,
-  {alt, 3  , 'Microsoft OneNote'}        ,
-  {alt, 4  , 'Things'}                   ,
-  {alt, 5  , 'Preview'}                  ,
+  {alt, 1, 'Firefox'}          ,
+  {alt, 2, 'Xcode'}            ,
+  {alt, 3, 'Microsoft OneNote'},
+  {alt, 4, 'Things'}           ,
+  {alt, 5, 'Preview'}          ,
 
-  {alt, 'g', 'Google Chrome'}            ,
-  {alt, 's', 'Sourcetree'}               ,
+  {alt, 'g', 'Google Chrome'},
+  {alt, 's', 'Sourcetree'}   ,
 
   -- switch hand
 
-  -- 8 is left for the Dash.app
-  {alt   , 0, 'Finder'}                    ,
+  -- 7 is occpuied by the Pastes.app
+  -- 8 is occupied by the Dash.app
+  {alt, 0, 'Finder'},
 
   --
   -- alt + shift + num for relatively less commonly used applications
