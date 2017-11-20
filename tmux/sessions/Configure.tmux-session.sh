@@ -33,10 +33,12 @@ tmux new-session       \
 root="${HOME}/Git/vim-config"
 window_name='Neovim'
 window="${session_name}:${window_name}"
-tmux new-window -a -d        \
+tmux new-window              \
+  -a                         \
   -t "${session_name}:{end}" \
   -n "${window_name}"        \
-  -c "${root}"
+  -c "${root}"               \
+  -d
 sleep 1
 tmux send-keys -t "${window}" "
 vv vimrc
@@ -49,10 +51,12 @@ vv vimrc
 root="${HOME}/Git/dot-files/hammerspoon"
 window_name='Hammerspoon'
 window="${session_name}:${window_name}"
-tmux new-window -a -d        \
+tmux new-window              \
+  -a                         \
   -t "${session_name}:{end}" \
   -n "${window_name}"        \
-  -c "${root}"
+  -c "${root}"               \
+  -d
 tmux send-keys -t "${window}" "
 vv init.lua
 "
@@ -64,10 +68,12 @@ vv init.lua
 root="${HOME}/Git/dot-files/tmux"
 window_name='Tmux'
 window="${session_name}:${window_name}"
-tmux new-window -a -d      \
+tmux new-window              \
+  -a                         \
   -t "${session_name}:{end}" \
   -n "${window_name}"        \
-  -c "${root}"
+  -c "${root}"               \
+  -d
 tmux send-keys -t "${window}" "
 vv tmux.conf
 "
@@ -79,13 +85,22 @@ vv tmux.conf
 root="${HOME}/Git/dot-files/tmux/sessions"
 window_name='Tmux Sessions'
 window="${session_name}:${window_name}"
-tmux new-window -a -d        \
+tmux new-window              \
+  -a                         \
   -t "${session_name}:{end}" \
   -n "${window_name}"        \
-  -c "${root}"
+  -c "${root}"               \
+  -d
 tmux send-keys -t "${window}" "
 vv -c 'source .vimrc.local' *.sh
 "
-tmux split-window -t "${window}" -h -p 30
 
-tmux select-window -t "${session_name}:Inbox"
+tmux split-window  \
+  -t "${window}.1" \
+  -h               \
+  -p 30            \
+  -c "${root}"
+
+tmux select-window -t "${session_name}:1.1"
+echo "[${session_name}] started"
+tmux list-window -t "${session_name}" -F ' - #W'

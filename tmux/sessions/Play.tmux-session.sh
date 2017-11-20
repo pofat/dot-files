@@ -64,3 +64,6 @@ tmux send-keys -t "${window}" "
 pry
 "
 
+tmux select-window -t "${session_name}:1.1"
+echo "[${session_name}] started"
+tmux list-window -t "${session_name}" -F ' - #W'

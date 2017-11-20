@@ -50,7 +50,9 @@ tmux send-keys -t "${window}.3" "
 cd "${HOME}/Develop/Python/vps-info"
 bash monitor.sh
 "
+# disable pane .3
 tmux select-pane -t "${window}.3" -d
 
-tmux select-pane -t "${window}.1"
-
+tmux select-window -t "${session_name}:1.1"
+echo "[${session_name}] started"
+tmux list-window -t "${session_name}" -F ' - #W'
