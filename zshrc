@@ -6,6 +6,8 @@ export EVENT_NOKQUEUE=1
 
 export MDX_REPOS_ROOT="${HOME}/Git"
 
+# IMPORTANT
+export LC_ALL='en_US.UTF-8'
 export LANG='en_US.UTF-8'
 
 # Antigen
