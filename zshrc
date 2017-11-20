@@ -80,7 +80,7 @@ antigen apply
 export MDX_DOT_FILES="${MDX_REPOS_ROOT}/dot-files"
 
 com="$MDX_DOT_FILES/shell"
-osx="$com/osx"
+macos="$com/macos"
 cygwin="$com/cygwin"
 archlinux="$com/archlinux"
 
@@ -97,7 +97,7 @@ done
 # NOTE: sourcing order matters.
 case $(uname -s) in
   Darwin )
-    for s in "$osx"/*; do
+    for s in "$macos"/*; do
       [[ -f "$s" ]] && source "$s"
     done
     ;;
@@ -124,7 +124,7 @@ esac
 
 # cleanup
 unset com
-unset osx
+unset macos
 unset archlinux
 unset cygwin
 unset s
