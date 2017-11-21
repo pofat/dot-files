@@ -21,15 +21,14 @@ local appShortcuts = {
   --
   -- alt + num to swtich the main applications in my everyday life
   --
+  {alt, 'g', 'Google Chrome'},
+  {alt, 't', 'Tower'}        ,
 
   {alt, 1, 'Firefox'}          ,
   {alt, 2, 'Xcode'}            ,
   {alt, 3, 'Microsoft OneNote'},
   {alt, 4, 'Things'}           ,
   {alt, 5, 'Preview'}          ,
-
-  {alt, 'g', 'Google Chrome'},
-  {alt, 's', 'Sourcetree'}   ,
 
   -- switch hand
 
