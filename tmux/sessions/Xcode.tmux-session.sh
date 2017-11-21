@@ -34,7 +34,7 @@ jacsrv -p 8383
 # Framework Projects
 #
 
-for window_name in JacKit iOSKit SocialKit RandomUser; do
+for window_name in iOSKit SocialKit RandomUser; do
   root="${HOME}/Develop/Apple/Frameworks/${window_name}"
   window="${session_name}:${window_name}"
   tmux new-window -a -d        \
