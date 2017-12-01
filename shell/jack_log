@@ -11,13 +11,13 @@ jack_white='\e[37m'
 
 jack_reset='\e[0m'
 
-jackError()   { printf "${jack_red}$*${jack_reset}"; }
-jackWarn()    { printf "${jack_magenta}$*${jack_reset}"; }
-jackInfo()    { printf "${jack_yellow}$*${jack_reset}"; }
-jackDebug()   { printf "${jack_cyan}$*${jack_reset}"; }
-jackVerbose() { printf "${jack_grey}$*${jack_reset}"; }
+jackError()   { printf "${jack_red}$*${jack_reset}\n"; }
+jackWarn()    { printf "${jack_magenta}$*${jack_reset}\n"; }
+jackInfo()    { printf "${jack_yellow}$*${jack_reset}\n"; }
+jackDebug()   { printf "${jack_cyan}$*${jack_reset}\n"; }
+jackVerbose() { printf "${jack_grey}$*${jack_reset}\n"; }
 
-jackNote() { printf "${jack_blue}$*${jack_reset}"; }
+jackNote() { printf "${jack_blue}$*${jack_reset}\n"; }
 
 
 # TODO: implement
