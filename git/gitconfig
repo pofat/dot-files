@@ -1,21 +1,21 @@
 [user]
-	name = mudox
-	email = imudox@gmail.com
+    name          = mudox
+    email         = imudox@gmail.com
 
 [core]
-    pager        = less -R
-	excludesfile = /Users/mudox/Git/dot-files/git/cvsignore
-	editor = nvim
+    pager         = less -R
+    excludesfile  = /Users/mudox/Git/dot-files/git/cvsignore
+    editor        = nvim
 
 [diff]
-    tool         = core.editor
-    prompt       = No
+    tool          = core.editor
+    prompt        = No
 
 [color]
-    diff         = auto
-    status       = auto
-    branch       = auto
-    ui           = auto
+    diff          = auto
+    status        = auto
+    branch        = auto
+    ui            = auto
 
 [alias]
     lg            = log --color --graph --pretty=format:'%Cred%h%Creset %s %C(bold blue) by <%an> %Creset%C(dim green) (%cr) %Creset %C(yellow ul)%d%Creset'
@@ -25,7 +25,7 @@
     co            = checkout
     df            = diff
     ls            = ls-files
-    ignore        = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+    ignore        = "!gi() { curl -L -s https://www.gitignore.io/api/$@; }; gi"
     interactive   = auto
 
 [color "branch"]
@@ -48,33 +48,31 @@
     untracked     = white dim
     branch        = green bold ul
 
+
 [status]
     relativePaths = false
+
 [push]
     default       = simple
+
 [filter "media"]
     clean         = git-media-clean %f
     smudge        = git-media-smudge %f
+
 [filter "lfs"]
-    clean         = git-lfs clean %f
-    smudge        = git-lfs smudge %f
+    clean         = git-lfs clean -- %f
+    smudge        = git-lfs smudge -- %f
     required      = true
+    process       = git-lfs filter-process
+
 [gui]
     recentrepo    = /Users/mudox/Git/neovim
+
 [github]
-	user = cempri@163.com
-[pager]
-    diff = diff-so-fancy | less --tabs=4 -RFX --pattern='^(added|deleted|modified): '
-    show = diff-so-fancy | less --tabs=4 -RFX --pattern='^(added|deleted|modified): '
+    user          = cempri@163.com
+
 [http]
-	proxy = socks5://127.0.0.1:1086
+    proxy         = socks5://127.0.0.1:1086
+
 [https]
-	proxy = socks5://127.0.0.1:1086
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[commit]
-	template = /Users/mudox/.stCommitMsg
+    proxy         = socks5://127.0.0.1:1086
