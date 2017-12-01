@@ -2,7 +2,8 @@ if [[ ! $- =~ i ]]; then
   return
 fi
 
-export FZF_DEFAULT_COMMAND='ag --nocolor -l -g ""'
+#export FZF_DEFAULT_COMMAND='ag --nocolor -l -g ""'
+export FZF_DEFAULT_COMMAND='fd --type f'
 export FZF_COMPLETION_TRIGGER=',,'
 export FZF_COMPLETION_OPTS='-e'
 export FZF_DEFAULT_OPTS='
@@ -14,6 +15,19 @@ export FZF_DEFAULT_OPTS='
 --color fg:188,bg:233,hl:103,fg+:222,bg+:234,hl+:104
 --color info:183,prompt:110,spinner:107,pointer:167,marker:215
 '
+
+# Use fd (https://github.com/sharkdp/fd) instead of the default find
+# command for listing path candidates.
+# - The first argument to the function ($1) is the base path to start traversal
+# - See the source code (completion.{bash,zsh}) for the details.
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude ".git" . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude ".git" . "$1"
+}
 
 if [[ "$SHELL" == "bash" ]]; then
   return
