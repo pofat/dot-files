@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # vim: fdm=marker
 
-source ~/Git/dot-files/shell/jack_log
+source ~/Git/dot-files/bash/lib/jack
 
 DOT=~/Git/dot-files
 VIM=~/Git/vim-config

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #x cmdhub: Start commonly used tmux sessions
 
-source ~/Git/dot-files/shell/jack_log
+source ~/Git/dot-files/bash/lib/jack
 
 for s in Configure Dashboard Play Xcode; do
   session_file="$HOME/Git/dot-files/tmux/sessions/$s.tmux-session.sh"

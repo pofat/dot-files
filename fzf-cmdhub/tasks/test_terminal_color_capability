@@ -1,7 +1,7 @@
 #/usr/bin/env bash
 #x cmdhub: Test terminal emulator's color capability
 
-source ~/Git/dot-files/shell/jack_log
+source ~/Git/dot-files/bash/lib/jack
 
 printf '\n\n\n\n\n\n\n\n'
 jackNote '\n===> 3-BIT COLOR IN BACKGROUND \n'
