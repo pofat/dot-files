@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-#x cmdhub: Compile YCM plugin
-
-cd "${MDX_REPOS_ROOT}/vim-config/plugged/ycm" && \
-./install.py --clang-completer --gocode-completer

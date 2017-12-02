@@ -6,9 +6,9 @@ source ~/Git/dot-files/bash/lib/jack
 for s in Configure Dashboard Play Xcode; do
   session_file="$HOME/Git/dot-files/tmux/sessions/$s.tmux-session.sh"
   if [[ -f $session_file ]]; then
-    jackNote "\nStart [$s]\n"
+    jackInfo "\nStarting $s\n"
     bash "$session_file"                \
-      && jackVerbose "warming for 1s\n" \
+      && jackVerbose "\nwarming for 1s" \
       && sleep 1
   else
     jackError "Missing session file: $session_file\n"
