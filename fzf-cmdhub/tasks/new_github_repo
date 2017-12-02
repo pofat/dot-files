@@ -15,19 +15,7 @@ else
   exit 1
 fi
 
-jackInfo '\nInitializing Git repo'
-sleep 1
-
-git init
-git add --all
-git commit -m 'Initial commit'
-
-jackInfo "\nCreating Github repo: github.com/mudox/${repo_name}"
-sleep 1
-
-hub create "${repo_name}"
-
-jackInfo '\nMaking .gitignore'
+jackInfo '\n[1/4] Making .gitignore'
 sleep 1
 
 types=$(git ignore list | tr ',' '\n' | fzf -m)
@@ -36,7 +24,19 @@ for type in ${types}; do
   git ignore "${type}" >> .gitignore
 done
 
-jackInfo '\nPerforming initial push'
+jackInfo '\n[2/4] Initializing Git repo'
+sleep 1
+
+git init
+git add --all
+git commit -m 'Initial commit'
+
+jackInfo "\n[3/4] Creating Github repo: github.com/mudox/${repo_name}"
+sleep 1
+
+hub create "${repo_name}"
+
+jackInfo '\n[4/4] Performing initial push'
 sleep 1
 
 git push --set-upstream origin master
