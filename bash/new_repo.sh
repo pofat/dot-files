@@ -10,7 +10,7 @@ if [[ ! $# -eq 1 ]]; then
   exit 1
 fi
 
-jackNote 'Creating git repo'
+jackInfo 'Creating git repo'
 git init
 git add --all
 git commit -m 'Initial commit'
@@ -21,10 +21,10 @@ hub create "$1"
 jackInfo 'Adding .gitignore'
 types=$(git ignore list | tr ',' '\n' | fzf -m)
 for type in ${types}; do
-  git ignore "${type}"
+  git ignore "${type}" >> .gitignore
 done
 
-jackNote 'Performing the initial `git push`'
+jackInfo 'Performing the initial `git push`'
 git push --set-upstream origin master
 
 hub browse
