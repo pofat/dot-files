@@ -5,7 +5,7 @@
 [core]
     pager         = less -R
     excludesfile  = /Users/mudox/Git/dot-files/git/cvsignore
-    editor        = nvim
+	editor = nvim
 
 [diff]
     tool          = core.editor
