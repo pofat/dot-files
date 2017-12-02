@@ -6,4 +6,3 @@
 
 CD TO: Xcode template directory		cd ~/Library/Developer/Xcode/Templates
 CD TO: Xcode Derived Data directory	cd ~/Library/Developer/Xcode/DerivedData
-New Github project			bash ~/Git/dot-files/bash/new_repo.sh
