@@ -144,6 +144,3 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Fix z precmd issue
-#precmd_functions+=_z_precmd
