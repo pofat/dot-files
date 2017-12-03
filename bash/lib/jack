@@ -9,6 +9,8 @@ jack_magenta='\e[35m'
 jack_cyan='\e[36m'
 jack_white='\e[37m'
 
+jack_grey='\e[38;5;245m'
+
 jack_reset='\e[0m'
 
 jackError()   { printf "${jack_red}$*${jack_reset}\n"; }
