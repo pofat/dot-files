@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 #x cmdhub: Start commonly used tmux sessions
+set -euo pipefail
+
+CLIENT_WIDTH=213
+CLIENT_HEIGHT=57
 
 source ~/Git/dot-files/bash/lib/jack
 
@@ -14,5 +18,16 @@ for s in Configure Dashboard Play Xcode; do
     jackError "Missing session file: $session_file\n"
   fi
 done
+
+jackInfo "\nStarting Tmux\n"
+tav="${HOME}/Develop/Python/tav/tav.py"
+"${tav}" snapshot
+tmux new-session      \
+  -s Tmux             \
+  -n Navigator        \
+  -x "$CLIENT_WIDTH"  \
+  -y "$CLIENT_HEIGHT" \
+  -d                  \
+  "${tav}" serve
 
 tmux attach-session -t '@0'
