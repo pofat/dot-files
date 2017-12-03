@@ -30,10 +30,12 @@ abbreviate home      http://mudox.github.io
 
 
 " Apple
+abbreviate appdev    https://developer.apple.com
 abbreviate acc       http://developer.apple.com/account
 abbreviate itc       https://itunesconnect.apple.com
 
-abbreviate appdev    https://developer.apple.com
+abbreviate hig       https://developer.apple.com/ios/human-interface-guidelines
+
 abbreviate se        https://apple.github.io/swift-evolution/
 
 abbreviate awwdc     http://asciiwwdc.com
