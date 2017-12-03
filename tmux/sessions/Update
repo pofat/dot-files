@@ -1,8 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-CLIENT_WIDTH=213
-CLIENT_HEIGHT=57
+# client size
+set +u
+if [[ -n "$TMUX" ]]; then
+  client_width="$(tmux list-clients -t '.' -F '#{client_width}')"
+  client_height="$(tmux list-clients -t '.' -F '#{client_height}')"
+else
+  client_width=$(tput lines)
+  client_height=$(tput cols)
+fi
+set -u
 
 session_name='Update'
 if tmux has-session -t ${session_name} &>/dev/null; then
@@ -11,7 +19,7 @@ if tmux has-session -t ${session_name} &>/dev/null; then
 fi
 
 #
-# Neovim
+# window: Neovim
 #
 
 root="${HOME}/Git/vim-config"
@@ -20,8 +28,8 @@ window="${session_name}:${window_name}"
 tmux new-session       \
   -s "${session_name}" \
   -n "${window_name}"  \
-  -x "$CLIENT_WIDTH"   \
-  -y "$CLIENT_HEIGHT"  \
+  -x "$client_width"   \
+  -y "$client_height"  \
   -c "${root}"         \
   -d
 sleep 1
@@ -30,7 +38,7 @@ v all
 "
 
 #
-# Homebrew
+# window: Homebrew
 #
 
 root="${HOME}"
@@ -46,7 +54,7 @@ bubu
 "
 
 #
-# Python
+# window: Python
 #
 
 root="${HOME}"
@@ -67,7 +75,7 @@ pip3 list --outdated
 "
 
 #
-# Ruby
+# window: Ruby
 #
 
 root="${HOME}"

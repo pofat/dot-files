@@ -1,8 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-CLIENT_WIDTH=213
-CLIENT_HEIGHT=57
+# client size
+set +u
+if [[ -n "$TMUX" ]]; then
+  client_width="$(tmux list-clients -t '.' -F '#{client_width}')"
+  client_height="$(tmux list-clients -t '.' -F '#{client_height}')"
+else
+  client_width=$(tput lines)
+  client_height=$(tput cols)
+fi
+set -u
 
 session_name='Play'
 if tmux has-session -t ${session_name} &>/dev/null; then

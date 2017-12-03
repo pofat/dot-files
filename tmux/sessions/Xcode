@@ -1,8 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-CLIENT_WIDTH=213
-CLIENT_HEIGHT=57
+# client size
+set +u
+if [[ -n "$TMUX" ]]; then
+  client_width="$(tmux list-clients -t '.' -F '#{client_width}')"
+  client_height="$(tmux list-clients -t '.' -F '#{client_height}')"
+else
+  client_width=$(tput lines)
+  client_height=$(tput cols)
+fi
+set -u
 
 session_name='Xcode'
 if tmux has-session -t ${session_name} &>/dev/null; then
@@ -11,7 +19,7 @@ if tmux has-session -t ${session_name} &>/dev/null; then
 fi
 
 #
-# Log
+# window: Log
 #
 
 root="${HOME}/Library/Logs/JacKit"
@@ -21,8 +29,8 @@ mkdir -p "${root}" &>/dev/null
 tmux new-session       \
   -s "${session_name}" \
   -n "${window_name}"  \
-  -x "$CLIENT_WIDTH"   \
-  -y "$CLIENT_HEIGHT"  \
+  -x "$client_width"   \
+  -y "$client_height"  \
   -c "${root}"         \
   -d
 sleep 1
@@ -31,7 +39,7 @@ jacsrv -p 8383
 "
 
 #
-# Framework Projects
+# window: Framework Projects
 #
 
 for window_name in iOSKit SocialKit RandomUser; do
