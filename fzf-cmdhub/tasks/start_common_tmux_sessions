@@ -2,8 +2,16 @@
 #x cmdhub: Start commonly used tmux sessions
 set -euo pipefail
 
-CLIENT_WIDTH=213
-CLIENT_HEIGHT=57
+# get tty size
+set +u
+  if [[ -n "$TMUX" ]]; then
+    tty_width="$(tmux list-clients -F '#{client_width}') | head -n1"
+    tty_height="$(tmux list-clients -F '#{client_height}') | head -n1"
+  else
+    tty_width=$(tput lines)
+    tty_height=$(tput cols)
+  fi
+set -u
 
 source ~/Git/dot-files/bash/lib/jack
 
@@ -22,12 +30,12 @@ done
 jackInfo "\nStarting Tmux\n"
 tav="${HOME}/Develop/Python/tav/tav.py"
 "${tav}" snapshot
-tmux new-session      \
-  -s Tmux             \
-  -n Navigator        \
-  -x "$CLIENT_WIDTH"  \
-  -y "$CLIENT_HEIGHT" \
-  -d                  \
+tmux new-session     \
+  -s Tmux            \
+  -n Navigator       \
+  -x "${tty_width}"  \
+  -y "${tty_height}" \
+  -d                 \
   "${tav}" serve
 
 tmux attach-session -t '@0'
