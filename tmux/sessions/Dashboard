@@ -54,5 +54,6 @@ bash monitor.sh
 tmux select-pane -t "${window}.3" -d
 
 tmux select-window -t "${session_name}:1.1"
-echo "[${session_name}] started"
+echo "[${session_name}]"
 tmux list-window -t "${session_name}" -F ' - #W'
+

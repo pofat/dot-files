@@ -15,8 +15,9 @@ set -u
 
 source ~/Git/dot-files/bash/lib/jack
 
+# common sessions
 for s in Configure Dashboard Play Xcode; do
-  session_file="$HOME/Git/dot-files/tmux/sessions/$s.tmux-session.sh"
+  session_file="$HOME/Git/dot-files/tmux/sessions/$s"
   if [[ -f $session_file ]]; then
     jackInfo "\nStarting $s\n"
     bash "$session_file"                \
@@ -27,6 +28,7 @@ for s in Configure Dashboard Play Xcode; do
   fi
 done
 
+# the special Tav session
 jackInfo "\nStarting Tmux\n"
 tav="${HOME}/Develop/Python/tav/tav.py"
 "${tav}" snapshot
