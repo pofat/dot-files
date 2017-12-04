@@ -30,8 +30,8 @@ window="${session_name}:${window_name}"
 tmux new-session       \
   -s "${session_name}" \
   -n "${window_name}"  \
-  -x "$CLIENT_WIDTH"   \
-  -y "$CLIENT_HEIGHT"  \
+  -x "${client_width}"   \
+  -y "${client_height}"  \
   -c "$root"           \
   -d
 sleep 0.5
