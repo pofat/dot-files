@@ -7,8 +7,8 @@ if [[ -n "$TMUX" ]]; then
   client_width="$(tmux list-clients -t '.' -F '#{client_width}')"
   client_height="$(tmux list-clients -t '.' -F '#{client_height}')"
 else
-  client_width=$(tput lines)
-  client_height=$(tput cols)
+  client_height=$(tput lines)
+  client_width=$(tput cols)
 fi
 set -u
 
