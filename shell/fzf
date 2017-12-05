@@ -183,10 +183,10 @@ fe() {
 
 # fkill to select & kill procces.                                                                                {{{1
 fkill() {
-  ps | \
-    sed '1d' | \
-    fzf --multi --extended-exact | \
-    awk '{print $2}' | \
+  ps -axo pid,command |                    \
+    sed '1d' |                             \
+    fzf --multi --nth=2 --extended-exact | \
+    awk '{print $1}' |                     \
     xargs kill -"${1:-9}"
 } #}}}1
 
