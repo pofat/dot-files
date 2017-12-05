@@ -4,22 +4,24 @@ set -euo pipefail
 
 # get tty size
 set +u
-  if [[ -n "$TMUX" ]]; then
-    tty_width="$(tmux list-clients -F '#{client_width}') | head -n1"
-    tty_height="$(tmux list-clients -F '#{client_height}') | head -n1"
-  else
-    tty_width=$(tput lines)
-    tty_height=$(tput cols)
-  fi
+if [[ -n "$TMUX" ]]; then
+  client_width="$(tmux list-clients -F '#{client_width}') | head -n1"
+  client_height="$(tmux list-clients -F '#{client_height}') | head -n1"
+else
+  client_height=$(tput lines)
+  client_width=$(tput cols)
+fi
 set -u
 
 source ~/Git/dot-files/bash/lib/jack
 
-# common sessions
-for s in Configure Dashboard Play Xcode; do
+date '+%s' > "${HOME}/.local/share/tav/update"
+trap 'echo "-1" > "${HOME}/.local/share/tav/update"' EXIT
+
+for s in Console Dashboard; do
   session_file="$HOME/Git/dot-files/tmux/sessions/$s"
   if [[ -f $session_file ]]; then
-    jackInfo "\nStarting $s\n"
+    jackNote "\nStarting $s ...\n"
     bash "$session_file"                \
       && jackVerbose "\nwarming for 1s" \
       && sleep 1
@@ -28,16 +30,7 @@ for s in Configure Dashboard Play Xcode; do
   fi
 done
 
-# the special Tav session
-jackInfo "\nStarting Tmux\n"
-tav="${HOME}/Develop/Python/tav/tav.py"
-"${tav}" snapshot
-tmux new-session     \
-  -s Tmux            \
-  -n Navigator       \
-  -x "${tty_width}"  \
-  -y "${tty_height}" \
-  -d                 \
-  "${tav}" serve
+echo "-1" > "${HOME}/.local/share/tav/update"
+tav hook
 
 tmux attach-session -t '@0'
