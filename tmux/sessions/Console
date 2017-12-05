@@ -12,19 +12,18 @@ else
 fi
 set -u
 
-session_name='Configure'
+session_name='Console'
 if tmux has-session -t ${session_name} &>/dev/null; then
   echo "session [${session_name}] already exisits, kill it!"
   tmux kill-session -t "${session_name}"
 fi
 
-
 #
-# window: Inbox
+# window: Main
 #
 
 root="${HOME}/Git/dot-files"
-window_name='Inbox'
+window_name='Main'
 window="${session_name}:${window_name}"
 tmux new-session       \
   -s "${session_name}" \
@@ -102,12 +101,13 @@ tmux new-window              \
 tmux send-keys -t "${window}" "
 vv -c 'source .vimrc.local' *
 "
-
 tmux split-window  \
   -t "${window}.1" \
   -h               \
   -p 30            \
   -c "${root}"
+tmux select-pane -t "${window}.1"
+
 
 tmux select-window -t "${session_name}:1.1"
 echo "[${session_name}]"
