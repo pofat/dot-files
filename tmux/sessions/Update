@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+
+source ~/Git/dot-files/bash/lib/jack
+
 # client size
 set +u
 if [[ -n "$TMUX" ]]; then
@@ -14,13 +17,14 @@ set -u
 
 session_name='Update'
 if tmux has-session -t ${session_name} &>/dev/null; then
-  echo "session [${session_name}] already exisits, kill it!"
+  jackWarn "session [${session_name}] already exisits, kill it!"
   tmux kill-session -t "${session_name}"
 fi
 
 #
 # window: Neovim
 #
+jackProgress 'Creating window [Neovim] ...'
 
 root="${HOME}/Git/vim-config"
 window_name='Neovim'
@@ -40,6 +44,7 @@ v all
 #
 # window: Homebrew
 #
+jackProgress 'Creating window [Homebrew] ...'
 
 root="${HOME}"
 window_name='Homebrew'
@@ -56,6 +61,7 @@ bubu
 #
 # window: Python
 #
+jackProgress 'Creating window [Python] ...'
 
 root="${HOME}"
 window_name='Python'
@@ -77,6 +83,7 @@ pip3 list --outdated
 #
 # window: Ruby
 #
+jackProgress 'Creating window [Ruby] ...'
 
 root="${HOME}"
 window_name='Ruby'
@@ -89,6 +96,8 @@ sleep 1
 tmux send-keys -t "${window}" "
 gem outdated
 "
+
+jackEndProgress
 
 tmux select-window -t "${session_name}:1.1"
 echo "[${session_name}]"
