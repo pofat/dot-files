@@ -21,6 +21,5 @@ jackVerbose() { printf "${jack_grey}$*${jack_reset}\n"; }
 
 jackNote() { printf "${jack_blue}$*${jack_reset}\n"; }
 
-
-# TODO: implement
-#jackPrompt
+jackProgress() { printf "\r$(tput el)${jack_green}$*${jack_reset}"; }
+jackEndProgress() { printf $"\r$(tput el)\n"; }
