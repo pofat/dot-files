@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+source ~/Git/dot-files/bash/lib/jack
+
 # client size
 set +u
 if [[ -n "$TMUX" ]]; then
@@ -12,18 +14,19 @@ else
 fi
 set -u
 
-session_name='Xcode'
+session_name='Frameworks'
 if tmux has-session -t ${session_name} &>/dev/null; then
   echo "session [${session_name}] already exisits, kill it!"
   tmux kill-session -t "${session_name}"
 fi
 
 #
-# window: Log
+# window: Inbox
 #
+jackProgress 'Creating window [Inbox] ...'
 
-root="${HOME}/Library/Logs/JacKit"
-window_name='Log'
+root="${HOME}/Develop/Apple/Frameworks"
+window_name='Inbox'
 window="${session_name}:${window_name}"
 mkdir -p "${root}" &>/dev/null
 tmux new-session       \
@@ -33,16 +36,14 @@ tmux new-session       \
   -y "$client_height"  \
   -c "${root}"         \
   -d
-sleep 1
-tmux send-keys -t "${window}" "
-jacsrv -p 8383
-"
 
 #
 # window: Framework Projects
 #
 
 for window_name in iOSKit SocialKit RandomUser; do
+  jackProgress "Creating window [${window_name}] ..."
+
   root="${HOME}/Develop/Apple/Frameworks/${window_name}"
   window="${session_name}:${window_name}"
   tmux new-window -a -d        \
@@ -54,6 +55,8 @@ for window_name in iOSKit SocialKit RandomUser; do
   vv -O ${window_name}.podspec Example/Podfile
   "
 done
+
+jackEndProgress
 
 tmux select-window -t "${session_name}:1.1"
 echo "[${session_name}]"
