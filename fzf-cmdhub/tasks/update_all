@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #x cmdhub: Update Update Update
 
-bash ~/Git/dot-files/tmux/sessions/Update.tmux-session.sh
+bash ~/Git/dot-files/tmux/sessions/Update
 
 # vim: ft=sh
