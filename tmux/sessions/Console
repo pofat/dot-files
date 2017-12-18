@@ -21,6 +21,7 @@ fi
 #
 # window: Main
 #
+jackProgress 'Creating window [Main] ...'
 
 root="${HOME}/Git/dot-files"
 window_name='Main'
@@ -36,6 +37,7 @@ tmux new-session       \
 #
 # window: Neovim
 #
+jackProgress 'Creating window [Neovim] ...'
 
 root="${HOME}/Git/vim-config"
 window_name='Neovim'
@@ -54,6 +56,7 @@ vv init.vim
 #
 # window: Hammerspoon
 #
+jackProgress 'Creating window [Hammerspoon] ...'
 
 root="${HOME}/Git/dot-files/hammerspoon"
 window_name='Hammerspoon'
@@ -64,6 +67,7 @@ tmux new-window              \
   -n "${window_name}"        \
   -c "${root}"               \
   -d
+sleep 1
 tmux send-keys -t "${window}" "
 vv init.lua
 "
@@ -71,6 +75,7 @@ vv init.lua
 #
 # window: Tmux
 #
+jackProgress 'Creating window [Tmux] ...'
 
 root="${HOME}/Git/dot-files/tmux"
 window_name='Tmux'
@@ -81,6 +86,7 @@ tmux new-window              \
   -n "${window_name}"        \
   -c "${root}"               \
   -d
+sleep 1
 tmux send-keys -t "${window}" "
 vv tmux.conf
 "
@@ -88,6 +94,7 @@ vv tmux.conf
 #
 # window: Tmux Sessions
 #
+jackProgress 'Creating window [Tmux Sessions] ...'
 
 root="${HOME}/Git/dot-files/tmux/sessions"
 window_name='Tmux Sessions'
@@ -98,8 +105,9 @@ tmux new-window              \
   -n "${window_name}"        \
   -c "${root}"               \
   -d
+sleep 1
 tmux send-keys -t "${window}" "
-vv -c 'source .vimrc.local' *
+vv *
 "
 tmux split-window  \
   -t "${window}.1" \
@@ -108,6 +116,7 @@ tmux split-window  \
   -c "${root}"
 tmux select-pane -t "${window}.1"
 
+jackEndProgress
 
 tmux select-window -t "${session_name}:1.1"
 echo "[${session_name}]"
