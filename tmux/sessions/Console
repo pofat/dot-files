@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+source ~/Git/dot-files/bash/lib/jack
+
+tput civis
+trap 'tput cnorm' EXIT
+
 # client size
 set +u
 if [[ -n "$TMUX" ]]; then
@@ -117,7 +122,6 @@ tmux split-window  \
 tmux select-pane -t "${window}.1"
 
 jackEndProgress
-
 tmux select-window -t "${session_name}:1.1"
 echo "[${session_name}]"
 tmux list-window -t "${session_name}" -F ' - #W'

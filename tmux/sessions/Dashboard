@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+source ~/Git/dot-files/bash/lib/jack
+
+tput civis
+trap 'tput cnorm' EXIT
+
 # client size
 set +u
 if [[ -n "$TMUX" ]]; then
@@ -19,10 +24,10 @@ if tmux has-session -t ${session_name} &>/dev/null; then
   tmux kill-session -t "${session_name}"
 fi
 
-
 #
 # window: Tasks
 #
+jackProgress 'Creating window [Tasks] ...'
 
 window_name='Tasks'
 window="${session_name}:${window_name}"
@@ -37,6 +42,7 @@ tmux new-session        \
 #
 # window: Network
 #
+jackProgress 'Creating window [Network] ...'
 
 window_name='Network'
 window="${session_name}:${window_name}"
@@ -48,21 +54,7 @@ tmux new-window -a -d        \
 tmux send-keys -t "${window}.1" 'sudo iftop' c-m
 tmux send-keys -t "${window}.1" 'ximeng' c-m
 
-## .2 show clock and disable user input
-#tmux split-window -t "${window}.1" -h -l 60
-#tmux clock-mode -t "${window}.2"
-#tmux select-pane -t "${window}.2" -d
-
-## .3 run monitor script and disable user input
-#tmux split-window -t "${window}.2" -v -l 28
-#tmux send-keys -t "${window}.3" "
-#cd "${HOME}/Develop/Python/vps-info"
-#bash monitor.sh
-#"
-
-## disable pane .3
-#tmux select-pane -t "${window}.3" -d
-
+jackEndProgress
 tmux select-window -t "${session_name}:1.1"
 echo "[${session_name}]"
 tmux list-window -t "${session_name}" -F ' - #W'
