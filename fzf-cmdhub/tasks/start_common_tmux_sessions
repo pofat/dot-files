@@ -30,7 +30,7 @@ for s in Console Dashboard; do
   fi
 done
 
-echo "-1" > "${HOME}/.local/share/tav/update"
-tav hook
+echo '-1' > "${HOME}/.local/share/tav/update"
+tav hook window-linked
 
 tmux attach-session -t '@0'
