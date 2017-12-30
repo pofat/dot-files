@@ -53,7 +53,7 @@ tmux new-window              \
   -n "${window_name}"        \
   -c "${root}"               \
   -d
-sleep 1
+sleep 0.2
 tmux send-keys -t "${window}" "
 vv init.vim
 "
@@ -72,7 +72,7 @@ tmux new-window              \
   -n "${window_name}"        \
   -c "${root}"               \
   -d
-sleep 1
+sleep 0.2
 tmux send-keys -t "${window}" "
 vv init.lua
 "
@@ -91,7 +91,7 @@ tmux new-window              \
   -n "${window_name}"        \
   -c "${root}"               \
   -d
-sleep 1
+sleep 0.2
 tmux send-keys -t "${window}" "
 vv tmux.conf
 "
@@ -110,7 +110,7 @@ tmux new-window              \
   -n "${window_name}"        \
   -c "${root}"               \
   -d
-sleep 1
+sleep 0.2
 tmux send-keys -t "${window}" "
 vv *
 "

@@ -53,7 +53,7 @@ for window_name in iOSKit SocialKit RandomUser; do
     -t "${session_name}:{end}" \
     -n "${window_name}"        \
     -c "${root}"
-  sleep 0.5
+  sleep 0.2
   tmux send-keys -t "${window}" "
   vv -O ${window_name}.podspec Example/Podfile
   "
