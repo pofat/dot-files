@@ -1,7 +1,20 @@
 [style]
 
-based_on_style = chromium
+based_on_style = pep8
 
 indent_width = 2
 
-split_before_first_argument=False
+# brackets
+# dedent_closing_brackets = true
+coalesce_brackets = true
+align_closing_bracket_with_visual_indent = true
+
+# dict
+# each_dict_entry_on_separate_line = true
+
+# parameter / argument splitting
+# split_arguments_when_comma_terminated = true
+
+# more spacing
+blank_line_before_class_docstring = true
+blank_line_before_nested_class_or_def = true
