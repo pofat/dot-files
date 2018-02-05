@@ -1,78 +1,80 @@
 [user]
-    name          = mudox
-    email         = imudox@gmail.com
+    name             = mudox
+    email            = imudox@gmail.com
 
 [core]
-    pager         = less -R
-    excludesfile  = /Users/mudox/Git/dot-files/git/cvsignore
-	editor = nvim
+    pager            = less -R
+    excludesfile     = /Users/mudox/Git/dot-files/git/cvsignore
+    editor           = nvim
 
 [diff]
-    tool          = core.editor
-    prompt        = No
+    tool             = core.editor
+    prompt           = No
+    submodule        = log
 
 [color]
-    diff          = auto
-    status        = auto
-    branch        = auto
-    ui            = auto
+    diff             = auto
+    status           = auto
+    branch           = auto
+    ui               = auto
 
 [alias]
-    lg            = log --color --graph --pretty=format:'%Cred%h%Creset %s %C(bold blue) by <%an> %Creset%C(dim green) (%cr) %Creset %C(yellow ul)%d%Creset'
-    st            = status
-    cm            = commit
-    br            = branch
-    co            = checkout
-    df            = diff
-    ls            = ls-files
-    ignore        = "!gi() { curl -L -s https://www.gitignore.io/api/$@; }; gi"
-    interactive   = auto
+    lg               = log --color --graph --pretty                                = format:'%Cred%h%Creset %s %C(bold blue) by <%an> %Creset%C(dim green) (%cr) %Creset %C(yellow ul)%d%Creset'
+    st               = status
+    cm               = commit
+    br               = branch
+    co               = checkout
+    df               = diff
+    ls               = ls-files
+    ignore           = "!gi() { curl -L -s https://www.gitignore.io/api/$@; }; gi"
+    interactive      = auto
 
 [color "branch"]
-    current       = yellow reverse
-    local         = yellow
-    remote        = green
+    current          = yellow reverse
+    local            = yellow
+    remote           = green
 
 [color "diff"]
-    meta          = yellow
-    frag          = magenta
-    plain         = white dim
-    old           = red
-    new           = green
-    commit        = yellow
-    func          = green dim
+    meta             = yellow
+    frag             = magenta
+    plain            = white dim
+    old              = red
+    new              = green
+    commit           = yellow
+    func             = green dim
 
 [color "status"]
-    added         = yellow bold
-    changed       = cyan
-    untracked     = white dim
-    branch        = green bold ul
+    added            = yellow bold
+    changed          = cyan
+    untracked        = white dim
+    branch           = green bold ul
 
 
 [status]
-    relativePaths = false
+    relativePaths    = false
+    submoduleSummary = true
 
 [push]
-    default       = simple
+    default          = simple
 
 [filter "media"]
-    clean         = git-media-clean %f
-    smudge        = git-media-smudge %f
+    clean            = git-media-clean %f
+    smudge           = git-media-smudge %f
 
 [filter "lfs"]
-    clean         = git-lfs clean -- %f
-    smudge        = git-lfs smudge -- %f
-    required      = true
-    process       = git-lfs filter-process
+    clean            = git-lfs clean -- %f
+    smudge           = git-lfs smudge -- %f
+    required         = true
+    process          = git-lfs filter-process
 
 [gui]
-    recentrepo    = /Users/mudox/Git/neovim
+    recentrepo       = /Users/mudox/Git/neovim
 
 [github]
-    user          = cempri@163.com
+    user             = cempri@163.com
 
 [http]
-    proxy         = socks5://127.0.0.1:1086
+    proxy            = socks5://127.0.0.1:1086
 
 [https]
-    proxy         = socks5://127.0.0.1:1086
+    proxy            = socks5://127.0.0.1:1086
