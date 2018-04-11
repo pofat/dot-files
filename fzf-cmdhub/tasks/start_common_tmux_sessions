@@ -18,7 +18,7 @@ source ~/Git/dot-files/bash/lib/jack
 date '+%s' > "${HOME}/.local/share/tav/update"
 trap 'echo "-1" > "${HOME}/.local/share/tav/update"' EXIT
 
-for s in Console Dashboard; do
+for s in Console Dashboard iOSKit SocialKit; do
   session_file="$HOME/Git/dot-files/tmux/sessions/$s"
   if [[ -f $session_file ]]; then
     jackNote "\nStarting $s ...\n"
@@ -32,5 +32,9 @@ done
 
 echo '-1' > "${HOME}/.local/share/tav/update"
 tav hook window-linked
+
+jackNote "\nStarting tav server ...\n"
+sleep 3
+tav restart &>/dev/null
 
 tmux attach-session -t '@0'
