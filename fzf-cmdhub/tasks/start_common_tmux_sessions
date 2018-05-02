@@ -30,9 +30,6 @@ for s in Console Dashboard iOSKit SocialKit; do
   fi
 done
 
-echo '-1' > "${HOME}/.local/share/tav/update"
-tav hook window-linked
-
 jackNote "\nStarting tav server ...\n"
 sleep 3
 tav restart &>/dev/null
