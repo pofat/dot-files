@@ -42,10 +42,10 @@ local appShortcuts = {
 
   {altShift, 1  , 'Simulator'}  ,
   {altShift, 2  , 'Paw'}        ,
+  {altShift, 3  , 'YoudaoDict'} ,
 
   {altShift, 'g', 'OmniGraffle'},
   {altShift, 's', 'Sketch'}     ,
-  {altShift, 'q', 'Quiver'}     ,
 
   -- switch hand
 
@@ -63,7 +63,6 @@ for i = 1, #appShortcuts do
   local combo = shortcut[1]
   local key = tostring(shortcut[2])
   local name = shortcut[3]
-  --hs.hotkey.bind(combo, key, function () hs.application.launchOrFocus(name) end)
   hs.hotkey.bind(combo, key, function () toggleApp(name) end)
 end
 
@@ -79,7 +78,7 @@ function toggleApp(name)
         hs.alert.show(string.format('Can not bring [%s] to front', name))
       end
     end
-  else
+  else -- application is not running, launch and focus it
     if not hs.application.launchOrFocus(name) then
         hs.alert.show(string.format('Can not find application [%s]', name))
     end
