@@ -74,11 +74,6 @@ tmux new-window -a -d        \
   -c "${root}"
 sleep 0.5
 tmux send-keys -t "${window}.1" "
-pip2 list --outdated
-"
-
-tmux split-window -t "${window}" -h
-tmux send-keys -t "${window}.2" "
 pip3 list --outdated
 "
 
