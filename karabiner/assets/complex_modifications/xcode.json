@@ -4,14 +4,15 @@
     {
       "description": "[Xcode] - Swap Command with Ctrl in Xcode",
       "manipulators": [
-
         {
-          "conditions": [{
-            "bundle_identifiers": [
-              "^com\\.apple\\.dt.Xcode$"
-            ],
-            "type": "frontmost_application_if"
-          }],
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.apple\\.dt.Xcode$"
+              ],
+              "type": "frontmost_application_if"
+            }
+          ],
           "type": "basic",
           "from": {
             "key_code": "left_command",
@@ -28,12 +29,14 @@
           ]
         },
         {
-          "conditions": [{
-            "bundle_identifiers": [
-              "^com\\.apple\\.dt.Xcode$"
-            ],
-            "type": "frontmost_application_if"
-          }],
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.apple\\.dt.Xcode$"
+              ],
+              "type": "frontmost_application_if"
+            }
+          ],
           "type": "basic",
           "from": {
             "key_code": "left_control",
@@ -50,35 +53,14 @@
           ]
         },
         {
-          "conditions": [{
-            "bundle_identifiers": [
-              "^com\\.apple\\.dt.Xcode$"
-            ],
-            "type": "frontmost_application_if"
-          }],
-          "type": "basic",
-          "from": {
-            "key_code": "left_shift",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
+          "conditions": [
             {
-              "key_code": "left_shift",
-              "lazy": true
+              "bundle_identifiers": [
+                "^com\\.apple\\.dt.Xcode$"
+              ],
+              "type": "frontmost_application_if"
             }
-          ]
-        },
-        {
-          "conditions": [{
-            "bundle_identifiers": [
-              "^com\\.apple\\.dt.Xcode$"
-            ],
-            "type": "frontmost_application_if"
-          }],
+          ],
           "type": "basic",
           "from": {
             "key_code": "right_command",
@@ -95,12 +77,14 @@
           ]
         },
         {
-          "conditions": [{
-            "bundle_identifiers": [
-              "^com\\.apple\\.dt.Xcode$"
-            ],
-            "type": "frontmost_application_if"
-          }],
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.apple\\.dt.Xcode$"
+              ],
+              "type": "frontmost_application_if"
+            }
+          ],
           "type": "basic",
           "from": {
             "key_code": "right_control",
@@ -119,15 +103,17 @@
       ]
     },
     {
-      "description":  "[Xcode] - Preserve Command-Tab & Left Command + ` & Command + w combination",
+      "description": "[Xcode] - Restore Command + Tab",
       "manipulators": [
         {
-          "conditions": [{
-            "bundle_identifiers": [
-              "^com\\.apple\\.dt.Xcode$"
-            ],
-            "type": "frontmost_application_if"
-          }],
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.apple\\.dt.Xcode$"
+              ],
+              "type": "frontmost_application_if"
+            }
+          ],
           "type": "basic",
           "from": {
             "key_code": "tab",
@@ -140,17 +126,26 @@
           "to": [
             {
               "key_code": "tab",
-              "modifiers": ["right_command"]
+              "modifiers": [
+                "right_command"
+              ]
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "description": "[Xcode] - Restore Command + `",
+      "manipulators": [
         {
-          "conditions": [{
-            "bundle_identifiers": [
-              "^com\\.apple\\.dt.Xcode$"
-            ],
-            "type": "frontmost_application_if"
-          }],
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.apple\\.dt.Xcode$"
+              ],
+              "type": "frontmost_application_if"
+            }
+          ],
           "type": "basic",
           "from": {
             "key_code": "grave_accent_and_tilde",
@@ -163,17 +158,26 @@
           "to": [
             {
               "key_code": "grave_accent_and_tilde",
-              "modifiers": ["left_command"]
+              "modifiers": [
+                "left_command"
+              ]
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "description": "[Xcode] - Restore Command + w",
+      "manipulators": [
         {
-          "conditions": [{
-            "bundle_identifiers": [
-              "^com\\.apple\\.dt.Xcode$"
-            ],
-            "type": "frontmost_application_if"
-          }],
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.apple\\.dt.Xcode$"
+              ],
+              "type": "frontmost_application_if"
+            }
+          ],
           "type": "basic",
           "from": {
             "key_code": "w",
@@ -186,7 +190,68 @@
           "to": [
             {
               "key_code": "w",
-              "modifiers": ["left_command"]
+              "modifiers": [
+                "left_command"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "[Xcode] - Restore Command + C",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.apple\\.dt.Xcode$"
+              ],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "mandatory": [
+                "right_control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "c",
+              "modifiers": [
+                "right_command"
+              ]
+            }
+          ]
+        },
+        {
+          "conditions": [
+            {
+              "bundle_identifiers": [
+                "^com\\.apple\\.dt.Xcode$"
+              ],
+              "type": "frontmost_application_if"
+            }
+          ],
+          "type": "basic",
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "mandatory": [
+                "left_control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "c",
+              "modifiers": [
+                "left_command"
+              ]
             }
           ]
         }
