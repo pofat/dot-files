@@ -3,21 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>'ib</string>
+	<string>fui</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@IBOutlet weak var &lt;#imageView#&gt;: &lt;#UIImageView#&gt;!</string>
+	<string>fatalError("This is unimplemented")</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>8A4209D1-30E5-4EAF-879A-E9DD9BF3BCBD</string>
+	<string>EBFDE62D-7E08-442A-B56A-F8291CDD3088</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
-	<key>IDECodeSnippetPlatformFamily</key>
-	<string>iphoneos</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>IBOutlet</string>
+	<string>Unimplemented Placeholder</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

@@ -3,21 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>'ib</string>
+	<string>dbag</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>All</string>
+		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@IBOutlet weak var &lt;#imageView#&gt;: &lt;#UIImageView#&gt;!</string>
+	<string>.disposed(by: disposeBag)</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>8A4209D1-30E5-4EAF-879A-E9DD9BF3BCBD</string>
+	<string>28655AD2-DB9E-4581-911B-00B049B4B192</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
-	<key>IDECodeSnippetPlatformFamily</key>
-	<string>iphoneos</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>IBOutlet</string>
+	<string>Add Observable Into DisposeBag</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

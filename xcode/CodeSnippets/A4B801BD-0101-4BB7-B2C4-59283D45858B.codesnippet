@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>'ib</string>
+	<string>irx</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@IBOutlet weak var &lt;#imageView#&gt;: &lt;#UIImageView#&gt;!</string>
+	<string>import RxSwift
+import RxCocoa
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>8A4209D1-30E5-4EAF-879A-E9DD9BF3BCBD</string>
+	<string>A4B801BD-0101-4BB7-B2C4-59283D45858B</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
-	<key>IDECodeSnippetPlatformFamily</key>
-	<string>iphoneos</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>IBOutlet</string>
+	<string>Import RxSwift</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

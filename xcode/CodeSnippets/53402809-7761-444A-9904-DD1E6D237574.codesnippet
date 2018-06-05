@@ -3,21 +3,24 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>'ib</string>
+	<string>ifdebug</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@IBOutlet weak var &lt;#imageView#&gt;: &lt;#UIImageView#&gt;!</string>
+	<string>#if DEBUG
+&lt;#...#&gt;
+#else
+&lt;#...#&gt;
+#endif
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>8A4209D1-30E5-4EAF-879A-E9DD9BF3BCBD</string>
+	<string>53402809-7761-444A-9904-DD1E6D237574</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
-	<key>IDECodeSnippetPlatformFamily</key>
-	<string>iphoneos</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>IBOutlet</string>
+	<string>#if DEBUG</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

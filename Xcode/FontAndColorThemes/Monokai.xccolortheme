@@ -7,7 +7,7 @@
 	<key>DVTConsoleDebuggerInputTextFont</key>
 	<string>SFMono-Bold - 11.0</string>
 	<key>DVTConsoleDebuggerOutputTextColor</key>
-	<string>0.995968 0.995968 0.995968 1</string>
+	<string>0.999999 0.999974 0.999991 1</string>
 	<key>DVTConsoleDebuggerOutputTextFont</key>
 	<string>SFMono-Regular - 10.0</string>
 	<key>DVTConsoleDebuggerPromptTextColor</key>
@@ -19,7 +19,7 @@
 	<key>DVTConsoleExectuableInputTextFont</key>
 	<string>SFMono-Regular - 11.0</string>
 	<key>DVTConsoleExectuableOutputTextColor</key>
-	<string>0.995968 0.995968 0.995968 1</string>
+	<string>0.999999 0.999974 0.999991 1</string>
 	<key>DVTConsoleExectuableOutputTextFont</key>
 	<string>SFMono-Regular - 10.0</string>
 	<key>DVTConsoleTextBackgroundColor</key>
@@ -31,7 +31,7 @@
 	<key>DVTDebuggerInstructionPointerColor</key>
 	<string>0.705792 0.8 0.544 1</string>
 	<key>DVTLineSpacing</key>
-	<real>1.1000000238418579</real>
+	<real>1</real>
 	<key>DVTMarkupTextBackgroundColor</key>
 	<string>0.221436 0.225384 0.203884 1</string>
 	<key>DVTMarkupTextBorderColor</key>
@@ -121,7 +121,7 @@
 		<key>xcode.syntax.number</key>
 		<string>0.680619 0.503594 0.999973 1</string>
 		<key>xcode.syntax.plain</key>
-		<string>0.91194 0.888054 0.872512 1</string>
+		<string>0.901961 0.901961 0.901961 1</string>
 		<key>xcode.syntax.preprocessor</key>
 		<string>0.680619 0.503594 0.999973 1</string>
 		<key>xcode.syntax.string</key>
