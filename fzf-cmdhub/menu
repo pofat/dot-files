@@ -4,5 +4,6 @@
 # - Use TAB characters to separate titles and commands.
 # - Comment lines (start with a '#') and empty lines are ignored
 
-CD TO: Xcode template directory		cd ~/Library/Developer/Xcode/Templates
-CD TO: Xcode Derived Data directory	cd ~/Library/Developer/Xcode/DerivedData
+ Xcode template director: ~/Library/Developer/Xcode/Templatesy		cd ~/Library/Developer/Xcode/Templates
+ Xcode Derived Data director: ~/Library/Developer/Xcode/DerivedData			cd ~/Library/Developer/Xcode/DerivedData
+ Suppress Xcode diagnostic process issue		/bin/launchctl list | grep SimDevice | awk '{print $3}' | xargs -I %s /bin/launchctl stop %s
