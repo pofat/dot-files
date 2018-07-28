@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source ~/Git/dot-files/bash/lib/jack
+
 # executable availability check
 if [[ -z "$(type hugo)" ]]; then
   printf "\e[31mmissing executable hugo..., quit\e[0m\n"
@@ -9,65 +11,66 @@ fi
 # hb(): build hugo site into mudox.github.io {{{1
 hb() {
 
-  local dest_path="${HOME}/Sites/mudox.github.io"
-
-  if [ ! -d "${dest_path}" ]; then
-    printf "\e[31mmissing ${dest_path} as destination repo, quit ...\e[0m\n"
-    return
-  fi
-
-  local src_path="${HOME}/Sites/mudox.github.io-source"
-
+  # Source path
+  local src_path="${HOME}/Sites/home"
   if [ ! -d "${src_path}" ]; then
-    printf "\e[31mmissing ${src_path} as source repo, quit ...\e[0m\n"
+    jackError "missing ${src_path} as source repo, quit ..."
     return
   fi
 
-  local production_path="${src_path}/output/public"
-
+  # Build path
+  local build_path="${src_path}/build/publish"
   cd "${src_path}"
 
-  # hugo building site
-  printf "\e[34mstart building site ...\e[0m\n"
-  rm -rf "${production_path}" &>/dev/null # remove public directory first.
+  # Destination path
+  local dest_path="${HOME}/Sites/mudox.github.io"
+  if [ ! -d "${dest_path}" ]; then
+    jackError "missing ${dest_path} as destination repo, quit ..."
+    return
+  fi
+
+  # Build site
+  jackNote "\nStart building site ..."
+  rm -rf "${build_path}" &>/dev/null # remove public directory first.
 
   hugo                                 \
     --source=${src_path}               \
-    --destination="${production_path}" \
-    --buildDrafts                      \
-    --buildFuture                      \
-    --disableRSS=true                  \
-    --disableSitemap=true              \
-    --theme="cur_theme"
+    --destination="${build_path}"      \
+    --buildDrafts
 
-  # check hugo status
+  # Check hugo buiding result
   if (( $? != 0 )); then
-    printf "\e[31mbuild site failed, quit ...\e[0m\n"
+    jackError "build site failed, quit"
     return
   fi
 
-  # installing to destiantion repo.
-  printf "\e[34minstalling production ...\e[0m\n"
-  rm -rf "${dest_path}"/* &>/dev/null # clean the directory up first
-  cp -rT "${production_path}" "${dest_path}"
+  # Install into desitination path
+  jackNote "\nInstalling production ..."
+  rm -rf "${dest_path}"/* &>/dev/null # Clear the directory up first
+  cp -rT "${build_path}" "${dest_path}"
 
   if (( $? != 0 )); then
-    printf "\e[31mcopying failed..., quit\e[0m\n"
+    jackError "copying failed, quit"
     return
   fi
 
-  # commit & push changes to github
-  printf "\e[35msyncing <${dest_path##*/}>\e[0m\n"
+  # Depoly to github
+  jackNote "\nSyncing <${dest_path##*/}>"
   cd "${dest_path}"
   git add --all . &>/dev/null
-  git commit -m "${*:-post update}"
+  git commit -m "${*:-Cumulative update}"
   git push
 
-  printf "\e[35msyncing <${src_path##*/}>\e[0m\n"
+  # Sync hugo source repo
+  jackNote "\nSyncing <${src_path##*/}>"
   cd "${src_path}"
   git add --all . &>/dev/null
-  git commit -m "${*:-post update}"
+  git commit -m "${*:-Cumulative update}"
   git push
+
+  jackInfo "\nCongrats, open site: <http://mudox.github.io> in 1s ..."
+  sleep 1
+  open -a 'Google Chrome' 'http://mudox.github.io'
 
 } # }}}1
 
@@ -77,7 +80,6 @@ hs() {
 
   # kill running hugo if any.
   kill %hugo &>/dev/null
-
 
   # sleep a while for old hugo instance to die completely if any.
   if (( $? == 0 )); then
