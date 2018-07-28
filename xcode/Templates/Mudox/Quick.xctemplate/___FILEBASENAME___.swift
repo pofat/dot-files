@@ -1,4 +1,5 @@
 import XCTest
+
 import Quick
 import Nimble
 
@@ -7,9 +8,17 @@ import Nimble
 class StringSpec: QuickSpec {
   override func spec() {
 
-    describe("<#example group#>") {
+    describe("<#Example Group#>") {
 
-      it("<#example#>") {
+      beforeEach {
+
+      }
+
+      afterEach {
+
+      }
+
+      it("<#Example#>") {
 	// arrange
 	<#...#>
 	// act
