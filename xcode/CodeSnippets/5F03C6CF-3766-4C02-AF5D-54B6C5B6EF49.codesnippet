@@ -3,21 +3,25 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jk</string>
+	<string>sb</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>
-import JacKit
-fileprivate let jack = Jack()</string>
+	<string>let vc: ShareFavoritesViewController = {
+  let storyboardName = "Main"
+  let identifier = "ShareFavoritesViewController"
+  let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+  return storyboard.instantiateViewController(withIdentifier: identifier)
+  as! ShareFavoritesViewController
+    }()</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>2F101A46-3041-4FC1-A52A-5A7C3183199D</string>
+	<string>5F03C6CF-3766-4C02-AF5D-54B6C5B6EF49</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Import JacKit</string>
+	<string>Load View Controller From Storyboard</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

@@ -3,21 +3,25 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jk</string>
+	<string>vra</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>
-import JacKit
-fileprivate let jack = Jack()</string>
+	<string>let animation = UIView.mdx.animation(
+  duration: 0.25,
+  delay: 0,
+  options: [],
+  setup: { },
+  animations: { },
+  completion: { finished in })</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>2F101A46-3041-4FC1-A52A-5A7C3183199D</string>
+	<string>D55454B7-09C7-478D-B3F8-7659565064DB</string>
 	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Import JacKit</string>
+	<string>UIView RxSwift Animation</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

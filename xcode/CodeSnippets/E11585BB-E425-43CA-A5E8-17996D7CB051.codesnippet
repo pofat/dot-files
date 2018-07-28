@@ -3,21 +3,22 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jk</string>
+	<string>nib</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>
-import JacKit
-fileprivate let jack = Jack()</string>
+	<string>let view: &lt;#View Type#&gt; = {
+    let nib = UINib(nibName: "&lt;#File Name#&gt;", bundle: nil)
+return nib.instantiate(withOwner: nil, options: [:]).first as! &lt;#View Type#&gt;
+}()</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>2F101A46-3041-4FC1-A52A-5A7C3183199D</string>
+	<string>E11585BB-E425-43CA-A5E8-17996D7CB051</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Import JacKit</string>
+	<string>Load View From Nib File</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

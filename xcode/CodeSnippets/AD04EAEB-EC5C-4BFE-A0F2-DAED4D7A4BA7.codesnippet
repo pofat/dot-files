@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>jk</string>
+	<string>iba1</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>
-import JacKit
-fileprivate let jack = Jack()</string>
+	<string>@IBAction func dayTapped(_ sender: &lt;#Type#&gt;) {
+  fatalError("Unimplemented")
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>2F101A46-3041-4FC1-A52A-5A7C3183199D</string>
+	<string>AD04EAEB-EC5C-4BFE-A0F2-DAED4D7A4BA7</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Import JacKit</string>
+	<string>IBAction with sender</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
