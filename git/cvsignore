@@ -1,14 +1,8 @@
-# vim session files.
-Session.vim
-
 # vim swap files.
 *.swp
 
 # vim temporary files.
 *~
-
-# tag files
-tags
 
 # Mac OSX folder data file.
 .DS_Store
