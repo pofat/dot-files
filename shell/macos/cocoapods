@@ -1,0 +1,3 @@
+# vim: filetype=zsh
+
+export COCOAPODS_DISABLE_STATS=true
