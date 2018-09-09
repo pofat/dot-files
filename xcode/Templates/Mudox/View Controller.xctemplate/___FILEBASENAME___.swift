@@ -10,8 +10,6 @@ fileprivate let jack = Jack()
 
 class <#Subclass#>: <#Super Class#> {
 
-  var disposeBag = DisposeBag()
-
   // MARK: IBOutlets
 
 
@@ -21,13 +19,12 @@ class <#Subclass#>: <#Super Class#> {
   var disposeBag = DisposeBag()
   var viewModel: ViewModel!
 
-  // - Prepare view model initializer parameters.
-  // - Create and retain view model instance.
+  // Create & drive view model
   func setupViewModel() {
 
   }
 
-  // - Bind view model's output properties to UI components.
+  // Bind view model back to view controller
   func bindViewModel() {
 
   }

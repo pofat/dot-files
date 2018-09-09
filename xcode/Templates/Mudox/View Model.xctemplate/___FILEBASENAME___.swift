@@ -9,30 +9,19 @@ import MudoxKit
 import JacKit
 fileprivate let jack = Jack()
 
-extension <#View Controller#> {
+protocol __1__ViewModelInput {
 
-  class ViewModel {
+}
 
-    var disposeBag = DisposeBag()
+protocol __1__ViewModelOutput {
 
-    // Outputs
-    let username: Driver<String>
-    let isDarkMode: Driver<Bool>
+}
 
-    init(
-      input: (
-        buttonTap: Driver<Void>,
-        darkModeSwitchIsOn: Driver<Bool>
-      ),
-      dependency: (
-        userService: UserService,
-        preferencesService: PreferencesService
-      )
-    )
-    {
+class __1__ViewModel:  __1__ViewModelInput, __1__ViewModelOuput {
 
-    }
+  var disposeBag = DisposeBag()
 
-  } // ViewModel
+  var input: ViewModelInput { return self }
+  var output: ViewModelOutput { return self }
 
-} // View Controller
+} // ViewModel
