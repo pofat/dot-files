@@ -1,7 +1,7 @@
 set ignorecase
 set wrapscan
 
-set laststatus=1
+set laststatus=2
 set guioptions=
 
 " fix cursor not shown in playground for XCode 7.1
