@@ -75,3 +75,15 @@ hb() {
 
   terminal-notifier -message 'Homepage site synced' -title 'Hugo' -execute 'open -a "Google Chrome" "http://mudox.github.io"'
 }
+
+# Shell function: hs - Start Hugo server to monitor your site sources and
+# re-build automatically on any change.
+
+hs() {
+  local ipaddr=$(ipconfig getifaddr en0)
+  hugo server                                  \
+    --buildDrafts --buildExpired --buildFuture \
+    --gc --cleanDestinationDir                 \
+    --bind="${ipaddr}"                         \
+    --baseURL="${ipaddr}"
+}
