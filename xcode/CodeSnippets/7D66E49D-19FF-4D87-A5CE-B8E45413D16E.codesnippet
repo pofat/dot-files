@@ -9,13 +9,13 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>// MARK:</string>
+	<string>// MARK: -</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>7D66E49D-19FF-4D87-A5CE-B8E45413D16E</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Swift Mark Comment Line</string>
+	<string>mk - // MARK: - ...</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

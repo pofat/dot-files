@@ -3,19 +3,25 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>ss</string>
+	<string>step</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>guard let ss = self else { return }</string>
+	<string>/*
+ *
+ * Step &lt;#1#&gt; - &lt;#...#&gt;
+ *
+ */
+
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>2F2E5AC9-2928-45E4-8110-7EAA20D59597</string>
+	<string>E671AE95-38A4-4318-9451-B5411F1CBE7B</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Temporarily Hold Weak Self</string>
+	<string>step - Step box comment</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

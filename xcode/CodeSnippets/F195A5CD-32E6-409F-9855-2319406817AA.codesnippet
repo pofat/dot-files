@@ -19,7 +19,7 @@ enum Error: Swift.Error {
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>enum Error: Swift.Error</string>
+	<string>ee - enum Error: Swift.Error { ... }</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

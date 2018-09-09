@@ -3,25 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>sb</string>
+	<string>dec</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>let vc: ShareFavoritesViewController = {
-  let storyboardName = "Main"
-  let identifier = "ShareFavoritesViewController"
-  let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
-  return storyboard.instantiateViewController(withIdentifier: identifier)
-  as! ShareFavoritesViewController
-    }()</string>
+	<string>&lt;#...#&gt; = try container.decode(&lt;#...#&gt;.self, forKey: .&lt;#...#&gt;)</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>5F03C6CF-3766-4C02-AF5D-54B6C5B6EF49</string>
+	<string>AD732DC4-E674-4B27-A24B-7911C3AC70E6</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Load View Controller From Storyboard</string>
+	<string>dec - decode a value for a given key</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

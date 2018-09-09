@@ -3,23 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>sgt</string>
+	<string>cl</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>// MARK: Singleton
-
-static let shared = NetworkService()
-  
-private init() {}</string>
+	<string>#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>AE25613D-2C8E-4E46-9D57-27B725ACB000</string>
+	<string>7AE6AE28-AB36-4584-9271-BED5D21F18CC</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>sgt - Singleton</string>
+	<string>cl - Color Literal</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

@@ -10,6 +10,7 @@
 	</array>
 	<key>IDECodeSnippetContents</key>
 	<string>private enum CodingKeys: String, CodingKey {
+  case &lt;#...#&gt;
 }
 </string>
 	<key>IDECodeSnippetIdentifier</key>
@@ -17,7 +18,7 @@
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>enum CodingKeys</string>
+	<string>cdk - private enum CodingKeys ...</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

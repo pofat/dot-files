@@ -3,23 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>sgt</string>
+	<string>dei</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>// MARK: Singleton
-
-static let shared = NetworkService()
+	<string>init(from decoder: Decoder) throws {
+  let container = try decoder.container(keyedBy: CodingKeys.self)
   
-private init() {}</string>
+}
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>AE25613D-2C8E-4E46-9D57-27B725ACB000</string>
+	<string>D41B74F1-FEEE-4CA3-A625-8135E549184D</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>sgt - Singleton</string>
+	<string>dei - init(from decoder: Decoder) throws ...</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

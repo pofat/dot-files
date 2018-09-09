@@ -3,22 +3,22 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>nib</string>
+	<string>gs</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>let view: &lt;#View Type#&gt; = {
-    let nib = UINib(nibName: "&lt;#File Name#&gt;", bundle: nil)
-return nib.instantiate(withOwner: nil, options: [:]).first as! &lt;#View Type#&gt;
-}()</string>
+	<string>guard let `self` = self else {
+  throw CommonError.nilWeakReference("self released")
+}
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>E11585BB-E425-43CA-A5E8-17996D7CB051</string>
+	<string>0E7CE2E1-B427-45FD-841F-C574C1D255B2</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Load View From Nib File</string>
+	<string>gs - guard let `self` = self else { ... }</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
