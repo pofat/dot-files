@@ -24,7 +24,7 @@ noremap K     5k
 noremap H     <C-b>
 noremap L     <C-f>
 
-nnoremap zh    :xhelp<Cr>
+nnoremap g;   g;zz
 
 " sensible Y
 nnoremap Y y$
