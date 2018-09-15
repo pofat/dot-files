@@ -1,6 +1,6 @@
 [user]
-    name             = mudox
-    email            = imudox@gmail.com
+	name = mudox
+	email = imudox@gmail.com
 
 [core]
     pager            = less -R
