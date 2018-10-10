@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key></key>
+	<array>
+		<string>mudox@NBN-Mac(C02RF11UFVH4)-56053419382</string>
+	</array>
+	<key>SnippetsLab.app</key>
+	<array>
+		<string>gue-Quadro-19392287620</string>
+		<string>mudox@NBN-Mac(C02RF11UFVH4)-56053419382</string>
+	</array>
+	<key>Xcode.app</key>
+	<array>
+		<string>mudox@NBN-Mac(C02RF11UFVH4)-56053419382</string>
+		<string>mudox@NBN-Mac(C02RF11UFVH4)-56043043835</string>
+	</array>
+</dict>
+</plist>
