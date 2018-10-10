@@ -9,7 +9,7 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@IBOutlet weak var &lt;#imageView#&gt;: &lt;#UIImageView#&gt;!</string>
+	<string>@IBOutlet private var &lt;#imageView#&gt;: &lt;#UIImageView#&gt;!</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>8A4209D1-30E5-4EAF-879A-E9DD9BF3BCBD</string>
 	<key>IDECodeSnippetLanguage</key>

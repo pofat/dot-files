@@ -9,9 +9,8 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>import RxSwift
-import RxCocoa
-</string>
+	<string>import RxCocoa
+import RxSwift</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>A4B801BD-0101-4BB7-B2C4-59283D45858B</string>
 	<key>IDECodeSnippetLanguage</key>

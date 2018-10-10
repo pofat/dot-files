@@ -3,22 +3,27 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>fui</string>
+	<string>sgt</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>fatalError("Not yet implemented")</string>
+	<string>// MARK: - Singleton
+  
+static let shared = &lt;#Self#&gt;()
+  
+private init() {}
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>EBFDE62D-7E08-442A-B56A-F8291CDD3088</string>
+	<string>0DCB5FD7-B067-4E7D-A651-20AB6E2DACF9</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>fui - fatalError("Unimplemented")</string>
+	<string>sgt - Singleton</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

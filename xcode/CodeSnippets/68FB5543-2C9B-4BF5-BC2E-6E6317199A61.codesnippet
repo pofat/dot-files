@@ -3,19 +3,20 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>fui</string>
+	<string>sldn</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>fatalError("Not yet implemented")</string>
+	<string>// swiftlint:disable:next &lt;#rule name#&gt;
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>EBFDE62D-7E08-442A-B56A-F8291CDD3088</string>
+	<string>68FB5543-2C9B-4BF5-BC2E-6E6317199A61</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>fui - fatalError("Unimplemented")</string>
+	<string>sldn - SwiftLint Disable Next</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

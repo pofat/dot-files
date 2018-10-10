@@ -3,23 +3,28 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>sgt</string>
+	<string>imp1</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>// MARK: Singleton
+	<string>import UIKit
 
-static let shared = NetworkService()
-  
-private init() {}</string>
+import RxSwift
+import RxCocoa
+
+import MudoxKit
+
+import JacKit
+fileprivate let jack = Jack().set(level: .verbose)
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>AE25613D-2C8E-4E46-9D57-27B725ACB000</string>
+	<string>6A3F56C1-E585-42B9-AA46-0A681F68840E</string>
 	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>sgt - Singleton</string>
+	<string>imp1 - Import UIKit, Rx, MudoxKit, Jackit</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

@@ -3,19 +3,20 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>fui</string>
+	<string>una</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>fatalError("Not yet implemented")</string>
+	<string>  @available(*, unavailable, message: "Make the compiler happy")
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>EBFDE62D-7E08-442A-B56A-F8291CDD3088</string>
+	<string>FC13C395-334B-47C8-8193-5A9106791D5F</string>
 	<key>IDECodeSnippetLanguage</key>
-	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<string>Xcode.SourceCodeLanguage.Generic</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>fui - fatalError("Unimplemented")</string>
+	<string>una - Unavailable Mark</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
