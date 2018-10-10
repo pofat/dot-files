@@ -1,6 +1,9 @@
 # vim: filetype=zsh
 
-alias ls='ls --human-readable --color=auto --group-directories-first -F'
-alias la='ls -al'
+#alias ls='ls --human-readable --color=auto --group-directories-first -F'
+#alias la='ls -al'
+
+alias l='exa'
+alias la='exa -la'
 
 eval $( /usr/local/opt/coreutils/libexec/gnubin/dircolors -b "${HOME}/Git/ls_colors/LS_COLORS" )
