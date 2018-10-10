@@ -7,3 +7,4 @@
  Xcode template director: ~/Library/Developer/Xcode/Templatesy		cd ~/Library/Developer/Xcode/Templates
  Xcode Derived Data director: ~/Library/Developer/Xcode/DerivedData			cd ~/Library/Developer/Xcode/DerivedData
  Suppress Xcode diagnostic process issue		/bin/launchctl list | grep SimDevice | awk '{print $3}' | xargs -I %s /bin/launchctl stop %s
+ Remove Xcode DerivedData directory		rm -rf ~/Library/Developer/Xcode/DerivedData
