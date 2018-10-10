@@ -5,21 +5,4 @@ export GOPATH=${HOME}/Develop/go
 mdx_path_push_back "${GOPATH}/bin"
 
 # environment GOROOT
-case $(uname -s) in
-  CYGWIN* )
-    # for Cygwin on Windows
-    # currently nothing is need to do.
-    ;;
-  Darwin|Linux )
-    if [[ -e '/usr/bin/go' ]]; then
-      export GOROOT=$('/usr/bin/go' env GOROOT)
-    elif [[ -e '/usr/local/bin/go' ]]; then
-      export GOROOT=$('/usr/local/bin/go' env GOROOT)
-    else
-      printf "\e[31mshell/go_env: missing executable go\n"
-    fi
-    ;;
-  * )
-    printf "\e[31m[.zshrc]: un-recognized platform.\n"
-    ;;
-esac
+export GOROOT="$(go env GOROOT)"
