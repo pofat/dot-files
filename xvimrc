@@ -10,9 +10,12 @@ set blinkcursor
 noremap <D-[> <Esc>
 inoremap <D-[> <Esc>
 
+" `ciw` not comfortable to press
+nnoremap gs ciw
+
 " go to next/previous func declaration header line
-nnoremap ]] /^[-+]|func<Cr>
-nnoremap [[ ?^[-+]|func<Cr>
+nnoremap ]] /^[-+]|\bfunc\b<Cr>
+nnoremap [[ ?^[-+]|\bfunc\b<Cr>
 
 " jump between panes
 nnoremap gl <C-w>l
