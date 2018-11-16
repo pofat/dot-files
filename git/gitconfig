@@ -1,6 +1,7 @@
 [user]
 	name = mudox
 	email = imudox@gmail.com
+	signingkey = A60DB38E3C256091
 
 [core]
     pager            = less -R
