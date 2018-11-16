@@ -3,24 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>sgt</string>
+	<string>adm</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>// MARK: - Singleton
-  
-static let shared = &lt;#Self#&gt;()
-  
-private init() {}
-</string>
+	<string>fatalError("Abstract member, need to be overriden by subclassses")</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>0DCB5FD7-B067-4E7D-A651-20AB6E2DACF9</string>
+	<string>8D38D6FA-D23A-40B3-811F-2BFF3C65A22B</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>sgt - Singleton</string>
+	<string>adm - Abstract Member</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

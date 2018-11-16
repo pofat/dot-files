@@ -3,24 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>sgt</string>
+	<string>ws</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>// MARK: - Singleton
-  
-static let shared = &lt;#Self#&gt;()
-  
-private init() {}
-</string>
+	<string>guard let self = self else {
+  &lt;#...#&gt;
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>0DCB5FD7-B067-4E7D-A651-20AB6E2DACF9</string>
+	<string>E28C4596-78C1-4A3F-8C29-2DAD32BF9FFD</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>sgt - Singleton</string>
+	<string>ws - Guard Weak Self</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
