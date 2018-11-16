@@ -65,6 +65,8 @@ rupa/z
 mafredri/zsh-async
 sindresorhus/pure
 
+bundler
+
 EOBUNDLES
 # }}}2
 
@@ -138,9 +140,6 @@ mdxinfo() {
   printf "\e[33m%8s -> \e[1;35m%s\n" "PS" "${MDX_ZSH_THEME}"
   printf "\e[33m%8s -> \e[1;35m%s\n" "BASE16" "${MDX_BASE_COLOR}"
 }
-
-# RVM
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
