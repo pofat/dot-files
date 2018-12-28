@@ -7,21 +7,55 @@ import RxSwiftExt
 import MudoxKit
 
 import JacKit
-fileprivate let jack = Jack()
 
-protocol __1__ViewModelInput {
+fileprivate let jack = Jack().set(format: .short)
+
+// MARK: Interface
+
+protocol 111ModelInput {
 
 }
 
-protocol __1__ViewModelOutput {
+protocol 111ModelOutput {
 
 }
 
-class __1__ViewModel:  __1__ViewModelInput, __1__ViewModelOuput {
+protocol 111ModelType: 111ModelInput, 111ModelOutput {
+  init()
+}
+
+extension 111ModelType {
+  var input: 111ModelInput { return self }
+  var output: 111ModelOutput { return self }
+}
+
+// MARK: - View Model
+
+class 111Model: 111ModelType {
+
+  // MARK: Types
+
+
+  // MARK: Input
+
+
+  // MARK: Output
+
+
+  // MARK: Binding
 
   var disposeBag = DisposeBag()
 
-  var input: ViewModelInput { return self }
-  var output: ViewModelOutput { return self }
+  required init() {
 
-} // ViewModel
+  }
+
+}
+
+// MARK: - Types
+
+extension 111Model {
+
+
+
+}
