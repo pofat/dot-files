@@ -25,4 +25,4 @@
 --trimwhitespace always
 --wraparguments beforefirst
 --wrapcollections beforefirst
---disable blankLinesAtEndOfScope,blankLinesAtStartOfScope,braces,emptyBraces
+--disable blankLinesAtEndOfScope,blankLinesAtStartOfScope,braces,emptyBraces,unusedArguments
