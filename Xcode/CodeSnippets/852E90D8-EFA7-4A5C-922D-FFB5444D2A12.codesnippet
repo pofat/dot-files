@@ -3,19 +3,24 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>ws</string>
+	<string>iv</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>guard let self = self else { &lt;#return#&gt; }</string>
+	<string>imageView = UIImageView().then {
+  $0.contentMode = .scaleAspectFill
+
+  $0.layer.cornerRadius = 6
+  $0.layer.masksToBounds = true
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>E28C4596-78C1-4A3F-8C29-2DAD32BF9FFD</string>
+	<string>852E90D8-EFA7-4A5C-922D-FFB5444D2A12</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>ws - Guard Weak Self</string>
+	<string>Create &amp; Setup a UIImageView</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

@@ -9,13 +9,13 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>private let jack = Jack("&lt;#base scope name of this file#&gt;")</string>
+	<string>private let jack = Jack()</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>08E8CF9E-D430-482A-99A3-0E807AFEF124</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>jk - File Root Jack</string>
+	<string>jk - private let jack = Jack()</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

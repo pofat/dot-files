@@ -2,20 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>ws</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>guard let self = self else { &lt;#return#&gt; }</string>
+	<string>// tap to resign keyboard
+let tapBackground = UITapGestureRecognizer()
+tapBackground.rx.event
+  .subscribe(onNext: { [weak self] _ in
+    self?.view.endEditing(true)
+  })
+  .disposed(by: disposeBag)
+view.addGestureRecognizer(tapBackground)</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>E28C4596-78C1-4A3F-8C29-2DAD32BF9FFD</string>
+	<string>FD08CE3E-1440-4F1F-A719-7A9E3A5DF572</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>ws - Guard Weak Self</string>
+	<string>Tap Background to Resign Keyboard</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

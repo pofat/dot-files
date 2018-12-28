@@ -3,19 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>ws</string>
+	<string>snp</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>guard let self = self else { &lt;#return#&gt; }</string>
+	<string>snp.makeConstraints { make in
+  
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>E28C4596-78C1-4A3F-8C29-2DAD32BF9FFD</string>
+	<string>43F95202-A05D-4B87-9A7F-C1BE9EE882BA</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>ws - Guard Weak Self</string>
+	<string>snp - snp.makeConstraints { main in ... }</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

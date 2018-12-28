@@ -3,19 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>ws</string>
+	<string>jks</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>guard let self = self else { &lt;#return#&gt; }</string>
+	<string>private let jack = Jack().set(format: .short)</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>E28C4596-78C1-4A3F-8C29-2DAD32BF9FFD</string>
+	<string>81520DB5-7140-4512-8ABC-9BA853ECBA45</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>ws - Guard Weak Self</string>
+	<string>jks - private let jack = Jack().set(format: .short)</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

@@ -3,19 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>ws</string>
+	<string>lbl</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>guard let self = self else { &lt;#return#&gt; }</string>
+	<string>tipLabel = UILabel().then {
+  $0.text = "Loading"
+  $0.textColor = .emptyDark
+  $0.font = .text
+  $0.textAlignment = .center
+  
+  // Auto shrink
+  $0.numberOfLines = 1
+  $0.lineBreakMode = .byTruncatingTail
+  
+  $0.adjustsFontSizeToFitWidth = true
+  $0.minimumScaleFactor = 0.7
+  $0.allowsDefaultTighteningForTruncation = true
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>E28C4596-78C1-4A3F-8C29-2DAD32BF9FFD</string>
+	<string>D590184E-E450-4117-82E2-4C4272606ED5</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>ws - Guard Weak Self</string>
+	<string>lbl - Create &amp; Setup a UILabel</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

@@ -2,20 +2,30 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>ws</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>guard let self = self else { &lt;#return#&gt; }</string>
+	<string>let maxSize = CGSize(width: CGFloat.infinity, height: CGFloat.infinity)
+let options: NSStringDrawingOptions = []
+let attributes: [NSAttributedString.Key: Any]? = [
+  .font: labelFont,
+]
+let context: NSStringDrawingContext? = nil
+
+let size = (language as NSString).boundingRect(
+  with: maxSize,
+  options: options,
+  attributes: attributes,
+  context: context
+).size</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>E28C4596-78C1-4A3F-8C29-2DAD32BF9FFD</string>
+	<string>86655A8C-13CC-4AFA-9499-0FFC640DAC86</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>ws - Guard Weak Self</string>
+	<string>Bounding Rect Of NSString When Drawn</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

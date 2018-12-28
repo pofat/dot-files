@@ -9,11 +9,11 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>/*
- *
- * Step &lt;#1#&gt; - &lt;#...#&gt;
- *
- */
+	<string>//
+//
+// Step &lt;#1#&gt; - &lt;#...#&gt;
+//
+//
 
 </string>
 	<key>IDECodeSnippetIdentifier</key>

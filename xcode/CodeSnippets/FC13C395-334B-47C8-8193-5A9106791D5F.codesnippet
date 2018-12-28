@@ -9,8 +9,7 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>  @available(*, unavailable, message: "Make the compiler happy")
-</string>
+	<string>  @available(*, unavailable, message: "has not been implemented")</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>FC13C395-334B-47C8-8193-5A9106791D5F</string>
 	<key>IDECodeSnippetLanguage</key>

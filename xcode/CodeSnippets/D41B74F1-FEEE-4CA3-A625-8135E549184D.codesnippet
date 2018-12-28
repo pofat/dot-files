@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>dei</string>
+	<string>ifd</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
@@ -12,6 +12,7 @@
 	<string>init(from decoder: Decoder) throws {
   let container = try decoder.container(keyedBy: CodingKeys.self)
   
+    &lt;#...#&gt;
 }
 </string>
 	<key>IDECodeSnippetIdentifier</key>
@@ -19,7 +20,7 @@
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>dei - init(from decoder: Decoder) throws ...</string>
+	<string>ifd - init(from decoder: Decoder) throws ...</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

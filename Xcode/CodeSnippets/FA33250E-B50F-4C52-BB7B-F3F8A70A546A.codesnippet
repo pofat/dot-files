@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>func cellConfigurer(period: Trending.Period)
+  -&gt; (UICollectionView, Int, TrendCellState)
+  -&gt; UICollectionViewCell
+{
+  return { view, index, state -&gt; UICollectionViewCell in
+    let indexPath = IndexPath(item: index, section: 0)
+
+    switch state {
+    case .loadingRepository, .repository, .errorLoadingRepository:
+      let cell = view.dequeueReusableCell(
+        withReuseIdentifier: TrendRepositoryCell.identifier,
+        for: indexPath
+      ) as! TrendRepositoryCell // swiftlint:disable:this force_cast
+      cell.show(state: state, period: period)
+      return cell
+
+    case .loadingDeveloper, .developer, .errorLoadingDeveloper:
+      let cell = view.dequeueReusableCell(
+        withReuseIdentifier: TrendDeveloperCell.identifier,
+        for: indexPath
+      ) as! TrendDeveloperCell // swiftlint:disable:this force_cast
+      cell.show(state: state, period: period)
+      return cell
+    }
+  }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>FA33250E-B50F-4C52-BB7B-F3F8A70A546A</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Setup Cell Closure</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

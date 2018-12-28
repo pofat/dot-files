@@ -9,10 +9,9 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>required init?(coder aDecoder: NSCoder) {
-  super.init(coder: aDecoder)
-  
-  &lt;#...#&gt;
+	<string>@available(*, unavailable)
+required init?(coder aDecoder: NSCoder) {
+  fatalError("do not use it")
 }</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>7718500F-44AB-4E9C-8DBA-3BF8916C73B0</string>
