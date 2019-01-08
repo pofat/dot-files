@@ -99,7 +99,7 @@ nnoremap <Space><Space>t :xcmenucmd Test Without Building<Cr>
 nnoremap <Space><Space>p :xcmenucmd Profile Without Building<Cr>
 
 " Playground
-nnoremap ,,x             :xcmenucmd Execute Playground<Cr>
+nnoremap ,,x             :xcmenucmd Run Playground<Cr>
 
 " Build for ...
 nnoremap ,br             :xcmenucmd Running<Cr>
