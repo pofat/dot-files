@@ -2,23 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>una</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@available(*, unavailable, message: "&lt;#...#&gt; has not been implemented")</string>
+	<string>@available(*, deprecated, message: "&lt;#message#&gt;")</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>FC13C395-334B-47C8-8193-5A9106791D5F</string>
+	<string>F5320720-50D7-410E-B81B-6FEF184AA2C7</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>una - @available - Mark as Unavailable</string>
+	<string>depre - @available - Mark as Deprecated</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

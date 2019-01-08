@@ -2,20 +2,24 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>una</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@available(*, unavailable, message: "&lt;#...#&gt; has not been implemented")</string>
+	<string>let cond = GREYCondition(name: #function) {
+  print("😈 \(#function) ...")
+  
+}
+
+cond.wait(withTimeout: 15, pollInterval: 1)
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>FC13C395-334B-47C8-8193-5A9106791D5F</string>
+	<string>0863DF2A-00D3-4426-8A25-40BB5A957B15</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>una - @available - Mark as Unavailable</string>
+	<string>EarlGrey Condition</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
