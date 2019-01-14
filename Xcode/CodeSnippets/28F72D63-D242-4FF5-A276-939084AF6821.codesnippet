@@ -7,13 +7,17 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@available(*, deprecated, message: "&lt;#message#&gt;")</string>
+	<string>.drive(collectionView.rx.items(cellIdentifier: &lt;#id#&gt;, cellType: &lt;#type#&gt;.self)) {
+    row, &lt;#element#&gt;, cell in
+    cell.show(&lt;#...#&gt;)
+}
+.disposed(by: disposeBag)</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>F5320720-50D7-410E-B81B-6FEF184AA2C7</string>
+	<string>28F72D63-D242-4FF5-A276-939084AF6821</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>depre - @available - Mark as Deprecated</string>
+	<string>Drive rx.items(cellIdentifier:cellType)</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

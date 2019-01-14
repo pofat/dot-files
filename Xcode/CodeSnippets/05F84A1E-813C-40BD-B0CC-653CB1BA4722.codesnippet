@@ -7,13 +7,35 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@available(*, deprecated, message: "&lt;#message#&gt;")</string>
+	<string>import UIKit
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+  var window: UIWindow?
+
+  func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions
+    launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+  ) -&gt; Bool {
+    
+    window = UIWindow(frame: UIScreen.main.bounds)
+    window!.makeKeyAndVisible()
+    
+    &lt;#set root view controller#&gt;
+
+    return true
+  }
+
+}
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>F5320720-50D7-410E-B81B-6FEF184AA2C7</string>
+	<string>05F84A1E-813C-40BD-B0CC-653CB1BA4722</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>depre - @available - Mark as Deprecated</string>
+	<string>AppDelegate Skeleton</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
