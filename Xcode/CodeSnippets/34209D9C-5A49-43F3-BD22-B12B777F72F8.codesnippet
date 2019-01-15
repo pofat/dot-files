@@ -3,24 +3,24 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>snp</string>
+	<string>pk</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>snp.makeConstraints { make in
-  make.&lt;#...#&gt;
+	<string>override static func primaryKey() -&gt; String? {
+  return "&lt;#name#&gt;"
 }</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>43F95202-A05D-4B87-9A7F-C1BE9EE882BA</string>
+	<string>34209D9C-5A49-43F3-BD22-B12B777F72F8</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>snp.makeConstraints { main in ... }</string>
+	<string>Realm Object Primary Key</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>
