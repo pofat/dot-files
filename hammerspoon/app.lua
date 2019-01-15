@@ -6,6 +6,41 @@ local alt = {"alt"}
 local altShift = {"alt", "shift"}
 local cmdAlt = {"cmd", "alt"}
 
+-- Show / hide application
+
+local function toggleApp(name)
+  hs.application.enableSpotlightForNameSearches(true)
+
+  local app = hs.application.get(name)
+  if app then -- App is running
+    if app:isFrontmost() then -- application is the focused application
+      app:hide()
+    else
+      if not app:activate() then
+        hs.alert.show(string.format('Can not bring [%s] to front', name))
+      end
+    end
+  else -- App is not running, launch and focus it
+    if not hs.application.launchOrFocus(name) then
+      hs.alert.show(string.format('Can not find application [%s]', name))
+    end
+  end
+end
+
+-- Maximize app window
+
+bind.altShift('f', function()
+  local appWindow = hs.window.focusedWindow()
+
+  if appWindow then
+    appWindow:setFrame(appWindow:screen():frame())
+  else
+    hs.alert.show('no focused window found')
+  end
+end)
+
+--- App Shortcusts {{{1
+
 local appShortcuts = {
 
   --
@@ -49,6 +84,7 @@ local appShortcuts = {
 }
 
 -- Register app switching shortcuts
+
 for i = 1, #appShortcuts do
   local shortcut = appShortcuts[i]
   local combo = shortcut[1]
@@ -57,34 +93,8 @@ for i = 1, #appShortcuts do
   hs.hotkey.bind(combo, key, function () toggleApp(name) end)
 end
 
--- Show / hide application
-function toggleApp(name)
-  hs.application.enableSpotlightForNameSearches(true)
+--- }}}
 
-  local app = hs.application.get(name)
-  if app then -- App is running
-    if app:isFrontmost() then -- application is the focused application
-      app:hide()
-    else
-      if not app:activate() then
-        hs.alert.show(string.format('Can not bring [%s] to front', name))
-      end
-    end
-  else -- App is not running, launch and focus it
-    if not hs.application.launchOrFocus(name) then
-      hs.alert.show(string.format('Can not find application [%s]', name))
-    end
-  end
-end
-
--- Maximize app window
-
-bind.altShift('f', function()
-  local appWindow = hs.window.focusedWindow()
-
-  if appWindow then
-    appWindow:setFrame(appWindow:screen():frame())
-  else
-    hs.alert.show('no focused window found')
-  end
-end)
+return {
+  shortcuts = appShortcuts
+}
