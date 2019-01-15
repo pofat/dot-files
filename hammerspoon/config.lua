@@ -2,13 +2,13 @@
 
 local bind = require('bind')
 
-function realoadHammerspoonConfig()
+local function reloadHammerspoonConfig()
   hs.console.clearConsole()
   hs.reload()
 end
 
 -- Press shortcut key to reload config
-bind.altShift('r', realoadHammerspoonConfig)
+bind.altShift('r', reloadHammerspoonConfig)
 
 -- Reload config automatically
 local function reloadIfNeeded(files)
@@ -26,5 +26,5 @@ end
 --configWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadIfNeeded):start()
 
 return {
-  realod = realoadHammerspoonConfig
+  reload = reloadHammerspoonConfig
 }

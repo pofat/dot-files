@@ -18,14 +18,15 @@ hs.alert.defaultStyle.radius = 4
 hs.alert.defaultStyle.strokeWidth = 0.5
 
 -- Hammerspoon console
-hs.hotkey.bind(altShift, 'x', function () hs.openConsole(true) end)
+hs.hotkey.bind(altShift, 'x', function () hs.toggleConsole() end)
 
 -- Root chooser
 
 rootChooser = require('rootchooser')
 
 hs.hotkey.bind(alt, 'r', function ()
+  rootChooser:query('')
   rootChooser:show()
 end)
 
-hs.alert.show('Hammerspoon config reloaded')
+hs.alert('Hammerspoon config reloaded')
