@@ -25,15 +25,18 @@ local function unmountTimeCapsule()
   local alert = hs.alert.show
 
   local text = hs.execute('diskutil list')
-  local volume = text:match('Time Capsule.+(disk%ds%d)')
+  local volume = text:match('Time Capsule.-(disk%ds%d)')
   if not volume then
     alert('Can not found volume named "Time Capsule"')
     return
+  else
+    logger.d('Found Time Capsule mounted on ' .. volume)
   end
 
   disk = volume:sub(1, 5)
 
   local cmd = string.format('echo "%s\\n" | sudo -S diskutil unmountDisk %s', getPassword(), disk)
+  logger.i('execting command: ' .. cmd)
   local echo, ret = hs.execute(cmd)
 
   if ret then
