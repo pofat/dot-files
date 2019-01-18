@@ -11,23 +11,19 @@
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-  var window: UIWindow?
-
-  func application(
-    _ application: UIApplication,
-    didFinishLaunchingWithOptions
-    launchOptions: [UIApplication.LaunchOptionsKey: Any]?
-  ) -&gt; Bool {
     
-    window = UIWindow(frame: UIScreen.main.bounds)
-    window!.makeKeyAndVisible()
+    var window: UIWindow?
     
-    &lt;#set root view controller#&gt;
-
-    return true
-  }
-
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    )
+        -&gt; Bool
+    {
+        
+        return true
+    }
+    
 }
 </string>
 	<key>IDECodeSnippetIdentifier</key>

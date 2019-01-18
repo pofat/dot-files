@@ -9,13 +9,13 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>.disposed(by: disposeBag)</string>
+	<string>.disposed(by: bag)</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>28655AD2-DB9E-4581-911B-00B049B4B192</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>dbag - .disposed(by: disposeBag)</string>
+	<string>.disposed(by: disposeBag)</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

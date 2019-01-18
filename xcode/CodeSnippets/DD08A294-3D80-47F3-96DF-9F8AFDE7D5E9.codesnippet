@@ -9,13 +9,13 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>private let disposeBag = DisposeBag()</string>
+	<string>private let bag = DisposeBag()</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>DD08A294-3D80-47F3-96DF-9F8AFDE7D5E9</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>bag - var disposeBag = DisposeBag()</string>
+	<string>var disposeBag = DisposeBag()</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
