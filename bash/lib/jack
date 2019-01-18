@@ -13,13 +13,13 @@ jack_grey='\e[38;5;245m'
 
 jack_reset='\e[0m'
 
-jackError()   { printf "${jack_red}$*${jack_reset}\n"; }
-jackWarn()    { printf "${jack_magenta}$*${jack_reset}\n"; }
-jackInfo()    { printf "${jack_yellow}$*${jack_reset}\n"; }
-jackDebug()   { printf "${jack_cyan}$*${jack_reset}\n"; }
-jackVerbose() { printf "${jack_grey}$*${jack_reset}\n"; }
+jackError()   { jackEndProgress; printf "${jack_red}$*${jack_reset}\n"; }
+jackWarn()    { jackEndProgress; printf "${jack_magenta}$*${jack_reset}\n"; }
+jackInfo()    { jackEndProgress; printf "${jack_yellow}$*${jack_reset}\n"; }
+jackDebug()   { jackEndProgress; printf "${jack_cyan}$*${jack_reset}\n"; }
+jackVerbose() { jackEndProgress; printf "${jack_grey}$*${jack_reset}\n"; }
 
-jackNote() { printf "${jack_blue}$*${jack_reset}\n"; }
+jackNote() { jackEndProgress; printf "${jack_blue}$*${jack_reset}\n"; }
 
 jackProgress() { printf "\r$(tput el)${jack_green}$*${jack_reset}"; }
-jackEndProgress() { printf $"\r$(tput el)\n"; }
+jackEndProgress() { printf $"\r$(tput el)"; }
