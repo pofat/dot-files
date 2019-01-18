@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+#x cmdhub: Remove the entire Xcode `DerivedData` directory
+set -euo pipefail
+
+source ~/Git/dot-files/bash/lib/jack
+
+targetDir="${HOME}/Library/Developer/Xcode/DerivedData"
+
+getDirSize() {
+  echo $(du -sh "${targetDir}" | cut -f1)
+}
+
+deleteDerivedData() {
+  jackProgress $'Delete ...'
+  #rm -rf "${targetDir}"
+  sleep 3
+  jackInfo 'Done'
+}
+
+jackProgress 'Caculating size ...'
+size=$(getDirSize)
+jackEndProgress
+
+while true; do
+  read -p "Delete '${targetDir}' (${size}) [y/n]? " -n1 -r yn
+  case $yn in
+    [Yy]* ) deleteDerivedData; exit;;
+    [Nn]* ) jackInfo $'\nCanceled'; exit;;
+    * ) echo "Please tap 'y' or 'n'";;
+  esac
+done
