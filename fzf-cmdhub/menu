@@ -8,3 +8,4 @@
  Xcode `Derived Data` director: ~/Library/Developer/Xcode/DerivedData			cd ~/Library/Developer/Xcode/DerivedData
  Suppress Xcode diagnostic process issue		/bin/launchctl list | grep SimDevice | awk '{print $3}' | xargs -I %s /bin/launchctl stop %s
  Reduce size of current repository		git gc --prune=now --aggressive
+ Delete old simulator devices		xcrun simctl delete unavailable
