@@ -8,7 +8,7 @@ import MudoxKit
 
 import JacKit
 
-fileprivate let jack = Jack().set(format: .short)
+private let jack = Jack().set(format: .short)
 
 // MARK: Interface
 
@@ -20,9 +20,7 @@ protocol 111ModelOutput {
 
 }
 
-protocol 111ModelType: 111ModelInput, 111ModelOutput {
-  init()
-}
+protocol 111ModelType: 111ModelInput, 111ModelOutput {}
 
 extension 111ModelType {
   var input: 111ModelInput { return self }
@@ -31,7 +29,7 @@ extension 111ModelType {
 
 // MARK: - View Model
 
-class 111Model: 111ModelType {
+class 111Model: ViewModel, 111ModelType {
 
   // MARK: Types
 
@@ -44,18 +42,11 @@ class 111Model: 111ModelType {
 
   // MARK: Binding
 
-  var disposeBag = DisposeBag()
+  required override init() {
 
-  required init() {
+
+    super.init()
 
   }
-
-}
-
-// MARK: - Types
-
-extension 111Model {
-
-
 
 }

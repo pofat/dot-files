@@ -3,42 +3,33 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+import MudoxKit
 import JacKit
 
-fileprivate let jack = Jack().set(format: .short)
+private let jack = Jack().set(format: .short)
 
-class 111ViewController: UIViewController {
+class 111Controller: ViewController {
 
-  init(model: 111ModelType) {
-    self.model = model
-    super.init(nibName: nil, bundle: nil)
-  }
-
-  @available(*, unavailable, message: "init(coder:) has not been implemented")
-  required init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-
-    setupView()
-    setupModel()
-  }
+  // MARK: - Subviews
 
   // MARK: - View
 
-  func setupView() {
-
+  override func setupView() {
+    
   }
 
   // MARK: - Model
 
-  var disposeBag = DisposeBag()
-  let model: 111ViewModelType
+  let model: 111ModelType = fx()
 
-  func setupModel() {
-
+  override func setupModel() {
+    
   }
 
+}
+
+// MARK: - Binders
+
+extension Reactive where Base: 111Controller {
+  
 }

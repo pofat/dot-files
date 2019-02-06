@@ -3,20 +3,15 @@ import UIKit
 import RxCocoa
 import RxSwift
 
+import MudoxKit
+import JacKit
+
 import SnapKit
+import Then
 
-class 111View: UIView {
+private let jack = Jack().set(format: .short)
 
-  @available(*, unavailable)
-  required init?(coder aDecoder: NSCoder) {
-    fatalError("do not use it")
-  }
-
-  init() {
-    super.init(frame: .zero)
-
-    setupView()
-  }
+class 111View: View {
 
   // MARK: - Subviews
 
@@ -24,12 +19,11 @@ class 111View: UIView {
 
   // MARK: - View
 
-  func setupView() {
+  override func setupView() {
 
   }
 
   // MARK: - Model
 
-  var disposeBag = DisposeBag()
-
 }
+
