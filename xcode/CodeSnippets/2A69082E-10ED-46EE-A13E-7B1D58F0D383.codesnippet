@@ -2,22 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>pk</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>override static func primaryKey() -&gt; String? {
-  return "&lt;#name#&gt;"
-}</string>
+	<string>$0.layer.cornerRadius = &lt;#3#&gt;
+$0.layer.borderWidth = &lt;#1#&gt;
+$0.layer.borderColor = UIColor.&lt;#black#&gt;.cgColor</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>34209D9C-5A49-43F3-BD22-B12B777F72F8</string>
+	<string>2A69082E-10ED-46EE-A13E-7B1D58F0D383</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Realm Object Primary Key</string>
+	<string>CALayer Corner &amp; Border</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

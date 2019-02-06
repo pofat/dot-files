@@ -2,23 +2,23 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>adm</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>fatalError("Abstract member, need to be overriden by subclassses")</string>
+	<string>extension Reactive where Base: &lt;#Type#&gt; {
+  &lt;#...#&gt;
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>8D38D6FA-D23A-40B3-811F-2BFF3C65A22B</string>
+	<string>5F54EE96-599D-4457-B403-15E3A0194CED</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Abstract Member </string>
+	<string>Define Rx Interafce of Given Type</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

@@ -3,21 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>pk</string>
+	<string>binder</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>override static func primaryKey() -&gt; String? {
-  return "&lt;#name#&gt;"
+	<string>var pinButtonState: Binder&lt;State&gt; {
+  return Binder(target) { target, state in
+    target.show(state)
+  }
 }</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>34209D9C-5A49-43F3-BD22-B12B777F72F8</string>
+	<string>5F9EB695-2042-4064-BB9C-A06F4331C111</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Realm Object Primary Key</string>
+	<string>RxSwift Binder</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

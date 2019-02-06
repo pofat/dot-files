@@ -9,13 +9,13 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>// swiftlint:disable:next &lt;#rule#&gt;</string>
+	<string>// swiftlint:disable:next &lt;#force_cast#&gt;</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>FA9A0233-6A90-4068-900F-9D78D30CE85C</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Disable SwiftLint rule(s) for next line</string>
+	<string>Disable SwiftLint Rule(s) For Next Line</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

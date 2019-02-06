@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>class RxiCarouselDelegateProxy
+  // swiftlint:disable colon, comma
+  : DelegateProxy&lt;iCarousel, iCarouselDelegate&gt;
+  , DelegateProxyType
+  , iCarouselDelegate
+  // swiftlint:enable
+{
+  public private(set) weak var carousel: iCarousel?
+
+  public init(carousel: iCarousel) {
+    self.carousel = carousel
+    super.init(
+      parentObject: carousel,
+      delegateProxy: RxiCarouselDelegateProxy.self
+    )
+  }
+
+  static func registerKnownImplementations() {
+    register { RxiCarouselDelegateProxy(carousel: $0) }
+  }
+
+  static func currentDelegate(for object: iCarousel) -&gt; iCarouselDelegate? {
+    return object.delegate
+  }
+
+  static func setCurrentDelegate(_ delegate: iCarouselDelegate?, to object: iCarousel) {
+    object.delegate = delegate
+  }
+
+}
+
+extension Reactive where Base: iCarousel {
+
+  var delegate: DelegateProxy&lt;iCarousel, iCarouselDelegate&gt; {
+    return RxiCarouselDelegateProxy.proxy(for: base)
+  }
+
+  func setDelegate(_ delegate: RxiCarouselDelegateProxy)
+    -&gt; Disposable {
+    return RxiCarouselDelegateProxy.installForwardDelegate(
+      delegate, retainDelegate: false, onProxyForObject: base
+    )
+  }
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>3598BF75-F17E-44CF-9029-6BBB4E2AFF77</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>RxSwift DelegateProxy</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

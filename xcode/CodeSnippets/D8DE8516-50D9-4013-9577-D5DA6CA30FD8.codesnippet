@@ -2,20 +2,22 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>abm</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>fatalError("Abstract member, need to be overriden by subclasses")</string>
+	<string>public func encode(to encoder: Encoder) throws {
+  var container = encoder.container(keyedBy: CodingKeys.self)
+
+
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>DA0AD8B1-E5C1-482F-BB22-F3D1F503876E</string>
+	<string>D8DE8516-50D9-4013-9577-D5DA6CA30FD8</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>abm - Abstract Member</string>
+	<string>Swift Codable Encode Method</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

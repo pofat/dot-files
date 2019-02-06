@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>let provider = LocalFileImageDataProvider(fileURL: url)
+let processor =
+  DownsamplingImageProcessor(size: .init(width: logoSize, height: logoSize))
+  &gt;&gt; RoundCornerImageProcessor(cornerRadius: 6)
+let options: KingfisherOptionsInfo = [
+  .processor(processor),
+  .scaleFactor(UIScreen.main.scale),
+  .transition(.fade(1)),
+  .cacheOriginalImage
+]
+
+logoView.kf.setImage(with: provider, placeholder: placeholderImage, options: options) {
+  result in
+  switch result {
+  case .success:
+    jack.func().verbose("Succeeded to show image: \(url.lastPathComponent)")
+  case let .failure(error):
+    jack.func().error("Error showing image: \(error.localizedDescription)")
+  }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>E4A8CE2F-11BF-42FF-B92F-12353EC8240D</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Kingfisher - Show local image</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>

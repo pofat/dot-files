@@ -2,22 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>pk</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>override static func primaryKey() -&gt; String? {
-  return "&lt;#name#&gt;"
-}</string>
+	<string>jack.func().failure("Abstract method")
+</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>34209D9C-5A49-43F3-BD22-B12B777F72F8</string>
+	<string>C61C4035-2A69-4F6A-9E49-05D8AB979C46</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Realm Object Primary Key</string>
+	<string>Abstract Method</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

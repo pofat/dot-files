@@ -3,21 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>pk</string>
+	<string>call</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>override static func primaryKey() -&gt; String? {
-  return "&lt;#name#&gt;"
-}</string>
+	<string> jack.func().debug("Called")</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>34209D9C-5A49-43F3-BD22-B12B777F72F8</string>
+	<string>50028062-3FC7-4A5B-B5A7-8331ADAC83D3</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Realm Object Primary Key</string>
+	<string>Jack Log Invocation</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

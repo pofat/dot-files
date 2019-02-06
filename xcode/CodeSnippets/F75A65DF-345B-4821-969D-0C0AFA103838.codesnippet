@@ -3,21 +3,22 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>pk</string>
+	<string>don</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>override static func primaryKey() -&gt; String? {
-  return "&lt;#name#&gt;"
-}</string>
+	<string>.drive(onNext: {
+  &lt;#...#&gt;
+  })
+  .disposed(by: bag)</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>34209D9C-5A49-43F3-BD22-B12B777F72F8</string>
+	<string>F75A65DF-345B-4821-969D-0C0AFA103838</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Realm Object Primary Key</string>
+	<string>Rx - Drive On Next</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
