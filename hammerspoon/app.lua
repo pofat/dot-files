@@ -46,15 +46,16 @@ local appShortcuts = {
   --
   -- alt + num to swtich the main applications in my everyday life
   --
-  {alt, 'x', 'Xcode'}          ,
-  {alt, 'g', 'Google Chrome'}  ,
-  {alt, 't', 'Tower'}          ,
-  {alt, 'p', 'Paw'}            ,
+  {alt, 'x', 'Xcode'}              ,
+  {alt, 'g', 'Google Chrome'}      ,
+  {alt, 't', 'Tower'}              ,
+  {alt, 'p', 'Paw'}                ,
+  {alt, 'v', 'Visual Studio Code'} ,
 
-  {alt, 1, 'Firefox'}          ,
-  {alt, 3, 'Microsoft OneNote'},
-  {alt, 4, 'Things3'}          ,
-  {alt, 5, 'Preview'}          ,
+  {alt, 1  , 'Firefox'}            ,
+  {alt, 3  , 'Microsoft OneNote'}  ,
+  {alt, 4  , 'Things3'}            ,
+  {alt, 5  , 'Preview'}            ,
 
   -- switch hand
 
