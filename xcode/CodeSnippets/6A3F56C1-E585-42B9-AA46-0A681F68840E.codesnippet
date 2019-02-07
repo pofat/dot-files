@@ -24,7 +24,7 @@ fileprivate let jack = Jack().set(level: .verbose)
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Generic</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>imp1 - Import UIKit, Rx, MudoxKit, Jackit</string>
+	<string>Import UIKit, Rx, MudoxKit, Jackit</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

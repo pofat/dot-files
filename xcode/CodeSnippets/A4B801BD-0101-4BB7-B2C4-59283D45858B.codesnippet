@@ -16,7 +16,7 @@ import RxSwift</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>irx - Import RxSwift</string>
+	<string>import RxCocoa &amp; RxSwift &amp; RxSwiftExt</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

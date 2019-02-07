@@ -9,7 +9,7 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@objc dynamic var</string>
+	<string>.disposed(by: bag)</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>F41CB503-65C5-4AF2-B222-70EE420C311A</string>
 	<key>IDECodeSnippetLanguage</key>

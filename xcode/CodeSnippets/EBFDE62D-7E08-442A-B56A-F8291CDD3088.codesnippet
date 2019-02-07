@@ -9,13 +9,13 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>fatalError("not yet implemented")</string>
+	<string>fatalError("Not yet implemented")</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>EBFDE62D-7E08-442A-B56A-F8291CDD3088</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>fui - fatalError("Unimplemented")</string>
+	<string>fatalError("Not yet implemented")</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

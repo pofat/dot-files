@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>cor</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
@@ -9,7 +11,8 @@
 	<key>IDECodeSnippetContents</key>
 	<string>$0.layer.cornerRadius = &lt;#3#&gt;
 $0.layer.borderWidth = &lt;#1#&gt;
-$0.layer.borderColor = UIColor.&lt;#black#&gt;.cgColor</string>
+$0.layer.borderColor = UIColor.&lt;#black#&gt;.cgColor
+$0.layer.masksToBounds = &lt;#true#&gt;</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>2A69082E-10ED-46EE-A13E-7B1D58F0D383</string>
 	<key>IDECodeSnippetLanguage</key>

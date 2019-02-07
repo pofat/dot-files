@@ -20,7 +20,7 @@ view.addGestureRecognizer(tapBackground)</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Tap Background to Resign Keyboard</string>
+	<string>RxSwift - Tap Background to Resign Keyboard</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

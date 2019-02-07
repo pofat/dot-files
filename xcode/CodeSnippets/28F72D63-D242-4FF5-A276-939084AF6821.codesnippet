@@ -7,17 +7,17 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>.drive(collectionView.rx.items(cellIdentifier: &lt;#id#&gt;, cellType: &lt;#type#&gt;.self)) {
-    row, &lt;#element#&gt;, cell in
-    cell.show(&lt;#...#&gt;)
-}
-.disposed(by: disposeBag)</string>
+	<string>.drive(collectionView.rx.items(cellIdentifier: reuseID, cellType: Cell.self)) {
+    _, item, cell in
+    cell.show(item)
+  }
+  .disposed(by: bag)</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>28F72D63-D242-4FF5-A276-939084AF6821</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>Drive rx.items(cellIdentifier:cellType)</string>
+	<string>RxSwift - rx.items(cellIdentifier:cellType)</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

@@ -3,25 +3,26 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>ric</string>
+	<string>align</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>@available(*, unavailable)
-required init?(coder aDecoder: NSCoder) {
-  fatalError("do not use it")
-}</string>
+	<string>// swiftformat:disable consecutiveSpaces
+// swiftlint:disable operator_usage_whitespace comma
+&lt;#Aligned Lines#&gt;
+// swiftlint:enable operator_usage_whitespace comma
+// swiftformat:enable consecutiveSpaces</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>7718500F-44AB-4E9C-8DBA-3BF8916C73B0</string>
+	<string>6F7BCC74-3721-46CC-9032-56118679437A</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>ric - required init?(coder aDecoder: NSCoder) { ... }</string>
+	<string>Keep Alignment From SwiftLint &amp; SwiftFormat</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

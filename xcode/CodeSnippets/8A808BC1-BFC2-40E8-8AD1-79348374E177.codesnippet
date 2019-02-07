@@ -9,17 +9,17 @@
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>  override func viewDidLoad() {
-    super.viewDidLoad()
-    
-    &lt;#...#&gt;
-  }</string>
+	<string>override func viewDidLoad() {
+  super.viewDidLoad()
+  
+  &lt;#...#&gt;
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>8A808BC1-BFC2-40E8-8AD1-79348374E177</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Swift</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>v0 - override func viewDidLoad() { ... }</string>
+	<string>Boiderpalge code for `viewDidLoad`</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
